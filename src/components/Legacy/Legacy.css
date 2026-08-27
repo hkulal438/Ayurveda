@@ -1,0 +1,837 @@
+/*
+=========================================================
+LEGACY SECTION
+=========================================================
+
+Compact Ayurvedic heritage timeline.
+Typography: Cambria
+Palette: Deep Green / Gold / Clay / Ivory
+=========================================================
+*/
+
+.legacy-root {
+  --legacy-green: #1f3d2b;
+  --legacy-green-soft: #2f5a3d;
+  --legacy-gold: #b9862c;
+  --legacy-clay: #9c5a3c;
+  --legacy-ivory: #f7f2e7;
+  --legacy-card: #fffdf8;
+  --legacy-ink: #2a271f;
+  --legacy-muted: #6c6656;
+  --legacy-line: rgba(31, 61, 43, 0.28);
+
+  --legacy-font-display:
+    Cambria,
+    "Hoefler Text",
+    "Liberation Serif",
+    Georgia,
+    serif;
+
+  --legacy-font-body:
+    Cambria,
+    Georgia,
+    "Liberation Serif",
+    Times,
+    serif;
+
+  width: 100%;
+  min-width: 0;
+
+  background: var(--legacy-ivory);
+  color: var(--legacy-ink);
+
+  font-family: var(--legacy-font-body);
+  font-size: 15px;
+
+  padding: 65px 24px 75px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.legacy-root * {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.legacy-hero {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.legacy-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  font-family: var(--legacy-font-body);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  color: var(--legacy-clay);
+
+  padding: 7px 14px;
+
+  border: 1px solid var(--legacy-clay);
+
+  border-radius: 999px;
+
+  margin-bottom: 18px;
+}
+
+.legacy-eyebrow-icon {
+  width: 13px;
+  height: 13px;
+
+  color: var(--legacy-clay);
+
+  flex-shrink: 0;
+}
+
+.legacy-title {
+  margin: 0;
+
+  font-family: var(--legacy-font-display);
+
+  font-size: clamp(27px, 3.3vw, 38px);
+
+  font-weight: 700;
+
+  line-height: 1.18;
+
+  letter-spacing: normal;
+
+  color: var(--legacy-green);
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.legacy-timeline {
+  position: relative;
+
+  width: 100%;
+  max-width: 1020px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* Central timeline line */
+
+.legacy-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 8px;
+  bottom: 8px;
+
+  left: 50%;
+
+  width: 2px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--legacy-line) 6%,
+    var(--legacy-line) 94%,
+    transparent
+  );
+}
+
+
+/* =========================================================
+   TIMELINE ROW
+========================================================= */
+
+.legacy-row {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 28px;
+
+  width: 100%;
+
+  padding: 35px 0;
+}
+
+.legacy-row.is-media-right {
+  flex-direction: row-reverse;
+}
+
+.legacy-row .legacy-media {
+  flex: 1 1 0;
+
+  min-width: 0;
+}
+
+.legacy-row .legacy-content {
+  flex: 1 1 0;
+
+  min-width: 0;
+}
+
+.legacy-row .legacy-node {
+  flex: 0 0 38px;
+
+  align-self: stretch;
+}
+
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.legacy-media {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(31, 61, 43, 0.08);
+
+  background: #ebe5d7;
+
+  box-shadow:
+    0 14px 30px -20px rgba(31, 61, 43, 0.55);
+}
+
+.legacy-media img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   TIMELINE NODE
+========================================================= */
+
+.legacy-node {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.legacy-node-dot {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--legacy-green);
+
+  box-shadow:
+    0 0 0 5px var(--legacy-ivory),
+    0 0 0 6px var(--legacy-line);
+}
+
+.legacy-node-leaf {
+  width: 16px;
+  height: 16px;
+
+  color: var(--legacy-gold);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.legacy-content {
+  min-width: 0;
+
+  padding: 2px;
+}
+
+.legacy-row.is-media-right .legacy-content {
+  text-align: right;
+}
+
+.legacy-year {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  font-family: var(--legacy-font-body);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: var(--legacy-gold);
+}
+
+.legacy-entry-title {
+  margin: 0 0 9px;
+
+  font-family: var(--legacy-font-display);
+
+  font-size: clamp(19px, 1.7vw, 23px);
+
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  color: var(--legacy-green);
+}
+
+.legacy-content p {
+  margin: 0 0 9px;
+
+  font-family: var(--legacy-font-body);
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  color: var(--legacy-muted);
+}
+
+.legacy-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   JOURNEY SECTION
+========================================================= */
+
+.legacy-journey {
+  width: 100%;
+  max-width: 860px;
+
+  margin: 25px auto 55px;
+
+  padding: 34px 26px;
+
+  text-align: center;
+
+  background: var(--legacy-card);
+
+  border: 1px solid rgba(31, 61, 43, 0.1);
+
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(31, 61, 43, 0.04);
+}
+
+.legacy-journey h2 {
+  margin: 0 0 20px;
+
+  font-family: var(--legacy-font-display);
+
+  font-size: clamp(20px, 2vw, 25px);
+
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  color: var(--legacy-green);
+}
+
+.legacy-journey-flow {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px 5px;
+
+  margin-bottom: 18px;
+}
+
+.legacy-journey-step {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+
+  font-family: var(--legacy-font-body);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  color: var(--legacy-green);
+
+  background: var(--legacy-ivory);
+
+  border: 1px solid rgba(31, 61, 43, 0.15);
+
+  border-radius: 999px;
+
+  white-space: nowrap;
+}
+
+.legacy-journey-arrow {
+  color: var(--legacy-gold);
+
+  font-size: 14px;
+
+  line-height: 1;
+
+  opacity: 0.8;
+}
+
+.legacy-journey-note {
+  width: 100%;
+  max-width: 580px;
+
+  margin: 0 auto;
+
+  font-family: var(--legacy-font-body);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color: var(--legacy-muted);
+}
+
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.legacy-vision {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  padding: 45px 30px;
+
+  text-align: center;
+
+  color: var(--legacy-ivory);
+
+  background: var(--legacy-green);
+
+  border-radius: 20px;
+}
+
+.legacy-eyebrow--on-dark {
+  color: var(--legacy-gold);
+
+  border-color: var(--legacy-gold);
+}
+
+.legacy-eyebrow--on-dark .legacy-eyebrow-icon {
+  color: var(--legacy-gold);
+}
+
+.legacy-vision-statement {
+  margin: 18px 0 12px;
+
+  font-family: var(--legacy-font-display);
+
+  font-size: clamp(19px, 2.1vw, 25px);
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  color: var(--legacy-ivory);
+}
+
+.legacy-vision-tag {
+  margin: 0;
+
+  font-family: var(--legacy-font-body);
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  color: rgba(247, 242, 231, 0.72);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 860px) {
+
+  .legacy-root {
+    padding: 50px 20px 65px;
+  }
+
+  .legacy-hero {
+    margin-bottom: 42px;
+  }
+
+  .legacy-title {
+    font-size: 32px;
+  }
+
+  .legacy-timeline::before {
+    left: 20px;
+  }
+
+  .legacy-row {
+    display: grid;
+
+    grid-template-columns: 40px minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: 16px;
+
+    padding: 28px 0;
+  }
+
+  .legacy-row.is-media-left,
+  .legacy-row.is-media-right {
+    flex-direction: unset;
+  }
+
+  .legacy-row .legacy-node {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    align-self: stretch;
+
+    align-items: flex-start;
+
+    padding-top: 3px;
+
+    flex: none;
+  }
+
+  .legacy-row .legacy-media {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100%;
+
+    flex: none;
+
+    margin: 0 0 15px;
+  }
+
+  .legacy-row .legacy-content {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: 100%;
+
+    flex: none;
+
+    margin: 0;
+  }
+
+  .legacy-row.is-media-left .legacy-content,
+  .legacy-row.is-media-right .legacy-content {
+    text-align: left !important;
+  }
+
+  .legacy-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .legacy-journey {
+    padding: 30px 20px;
+
+    border-radius: 16px;
+  }
+
+  .legacy-vision {
+    padding: 40px 22px;
+
+    border-radius: 18px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .legacy-root {
+    padding: 42px 15px 55px;
+
+    font-size: 14px;
+  }
+
+  .legacy-hero {
+    margin-bottom: 32px;
+  }
+
+  .legacy-eyebrow {
+    gap: 6px;
+
+    font-size: 10px;
+
+    padding: 5px 12px;
+
+    margin-bottom: 14px;
+  }
+
+  .legacy-eyebrow-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .legacy-title {
+    font-size: 27px;
+
+    line-height: 1.2;
+  }
+
+  .legacy-timeline::before {
+    left: 18px;
+  }
+
+  .legacy-row {
+    grid-template-columns: 36px minmax(0, 1fr);
+
+    gap: 13px;
+
+    padding: 22px 0;
+  }
+
+  .legacy-row .legacy-node {
+    grid-column: 1;
+  }
+
+  .legacy-node-dot {
+    width: 34px;
+    height: 34px;
+
+    box-shadow:
+      0 0 0 4px var(--legacy-ivory),
+      0 0 0 5px var(--legacy-line);
+  }
+
+  .legacy-node-leaf {
+    width: 14px;
+    height: 14px;
+  }
+
+  .legacy-media {
+    aspect-ratio: 16 / 10;
+
+    margin-bottom: 12px !important;
+
+    border-radius: 11px;
+  }
+
+  .legacy-year {
+    font-size: 10px;
+
+    margin-bottom: 5px;
+  }
+
+  .legacy-entry-title {
+    font-size: 19px;
+
+    margin-bottom: 7px;
+  }
+
+  .legacy-content p {
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    margin-bottom: 8px;
+  }
+
+  .legacy-journey {
+    margin: 20px auto 40px;
+
+    padding: 26px 15px;
+
+    border-radius: 15px;
+  }
+
+  .legacy-journey h2 {
+    font-size: 21px;
+
+    margin-bottom: 16px;
+  }
+
+  .legacy-journey-flow {
+    gap: 6px 4px;
+  }
+
+  .legacy-journey-step {
+    font-size: 11px;
+
+    padding: 7px 11px;
+  }
+
+  .legacy-journey-arrow {
+    font-size: 13px;
+  }
+
+  .legacy-journey-note {
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+  .legacy-vision {
+    padding: 34px 18px;
+
+    border-radius: 16px;
+  }
+
+  .legacy-vision-statement {
+    font-size: 20px;
+
+    margin: 16px 0 10px;
+  }
+
+  .legacy-vision-tag {
+    font-size: 12px;
+
+    line-height: 1.55;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .legacy-root {
+    padding: 35px 12px 45px;
+  }
+
+  .legacy-title {
+    font-size: 24px;
+  }
+
+  .legacy-row {
+    grid-template-columns: 32px minmax(0, 1fr);
+
+    gap: 11px;
+
+    padding: 19px 0;
+  }
+
+  .legacy-timeline::before {
+    left: 16px;
+  }
+
+  .legacy-node-dot {
+    width: 30px;
+    height: 30px;
+
+    box-shadow:
+      0 0 0 4px var(--legacy-ivory),
+      0 0 0 5px var(--legacy-line);
+  }
+
+  .legacy-node-leaf {
+    width: 12px;
+    height: 12px;
+  }
+
+  .legacy-entry-title {
+    font-size: 18px;
+  }
+
+  .legacy-content p {
+    font-size: 12.5px;
+  }
+
+  .legacy-journey {
+    padding: 22px 12px;
+  }
+
+  .legacy-journey-step {
+    font-size: 10.5px;
+
+    padding: 6px 9px;
+  }
+
+  .legacy-vision {
+    padding: 30px 15px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .legacy-root * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

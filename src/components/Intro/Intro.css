@@ -1,0 +1,1158 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@300;400;500;600;700;800&display=swap");
+
+/* =====================================================
+   INTRO / ABOUT US SECTION
+===================================================== */
+
+.intro-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 70px 30px 75px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   SOFT NATURE DECORATION
+===================================================== */
+
+.intro-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background: rgba(90, 125, 72, 0.06);
+
+  top: -190px;
+  right: -150px;
+
+  pointer-events: none;
+}
+
+.intro-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
+
+  background: rgba(42, 78, 47, 0.045);
+
+  bottom: -150px;
+  left: -120px;
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.intro-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  z-index: 2;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   TOP AREA
+===================================================== */
+
+.intro-top {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
+  align-items: center;
+
+  gap: 55px;
+}
+
+/* =====================================================
+   IMAGE COLUMN
+===================================================== */
+
+.intro-image-column {
+  width: 100%;
+}
+
+/* =====================================================
+   IMAGE WRAPPER
+===================================================== */
+
+.intro-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 485px;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   MAIN IMAGE
+===================================================== */
+
+.intro-main-image {
+  position: relative;
+
+  width: 88%;
+
+  height: 450px;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  z-index: 2;
+
+  box-shadow:
+    0 20px 45px rgba(35, 60, 38, 0.14);
+}
+
+.intro-main-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+.intro-main-image:hover img {
+  transform: scale(1.03);
+}
+
+/* =====================================================
+   SMALL BOTANICAL IMAGE
+===================================================== */
+
+.intro-small-image {
+  position: absolute;
+
+  width: 165px;
+  height: 195px;
+
+  right: 0;
+  bottom: 15px;
+
+  overflow: hidden;
+
+  border: 7px solid #ffffff;
+
+  box-shadow:
+    0 12px 28px rgba(35, 60, 38, 0.16);
+
+  z-index: 4;
+
+  box-sizing: border-box;
+}
+
+.intro-small-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.intro-small-image:hover img {
+  transform: scale(1.05);
+}
+
+/* =====================================================
+   DECORATIVE GOLD FRAME
+===================================================== */
+
+.intro-image-wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  width: 82%;
+  height: 86%;
+
+  top: 20px;
+  left: 20px;
+
+  border: 1px solid #b49a61;
+
+  z-index: 1;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   LEAF CIRCLE
+===================================================== */
+
+.intro-leaf-circle {
+  position: absolute;
+
+  left: -20px;
+  bottom: 25px;
+
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #294d32;
+
+  border: 5px solid #ffffff;
+
+  box-shadow:
+    0 10px 25px rgba(35, 60, 38, 0.16);
+
+  z-index: 5;
+}
+
+.intro-leaf-circle span {
+  font-family: "DM Serif Display", serif;
+
+  font-size: 27px;
+
+  color: #c5a86b;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.intro-content {
+  width: 100%;
+
+  max-width: 600px;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   SECTION LABEL
+===================================================== */
+
+.intro-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+
+  font-family: "Cambria", Georgia, serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+
+  color: #527343;
+}
+
+.intro-label-line {
+  width: 38px;
+
+  height: 2px;
+
+  display: inline-block;
+
+  background: #b49a61;
+
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.intro-heading {
+  margin: 0 0 20px;
+
+  font-family: "DM Serif Display", serif;
+
+  font-size: clamp(40px, 4.2vw, 56px);
+
+  line-height: 1.05;
+
+  font-weight: 400;
+
+  letter-spacing: -0.8px;
+
+  color: #25452c;
+}
+
+.intro-heading span {
+  display: block;
+
+  color: #9b804b;
+}
+
+/* =====================================================
+   LEAD TEXT
+===================================================== */
+
+.intro-lead {
+  margin: 0 0 14px;
+
+  font-family: "Cambria", Georgia, serif;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+
+  font-weight: 600;
+
+  color: #354b39;
+}
+
+.intro-lead strong {
+  color: #294d32;
+
+  font-weight: 700;
+}
+
+/* =====================================================
+   BODY TEXT
+===================================================== */
+
+.intro-text {
+  margin: 0 0 13px;
+
+  font-family: "Cambria", Georgia, serif;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  color: #69766c;
+
+  font-weight: 400;
+}
+
+.intro-text strong {
+  color: #294d32;
+
+  font-weight: 700;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.intro-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 8px;
+
+  padding: 12px 20px;
+
+  background: #294d32;
+
+  border: 1px solid #294d32;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-family: "Cambria", Georgia, serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.intro-button-arrow {
+  font-size: 18px;
+
+  line-height: 1;
+
+  transition: transform 0.3s ease;
+}
+
+.intro-button:hover {
+  background: #557a48;
+
+  border-color: #557a48;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(41, 77, 50, 0.14);
+}
+
+.intro-button:hover .intro-button-arrow {
+  transform: translateX(4px);
+}
+
+/* =====================================================
+   PHILOSOPHY SECTION
+===================================================== */
+
+.intro-philosophy {
+  margin-top: 80px;
+
+  padding-top: 55px;
+
+  border-top: 1px solid rgba(41, 77, 50, 0.12);
+
+  display: grid;
+
+  grid-template-columns:
+    0.75fr
+    1.25fr;
+
+  gap: 55px;
+
+  align-items: start;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   PHILOSOPHY HEADING
+===================================================== */
+
+.philosophy-heading h3 {
+  margin: 0 0 12px;
+
+  font-family: "DM Serif Display", serif;
+
+  font-size: 36px;
+
+  line-height: 1.08;
+
+  font-weight: 400;
+
+  color: #25452c;
+
+  letter-spacing: -0.4px;
+}
+
+.philosophy-heading h3 span {
+  display: block;
+
+  color: #9b804b;
+}
+
+.philosophy-heading p {
+  margin: 0;
+
+  max-width: 360px;
+
+  font-family: "Cambria", Georgia, serif;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  color: #6b776d;
+}
+
+/* =====================================================
+   PHILOSOPHY CARDS
+===================================================== */
+
+.philosophy-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 13px;
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.philosophy-card {
+  position: relative;
+
+  min-height: 215px;
+
+  padding: 21px 20px;
+
+  background: #f5f7f1;
+
+  border: 1px solid rgba(41, 77, 50, 0.10);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   CARD NUMBER
+===================================================== */
+
+.philosophy-number {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  font-family: "DM Serif Display", serif;
+
+  font-size: 25px;
+
+  color: rgba(41, 77, 50, 0.13);
+}
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.philosophy-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 17px;
+
+  border-radius: 50%;
+
+  background: rgba(82, 115, 67, 0.10);
+
+  color: #557a48;
+
+  font-size: 18px;
+}
+
+/* =====================================================
+   CARD HEADING
+===================================================== */
+
+.philosophy-card h4 {
+  margin: 0 0 9px;
+
+  font-family: "DM Serif Display", serif;
+
+  font-size: 24px;
+
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  color: #294d32;
+}
+
+/* =====================================================
+   CARD PARAGRAPH
+===================================================== */
+
+.philosophy-card p {
+  margin: 0;
+
+  font-family: "Cambria", Georgia, serif;
+
+  font-size: 13.5px;
+
+  line-height: 1.6;
+
+  color: #6d786e;
+}
+
+/* =====================================================
+   ACTIVE CARD
+===================================================== */
+
+.philosophy-card.active {
+  background: #294d32;
+
+  border-color: #294d32;
+
+  box-shadow:
+    0 15px 30px rgba(41, 77, 50, 0.14);
+}
+
+.philosophy-card.active .philosophy-number {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.philosophy-card.active .philosophy-icon {
+  background: rgba(255, 255, 255, 0.10);
+
+  color: #c5a86b;
+}
+
+.philosophy-card.active h4 {
+  color: #ffffff;
+}
+
+.philosophy-card.active p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.philosophy-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 28px rgba(41, 77, 50, 0.09);
+}
+
+/* =====================================================
+   LARGE TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+
+  .intro-section {
+    padding: 60px 25px 65px;
+  }
+
+  .intro-top {
+    gap: 40px;
+  }
+
+  .intro-image-wrapper {
+    min-height: 440px;
+  }
+
+  .intro-main-image {
+    height: 415px;
+  }
+
+  .intro-small-image {
+    width: 145px;
+    height: 175px;
+
+    bottom: 10px;
+  }
+
+  .intro-heading {
+    font-size: 44px;
+  }
+
+  .intro-lead {
+    font-size: 16px;
+
+    line-height: 1.6;
+  }
+
+  .intro-text {
+    font-size: 14.5px;
+
+    line-height: 1.6;
+  }
+
+  .intro-philosophy {
+    gap: 40px;
+  }
+
+  .philosophy-heading h3 {
+    font-size: 34px;
+  }
+
+  .philosophy-card {
+    min-height: 205px;
+  }
+
+  .philosophy-card h4 {
+    font-size: 22px;
+  }
+}
+
+/* =====================================================
+   TABLET / SMALL LAPTOP
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .intro-section {
+    padding: 55px 22px 65px;
+  }
+
+  .intro-top {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .intro-image-column {
+    display: flex;
+
+    justify-content: center;
+  }
+
+  .intro-image-wrapper {
+    width: 90%;
+
+    max-width: 570px;
+
+    min-height: 450px;
+
+    margin: 0 auto;
+  }
+
+  .intro-main-image {
+    width: 90%;
+
+    height: 420px;
+  }
+
+  .intro-small-image {
+    width: 145px;
+
+    height: 175px;
+
+    right: 0;
+
+    bottom: 5px;
+  }
+
+  .intro-content {
+    max-width: 100%;
+  }
+
+  .intro-heading {
+    font-size: 46px;
+  }
+
+  .intro-lead {
+    font-size: 16px;
+  }
+
+  .intro-philosophy {
+    margin-top: 65px;
+
+    padding-top: 45px;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .philosophy-heading p {
+    max-width: 600px;
+  }
+
+  .philosophy-cards {
+    gap: 13px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .intro-section {
+    padding: 45px 18px 55px;
+  }
+
+  .intro-top {
+    gap: 38px;
+  }
+
+  /* Image wrapper */
+
+  .intro-image-wrapper {
+    width: 100%;
+
+    min-height: 350px;
+  }
+
+  /* Main image */
+
+  .intro-main-image {
+    width: 90%;
+
+    height: 325px;
+  }
+
+  /* Small image */
+
+  .intro-small-image {
+    width: 110px;
+
+    height: 140px;
+
+    border-width: 5px;
+
+    bottom: 0;
+  }
+
+  /* Gold frame */
+
+  .intro-image-wrapper::before {
+    width: 86%;
+
+    height: 86%;
+
+    top: 12px;
+
+    left: 12px;
+  }
+
+  /* Leaf circle */
+
+  .intro-leaf-circle {
+    width: 62px;
+    height: 62px;
+
+    left: -3px;
+
+    bottom: 12px;
+
+    border-width: 4px;
+  }
+
+  .intro-leaf-circle span {
+    font-size: 21px;
+  }
+
+  /* Label */
+
+  .intro-label {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    gap: 8px;
+
+    margin-bottom: 9px;
+  }
+
+  .intro-label-line {
+    width: 30px;
+  }
+
+  /* Heading */
+
+  .intro-heading {
+    margin-bottom: 16px;
+
+    font-size: 34px;
+
+    line-height: 1.08;
+
+    letter-spacing: -0.4px;
+  }
+
+  /* Lead */
+
+  .intro-lead {
+    margin-bottom: 12px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+  /* Body */
+
+  .intro-text {
+    margin-bottom: 11px;
+
+    font-size: 13.5px;
+
+    line-height: 1.65;
+  }
+
+  /* Button */
+
+  .intro-button {
+    margin-top: 7px;
+
+    padding: 11px 17px;
+
+    gap: 11px;
+
+    font-size: 12px;
+  }
+
+  .intro-button-arrow {
+    font-size: 17px;
+  }
+
+  /* Philosophy */
+
+  .intro-philosophy {
+    margin-top: 55px;
+
+    padding-top: 38px;
+
+    gap: 28px;
+  }
+
+  .philosophy-heading h3 {
+    margin-bottom: 10px;
+
+    font-size: 30px;
+
+    line-height: 1.1;
+  }
+
+  .philosophy-heading p {
+    font-size: 13.5px;
+
+    line-height: 1.65;
+  }
+
+  /* Cards */
+
+  .philosophy-cards {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .philosophy-card {
+    min-height: auto;
+
+    padding: 20px;
+
+    padding-bottom: 22px;
+  }
+
+  .philosophy-number {
+    top: 11px;
+
+    right: 14px;
+
+    font-size: 23px;
+  }
+
+  .philosophy-icon {
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 14px;
+
+    font-size: 17px;
+  }
+
+  .philosophy-card h4 {
+    margin-bottom: 8px;
+
+    font-size: 22px;
+  }
+
+  .philosophy-card p {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .intro-section {
+    padding: 40px 15px 50px;
+  }
+
+  .intro-top {
+    gap: 32px;
+  }
+
+  .intro-image-wrapper {
+    min-height: 315px;
+  }
+
+  .intro-main-image {
+    height: 290px;
+  }
+
+  .intro-small-image {
+    width: 95px;
+
+    height: 120px;
+
+    border-width: 4px;
+  }
+
+  .intro-leaf-circle {
+    width: 55px;
+    height: 55px;
+
+    left: -2px;
+
+    bottom: 8px;
+  }
+
+  .intro-leaf-circle span {
+    font-size: 19px;
+  }
+
+  .intro-heading {
+    font-size: 30px;
+  }
+
+  .intro-lead {
+    font-size: 14px;
+
+    line-height: 1.55;
+  }
+
+  .intro-text {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .intro-button {
+    padding: 10px 15px;
+
+    font-size: 11.5px;
+  }
+
+  .intro-philosophy {
+    margin-top: 45px;
+
+    padding-top: 32px;
+
+    gap: 24px;
+  }
+
+  .philosophy-heading h3 {
+    font-size: 27px;
+  }
+
+  .philosophy-heading p {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .philosophy-card {
+    padding: 18px;
+  }
+
+  .philosophy-card h4 {
+    font-size: 21px;
+  }
+
+  .philosophy-card p {
+    font-size: 12.5px;
+
+    line-height: 1.55;
+  }
+}
+
+/* =====================================================
+   VERY SMALL DEVICES
+===================================================== */
+
+@media (max-width: 350px) {
+
+  .intro-section {
+    padding: 35px 13px 45px;
+  }
+
+  .intro-image-wrapper {
+    min-height: 285px;
+  }
+
+  .intro-main-image {
+    height: 260px;
+  }
+
+  .intro-small-image {
+    width: 85px;
+
+    height: 105px;
+  }
+
+  .intro-heading {
+    font-size: 27px;
+  }
+
+  .intro-lead {
+    font-size: 13.5px;
+  }
+
+  .intro-text {
+    font-size: 12.5px;
+  }
+
+  .philosophy-heading h3 {
+    font-size: 25px;
+  }
+
+  .philosophy-card h4 {
+    font-size: 20px;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .intro-main-image img,
+  .intro-small-image img,
+  .intro-button,
+  .intro-button-arrow,
+  .philosophy-card {
+    transition: none;
+  }
+}

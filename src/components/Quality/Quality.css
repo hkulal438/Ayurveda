@@ -1,0 +1,1611 @@
+/* =========================================================
+   QUALITY & MANUFACTURING
+   ANCHAN AYURVEDIC INDUSTRIES
+   PREMIUM AYURVEDIC DESIGN
+   FONT: CAMBRIA
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.quality-section,
+.quality-section * {
+  font-family: Cambria, Georgia, serif;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.quality-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 70px 35px 90px;
+
+  overflow: hidden;
+
+  color: #183b28;
+
+  background:
+    radial-gradient(
+      circle at 5% 15%,
+      rgba(126, 177, 91, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 75%,
+      rgba(43, 133, 94, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f9fbed 0%,
+      #f0f8e9 45%,
+      #e5f2df 100%
+    );
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.quality-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.quality-header {
+  width: 100%;
+  max-width: 950px;
+
+  margin: 0 auto 45px;
+
+  text-align: center;
+}
+
+
+/* Eyebrow */
+
+.quality-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #4c8d4e;
+}
+
+
+/* Main heading */
+
+.quality-header h2 {
+  margin: 0;
+
+  font-size: clamp(42px, 4.5vw, 65px);
+
+  line-height: 1.05;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
+
+  color: #164a2c;
+}
+
+.quality-header h2 span {
+  color: #69a83e;
+
+  font-style: italic;
+}
+
+
+/* Subtitle */
+
+.quality-header h3 {
+  margin: 14px 0;
+
+  font-size: 21px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  color: #28653d;
+}
+
+
+/* Intro paragraphs */
+
+.quality-intro {
+  max-width: 850px;
+
+  margin: 5px auto;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  color: #5c7161;
+}
+
+
+/* =========================================================
+   HEADER DECORATIVE LINE
+========================================================= */
+
+.quality-line {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 230px;
+
+  margin: 18px auto 0;
+
+  gap: 12px;
+}
+
+.quality-line span {
+  display: block;
+
+  height: 1px;
+
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #78a95b
+    );
+}
+
+.quality-line span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #78a95b,
+      transparent
+    );
+}
+
+.quality-line i {
+  font-size: 15px;
+
+  font-style: normal;
+
+  color: #629e40;
+}
+
+
+/* =========================================================
+   QUALITY CARDS
+========================================================= */
+
+.quality-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 15px;
+
+  width: 100%;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.quality-card {
+  position: relative;
+
+  min-width: 0;
+
+  width: 100%;
+
+  height: 380px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #eaf5e2;
+
+  border:
+    1px solid
+    rgba(70, 130, 66, 0.20);
+
+  box-shadow:
+    0 10px 28px
+    rgba(38, 91, 46, 0.10);
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+
+/* =========================================================
+   ZIG-ZAG DESKTOP
+========================================================= */
+
+@media (min-width: 1101px) {
+
+  .quality-card:nth-child(1) {
+    transform: translateY(0);
+  }
+
+  .quality-card:nth-child(2) {
+    transform: translateY(30px);
+  }
+
+  .quality-card:nth-child(3) {
+    transform: translateY(0);
+  }
+
+  .quality-card:nth-child(4) {
+    transform: translateY(30px);
+  }
+
+  .quality-card:nth-child(5) {
+    transform: translateY(0);
+  }
+
+
+  /* Hover - top cards */
+
+  .quality-card:nth-child(1):hover,
+  .quality-card:nth-child(3):hover,
+  .quality-card:nth-child(5):hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+      0 25px 50px
+      rgba(38, 91, 46, 0.22);
+
+    border-color:
+      rgba(65, 132, 70, 0.45);
+  }
+
+
+  /* Hover - lower cards */
+
+  .quality-card:nth-child(2):hover,
+  .quality-card:nth-child(4):hover {
+    transform: translateY(22px);
+
+    box-shadow:
+      0 25px 50px
+      rgba(38, 91, 46, 0.22);
+
+    border-color:
+      rgba(65, 132, 70, 0.45);
+  }
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.quality-card-image {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.quality-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 57, 31, 0.00) 0%,
+      rgba(12, 57, 31, 0.08) 50%,
+      rgba(12, 57, 31, 0.20) 100%
+    );
+
+  transition:
+    background 0.5s ease;
+}
+
+
+/* =========================================================
+   HOVER GREEN OVERLAY
+========================================================= */
+
+.quality-card:hover
+.quality-image-overlay {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7, 61, 32, 0.84) 0%,
+      rgba(18, 103, 59, 0.95) 100%
+    );
+}
+
+
+/* =========================================================
+   HOVER INFORMATION
+========================================================= */
+
+.quality-hover-content {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 28px 20px;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.5s ease;
+}
+
+
+/* Show information */
+
+.quality-card:hover
+.quality-hover-content {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   HOVER ICON
+========================================================= */
+
+.quality-hover-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  margin-bottom: 14px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.50);
+
+  color: #e6f5d3;
+
+  font-size: 20px;
+
+  backdrop-filter: blur(7px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.4s ease;
+}
+
+.quality-hover-icon span {
+  display: block;
+
+  transform: rotate(45deg);
+}
+
+.quality-card:hover
+.quality-hover-icon {
+  transform:
+    scale(1.08);
+}
+
+
+/* =========================================================
+   HOVER TITLE
+========================================================= */
+
+.quality-hover-content h4 {
+  max-width: 270px;
+
+  margin: 0;
+
+  font-size: 23px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   HOVER DIVIDER
+========================================================= */
+
+.quality-hover-line {
+  display: flex;
+
+  align-items: center;
+
+  width: 78%;
+
+  margin:
+    14px auto
+    13px;
+
+  gap: 8px;
+}
+
+.quality-hover-line span {
+  display: block;
+
+  height: 1px;
+
+  flex: 1;
+
+  background:
+    rgba(255, 255, 255, 0.55);
+}
+
+.quality-hover-line i {
+  font-size: 9px;
+
+  font-style: normal;
+
+  color: #d9efbe;
+}
+
+
+/* =========================================================
+   HOVER DESCRIPTION
+========================================================= */
+
+.quality-hover-content p {
+  max-width: 270px;
+
+  margin: 0;
+
+  font-size: 13.5px;
+
+  line-height: 1.6;
+
+  font-weight: 400;
+
+  color:
+    rgba(255, 255, 255, 0.94);
+}
+
+
+/* =========================================================
+   HOVER LABEL
+========================================================= */
+
+.quality-hover-label {
+  margin-top: 18px;
+
+  padding:
+    7px
+    13px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.38);
+
+  backdrop-filter: blur(5px);
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   REMOVE OLD CARD CONTENT / NUMBERS
+========================================================= */
+
+.quality-number,
+.quality-card-content,
+.quality-mini-leaf {
+  display: none !important;
+}
+
+
+/* =========================================================
+   CLOSING STATEMENT
+========================================================= */
+
+.quality-closing {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  width: fit-content;
+
+  margin:
+    68px auto
+    34px;
+
+  padding:
+    17px
+    38px;
+
+  border-radius: 60px;
+
+  background:
+    rgba(255, 255, 255, 0.84);
+
+  border:
+    1px solid
+    rgba(71, 130, 67, 0.18);
+
+  box-shadow:
+    0 12px 30px
+    rgba(43, 93, 51, 0.09);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.quality-closing:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 18px 35px
+    rgba(43, 93, 51, 0.14);
+}
+
+
+/* =========================================================
+   CLOSING ICON
+========================================================= */
+
+.closing-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #70a945,
+      #237650
+    );
+
+  color: #ffffff;
+
+  font-size: 26px;
+
+  box-shadow:
+    0 6px 16px
+    rgba(38, 104, 49, 0.20);
+}
+
+
+/* =========================================================
+   CLOSING TEXT
+========================================================= */
+
+.quality-closing h3 {
+  margin: 0;
+
+  font-size: 22px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  color: #18502e;
+}
+
+.quality-closing p {
+  margin:
+    3px
+    0
+    0;
+
+  font-size: 15px;
+
+  line-height: 1.3;
+
+  color: #66806b;
+}
+
+
+/* =========================================================
+   FEATURE BAR
+========================================================= */
+
+.quality-features {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  width: 100%;
+
+  min-height: 115px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #124b2c,
+      #17613a,
+      #23764e
+    );
+
+  box-shadow:
+    0 20px 42px
+    rgba(25, 83, 45, 0.19);
+}
+
+
+/* =========================================================
+   FEATURE TOP LINE
+========================================================= */
+
+.quality-features::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.65),
+      transparent
+    );
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   FEATURE ITEM
+========================================================= */
+
+.quality-feature {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  min-width: 0;
+
+  padding:
+    20px
+    22px;
+
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  transition:
+    background 0.35s ease;
+}
+
+.quality-feature:last-child {
+  border-right: none;
+}
+
+.quality-feature:hover {
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   FEATURE ICON
+========================================================= */
+
+.feature-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fff4,
+      #dcefe2
+    );
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.72);
+
+  color: #217149;
+
+  font-size: 27px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 7px 18px
+    rgba(0, 0, 0, 0.14);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.quality-feature:hover
+.feature-icon {
+  transform:
+    scale(1.1)
+    rotate(3deg);
+
+  box-shadow:
+    0 10px 23px
+    rgba(0, 0, 0, 0.19);
+}
+
+
+/* =========================================================
+   FEATURE TEXT
+========================================================= */
+
+.quality-feature strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 17px;
+
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.quality-feature span {
+  display: block;
+
+  font-size: 14px;
+
+  line-height: 1.3;
+
+  color:
+    rgba(255, 255, 255, 0.76);
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.quality-leaf {
+  position: absolute;
+
+  width: 340px;
+  height: 340px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  opacity: 0.10;
+
+  filter: blur(1px);
+
+  z-index: 0;
+}
+
+.quality-leaf-left {
+  left: -180px;
+  top: 70px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      #4c923c 0%,
+      transparent 68%
+    );
+
+  transform:
+    rotate(35deg);
+}
+
+.quality-leaf-right {
+  right: -180px;
+  bottom: 100px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      #237b55 0%,
+      transparent 68%
+    );
+
+  transform:
+    rotate(-35deg);
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1300px) {
+
+  .quality-section {
+    padding:
+      60px
+      25px
+      70px;
+  }
+
+  .quality-card {
+    height: 365px;
+  }
+
+  .quality-hover-content {
+    padding:
+      20px
+      14px;
+  }
+
+  .quality-hover-content h4 {
+    font-size: 20px;
+  }
+
+  .quality-hover-content p {
+    font-size: 12px;
+  }
+
+  .quality-feature {
+    gap: 13px;
+
+    padding:
+      18px
+      15px;
+  }
+
+  .feature-icon {
+    width: 54px;
+    height: 54px;
+
+    font-size: 23px;
+  }
+
+  .quality-feature strong {
+    font-size: 14px;
+  }
+
+  .quality-feature span {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   TABLET LANDSCAPE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .quality-section {
+    padding:
+      55px
+      20px
+      65px;
+  }
+
+  .quality-header {
+    margin-bottom: 35px;
+  }
+
+  .quality-cards {
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 17px;
+  }
+
+
+  /* Remove zig-zag */
+
+  .quality-card:nth-child(1),
+  .quality-card:nth-child(2),
+  .quality-card:nth-child(3),
+  .quality-card:nth-child(4),
+  .quality-card:nth-child(5) {
+    transform: none;
+  }
+
+
+  .quality-card:hover {
+    transform:
+      translateY(-7px);
+  }
+
+
+  .quality-card {
+    height: 380px;
+  }
+
+  .quality-hover-content h4 {
+    font-size: 21px;
+  }
+
+  .quality-hover-content p {
+    font-size: 13px;
+  }
+
+
+  /* Features */
+
+  .quality-features {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .quality-feature:nth-child(3) {
+    border-right: none;
+  }
+
+  .quality-feature:nth-child(4),
+  .quality-feature:nth-child(5) {
+    border-top:
+      1px solid
+      rgba(255, 255, 255, 0.18);
+  }
+}
+
+
+/* =========================================================
+   TABLET PORTRAIT
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .quality-section {
+    padding:
+      50px
+      18px
+      60px;
+  }
+
+  .quality-header {
+    margin-bottom: 30px;
+  }
+
+  .quality-header h2 {
+    font-size: 46px;
+  }
+
+  .quality-header h3 {
+    font-size: 19px;
+  }
+
+  .quality-intro {
+    font-size: 14px;
+  }
+
+
+  /* Two columns */
+
+  .quality-cards {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 18px;
+  }
+
+  .quality-card {
+    height: 380px;
+  }
+
+
+  /* No zig-zag */
+
+  .quality-card:nth-child(1),
+  .quality-card:nth-child(2),
+  .quality-card:nth-child(3),
+  .quality-card:nth-child(4),
+  .quality-card:nth-child(5) {
+    transform: none;
+  }
+
+  .quality-card:hover {
+    transform:
+      translateY(-6px);
+  }
+
+
+  /* Features */
+
+  .quality-features {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .quality-feature:nth-child(2) {
+    border-right: none;
+  }
+
+  .quality-feature:nth-child(3),
+  .quality-feature:nth-child(4),
+  .quality-feature:nth-child(5) {
+    border-top:
+      1px solid
+      rgba(255, 255, 255, 0.18);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .quality-section {
+    padding:
+      42px
+      15px
+      45px;
+  }
+
+
+  /* Header */
+
+  .quality-eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+  .quality-header h2 {
+    font-size: 36px;
+
+    line-height: 1.08;
+  }
+
+  .quality-header h3 {
+    margin-top: 13px;
+
+    font-size: 17px;
+
+    line-height: 1.4;
+  }
+
+  .quality-intro {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .quality-line {
+    width: 170px;
+
+    margin-top: 14px;
+  }
+
+
+  /* =====================================================
+     ONE CARD PER ROW
+  ===================================================== */
+
+  .quality-cards {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .quality-card {
+    width: 100%;
+
+    height: 350px;
+
+    border-radius: 18px;
+
+    transform: none !important;
+  }
+
+  .quality-card:hover {
+    transform: none !important;
+
+    box-shadow:
+      0 10px 28px
+      rgba(38, 91, 46, 0.10);
+  }
+
+  .quality-card-image {
+    height: 100%;
+
+    border-radius: 18px;
+  }
+
+
+  /* =====================================================
+     MOBILE IMAGE OVERLAY
+  ===================================================== */
+
+  .quality-image-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 55, 29, 0.04) 0%,
+        rgba(7, 55, 29, 0.10) 30%,
+        rgba(7, 61, 32, 0.93) 100%
+      ) !important;
+  }
+
+
+  /* =====================================================
+     MOBILE INFORMATION
+     ALWAYS VISIBLE
+  ===================================================== */
+
+  .quality-hover-content {
+    position: absolute;
+
+    inset:
+      auto
+      0
+      0
+      0;
+
+    min-height: 220px;
+
+    padding:
+      24px
+      20px
+      25px;
+
+    opacity: 1;
+
+    transform: none;
+
+    justify-content: flex-end;
+  }
+
+
+  /* Icon */
+
+  .quality-hover-icon {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 9px;
+
+    font-size: 17px;
+  }
+
+
+  /* Title */
+
+  .quality-hover-content h4 {
+    max-width: 330px;
+
+    font-size: 23px;
+
+    line-height: 1.2;
+  }
+
+
+  /* Divider */
+
+  .quality-hover-line {
+    width: 75%;
+
+    margin:
+      10px auto
+      11px;
+  }
+
+
+  /* Description */
+
+  .quality-hover-content p {
+    max-width: 390px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+
+  /* Label */
+
+  .quality-hover-label {
+    margin-top: 13px;
+
+    padding:
+      7px
+      12px;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  /* =====================================================
+     CLOSING
+  ===================================================== */
+
+  .quality-closing {
+    width: 100%;
+
+    margin:
+      28px
+      auto;
+
+    padding:
+      15px
+      18px;
+
+    gap: 13px;
+
+    border-radius: 22px;
+
+    justify-content: flex-start;
+  }
+
+  .closing-icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 22px;
+  }
+
+  .quality-closing h3 {
+    font-size: 17px;
+
+    line-height: 1.25;
+  }
+
+  .quality-closing p {
+    margin-top: 3px;
+
+    font-size: 13px;
+  }
+
+
+  /* =====================================================
+     FEATURES
+  ===================================================== */
+
+  .quality-features {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    border-radius: 18px;
+  }
+
+  .quality-feature {
+    min-height: 86px;
+
+    padding:
+      15px
+      18px;
+
+    border-right: none;
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.18);
+  }
+
+  .quality-feature:last-child {
+    border-bottom: none;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+
+    font-size: 22px;
+  }
+
+  .quality-feature strong {
+    margin-bottom: 4px;
+
+    font-size: 15px;
+  }
+
+  .quality-feature span {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .quality-section {
+    padding:
+      35px
+      12px
+      40px;
+  }
+
+
+  /* Header */
+
+  .quality-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .quality-header h2 {
+    font-size: 31px;
+  }
+
+  .quality-header h3 {
+    font-size: 15px;
+  }
+
+  .quality-intro {
+    font-size: 12px;
+  }
+
+
+  /* Card */
+
+  .quality-card {
+    height: 330px;
+
+    border-radius: 16px;
+  }
+
+  .quality-card-image {
+    border-radius: 16px;
+  }
+
+
+  /* Information */
+
+  .quality-hover-content {
+    min-height: 205px;
+
+    padding:
+      20px
+      17px
+      20px;
+  }
+
+  .quality-hover-icon {
+    width: 38px;
+    height: 38px;
+
+    margin-bottom: 7px;
+
+    font-size: 15px;
+  }
+
+  .quality-hover-content h4 {
+    font-size: 20px;
+  }
+
+  .quality-hover-line {
+    width: 70%;
+
+    margin:
+      8px auto
+      9px;
+  }
+
+  .quality-hover-content p {
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+  .quality-hover-label {
+    margin-top: 10px;
+
+    padding:
+      6px
+      10px;
+
+    font-size: 7px;
+  }
+
+
+  /* Closing */
+
+  .quality-closing {
+    padding:
+      13px
+      14px;
+
+    gap: 10px;
+  }
+
+  .closing-icon {
+    width: 43px;
+    height: 43px;
+
+    font-size: 20px;
+  }
+
+  .quality-closing h3 {
+    font-size: 15px;
+  }
+
+  .quality-closing p {
+    font-size: 12px;
+  }
+
+
+  /* Features */
+
+  .quality-feature {
+    min-height: 80px;
+
+    padding:
+      13px
+      15px;
+  }
+
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+
+    font-size: 20px;
+  }
+
+  .quality-feature strong {
+    font-size: 13px;
+  }
+
+  .quality-feature span {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .quality-card:hover {
+    transform: none !important;
+
+    box-shadow:
+      0 10px 28px
+      rgba(38, 91, 46, 0.10);
+  }
+
+  .quality-feature:hover {
+    background: transparent;
+  }
+
+  .quality-feature:hover
+  .feature-icon {
+    transform: none;
+  }
+}

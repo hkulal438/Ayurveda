@@ -1,0 +1,1262 @@
+/* =========================================================
+   ANCHAN AYURVEDIC INDUSTRIES
+   PREMIUM BOTANICAL FOOTER
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.anchan-footer,
+.anchan-footer * {
+  box-sizing: border-box;
+
+  font-family:
+    Cambria,
+    Georgia,
+    "Times New Roman",
+    serif;
+}
+
+
+/* =========================================================
+   FOOTER BASE
+========================================================= */
+
+.anchan-footer {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 520px;
+
+  overflow: hidden;
+
+  background:
+    #073b27;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LEAF BACKGROUND
+   IMPORTANT:
+   The image is imported through JSX and applied inline.
+========================================================= */
+
+.footer-bg-image {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+
+  background-position:
+    center center;
+
+  background-repeat: no-repeat;
+
+  /*
+     Increased from 0.16 so the
+     leaf image is actually visible.
+  */
+
+  opacity: 0.32;
+
+  pointer-events: none;
+
+  filter:
+    saturate(0.85)
+    brightness(0.85)
+    contrast(1.02);
+
+  transform: scale(1.03);
+}
+
+
+/* =========================================================
+   GREEN OVERLAY
+   Less opaque so leaf remains visible.
+========================================================= */
+
+.footer-bg-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 35, 22, 0.78) 0%,
+      rgba(4, 57, 35, 0.65) 30%,
+      rgba(5, 69, 42, 0.58) 50%,
+      rgba(4, 57, 35, 0.65) 70%,
+      rgba(2, 35, 22, 0.80) 100%
+    );
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.footer-container {
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  max-width: 1450px;
+
+  margin: 0 auto;
+
+  padding:
+    48px
+    55px
+    20px;
+}
+
+
+/* =========================================================
+   TOP BRAND SECTION
+========================================================= */
+
+.footer-top {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   COMPANY NAME
+========================================================= */
+
+.footer-company {
+  margin: 0;
+
+  color:
+    #fff;
+
+  font-size: 34px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.footer-tagline {
+  margin:
+    10px
+    0
+    0;
+
+  max-width: 700px;
+
+  color:
+    #e7dcb8;
+
+  font-size: 18px;
+
+  line-height: 1.45;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.footer-description {
+  max-width: 760px;
+
+  margin:
+    10px
+    auto
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.footer-social {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 22px;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTON
+========================================================= */
+
+.footer-social-link {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 50px;
+
+  height: 50px;
+
+  padding: 4px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  border:
+    2px solid
+    rgba(218, 195, 121, 0.55);
+
+  box-shadow:
+    0 5px 18px
+    rgba(0, 0, 0, 0.25);
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   SOCIAL IMAGE
+========================================================= */
+
+.footer-social-link img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   SOCIAL HOVER
+========================================================= */
+
+.footer-social-link:hover {
+  transform:
+    translateY(-5px)
+    scale(1.06);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 0, 0, 0.35);
+}
+
+
+.footer-social-link:hover img {
+  transform:
+    scale(1.08);
+}
+
+
+/* =========================================================
+   GOLD DIVIDER
+========================================================= */
+
+.footer-divider {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  margin:
+    35px
+    0
+    32px;
+
+  gap: 14px;
+}
+
+
+.footer-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(215, 190, 104, 0.60)
+    );
+}
+
+
+.footer-divider span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 190, 104, 0.60),
+      transparent
+    );
+}
+
+
+.footer-divider i {
+  flex-shrink: 0;
+
+  color:
+    #d2b866;
+
+  font-size: 13px;
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   MAIN FOOTER GRID
+========================================================= */
+
+.footer-main {
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.55fr
+    0.95fr;
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   COLUMN
+========================================================= */
+
+.footer-column {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   COLUMN HEADINGS
+========================================================= */
+
+.footer-column h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color:
+    #f4eacb;
+
+  font-size: 20px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+
+/* =========================================================
+   GOLD UNDERLINE
+========================================================= */
+
+.footer-title-line {
+  width: 55px;
+
+  height: 2px;
+
+  margin-bottom: 20px;
+
+  background:
+    #cdb15e;
+
+  transition:
+    width 0.3s ease;
+}
+
+
+.footer-column:hover
+.footer-title-line {
+  width: 85px;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.footer-quick ul {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.footer-quick li {
+  margin:
+    0
+    0
+    9px;
+}
+
+
+.footer-quick li a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size: 15px;
+
+  line-height: 1.45;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.footer-arrow {
+  color:
+    #d0b45e;
+
+  opacity: 0;
+
+  transform:
+    translateX(-7px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.footer-quick li a:hover {
+  color:
+    #ead48b;
+
+  transform:
+    translateX(4px);
+}
+
+
+.footer-quick li a:hover
+.footer-arrow {
+  opacity: 1;
+
+  transform:
+    translateX(0);
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  column-gap: 38px;
+
+  row-gap: 8px;
+}
+
+
+.products-grid a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  width: fit-content;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 14px;
+
+  line-height: 1.45;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.products-grid a:hover {
+  color:
+    #ead48b;
+
+  transform:
+    translateX(4px);
+}
+
+
+.products-grid a:hover
+.footer-arrow {
+  opacity: 1;
+
+  transform:
+    translateX(0);
+}
+
+
+/* =========================================================
+   VIEW ALL PRODUCTS
+========================================================= */
+
+.footer-view-products {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 19px;
+
+  padding-bottom: 5px;
+
+  color:
+    #d7bd6b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-decoration: none;
+
+  border-bottom:
+    1px solid
+    rgba(215, 189, 107, 0.70);
+
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.footer-view-products span {
+  font-size: 18px;
+}
+
+
+.footer-view-products:hover {
+  gap: 18px;
+
+  color:
+    #f1dda0;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CONTACT ICON
+========================================================= */
+
+.contact-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    rgba(211, 185, 100, 0.55);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    #d8bd69;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   CONTACT LABEL
+========================================================= */
+
+.contact-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color:
+    #d1b55e;
+
+  font-size: 10px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   CONTACT TEXT
+========================================================= */
+
+.contact-content p {
+  max-width: 250px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   ENQUIRE BUTTON
+========================================================= */
+
+.footer-enquire {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 2px;
+
+  padding:
+    11px
+    20px;
+
+  border:
+    1px solid
+    rgba(213, 185, 95, 0.80);
+
+  color:
+    #e0c574;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    gap 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.footer-enquire b {
+  font-size: 18px;
+
+  font-weight: 400;
+}
+
+
+.footer-enquire:hover {
+  gap: 18px;
+
+  transform:
+    translateY(-2px);
+
+  background:
+    #c7aa55;
+
+  color:
+    #082e1e;
+}
+
+
+/* =========================================================
+   BOTTOM DIVIDER
+========================================================= */
+
+.footer-bottom-divider {
+  margin:
+    36px
+    0
+    18px;
+}
+
+
+/* =========================================================
+   BOTTOM BAR
+========================================================= */
+
+.footer-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.copyright {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LEGAL
+========================================================= */
+
+.footer-legal {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+
+.footer-legal a {
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease;
+}
+
+
+.footer-legal a:hover {
+  color:
+    #dfc878;
+}
+
+
+.footer-legal span {
+  color:
+    rgba(210, 180, 88, 0.45);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .footer-container {
+    padding:
+      42px
+      35px
+      18px;
+  }
+
+
+  .footer-main {
+    grid-template-columns:
+      0.85fr
+      1.4fr
+      0.9fr;
+
+    gap: 40px;
+  }
+
+
+  .footer-company {
+    font-size: 30px;
+  }
+
+
+  .footer-column h3 {
+    font-size: 18px;
+  }
+
+
+  .footer-quick li a {
+    font-size: 14px;
+  }
+
+
+  .products-grid a {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   TABLET PORTRAIT
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .footer-container {
+    padding:
+      40px
+      28px
+      18px;
+  }
+
+
+  .footer-main {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      38px
+      30px;
+  }
+
+
+  .footer-contact {
+    grid-column:
+      1 / -1;
+  }
+
+
+  .footer-contact-item {
+    display: inline-flex;
+
+    margin-right: 25px;
+
+    vertical-align: top;
+  }
+
+
+  .footer-bottom {
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+  }
+
+
+  .footer-legal {
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+  .anchan-footer {
+    min-height: auto;
+  }
+
+
+  .footer-container {
+    padding:
+      35px
+      20px
+      16px;
+  }
+
+
+  /* Company */
+
+  .footer-company {
+    font-size: 23px;
+
+    line-height: 1.25;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  /* Tagline */
+
+  .footer-tagline {
+    max-width: 360px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+
+  /* Description */
+
+  .footer-description {
+    max-width: 380px;
+
+    font-size: 12px;
+
+    line-height: 1.65;
+  }
+
+
+  /* Social */
+
+  .footer-social {
+    gap: 10px;
+
+    margin-top: 18px;
+  }
+
+
+  .footer-social-link {
+    width: 44px;
+
+    height: 44px;
+  }
+
+
+  /* Divider */
+
+  .footer-divider {
+    margin:
+      28px
+      0
+      27px;
+  }
+
+
+  /* Main grid */
+
+  .footer-main {
+    grid-template-columns:
+      1fr;
+
+    gap: 30px;
+  }
+
+
+  .footer-contact {
+    grid-column: auto;
+  }
+
+
+  /* Headings */
+
+  .footer-column h3 {
+    font-size: 18px;
+  }
+
+
+  /* Links */
+
+  .footer-quick li a {
+    font-size: 14px;
+  }
+
+
+  /* Products */
+
+  .products-grid {
+    grid-template-columns:
+      1fr 1fr;
+
+    column-gap: 20px;
+
+    row-gap: 8px;
+  }
+
+
+  .products-grid a {
+    font-size: 13px;
+  }
+
+
+  /* Contact */
+
+  .footer-contact-item {
+    display: flex;
+
+    margin-right: 0;
+
+    margin-bottom: 16px;
+  }
+
+
+  .contact-icon {
+    width: 36px;
+
+    height: 36px;
+  }
+
+
+  .contact-content p {
+    font-size: 13px;
+  }
+
+
+  /* Bottom */
+
+  .footer-bottom-divider {
+    margin:
+      28px
+      0
+      17px;
+  }
+
+
+  .footer-bottom {
+    gap: 10px;
+  }
+
+
+  .copyright {
+    font-size: 10px;
+
+    text-align: center;
+  }
+
+
+  .footer-legal {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 7px;
+  }
+
+
+  .footer-legal a {
+    font-size: 10px;
+  }
+
+
+  /* Leaf */
+
+  .footer-bg-image {
+    opacity: 0.25;
+
+    background-position:
+      center center;
+  }
+
+
+  .footer-bg-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 38, 24, 0.72),
+        rgba(4, 53, 33, 0.76)
+      );
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .footer-container {
+    padding:
+      30px
+      15px
+      14px;
+  }
+
+
+  .footer-company {
+    font-size: 20px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .footer-tagline {
+    font-size: 13px;
+  }
+
+
+  .footer-description {
+    font-size: 11px;
+  }
+
+
+  .footer-social-link {
+    width: 40px;
+
+    height: 40px;
+  }
+
+
+  .products-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .footer-column h3 {
+    font-size: 17px;
+  }
+
+
+  .footer-quick li a,
+  .products-grid a {
+    font-size: 13px;
+  }
+
+
+  .contact-content p {
+    font-size: 12px;
+  }
+
+
+  .footer-legal {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
+  .footer-legal span {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .anchan-footer *,
+  .anchan-footer *::before,
+  .anchan-footer *::after {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,990 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.whyus-section {
+  width: 100%;
+  padding: 110px 0 0;
+  background: #fffde5;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  color: #333;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.whyus-header {
+  width: 90%;
+  max-width: 900px;
+
+  margin: 0 auto 75px;
+
+  text-align: center;
+}
+
+.whyus-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  color: #b8d817;
+}
+
+.whyus-header h2 {
+  margin: 0 0 18px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 600;
+
+  line-height: 1.15;
+
+  color: #005735;
+}
+
+.whyus-header p {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: #555;
+}
+
+
+/* =========================================================
+   MAIN THREE COLUMN LAYOUT
+========================================================= */
+
+.whyus-container {
+  width: 92%;
+  max-width: 1450px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(250px, 1fr)
+    minmax(400px, 500px)
+    minmax(250px, 1fr);
+
+  align-items: center;
+
+  column-gap: 40px;
+}
+
+
+/* =========================================================
+   LEFT / RIGHT CONTENT
+========================================================= */
+
+.whyus-left,
+.whyus-right {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 55px;
+}
+
+.whyus-left {
+  text-align: right;
+}
+
+.whyus-right {
+  text-align: left;
+}
+
+
+/* =========================================================
+   CONTENT BOX
+========================================================= */
+
+.whyus-content-box {
+  position: relative;
+}
+
+.whyus-number {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #b8d817;
+}
+
+.whyus-content-box h3 {
+  margin: 0 0 10px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  color: #005735;
+}
+
+.whyus-content-box p {
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  color: #555;
+}
+
+
+/* =========================================================
+   CENTER VISUAL
+========================================================= */
+
+.whyus-visual {
+  position: relative;
+
+  width: 500px;
+  height: 560px;
+
+  margin: 0 auto;
+}
+
+.whyus-circle {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   CENTER MAIN IMAGE
+========================================================= */
+
+.whyus-center-image {
+  position: absolute;
+
+  width: 235px;
+  height: 235px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  border: 10px solid #fffde5;
+
+  box-shadow:
+    0 10px 35px rgba(0, 60, 35, 0.13);
+
+  z-index: 3;
+}
+
+.whyus-center-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================================================
+   OUTER AYURVEDIC IMAGES
+========================================================= */
+
+.whyus-image {
+  position: absolute;
+
+  width: 105px;
+  height: 105px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  border: 7px solid #fffde5;
+
+  box-shadow:
+    0 8px 25px rgba(0, 60, 35, 0.12);
+
+  z-index: 4;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.whyus-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.whyus-image:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 12px 30px rgba(0, 60, 35, 0.18);
+}
+
+
+/* =========================================================
+   IMAGE POSITIONS
+========================================================= */
+
+.whyus-top-left {
+  top: 55px;
+  left: 35px;
+}
+
+.whyus-top-right {
+  top: 55px;
+  right: 35px;
+}
+
+.whyus-bottom-left {
+  bottom: 80px;
+  left: 25px;
+}
+
+.whyus-bottom-right {
+  bottom: 80px;
+  right: 25px;
+}
+
+.whyus-bottom-center {
+  bottom: 5px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.whyus-bottom-center:hover {
+  transform: translateX(-50%) scale(1.08);
+}
+
+
+/* =========================================================
+   CENTER LOGO
+========================================================= */
+
+.whyus-logo {
+  position: absolute;
+
+  width: 95px;
+  height: 95px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #fffde5;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+
+  box-shadow:
+    0 5px 20px rgba(0, 60, 35, 0.12);
+}
+
+.whyus-logo span {
+  font-family: "Playfair Display", serif;
+
+  font-size: 32px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  color: #005735;
+}
+
+.whyus-logo small {
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  line-height: 1.3;
+
+  color: #005735;
+}
+
+
+/* =========================================================
+   DECORATIVE CIRCLE
+========================================================= */
+
+.whyus-circle::before {
+  content: "";
+
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(0, 87, 53, 0.12);
+
+  border-radius: 50%;
+}
+
+.whyus-circle::after {
+  content: "";
+
+  position: absolute;
+
+  width: 410px;
+  height: 410px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px dashed rgba(184, 216, 23, 0.35);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.whyus-philosophy {
+  width: 90%;
+  max-width: 850px;
+
+  margin: 130px auto 0;
+
+  text-align: center;
+}
+
+.philosophy-label {
+  display: block;
+
+  margin-bottom: 13px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  color: #b8d817;
+}
+
+.whyus-philosophy h2 {
+  margin: 0 0 22px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 44px;
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  color: #005735;
+}
+
+.whyus-philosophy > p {
+  max-width: 720px;
+
+  margin: 0 auto 18px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #555;
+}
+
+.philosophy-statement {
+  margin-top: 40px;
+}
+
+.philosophy-statement strong {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 18px;
+
+  color: #005735;
+}
+
+.philosophy-points {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.philosophy-points span {
+  padding: 9px 17px;
+
+  border: 1px solid rgba(0, 87, 53, 0.2);
+
+  border-radius: 30px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #005735;
+
+  background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.whyus-cta {
+  width: 100%;
+
+  margin-top: 120px;
+
+  padding: 90px 20px;
+
+  text-align: center;
+
+  background: #005735;
+
+  box-sizing: border-box;
+}
+
+.cta-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  color: #b8d817;
+}
+
+.whyus-cta h2 {
+  margin: 0 0 17px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 48px;
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  color: #fffde5;
+}
+
+.whyus-cta p {
+  max-width: 650px;
+
+  margin: 0 auto 35px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: rgba(255, 253, 229, 0.82);
+}
+
+
+/* =========================================================
+   CTA BUTTONS
+========================================================= */
+
+.cta-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.cta-primary,
+.cta-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+
+  padding: 13px 25px;
+
+  border-radius: 30px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.cta-primary {
+  background: #b8d817;
+
+  color: #005735;
+}
+
+.cta-secondary {
+  border: 1px solid rgba(255, 253, 229, 0.6);
+
+  color: #fffde5;
+
+  background: transparent;
+}
+
+.cta-primary:hover,
+.cta-secondary:hover {
+  transform: translateY(-3px);
+}
+
+.cta-primary:hover {
+  background: #d0eb38;
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 253, 229, 0.1);
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .whyus-container {
+    grid-template-columns:
+      minmax(220px, 1fr)
+      430px
+      minmax(220px, 1fr);
+
+    column-gap: 20px;
+  }
+
+  .whyus-visual {
+    width: 430px;
+    height: 520px;
+  }
+
+  .whyus-center-image {
+    width: 210px;
+    height: 210px;
+  }
+
+  .whyus-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .whyus-circle::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .whyus-circle::after {
+    width: 370px;
+    height: 370px;
+  }
+
+  .whyus-content-box h3 {
+    font-size: 18px;
+  }
+
+  .whyus-content-box p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .whyus-section {
+    padding-top: 80px;
+  }
+
+  .whyus-header {
+    margin-bottom: 55px;
+  }
+
+  .whyus-header h2 {
+    font-size: 40px;
+  }
+
+  .whyus-container {
+    width: 90%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+  }
+
+  .whyus-visual {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    width: 450px;
+    height: 520px;
+
+    margin: 0 auto 25px;
+  }
+
+  .whyus-left {
+    grid-column: 1;
+    grid-row: 2;
+
+    text-align: right;
+  }
+
+  .whyus-right {
+    grid-column: 2;
+    grid-row: 2;
+
+    text-align: left;
+  }
+
+  .whyus-left,
+  .whyus-right {
+    gap: 35px;
+  }
+
+  .whyus-philosophy {
+    margin-top: 90px;
+  }
+
+  .whyus-philosophy h2 {
+    font-size: 38px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .whyus-section {
+    padding-top: 65px;
+  }
+
+  .whyus-header {
+    width: 88%;
+
+    margin-bottom: 35px;
+  }
+
+  .whyus-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .whyus-header h2 {
+    font-size: 32px;
+  }
+
+  .whyus-header p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .whyus-container {
+    width: 88%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+  }
+
+  .whyus-visual {
+    order: 1;
+
+    width: 340px;
+    height: 410px;
+
+    margin: 0 auto;
+  }
+
+  .whyus-left {
+    order: 2;
+
+    width: 100%;
+
+    text-align: left;
+
+    gap: 30px;
+  }
+
+  .whyus-right {
+    order: 3;
+
+    width: 100%;
+
+    text-align: left;
+
+    gap: 30px;
+  }
+
+  .whyus-center-image {
+    width: 170px;
+    height: 170px;
+
+    border-width: 7px;
+  }
+
+  .whyus-image {
+    width: 72px;
+    height: 72px;
+
+    border-width: 5px;
+  }
+
+  .whyus-top-left {
+    top: 42px;
+    left: 25px;
+  }
+
+  .whyus-top-right {
+    top: 42px;
+    right: 25px;
+  }
+
+  .whyus-bottom-left {
+    bottom: 55px;
+    left: 20px;
+  }
+
+  .whyus-bottom-right {
+    bottom: 55px;
+    right: 20px;
+  }
+
+  .whyus-bottom-center {
+    bottom: 0;
+  }
+
+  .whyus-circle::before {
+    width: 245px;
+    height: 245px;
+  }
+
+  .whyus-circle::after {
+    width: 310px;
+    height: 310px;
+  }
+
+  .whyus-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .whyus-logo span {
+    font-size: 24px;
+  }
+
+  .whyus-logo small {
+    font-size: 5px;
+    letter-spacing: 1px;
+  }
+
+  .whyus-content-box h3 {
+    font-size: 19px;
+  }
+
+  .whyus-content-box p {
+    font-size: 14px;
+  }
+
+  .whyus-number {
+    font-size: 11px;
+  }
+
+  .whyus-philosophy {
+    width: 88%;
+
+    margin-top: 70px;
+  }
+
+  .whyus-philosophy h2 {
+    font-size: 31px;
+  }
+
+  .whyus-philosophy > p {
+    font-size: 15px;
+  }
+
+  .philosophy-points {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .philosophy-points span {
+    width: fit-content;
+  }
+
+  .whyus-cta {
+    margin-top: 75px;
+
+    padding: 70px 20px;
+  }
+
+  .whyus-cta h2 {
+    font-size: 34px;
+  }
+
+  .whyus-cta p {
+    font-size: 15px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    width: 200px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .whyus-visual {
+    width: 300px;
+    height: 370px;
+  }
+
+  .whyus-center-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .whyus-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .whyus-top-left {
+    left: 15px;
+    top: 35px;
+  }
+
+  .whyus-top-right {
+    right: 15px;
+    top: 35px;
+  }
+
+  .whyus-bottom-left {
+    left: 10px;
+    bottom: 50px;
+  }
+
+  .whyus-bottom-right {
+    right: 10px;
+    bottom: 50px;
+  }
+
+  .whyus-header h2 {
+    font-size: 28px;
+  }
+
+  .whyus-philosophy h2 {
+    font-size: 28px;
+  }
+
+  .whyus-cta h2 {
+    font-size: 30px;
+  }
+}
