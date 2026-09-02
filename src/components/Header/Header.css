@@ -130,10 +130,10 @@
   color: #222222 !important;
 
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
 
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0;
 
   white-space: nowrap;
@@ -187,10 +187,6 @@
 .dropdown {
   position: relative;
 
-  /*
-    Keeps the dropdown connected to Products
-    when moving the mouse downward.
-  */
   padding-bottom: 18px;
   margin-bottom: -18px;
 }
@@ -207,10 +203,12 @@
 .dropdown-arrow {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
-  margin-left: 2px;
+  margin-left: 3px;
 
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1;
 
   color: #333333;
@@ -225,13 +223,15 @@
 }
 
 
-/*
-   IMPORTANT:
-   DESKTOP = HOVER ONLY
-*/
-.dropdown:hover .dropdown-arrow {
-  transform: rotate(180deg);
-  color: #2b8a3e;
+/* =========================================================
+   DESKTOP DROPDOWN ARROW
+========================================================= */
+
+@media screen and (min-width: 851px) {
+  .dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+    color: #2b8a3e;
+  }
 }
 
 
@@ -259,9 +259,6 @@
     0 20px 55px rgba(25, 60, 35, 0.14),
     0 5px 15px rgba(0, 0, 0, 0.05);
 
-  /*
-     HIDDEN BY DEFAULT
-  */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -307,16 +304,7 @@
    DESKTOP HOVER SHOW
 ========================================================= */
 
-/*
-   IMPORTANT:
-   There is NO ".dropdown.active" here.
-
-   Therefore on desktop the dropdown ONLY opens
-   when the mouse is hovering Products.
-*/
-
 @media screen and (min-width: 851px) {
-
   .dropdown:hover .products-dropdown {
     opacity: 1;
     visibility: visible;
@@ -324,7 +312,6 @@
 
     transform: translate(-50%, 0);
   }
-
 }
 
 
@@ -333,7 +320,7 @@
 ========================================================= */
 
 .dropdown-header {
-  padding: 20px 24px 17px;
+  padding: 20px 30px 18px;
 
   background: linear-gradient(
     135deg,
@@ -349,18 +336,18 @@
 
   color: #2b8a3e !important;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 
   letter-spacing: 1.6px;
 }
 
 .dropdown-header p {
-  margin: 6px 0 0;
+  margin: 7px 0 0;
 
   color: #777777 !important;
 
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
 
   line-height: 1.4;
@@ -376,9 +363,10 @@
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 2px;
+  column-gap: 20px;
+  row-gap: 0;
 
-  padding: 12px 14px;
+  padding: 12px 20px;
 }
 
 
@@ -389,15 +377,24 @@
 .product-item {
   position: relative;
 
+  width: 100%;
   min-width: 0;
-  min-height: 48px;
+  min-height: 62px;
 
-  display: flex !important;
+  display: grid !important;
+
+  /*
+     01   |   Product Name                |   →
+  */
+  grid-template-columns: 34px minmax(0, 1fr) 22px;
+
   align-items: center;
 
-  gap: 10px;
+  column-gap: 8px;
 
-  padding: 8px 10px;
+  padding: 8px 12px;
+
+  box-sizing: border-box;
 
   color: #222222 !important;
 
@@ -410,16 +407,13 @@
 
   transition:
     background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+    color 0.2s ease;
 }
 
 .product-item:hover {
   background: #f2f8f3;
 
   color: #2b8a3e !important;
-
-  transform: translateX(3px);
 }
 
 
@@ -428,23 +422,39 @@
 ========================================================= */
 
 .product-number {
-  width: 28px;
+  position: static !important;
 
-  flex: 0 0 28px;
+  width: 34px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
 
-  display: block !important;
+  height: auto !important;
 
-  color: #a1aaa3 !important;
+  display: flex !important;
 
-  font-size: 10px;
-  font-weight: 700;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box;
+
+  color: #9da79f !important;
+
+  font-size: 13px !important;
+  font-weight: 700 !important;
+
+  line-height: 1;
 
   letter-spacing: 0.5px;
+
+  white-space: nowrap;
 
   opacity: 1 !important;
   visibility: visible !important;
 
-  transition: color 0.2s ease;
+  transform: none !important;
 }
 
 .product-item:hover .product-number {
@@ -457,22 +467,37 @@
 ========================================================= */
 
 .product-name {
-  flex: 1;
-  min-width: 0;
+  position: static !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100%;
 
   display: block !important;
 
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box;
+
   color: #222222 !important;
 
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 15px !important;
+  font-weight: 600 !important;
 
   line-height: 1.35;
+
+  text-align: left;
+
+  white-space: normal;
+
+  overflow-wrap: break-word;
+  word-break: normal;
 
   opacity: 1 !important;
   visibility: visible !important;
 
-  white-space: normal;
+  transform: none !important;
 }
 
 .product-item:hover .product-name {
@@ -485,17 +510,25 @@
 ========================================================= */
 
 .product-arrow {
-  flex: 0 0 auto;
+  width: 22px;
+  min-width: 22px;
 
-  display: block !important;
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
 
   color: #2b8a3e !important;
 
   font-size: 15px;
+  line-height: 1;
 
   opacity: 0;
 
-  transform: translateX(-5px);
+  transform: translateX(-4px);
 
   transition:
     opacity 0.2s ease,
@@ -519,20 +552,22 @@
   align-items: center;
   justify-content: space-between;
 
-  margin: 4px 14px 14px;
+  margin: 5px 20px 16px;
 
-  padding: 13px 16px;
+  padding: 14px 18px;
 
   background: #2b8a3e;
 
-  border-radius: 9px;
+  border-radius: 10px;
 
   color: #ffffff !important;
 
   text-decoration: none !important;
 
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.2;
 
   transition:
     background 0.25s ease,
@@ -552,7 +587,7 @@
 .view-all-products span {
   color: #ffffff !important;
 
-  font-size: 17px;
+  font-size: 18px;
 
   transition: transform 0.2s ease;
 }
@@ -600,7 +635,9 @@
   text-decoration: none !important;
 
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+
+  line-height: 1;
 
   white-space: nowrap;
 
@@ -718,7 +755,8 @@
   }
 
   .nav-link {
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 700;
   }
 
   .enquire-btn {
@@ -755,7 +793,8 @@
   }
 
   .nav-link {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .enquire-btn {
@@ -768,6 +807,22 @@
 
   .products-dropdown {
     width: 600px;
+  }
+
+  .product-item {
+    grid-template-columns: 32px minmax(0, 1fr) 20px;
+
+    column-gap: 7px;
+  }
+
+  .product-number {
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+  }
+
+  .product-name {
+    font-size: 14px !important;
   }
 }
 
@@ -808,7 +863,8 @@
   }
 
   .nav-link {
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .enquire-btn {
@@ -845,9 +901,12 @@
   ------------------------------------------------------- */
 
   .header-container {
+    width: 100%;
     padding: 0 16px;
 
     justify-content: space-between;
+
+    box-sizing: border-box;
   }
 
 
@@ -857,6 +916,7 @@
 
   .logo img {
     height: 58px;
+    max-width: 190px;
   }
 
   .header.scrolled .logo img {
@@ -888,6 +948,8 @@
 
   .menu-toggle {
     display: flex;
+
+    flex-shrink: 0;
   }
 
 
@@ -907,6 +969,8 @@
     margin: 0;
 
     padding: 10px 14px 18px;
+
+    box-sizing: border-box;
 
     background: #ffffff;
 
@@ -928,6 +992,7 @@
     max-height: calc(100vh - 76px);
 
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .header.scrolled .nav {
@@ -960,6 +1025,9 @@
     gap: 0;
 
     margin: 0;
+    padding: 0;
+
+    list-style: none;
   }
 
   .nav-list > li {
@@ -980,22 +1048,28 @@
   .nav-link {
     width: 100%;
 
-    min-height: 50px;
+    min-height: 54px;
 
     display: flex;
 
     align-items: center;
     justify-content: space-between;
 
-    padding: 14px 8px;
+    padding: 15px 8px;
+
+    box-sizing: border-box;
 
     color: #222222 !important;
 
-    font-size: 15px;
+    font-size: 17px;
 
-    font-weight: 500;
+    font-weight: 700;
+
+    line-height: 1.2;
 
     text-align: left;
+
+    white-space: normal;
   }
 
   .nav-link:hover {
@@ -1012,6 +1086,8 @@
   ------------------------------------------------------- */
 
   .dropdown {
+    width: 100%;
+
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -1023,7 +1099,11 @@
   }
 
   .dropdown-arrow {
-    font-size: 14px;
+    flex-shrink: 0;
+
+    font-size: 16px;
+
+    font-weight: 700;
 
     margin-right: 3px;
   }
@@ -1031,21 +1111,21 @@
 
   /* =====================================================
      MOBILE PRODUCT DROPDOWN
-     
-     On mobile it is hidden until .active is added
-     by the React click handler.
   ===================================================== */
 
   .products-dropdown {
     position: static;
 
     width: 100%;
+    max-width: 100%;
 
     display: none;
 
     margin: 0 0 10px;
 
     padding: 0;
+
+    box-sizing: border-box;
 
     background: #f8fbf8;
 
@@ -1066,18 +1146,13 @@
     overflow: hidden;
   }
 
-
-  /*
-     MOBILE = CLICK / TAP
-  */
-
   .dropdown.active .products-dropdown {
     display: block;
   }
 
-
   .dropdown.active .dropdown-arrow {
     transform: rotate(180deg);
+
     color: #2b8a3e;
   }
 
@@ -1095,7 +1170,11 @@
   }
 
   .dropdown-label {
-    font-size: 10px;
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
 
     letter-spacing: 1.4px;
 
@@ -1103,9 +1182,11 @@
   }
 
   .dropdown-header p {
-    margin-top: 5px;
+    margin: 5px 0 0;
 
-    font-size: 11px;
+    font-size: 12px;
+
+    font-weight: 400;
 
     line-height: 1.4;
 
@@ -1118,6 +1199,8 @@
   ------------------------------------------------------- */
 
   .products-grid {
+    width: 100%;
+
     display: flex;
 
     flex-direction: column;
@@ -1125,6 +1208,8 @@
     gap: 0;
 
     padding: 5px 7px;
+
+    box-sizing: border-box;
   }
 
 
@@ -1133,27 +1218,32 @@
   ------------------------------------------------------- */
 
   .product-item {
-    width: 100%;
+    width: 100% !important;
 
-    min-height: 44px;
+    min-width: 0;
 
-    display: flex !important;
+    min-height: 48px;
+
+    display: grid !important;
+
+    grid-template-columns: 30px minmax(0, 1fr) 20px;
 
     align-items: center;
 
-    padding: 8px;
+    column-gap: 7px;
 
-    gap: 9px;
+    padding: 8px 9px;
 
-    color: #222222 !important;
+    box-sizing: border-box;
 
     border-bottom: 1px solid #e9efea;
 
     border-radius: 5px;
 
-    transform: none;
+    transform: none !important;
 
     opacity: 1 !important;
+
     visibility: visible !important;
   }
 
@@ -1162,11 +1252,11 @@
   }
 
   .product-item:hover {
-    transform: none;
-
     background: #edf7ef;
 
     color: #2b8a3e !important;
+
+    transform: none !important;
   }
 
 
@@ -1175,17 +1265,38 @@
   ------------------------------------------------------- */
 
   .product-number {
-    width: 25px;
+    position: static !important;
 
-    flex: 0 0 25px;
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
 
-    display: block !important;
+    height: auto !important;
+
+    display: flex !important;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
 
     color: #9ca69f !important;
 
-    font-size: 9px;
+    font-size: 12px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1;
+
+    white-space: nowrap;
 
     opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: none !important;
   }
 
 
@@ -1194,20 +1305,36 @@
   ------------------------------------------------------- */
 
   .product-name {
-    flex: 1;
+    position: static !important;
+
+    width: auto !important;
+    min-width: 0 !important;
 
     display: block !important;
 
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
+
     color: #222222 !important;
 
-    font-size: 13px;
+    font-size: 14px !important;
 
-    font-weight: 500;
+    font-weight: 600 !important;
 
-    line-height: 1.3;
+    line-height: 1.35;
+
+    text-align: left;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
 
     opacity: 1 !important;
     visibility: visible !important;
+
+    transform: none !important;
   }
 
 
@@ -1216,15 +1343,26 @@
   ------------------------------------------------------- */
 
   .product-arrow {
-    display: block !important;
+    width: 20px;
+    min-width: 20px;
+
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
 
     color: #2b8a3e !important;
 
     font-size: 14px;
 
+    line-height: 1;
+
     opacity: 1;
 
-    transform: none;
+    transform: none !important;
   }
 
 
@@ -1233,11 +1371,17 @@
   ------------------------------------------------------- */
 
   .view-all-products {
-    margin: 6px 7px 9px;
+    width: auto;
 
-    padding: 12px 13px;
+    margin: 7px;
 
-    font-size: 12.5px;
+    padding: 13px 14px;
+
+    box-sizing: border-box;
+
+    font-size: 13px;
+
+    font-weight: 700;
 
     color: #ffffff !important;
   }
@@ -1264,6 +1408,8 @@
 
   .logo img {
     height: 54px;
+
+    max-width: 170px;
   }
 
   .header.scrolled .logo img {
@@ -1290,10 +1436,16 @@
   }
 
   .nav-link {
-    min-height: 48px;
+    min-height: 52px;
 
-    padding: 13px 7px;
+    padding: 14px 7px;
 
+    font-size: 16px;
+
+    font-weight: 700;
+  }
+
+  .dropdown-arrow {
     font-size: 15px;
   }
 
@@ -1301,18 +1453,47 @@
     padding: 13px;
   }
 
+  .dropdown-label {
+    font-size: 10px;
+  }
+
+  .dropdown-header p {
+    font-size: 11.5px;
+  }
+
   .product-item {
-    min-height: 43px;
+    min-height: 46px;
+
+    grid-template-columns: 28px minmax(0, 1fr) 18px;
+
+    column-gap: 7px;
 
     padding: 8px;
   }
 
+  .product-number {
+    width: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+
+    font-size: 11px !important;
+  }
+
   .product-name {
-    font-size: 12.5px;
+    font-size: 13.5px !important;
+
+    font-weight: 600 !important;
+  }
+
+  .product-arrow {
+    width: 18px;
+    min-width: 18px;
+
+    font-size: 13px;
   }
 
   .view-all-products {
-    font-size: 12px;
+    font-size: 12.5px;
   }
 }
 
@@ -1329,6 +1510,8 @@
 
   .logo img {
     height: 50px;
+
+    max-width: 155px;
   }
 
   .header.scrolled .logo img {
@@ -1341,16 +1524,48 @@
   }
 
   .nav-link {
+    min-height: 50px;
+
+    padding: 13px 7px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+  }
+
+  .dropdown-arrow {
     font-size: 14px;
   }
 
-  .product-name {
-    font-size: 12px;
+  .product-item {
+    min-height: 44px;
+
+    grid-template-columns: 26px minmax(0, 1fr) 18px;
+
+    column-gap: 6px;
+
+    padding: 7px;
   }
 
   .product-number {
-    width: 23px;
-    flex-basis: 23px;
+    width: 26px !important;
+    min-width: 26px !important;
+    max-width: 26px !important;
+
+    font-size: 10.5px !important;
+  }
+
+  .product-name {
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+  }
+
+  .product-arrow {
+    width: 18px;
+    min-width: 18px;
+
+    font-size: 12px;
   }
 }
 
@@ -1365,6 +1580,7 @@
 .product-item:focus-visible,
 .view-all-products:focus-visible {
   outline: 2px solid #2b8a3e;
+
   outline-offset: 3px;
 }
 

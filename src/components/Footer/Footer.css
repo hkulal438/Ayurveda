@@ -28,13 +28,11 @@
   position: relative;
 
   width: 100%;
-
   min-height: 520px;
 
   overflow: hidden;
 
-  background:
-    #073b27;
+  background: #073b27;
 
   color: #ffffff;
 }
@@ -42,17 +40,15 @@
 
 /* =========================================================
    LEAF BACKGROUND
-   IMPORTANT:
-   The image is imported through JSX and applied inline.
 ========================================================= */
 
 .footer-bg-image {
   position: absolute;
 
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
 
   z-index: 0;
 
@@ -60,16 +56,8 @@
   height: 100%;
 
   background-size: cover;
-
-  background-position:
-    center center;
-
+  background-position: center center;
   background-repeat: no-repeat;
-
-  /*
-     Increased from 0.16 so the
-     leaf image is actually visible.
-  */
 
   opacity: 0.32;
 
@@ -86,7 +74,6 @@
 
 /* =========================================================
    GREEN OVERLAY
-   Less opaque so leaf remains visible.
 ========================================================= */
 
 .footer-bg-overlay {
@@ -120,7 +107,6 @@
   z-index: 5;
 
   width: 100%;
-
   max-width: 1450px;
 
   margin: 0 auto;
@@ -142,7 +128,6 @@
   flex-direction: column;
 
   align-items: center;
-
   justify-content: center;
 
   text-align: center;
@@ -156,8 +141,7 @@
 .footer-company {
   margin: 0;
 
-  color:
-    #fff;
+  color: #ffffff;
 
   font-size: 34px;
 
@@ -170,8 +154,7 @@
   text-transform: uppercase;
 
   text-shadow:
-    0 2px 12px
-    rgba(0, 0, 0, 0.25);
+    0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -187,8 +170,7 @@
 
   max-width: 700px;
 
-  color:
-    #e7dcb8;
+  color: #e7dcb8;
 
   font-size: 18px;
 
@@ -212,8 +194,7 @@
     auto
     0;
 
-  color:
-    rgba(255, 255, 255, 0.84);
+  color: rgba(255, 255, 255, 0.84);
 
   font-size: 15px;
 
@@ -231,7 +212,6 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 15px;
@@ -248,11 +228,9 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   width: 50px;
-
   height: 50px;
 
   padding: 4px;
@@ -261,16 +239,14 @@
 
   border-radius: 50%;
 
-  background:
-    rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.96);
 
   border:
     2px solid
     rgba(218, 195, 121, 0.55);
 
   box-shadow:
-    0 5px 18px
-    rgba(0, 0, 0, 0.25);
+    0 5px 18px rgba(0, 0, 0, 0.25);
 
   text-decoration: none;
 
@@ -288,7 +264,6 @@
   display: block;
 
   width: 100%;
-
   height: 100%;
 
   object-fit: contain;
@@ -310,14 +285,12 @@
     scale(1.06);
 
   box-shadow:
-    0 10px 25px
-    rgba(0, 0, 0, 0.35);
+    0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
 
 .footer-social-link:hover img {
-  transform:
-    scale(1.08);
+  transform: scale(1.08);
 }
 
 
@@ -368,8 +341,7 @@
 .footer-divider i {
   flex-shrink: 0;
 
-  color:
-    #d2b866;
+  color: #d2b866;
 
   font-size: 13px;
 
@@ -414,8 +386,7 @@
     0
     10px;
 
-  color:
-    #f4eacb;
+  color: #f4eacb;
 
   font-size: 20px;
 
@@ -438,16 +409,14 @@
 
   margin-bottom: 20px;
 
-  background:
-    #cdb15e;
+  background: #cdb15e;
 
   transition:
     width 0.3s ease;
 }
 
 
-.footer-column:hover
-.footer-title-line {
+.footer-column:hover .footer-title-line {
   width: 85px;
 }
 
@@ -480,8 +449,7 @@
 
   gap: 7px;
 
-  color:
-    rgba(255, 255, 255, 0.84);
+  color: rgba(255, 255, 255, 0.84);
 
   font-size: 15px;
 
@@ -496,13 +464,11 @@
 
 
 .footer-arrow {
-  color:
-    #d0b45e;
+  color: #d0b45e;
 
   opacity: 0;
 
-  transform:
-    translateX(-7px);
+  transform: translateX(-7px);
 
   transition:
     opacity 0.25s ease,
@@ -511,20 +477,16 @@
 
 
 .footer-quick li a:hover {
-  color:
-    #ead48b;
+  color: #ead48b;
 
-  transform:
-    translateX(4px);
+  transform: translateX(4px);
 }
 
 
-.footer-quick li a:hover
-.footer-arrow {
+.footer-quick li a:hover .footer-arrow {
   opacity: 1;
 
-  transform:
-    translateX(0);
+  transform: translateX(0);
 }
 
 
@@ -536,7 +498,8 @@
   display: grid;
 
   grid-template-columns:
-    1fr 1fr;
+    1fr
+    1fr;
 
   column-gap: 38px;
 
@@ -553,8 +516,7 @@
 
   width: fit-content;
 
-  color:
-    rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.82);
 
   font-size: 14px;
 
@@ -569,20 +531,16 @@
 
 
 .products-grid a:hover {
-  color:
-    #ead48b;
+  color: #ead48b;
 
-  transform:
-    translateX(4px);
+  transform: translateX(4px);
 }
 
 
-.products-grid a:hover
-.footer-arrow {
+.products-grid a:hover .footer-arrow {
   opacity: 1;
 
-  transform:
-    translateX(0);
+  transform: translateX(0);
 }
 
 
@@ -594,6 +552,7 @@
   display: inline-flex;
 
   align-items: center;
+  justify-content: center;
 
   gap: 12px;
 
@@ -601,8 +560,7 @@
 
   padding-bottom: 5px;
 
-  color:
-    #d7bd6b;
+  color: #d7bd6b;
 
   font-size: 12px;
 
@@ -630,23 +588,72 @@
 .footer-view-products:hover {
   gap: 18px;
 
-  color:
-    #f1dda0;
+  color: #f1dda0;
 }
 
 
 /* =========================================================
-   CONTACT
+   GET IN TOUCH
 ========================================================= */
 
-.footer-contact-item {
+.footer-contact {
+  width: 100%;
+
+  max-width: 360px;
+}
+
+
+/* =========================================================
+   GET IN TOUCH HEADING
+========================================================= */
+
+.footer-contact h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #f4eacb;
+
+  font-size: 20px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   GET IN TOUCH TITLE LINE
+========================================================= */
+
+.footer-contact .footer-title-line {
+  width: 55px;
+
+  height: 2px;
+
+  margin-bottom: 24px;
+
+  background: #cdb15e;
+}
+
+
+/* =========================================================
+   CONTACT ITEM
+========================================================= */
+
+.footer-contact .footer-contact-item {
   display: flex;
 
   align-items: flex-start;
 
-  gap: 13px;
+  gap: 16px;
 
-  margin-bottom: 18px;
+  width: 100%;
+
+  margin-bottom: 20px;
 }
 
 
@@ -654,32 +661,47 @@
    CONTACT ICON
 ========================================================= */
 
-.contact-icon {
+.footer-contact .contact-icon {
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
-  width: 38px;
+  width: 48px;
+  height: 48px;
 
-  height: 38px;
+  min-width: 48px;
 
-  flex-shrink: 0;
+  margin-top: 0;
 
   border:
     1px solid
-    rgba(211, 185, 100, 0.55);
+    rgba(211, 185, 100, 0.65);
 
   border-radius: 50%;
 
   background:
-    rgba(255, 255, 255, 0.08);
+    rgba(255, 255, 255, 0.06);
 
-  color:
-    #d8bd69;
+  color: #d8bd69;
 
-  font-size: 16px;
+  font-size: 19px;
+
+  line-height: 1;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+========================================================= */
+
+.footer-contact .contact-content {
+  flex: 1;
+
+  min-width: 0;
 }
 
 
@@ -687,39 +709,105 @@
    CONTACT LABEL
 ========================================================= */
 
-.contact-label {
+.footer-contact .contact-label {
   display: block;
 
-  margin-bottom: 4px;
+  margin:
+    1px
+    0
+    7px;
 
-  color:
-    #d1b55e;
+  color: #d5b95f;
 
-  font-size: 10px;
+  font-size: 11px;
 
-  line-height: 1;
+  line-height: 1.2;
 
   font-weight: 700;
 
-  letter-spacing: 1.5px;
+  letter-spacing: 1.7px;
 }
 
 
 /* =========================================================
-   CONTACT TEXT
+   CONTACT PARAGRAPH
 ========================================================= */
 
-.contact-content p {
-  max-width: 250px;
+.footer-contact .contact-content p {
+  max-width: 280px;
 
   margin: 0;
 
-  color:
-    rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.88);
 
-  font-size: 14px;
+  font-size: 15px;
 
-  line-height: 1.5;
+  line-height: 1.55;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   CONTACT LINKS
+========================================================= */
+
+.footer-contact .contact-link {
+  display: inline;
+
+  max-width: 280px;
+
+  color: rgba(255, 255, 255, 0.90);
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  text-decoration: none;
+
+  word-break: normal;
+
+  overflow-wrap: break-word;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   CONTACT LINK HOVER
+========================================================= */
+
+.footer-contact .contact-link:hover {
+  color: #e2c96f;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   ADDRESS
+========================================================= */
+
+.footer-contact .contact-content a.contact-link {
+  color: rgba(255, 255, 255, 0.90);
+}
+
+
+/* =========================================================
+   PHONE / MOBILE / WEBSITE
+========================================================= */
+
+.footer-contact .contact-link[href^="tel:"] {
+  color: #ffffff;
+
+  font-size: 15px;
+}
+
+
+.footer-contact .contact-link[href*="anchanayurveda"] {
+  color: #ffffff;
 }
 
 
@@ -727,36 +815,34 @@
    ENQUIRE BUTTON
 ========================================================= */
 
-.footer-enquire {
+.footer-contact .footer-enquire {
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
-  gap: 12px;
+  gap: 10px;
 
   margin-top: 2px;
 
   padding:
-    11px
-    20px;
+    10px
+    18px;
 
   border:
     1px solid
-    rgba(213, 185, 95, 0.80);
-
-  color:
-    #e0c574;
+    rgba(213, 185, 95, 0.75);
 
   background:
     rgba(255, 255, 255, 0.035);
 
-  font-size: 12px;
+  color: #e0c574;
+
+  font-size: 11px;
 
   font-weight: 700;
 
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
 
   text-decoration: none;
 
@@ -768,24 +854,21 @@
 }
 
 
-.footer-enquire b {
-  font-size: 18px;
+.footer-contact .footer-enquire b {
+  font-size: 17px;
 
   font-weight: 400;
 }
 
 
-.footer-enquire:hover {
-  gap: 18px;
+.footer-contact .footer-enquire:hover {
+  gap: 16px;
 
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 
-  background:
-    #c7aa55;
+  background: #c7aa55;
 
-  color:
-    #082e1e;
+  color: #082e1e;
 }
 
 
@@ -823,8 +906,7 @@
 .copyright {
   margin: 0;
 
-  color:
-    rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.65);
 
   font-size: 12px;
 
@@ -848,8 +930,7 @@
 
 
 .footer-legal a {
-  color:
-    rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.65);
 
   font-size: 12px;
 
@@ -861,14 +942,12 @@
 
 
 .footer-legal a:hover {
-  color:
-    #dfc878;
+  color: #dfc878;
 }
 
 
 .footer-legal span {
-  color:
-    rgba(210, 180, 88, 0.45);
+  color: rgba(210, 180, 88, 0.45);
 }
 
 
@@ -914,6 +993,17 @@
   .products-grid a {
     font-size: 13px;
   }
+
+
+  .footer-contact {
+    max-width: 340px;
+  }
+
+
+  .footer-contact .contact-link,
+  .footer-contact .contact-content p {
+    font-size: 14px;
+  }
 }
 
 
@@ -933,7 +1023,8 @@
 
   .footer-main {
     grid-template-columns:
-      1fr 1fr;
+      1fr
+      1fr;
 
     gap:
       38px
@@ -942,17 +1033,16 @@
 
 
   .footer-contact {
-    grid-column:
-      1 / -1;
+    grid-column: 1 / -1;
+
+    max-width: 100%;
   }
 
 
-  .footer-contact-item {
-    display: inline-flex;
+  .footer-contact .footer-contact-item {
+    display: flex;
 
-    margin-right: 25px;
-
-    vertical-align: top;
+    margin-right: 0;
   }
 
 
@@ -990,7 +1080,7 @@
   }
 
 
-  /* Company */
+  /* COMPANY */
 
   .footer-company {
     font-size: 23px;
@@ -1001,7 +1091,7 @@
   }
 
 
-  /* Tagline */
+  /* TAGLINE */
 
   .footer-tagline {
     max-width: 360px;
@@ -1012,7 +1102,7 @@
   }
 
 
-  /* Description */
+  /* DESCRIPTION */
 
   .footer-description {
     max-width: 380px;
@@ -1023,7 +1113,7 @@
   }
 
 
-  /* Social */
+  /* SOCIAL */
 
   .footer-social {
     gap: 10px;
@@ -1039,7 +1129,7 @@
   }
 
 
-  /* Divider */
+  /* DIVIDER */
 
   .footer-divider {
     margin:
@@ -1049,11 +1139,10 @@
   }
 
 
-  /* Main grid */
+  /* MAIN GRID */
 
   .footer-main {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     gap: 30px;
   }
@@ -1061,28 +1150,31 @@
 
   .footer-contact {
     grid-column: auto;
+
+    max-width: 100%;
   }
 
 
-  /* Headings */
+  /* HEADINGS */
 
   .footer-column h3 {
     font-size: 18px;
   }
 
 
-  /* Links */
+  /* QUICK LINKS */
 
   .footer-quick li a {
     font-size: 14px;
   }
 
 
-  /* Products */
+  /* PRODUCTS */
 
   .products-grid {
     grid-template-columns:
-      1fr 1fr;
+      1fr
+      1fr;
 
     column-gap: 20px;
 
@@ -1095,10 +1187,12 @@
   }
 
 
-  /* Contact */
+  /* GET IN TOUCH */
 
-  .footer-contact-item {
+  .footer-contact .footer-contact-item {
     display: flex;
+
+    gap: 12px;
 
     margin-right: 0;
 
@@ -1106,19 +1200,42 @@
   }
 
 
-  .contact-icon {
-    width: 36px;
+  .footer-contact .contact-icon {
+    width: 40px;
 
-    height: 36px;
+    height: 40px;
+
+    min-width: 40px;
+
+    font-size: 16px;
   }
 
 
-  .contact-content p {
+  .footer-contact .contact-label {
+    font-size: 10px;
+
+    letter-spacing: 1.4px;
+  }
+
+
+  .footer-contact .contact-content p,
+  .footer-contact .contact-link {
     font-size: 13px;
+
+    line-height: 1.5;
   }
 
 
-  /* Bottom */
+  .footer-contact .footer-enquire {
+    padding:
+      9px
+      16px;
+
+    font-size: 10px;
+  }
+
+
+  /* BOTTOM */
 
   .footer-bottom-divider {
     margin:
@@ -1154,13 +1271,12 @@
   }
 
 
-  /* Leaf */
+  /* LEAF */
 
   .footer-bg-image {
     opacity: 0.25;
 
-    background-position:
-      center center;
+    background-position: center center;
   }
 
 
@@ -1214,8 +1330,7 @@
 
 
   .products-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
 
 
@@ -1230,7 +1345,24 @@
   }
 
 
-  .contact-content p {
+  .footer-contact .contact-icon {
+    width: 37px;
+
+    height: 37px;
+
+    min-width: 37px;
+
+    font-size: 15px;
+  }
+
+
+  .footer-contact .contact-label {
+    font-size: 9px;
+  }
+
+
+  .footer-contact .contact-content p,
+  .footer-contact .contact-link {
     font-size: 12px;
   }
 
@@ -1257,6 +1389,7 @@
   .anchan-footer *,
   .anchan-footer *::before,
   .anchan-footer *::after {
+
     transition: none !important;
   }
 }

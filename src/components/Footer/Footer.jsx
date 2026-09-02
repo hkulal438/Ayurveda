@@ -69,6 +69,7 @@ const Footer = () => {
 
       <div className="footer-bg-overlay" />
 
+
       {/* =====================================================
           MAIN CONTAINER
       ====================================================== */}
@@ -173,6 +174,7 @@ const Footer = () => {
 
         <div className="footer-main">
 
+
           {/* =================================================
               QUICK LINKS
           ================================================== */}
@@ -240,7 +242,11 @@ const Footer = () => {
               className="footer-view-products"
             >
               VIEW ALL PRODUCTS
-              <span>→</span>
+
+              <span>
+                →
+              </span>
+
             </a>
 
           </div>
@@ -257,7 +263,9 @@ const Footer = () => {
             <div className="footer-title-line"></div>
 
 
-            {/* Address */}
+            {/* =================================================
+                CLINIC ADDRESS
+            ================================================== */}
 
             <div className="footer-contact-item">
 
@@ -268,11 +276,51 @@ const Footer = () => {
               <div className="contact-content">
 
                 <span className="contact-label">
-                  ADDRESS
+                  CLINIC ADDRESS
+                </span>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Anchan+Clinic%2C+Arjuna+Complex%2C+Dhanvantari+Road%2C+NH+66%2C+Padubidri%2C+Karnataka+574111"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link"
+                >
+                  Anchan Clinic,
+                  <br />
+                  Arjuna Complex, Dhanvantari Road,
+                  <br />
+                  NH 66, Padubidri,
+                  <br />
+                  Karnataka - 574111
+                </a>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                MANUFACTURING UNIT
+            ================================================== */}
+
+            <div className="footer-contact-item">
+
+              <div className="contact-icon">
+                ⌖
+              </div>
+
+              <div className="contact-content">
+
+                <span className="contact-label">
+                  MANUFACTURING UNIT
                 </span>
 
                 <p>
-                  [CLIENT ADDRESS]
+                  Anchan Ayurvedic Industries (R.),
+                  <br />
+                  Dhanvantari Road, NH 66,
+                  <br />
+                  Padubidri, Karnataka - 574111
                 </p>
 
               </div>
@@ -280,7 +328,9 @@ const Footer = () => {
             </div>
 
 
-            {/* Phone */}
+            {/* =================================================
+                PHONE
+            ================================================== */}
 
             <div className="footer-contact-item">
 
@@ -294,46 +344,92 @@ const Footer = () => {
                   PHONE
                 </span>
 
-                <p>
-                  [CLIENT PHONE]
-                </p>
+                <a
+                  href="tel:08202555161"
+                  className="contact-link"
+                >
+                  0820 255 5161
+                </a>
 
               </div>
 
             </div>
 
 
-            {/* Email */}
+            {/* =================================================
+                MOBILE
+            ================================================== */}
 
             <div className="footer-contact-item">
 
               <div className="contact-icon">
-                @
+                ☎
               </div>
 
               <div className="contact-content">
 
                 <span className="contact-label">
-                  EMAIL
+                  MOBILE
                 </span>
 
-                <p>
-                  [CLIENT EMAIL]
-                </p>
+                <a
+                  href="tel:+919448445440"
+                  className="contact-link"
+                >
+                  +91 94484 45440
+                </a>
 
               </div>
 
             </div>
 
 
-            {/* Enquire */}
+            {/* =================================================
+                WEBSITE
+            ================================================== */}
+
+            <div className="footer-contact-item">
+
+              <div className="contact-icon">
+                🌐
+              </div>
+
+              <div className="contact-content">
+
+                <span className="contact-label">
+                  WEBSITE
+                </span>
+
+                <a
+                  href="https://www.anchanayurveda.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link"
+                >
+                  www.anchanayurveda.com
+                </a>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                ENQUIRE
+            ================================================== */}
 
             <a
               href="#contact"
               className="footer-enquire"
             >
-              <span>ENQUIRE NOW</span>
-              <b>→</b>
+              <span>
+                ENQUIRE NOW
+              </span>
+
+              <b>
+                →
+              </b>
+
             </a>
 
           </div>

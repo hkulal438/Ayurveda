@@ -15,6 +15,7 @@ import Cards from "./components/Cards/cards";
 import Product from "./components/Product/Product";
 import Quality from "./components/Quality/Quality";
 import Gallery from "./components/Gallery/Gallery";
+import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -146,6 +147,7 @@ function App() {
         {/* ================= GALLERY ================= */}
 
         <Gallery />
+        <Contact />
 
       </main>
 

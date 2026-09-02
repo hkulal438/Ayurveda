@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Product.css";
 
 // =====================================================
@@ -12,10 +13,8 @@ import shwashariImage from "../../images/shwasari.jpeg";
 import nirvedhanImage from "../../images/nirvedan.png";
 import rumovinImage from "../../images/liniment.jpeg";
 import chyawanprashImage from "../../images/chyavanprash.jpeg";
-import hingoliImage from "../../images/oil.jpeg";
 import pustiImage from "../../images/pusti.jpeg";
 import bhrangamalakaImage from "../../images/oil.jpeg";
-import aloeVeraShampooImage from "../../images/alovera shampoo.png";
 import aloeVeraGelImage from "../../images/alovera gel.png";
 
 // =====================================================
@@ -73,13 +72,6 @@ const products = [
   },
 
   {
-    name: "HINGOLI",
-    category:
-      "Digestive wellness formulation",
-    image: hingoliImage,
-  },
-
-  {
     name: "PUSTI",
     category:
       "Nutritional wellness formulation for children",
@@ -94,19 +86,25 @@ const products = [
   },
 
   {
-    name: "ALOE VERA SHAMPOO",
-    category:
-      "Gentle herbal hair care",
-    image: aloeVeraShampooImage,
-  },
-
-  {
     name: "ALOE VERA GEL",
     category:
       "Herbal skin-care formulation",
     image: aloeVeraGelImage,
   },
 ];
+
+// =====================================================
+// PRODUCT URL
+// =====================================================
+
+const createProductUrl = (name) => {
+  return (
+    "/products/" +
+    name
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+  );
+};
 
 // =====================================================
 // PRODUCT COMPONENT
@@ -119,125 +117,190 @@ const Product = () => {
       id="products-section"
     >
 
+      {/* =====================================================
+          DECORATIVE BACKGROUND ELEMENTS
+      ===================================================== */}
+
+      <div className="products-decoration decoration-one">
+        ✦
+      </div>
+
+      <div className="products-decoration decoration-two">
+        ❋
+      </div>
+
+      <div className="products-decoration decoration-three">
+        ✽
+      </div>
+
+
       <div className="products-container">
 
-        {/* ================= HEADING ================= */}
+        {/* =====================================================
+            HEADING
+        ===================================================== */}
 
-        <div
-          className="products-heading"
-          data-aos="fade-up"
-        >
+        <div className="products-heading">
 
-          <span
-            className="products-subtitle"
-            data-aos="fade-up"
-          >
+          <span className="products-subtitle">
             OUR COLLECTION
           </span>
 
-          <h1
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            Featured Products
+          <h1>
+            Our Top-Selling Products
           </h1>
 
-          <div
-            className="heading-decoration"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
+          <div className="heading-decoration">
+
             <span></span>
+
             <i>✤</i>
+
             <span></span>
+
           </div>
 
-          <p
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Traditional Ayurvedic formulations for your complete wellness
+          <p>
+            Discover our most loved Ayurvedic formulations,
+            thoughtfully crafted with traditional knowledge
+            and natural ingredients for complete wellness.
           </p>
 
         </div>
 
 
-        {/* ================= PRODUCT GRID ================= */}
+        {/* =====================================================
+            PRODUCT GRID
+        ===================================================== */}
 
         <div className="card__container">
 
-          {products.map((product, index) => (
+          {products.map((product, index) => {
 
-            <article
-              className={`card__article ${
-                index === 1 ? "featured-card" : ""
-              }`}
-              key={product.name}
-              data-aos="fade-up"
-              data-aos-delay={(index % 4) * 100}
-            >
+            const cardClass =
+              index === 1
+                ? "card__article featured-card"
+                : "card__article";
 
-              {/* ================= PRODUCT IMAGE ================= */}
+            return (
+              <article
+                className={cardClass}
+                key={product.name}
+              >
 
-              <div className="card__image-wrapper">
+                {/* =====================================================
+                    TOP SELLING BADGE
+                ===================================================== */}
 
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="card__img"
-                />
+                {index < 3 && (
+                  <div className="top-selling-badge">
 
-              </div>
+                    <span>
+                      ✦
+                    </span>
+
+                    TOP SELLING
+
+                  </div>
+                )}
 
 
-              {/* ================= PRODUCT INFORMATION ================= */}
+                {/* =====================================================
+                    PRODUCT IMAGE
+                ===================================================== */}
 
-              <div className="card__data">
+                <div className="card__image-wrapper">
 
-                <h2 className="card__title">
-                  {product.name}
-                </h2>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="card__img"
+                  />
 
-                <p className="card__description">
-                  {product.category}
-                </p>
+                  <div className="image-overlay">
 
-                <div className="card__line"></div>
+                    <span>
+                      Explore Product
+                    </span>
 
-                <a
-                  href={`/products/${product.name
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}`}
-                  className="card__button"
-                >
-                  View Product
-                  <span>→</span>
-                </a>
+                  </div>
 
-              </div>
+                </div>
 
-            </article>
 
-          ))}
+                {/* =====================================================
+                    PRODUCT INFORMATION
+                ===================================================== */}
+
+                <div className="card__data">
+
+                  {/* Product Number */}
+                  <span className="product-number">
+                    {index + 1 < 10
+                      ? `0${index + 1}`
+                      : index + 1}
+                  </span>
+
+
+                  {/* Product Name */}
+                  <h2 className="card__title">
+                    {product.name}
+                  </h2>
+
+
+                  {/* Product Description */}
+                  <p className="card__description">
+                    {product.category}
+                  </p>
+
+
+                  {/* Decorative Line */}
+                  <div className="card__line"></div>
+
+
+                  {/* View Product */}
+                  <Link
+                    to={createProductUrl(product.name)}
+                    className="card__button"
+                  >
+
+                    View Product
+
+                    <span>
+                      →
+                    </span>
+
+                  </Link>
+
+                </div>
+
+              </article>
+            );
+          })}
 
         </div>
 
 
-        {/* ================= VIEW ALL PRODUCTS ================= */}
+        {/* =====================================================
+            VIEW ALL PRODUCTS
+        ===================================================== */}
 
-        <div
-          className="products__all"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
+        <div className="products__all">
 
-          <a
-            href="/products"
+          <Link
+            to="/products"
             className="products__all-button"
           >
-            View All Products
-            <span>→</span>
-          </a>
+
+            <span>
+              Explore All Products
+            </span>
+
+            <strong>
+              →
+            </strong>
+
+          </Link>
 
         </div>
 
@@ -246,5 +309,10 @@ const Product = () => {
     </section>
   );
 };
+
+
+// =====================================================
+// EXPORT
+// =====================================================
 
 export default Product;
