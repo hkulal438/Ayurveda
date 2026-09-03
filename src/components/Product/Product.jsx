@@ -16,6 +16,7 @@ import chyawanprashImage from "../../images/chyavanprash.jpeg";
 import pustiImage from "../../images/pusti.jpeg";
 import bhrangamalakaImage from "../../images/oil.jpeg";
 import aloeVeraGelImage from "../../images/alovera gel.png";
+import Kumari from "../../images/Kumari.png";
 
 // =====================================================
 // PRODUCT DATA
@@ -91,6 +92,13 @@ const products = [
       "Herbal skin-care formulation",
     image: aloeVeraGelImage,
   },
+
+  {
+    name: "KUMARI",
+    category:
+      "Traditional Ayurvedic formulation",
+    image: Kumari,
+  }
 ];
 
 // =====================================================
