@@ -1,4 +1,13 @@
 /* =========================================================
+   GOOGLE FONTS
+========================================================= */
+
+@import url(
+  "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+);
+
+
+/* =========================================================
    RESET
 ========================================================= */
 
@@ -10,12 +19,14 @@
 
 
 /* =========================================================
-   GOOGLE FONTS
+   HTML / BODY
 ========================================================= */
 
-@import url(
-  "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-);
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
 
 
 /* =========================================================
@@ -45,6 +56,8 @@
   color: #ffffff;
 
   font-family: "Poppins", sans-serif;
+
+  isolation: isolate;
 }
 
 
@@ -53,11 +66,20 @@
 ========================================================= */
 
 .gallery {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
 }
 
+
 .track {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
 
@@ -74,7 +96,8 @@
 
   inset: 0 !important;
 
-  width: auto !important;
+  width: 100% !important;
+  height: 100% !important;
 
   margin: 0 !important;
 
@@ -83,9 +106,11 @@
   transform: none !important;
 }
 
+
 .item[data-active="true"] {
   z-index: 2 !important;
 }
+
 
 .item[data-active="false"] {
   z-index: 10 !important;
@@ -120,6 +145,66 @@
     filter 0.4s ease;
 
   will-change: transform;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+    COVER fills the complete hero.
+    object-position prevents important content
+    from being pushed outside the visible area.
+  */
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  transform: scale(1.001);
+
+  transition:
+    transform 0.9s var(--zoom-ease),
+    object-position 0.5s ease;
+}
+
+
+/* =========================================================
+   INDIVIDUAL DESKTOP IMAGE POSITIONS
+========================================================= */
+
+/* Ayurveda */
+.image[data-slide-id="1"] {
+  object-position: center center;
+}
+
+
+/* Anchan */
+.image[data-slide-id="2"] {
+  object-position: center center;
+}
+
+
+/* Dr. Anchan */
+.image[data-slide-id="3"] {
+  object-position: center center;
+}
+
+
+/* Family */
+.image[data-slide-id="4"] {
+  object-position: center center;
 }
 
 
@@ -169,10 +254,6 @@
 }
 
 
-/* =========================================================
-   THUMBNAIL HOVER
-========================================================= */
-
 .item[data-active="false"] .slide:hover {
   filter:
     brightness(1)
@@ -195,24 +276,6 @@
 
 
 /* =========================================================
-   IMAGE
-========================================================= */
-
-.image {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  user-select: none;
-
-  -webkit-user-drag: none;
-}
-
-
-/* =========================================================
    IMAGE OVERLAY
 ========================================================= */
 
@@ -226,10 +289,12 @@
   background:
     linear-gradient(
       135deg,
-      rgba(7, 52, 34, 0.18),
+      rgba(7, 52, 34, 0.16),
       transparent 45%,
-      rgba(4, 35, 24, 0.25)
+      rgba(4, 35, 24, 0.22)
     );
+
+  z-index: 2;
 }
 
 
@@ -251,10 +316,10 @@
   background:
     linear-gradient(
       90deg,
-      rgba(7, 48, 31, 0.94) 0%,
-      rgba(7, 48, 31, 0.72) 22%,
-      rgba(7, 48, 31, 0.25) 55%,
-      rgba(7, 48, 31, 0.06) 100%
+      rgba(7, 48, 31, 0.88) 0%,
+      rgba(7, 48, 31, 0.64) 20%,
+      rgba(7, 48, 31, 0.20) 52%,
+      rgba(7, 48, 31, 0.03) 100%
     );
 }
 
@@ -282,8 +347,8 @@
   background:
     radial-gradient(
       circle,
-      rgba(214, 231, 164, 0.22) 0%,
-      rgba(156, 196, 125, 0.08) 40%,
+      rgba(214, 231, 164, 0.20) 0%,
+      rgba(156, 196, 125, 0.07) 40%,
       transparent 72%
     );
 
@@ -356,6 +421,7 @@
 ========================================================= */
 
 @keyframes contentIn {
+
   from {
     opacity: 0;
 
@@ -369,6 +435,7 @@
     transform:
       translateY(0);
   }
+
 }
 
 
@@ -438,7 +505,6 @@
 
 /* =========================================================
    MAIN TITLE
-   ALWAYS TWO LINES
 ========================================================= */
 
 .title {
@@ -504,7 +570,7 @@
   margin: 0 0 28px;
 
   color:
-    rgba(255, 255, 255, 0.82);
+    rgba(255, 255, 255, 0.84);
 
   font-size: 14px;
 
@@ -565,6 +631,7 @@
     box-shadow 0.3s ease;
 }
 
+
 .exploreButton:hover {
   transform:
     translateY(-3px);
@@ -575,6 +642,7 @@
     0 17px 35px
     rgba(0, 0, 0, 0.25);
 }
+
 
 .exploreButton:active {
   transform:
@@ -594,6 +662,7 @@
   transition:
     transform 0.3s ease;
 }
+
 
 .exploreButton:hover .arrow {
   transform:
@@ -656,6 +725,7 @@
     border-color 0.3s ease;
 }
 
+
 .navBtn:hover {
   transform:
     scale(1.08);
@@ -666,6 +736,7 @@
   border-color:
     #f0df8b;
 }
+
 
 .navBtn:active {
   transform:
@@ -687,6 +758,7 @@
   pointer-events: none;
 }
 
+
 .circleOne {
   width: 500px;
   height: 500px;
@@ -701,6 +773,7 @@
     1px solid
     rgba(237, 218, 130, 0.25);
 }
+
 
 .circleTwo {
   width: 620px;
@@ -742,10 +815,12 @@
   pointer-events: none;
 }
 
+
 .dotOne {
   right: 15%;
   top: 18%;
 }
+
 
 .dotTwo {
   right: 9%;
@@ -839,6 +914,11 @@
 
 @media (max-width: 1100px) {
 
+  .hero {
+    min-height: 650px;
+  }
+
+
   .rail {
     width: 62%;
 
@@ -893,6 +973,7 @@
     width: 530px;
     height: 530px;
   }
+
 }
 
 
@@ -902,27 +983,135 @@
 
 @media (max-width: 700px) {
 
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
   .hero {
-    min-height: 700px;
+    width: 100%;
+
+    height: 100svh;
+
+    min-height: 680px;
+
+    max-height: 850px;
+
+    overflow: hidden;
   }
 
 
-  /* MOBILE OVERLAY */
+  /* -------------------------------------------------------
+     GALLERY
+  ------------------------------------------------------- */
+
+  .gallery,
+  .track {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /* -------------------------------------------------------
+     ITEMS
+  ------------------------------------------------------- */
+
+  .item {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+
+  .slide {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE IMAGE
+  ------------------------------------------------------- */
+
+  .image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /*
+      IMPORTANT:
+      Keep the upper portion of the image visible.
+      This prevents faces and heads from being lost.
+    */
+
+    object-position: center 20%;
+  }
+
+
+  /* -------------------------------------------------------
+     AYURVEDA IMAGE
+  ------------------------------------------------------- */
+
+  .image[data-slide-id="1"] {
+    object-position: center 25%;
+  }
+
+
+  /* -------------------------------------------------------
+     ANCHAN IMAGE
+  ------------------------------------------------------- */
+
+  .image[data-slide-id="2"] {
+    object-position: center 25%;
+  }
+
+
+  /* -------------------------------------------------------
+     DR ANCHAN IMAGE
+  ------------------------------------------------------- */
+
+  .image[data-slide-id="3"] {
+    object-position: center 15%;
+  }
+
+
+  /* -------------------------------------------------------
+     FAMILY IMAGE
+  ------------------------------------------------------- */
+
+  .image[data-slide-id="4"] {
+    object-position: center 25%;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE OVERLAY
+  ------------------------------------------------------- */
 
   .hero::before {
+
     background:
       linear-gradient(
         180deg,
-        rgba(8, 45, 31, 0.05) 0%,
-        rgba(8, 45, 31, 0.18) 40%,
-        rgba(8, 45, 31, 0.94) 100%
+        rgba(8, 45, 31, 0.02) 0%,
+        rgba(8, 45, 31, 0.08) 30%,
+        rgba(8, 45, 31, 0.50) 55%,
+        rgba(8, 45, 31, 0.96) 100%
       );
   }
 
 
-  /* CONTENT RAIL */
+  /* -------------------------------------------------------
+     MOBILE CONTENT RAIL
+  ------------------------------------------------------- */
 
   .rail {
+
+    position: absolute;
+
     inset:
       auto
       0
@@ -931,38 +1120,50 @@
 
     width: 100%;
 
-    min-height: 58%;
-
-    justify-content:
-      flex-end;
+    min-height: auto;
 
     padding:
       30px
       20px
-      125px;
+      115px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: flex-start;
 
     background:
       linear-gradient(
         180deg,
         transparent 0%,
-        rgba(9, 49, 33, 0.25) 25%,
-        rgba(9, 49, 33, 0.94) 90%
+        rgba(9, 49, 33, 0.10) 20%,
+        rgba(9, 49, 33, 0.92) 75%,
+        rgba(9, 49, 33, 0.98) 100%
       );
   }
 
 
-  /* CONTENT */
+  /* -------------------------------------------------------
+     CONTENT
+  ------------------------------------------------------- */
 
   .content {
+
     width: 100%;
 
     max-width: 100%;
+
+    align-items: flex-start;
   }
 
 
-  /* TAG */
+  /* -------------------------------------------------------
+     TAG
+  ------------------------------------------------------- */
 
   .ayurvedaTag {
+
     margin-bottom: 14px;
 
     padding:
@@ -972,12 +1173,21 @@
     font-size: 8px;
 
     letter-spacing: 1.6px;
+
+    max-width: 100%;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
   }
 
 
-  /* KICKER */
+  /* -------------------------------------------------------
+     KICKER
+  ------------------------------------------------------- */
 
   .kicker {
+
     margin-bottom: 9px;
 
     font-size: 9px;
@@ -986,9 +1196,14 @@
   }
 
 
-  /* TITLE */
+  /* -------------------------------------------------------
+     TITLE
+  ------------------------------------------------------- */
 
   .title {
+
+    width: 100%;
+
     max-width: 100%;
 
     margin-bottom: 15px;
@@ -1007,15 +1222,23 @@
 
 
   .title span {
-    width: max-content;
+
+    width: auto;
 
     max-width: 100%;
+
+    white-space: normal;
   }
 
 
-  /* DESCRIPTION */
+  /* -------------------------------------------------------
+     DESCRIPTION
+  ------------------------------------------------------- */
 
   .description {
+
+    width: 100%;
+
     max-width: 95%;
 
     margin-bottom: 20px;
@@ -1035,9 +1258,12 @@
   }
 
 
-  /* BUTTON */
+  /* -------------------------------------------------------
+     BUTTON
+  ------------------------------------------------------- */
 
   .exploreButton {
+
     padding:
       11px
       18px;
@@ -1048,9 +1274,12 @@
   }
 
 
-  /* CONTROLS */
+  /* -------------------------------------------------------
+     CONTROLS
+  ------------------------------------------------------- */
 
   .controls {
+
     margin-top: 22px;
 
     gap: 8px;
@@ -1058,28 +1287,46 @@
 
 
   .navBtn {
+
     width: 44px;
+
     height: 44px;
   }
 
 
-  /* THUMBNAILS */
+  /* -------------------------------------------------------
+     MOBILE THUMBNAILS
+  ------------------------------------------------------- */
 
   .item[data-active="false"] .slide {
-    --thumb-width: 72px;
-    --thumb-height: 72px;
 
-    width: 72px;
-    height: 72px;
+    --thumb-width: 64px;
 
-    bottom: 28px;
+    --thumb-height: 64px;
+
+    width: 64px;
+
+    height: 64px;
+
+    /*
+      Move thumbnails to the upper-right.
+      This prevents overlap with the text content.
+    */
+
+    left: auto;
+
+    right: 20px;
+
+    top: 24px;
+
+    bottom: auto;
 
     border-width: 2px;
 
     transform:
       translateX(
         calc(
-          var(--offset) * 82px
+          var(--offset) * 72px
         )
       )
       scale(0.95);
@@ -1087,20 +1334,25 @@
 
 
   .item[data-active="false"] .slide:hover {
+
     transform:
       translateX(
         calc(
-          var(--offset) * 82px
+          var(--offset) * 72px
         )
       )
       scale(1.02);
   }
 
 
-  /* CIRCLES */
+  /* -------------------------------------------------------
+     CIRCLES
+  ------------------------------------------------------- */
 
   .circleOne {
+
     width: 300px;
+
     height: 300px;
 
     right: -160px;
@@ -1108,19 +1360,25 @@
 
 
   .circleTwo {
+
     width: 380px;
+
     height: 380px;
 
     right: -200px;
   }
 
 
-  /* HIDDEN DECORATION */
+  /* -------------------------------------------------------
+     HIDE DESKTOP DECORATION
+  ------------------------------------------------------- */
 
   .verticalText,
   .decorativeDot {
+
     display: none;
   }
+
 }
 
 
@@ -1131,11 +1389,17 @@
 @media (max-width: 420px) {
 
   .hero {
+
+    height: 100svh;
+
     min-height: 650px;
+
+    max-height: 780px;
   }
 
 
   .rail {
+
     padding:
       20px
       15px
@@ -1144,6 +1408,7 @@
 
 
   .ayurvedaTag {
+
     margin-bottom: 11px;
 
     font-size: 7px;
@@ -1153,6 +1418,7 @@
 
 
   .kicker {
+
     margin-bottom: 7px;
 
     font-size: 8px;
@@ -1162,6 +1428,7 @@
 
 
   .title {
+
     margin-bottom: 12px;
 
     font-size: 2.65rem;
@@ -1173,6 +1440,7 @@
 
 
   .description {
+
     max-width: 100%;
 
     margin-bottom: 16px;
@@ -1186,6 +1454,7 @@
 
 
   .exploreButton {
+
     padding:
       10px
       16px;
@@ -1195,18 +1464,23 @@
 
 
   .item[data-active="false"] .slide {
-    --thumb-width: 60px;
-    --thumb-height: 60px;
 
-    width: 60px;
-    height: 60px;
+    --thumb-width: 56px;
 
-    bottom: 22px;
+    --thumb-height: 56px;
+
+    width: 56px;
+
+    height: 56px;
+
+    right: 15px;
+
+    top: 18px;
 
     transform:
       translateX(
         calc(
-          var(--offset) * 68px
+          var(--offset) * 62px
         )
       )
       scale(0.9);
@@ -1214,10 +1488,11 @@
 
 
   .item[data-active="false"] .slide:hover {
+
     transform:
       translateX(
         calc(
-          var(--offset) * 68px
+          var(--offset) * 62px
         )
       )
       scale(0.97);
@@ -1225,6 +1500,7 @@
 
 
   .controls {
+
     margin-top: 17px;
 
     gap: 7px;
@@ -1232,13 +1508,17 @@
 
 
   .navBtn {
+
     width: 40px;
+
     height: 40px;
   }
 
 
   .circleOne {
+
     width: 250px;
+
     height: 250px;
 
     right: -140px;
@@ -1246,11 +1526,14 @@
 
 
   .circleTwo {
+
     width: 320px;
+
     height: 320px;
 
     right: -175px;
   }
+
 }
 
 
@@ -1260,7 +1543,18 @@
 
 @media (max-width: 360px) {
 
+  .hero {
+
+    height: 100svh;
+
+    min-height: 620px;
+
+    max-height: 720px;
+  }
+
+
   .rail {
+
     padding:
       18px
       13px
@@ -1269,6 +1563,7 @@
 
 
   .title {
+
     font-size: 2.35rem;
 
     line-height: 0.92;
@@ -1276,11 +1571,13 @@
 
 
   .description {
+
     font-size: 11px;
   }
 
 
   .exploreButton {
+
     padding:
       9px
       14px;
@@ -1288,27 +1585,33 @@
 
 
   .item[data-active="false"] .slide {
-    --thumb-width: 54px;
-    --thumb-height: 54px;
 
-    width: 54px;
-    height: 54px;
+    --thumb-width: 50px;
 
-    bottom: 20px;
+    --thumb-height: 50px;
+
+    width: 50px;
+
+    height: 50px;
+
+    right: 13px;
+
+    top: 15px;
 
     transform:
       translateX(
         calc(
-          var(--offset) * 62px
+          var(--offset) * 55px
         )
       )
       scale(0.88);
   }
+
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   ACCESSIBILITY — REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1316,9 +1619,12 @@
   .slide,
   .content,
   .navBtn,
-  .exploreButton {
+  .exploreButton,
+  .image {
+
     transition: none !important;
 
     animation: none !important;
   }
+
 }
