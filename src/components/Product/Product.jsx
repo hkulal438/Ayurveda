@@ -96,7 +96,7 @@ const products = [
   {
     name: "KUMARI",
     category:
-      "Traditional Ayurvedic formulation",
+      "Traditional Ayurvedic Shampoo",
     image: Kumari,
   }
 ];
