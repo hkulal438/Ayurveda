@@ -200,8 +200,9 @@ const products = [
   "Chyawanprash",
   "Pusti",
   "Bhrangamalaka Thaila",
-  "Aloe Vera Shampoo",
+  "Kumari Shampoo",
   "Aloe Vera Gel",
+ 
 ];
 
 
