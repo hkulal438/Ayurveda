@@ -1,12 +1,13 @@
 /* =========================================================
    ANCHAN AYURVEDIC INDUSTRIES
-   PREMIUM BOTANICAL FOOTER
-========================================================= */
+   FOOTER
+   Clean • Professional • Uniform
+   ========================================================= */
 
 
 /* =========================================================
    GLOBAL
-========================================================= */
+   ========================================================= */
 
 .anchan-footer,
 .anchan-footer * {
@@ -22,7 +23,7 @@
 
 /* =========================================================
    FOOTER BASE
-========================================================= */
+   ========================================================= */
 
 .anchan-footer {
   position: relative;
@@ -39,16 +40,14 @@
 
 
 /* =========================================================
-   LEAF BACKGROUND
-========================================================= */
+   BACKGROUND IMAGE
+   IMPORTANT: BACKGROUND IS RETAINED
+   ========================================================= */
 
 .footer-bg-image {
   position: absolute;
 
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
 
   z-index: 0;
 
@@ -56,7 +55,9 @@
   height: 100%;
 
   background-size: cover;
-  background-position: center center;
+
+  background-position: center;
+
   background-repeat: no-repeat;
 
   opacity: 0.32;
@@ -64,7 +65,7 @@
   pointer-events: none;
 
   filter:
-    saturate(0.85)
+    saturate(0.9)
     brightness(0.85)
     contrast(1.02);
 
@@ -73,8 +74,8 @@
 
 
 /* =========================================================
-   GREEN OVERLAY
-========================================================= */
+   BACKGROUND OVERLAY
+   ========================================================= */
 
 .footer-bg-overlay {
   position: absolute;
@@ -87,19 +88,17 @@
 
   background:
     linear-gradient(
-      90deg,
-      rgba(2, 35, 22, 0.78) 0%,
-      rgba(4, 57, 35, 0.65) 30%,
-      rgba(5, 69, 42, 0.58) 50%,
-      rgba(4, 57, 35, 0.65) 70%,
-      rgba(2, 35, 22, 0.80) 100%
+      135deg,
+      rgba(3, 36, 23, 0.88) 0%,
+      rgba(5, 58, 35, 0.82) 45%,
+      rgba(7, 68, 41, 0.88) 100%
     );
 }
 
 
 /* =========================================================
    MAIN CONTAINER
-========================================================= */
+   ========================================================= */
 
 .footer-container {
   position: relative;
@@ -107,20 +106,21 @@
   z-index: 5;
 
   width: 100%;
+
   max-width: 1450px;
 
   margin: 0 auto;
 
   padding:
-    48px
     55px
-    20px;
+    55px
+    24px;
 }
 
 
 /* =========================================================
-   TOP BRAND SECTION
-========================================================= */
+   BRAND SECTION
+   ========================================================= */
 
 .footer-top {
   display: flex;
@@ -128,6 +128,7 @@
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
   text-align: center;
@@ -136,67 +137,65 @@
 
 /* =========================================================
    COMPANY NAME
-========================================================= */
+   ========================================================= */
 
 .footer-company {
   margin: 0;
 
   color: #ffffff;
 
-  font-size: 34px;
+  font-size: 38px;
 
   line-height: 1.2;
 
   font-weight: 700;
 
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
 
   text-transform: uppercase;
-
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 
 /* =========================================================
    TAGLINE
-========================================================= */
+   ========================================================= */
 
 .footer-tagline {
+  max-width: 760px;
+
   margin:
-    10px
+    12px
     0
     0;
 
-  max-width: 700px;
+  color: #dcebdc;
 
-  color: #e7dcb8;
+  font-size: 19px;
 
-  font-size: 18px;
-
-  line-height: 1.45;
+  line-height: 1.55;
 
   font-weight: 600;
 
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }
 
 
 /* =========================================================
    DESCRIPTION
-========================================================= */
+   ========================================================= */
 
 .footer-description {
-  max-width: 760px;
+  max-width: 780px;
 
   margin:
-    10px
+    12px
     auto
     0;
 
-  color: rgba(255, 255, 255, 0.84);
+  color:
+    rgba(255, 255, 255, 0.82);
 
-  font-size: 15px;
+  font-size: 16px;
 
   line-height: 1.7;
 
@@ -205,116 +204,107 @@
 
 
 /* =========================================================
-   SOCIAL ICONS
-========================================================= */
+   SOCIAL MEDIA
+   ========================================================= */
 
 .footer-social {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  gap: 15px;
+  gap: 12px;
 
-  margin-top: 22px;
+  margin-top: 23px;
 }
 
 
 /* =========================================================
-   SOCIAL BUTTON
-========================================================= */
+   SOCIAL ICON BUTTON
+   ========================================================= */
 
 .footer-social-link {
+  width: 45px;
+  height: 45px;
+
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  width: 50px;
-  height: 50px;
+  color: #d8efdd;
 
-  padding: 4px;
-
-  overflow: hidden;
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.96);
+  background:
+    rgba(255, 255, 255, 0.07);
 
   border:
-    2px solid
-    rgba(218, 195, 121, 0.55);
+    1px
+    solid
+    rgba(216, 239, 221, 0.28);
 
-  box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
 
   text-decoration: none;
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 
-/* =========================================================
-   SOCIAL IMAGE
-========================================================= */
+/* SVG */
 
-.footer-social-link img {
+.footer-social-link svg {
   display: block;
 
-  width: 100%;
-  height: 100%;
+  fill: none;
 
-  object-fit: contain;
-
-  border-radius: 50%;
-
-  transition:
-    transform 0.3s ease;
+  stroke: currentColor;
 }
 
 
-/* =========================================================
-   SOCIAL HOVER
-========================================================= */
+/* Hover */
 
 .footer-social-link:hover {
-  transform:
-    translateY(-5px)
-    scale(1.06);
+  transform: translateY(-4px);
 
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.35);
-}
+  color: #ffffff;
 
+  background:
+    rgba(255, 255, 255, 0.15);
 
-.footer-social-link:hover img {
-  transform: scale(1.08);
+  border-color:
+    rgba(216, 239, 221, 0.65);
 }
 
 
 /* =========================================================
-   GOLD DIVIDER
-========================================================= */
+   DIVIDER
+   ========================================================= */
 
 .footer-divider {
+  width: 100%;
+
   display: flex;
 
   align-items: center;
 
-  width: 100%;
+  gap: 14px;
 
   margin:
-    35px
+    38px
     0
-    32px;
-
-  gap: 14px;
+    34px;
 }
 
 
-.footer-divider span {
+/* Left / right lines */
+
+.footer-divider > span:not(.footer-divider-icon) {
   flex: 1;
 
   height: 1px;
@@ -323,53 +313,77 @@
     linear-gradient(
       90deg,
       transparent,
-      rgba(215, 190, 104, 0.60)
+      rgba(216, 239, 221, 0.30)
     );
 }
 
 
-.footer-divider span:last-child {
+.footer-divider > span:last-child {
   background:
     linear-gradient(
       90deg,
-      rgba(215, 190, 104, 0.60),
+      rgba(216, 239, 221, 0.30),
       transparent
     );
 }
 
 
-.footer-divider i {
-  flex-shrink: 0;
+/* Divider icon */
 
-  color: #d2b866;
+.footer-divider-icon {
+  width: 28px;
+  height: 28px;
 
-  font-size: 13px;
+  display: flex;
 
-  font-style: normal;
+  align-items: center;
+
+  justify-content: center;
+
+  color: #d8efdd;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border:
+    1px
+    solid
+    rgba(216, 239, 221, 0.30);
+
+  border-radius: 50%;
+}
+
+
+.footer-divider-icon svg {
+  display: block;
+
+  fill: none;
+
+  stroke: currentColor;
 }
 
 
 /* =========================================================
    MAIN FOOTER GRID
-========================================================= */
+   ========================================================= */
 
 .footer-main {
   display: grid;
 
   grid-template-columns:
-    0.9fr
-    1.55fr
-    0.95fr;
+    0.85fr
+    1.45fr
+    1fr;
 
-  gap: 70px;
+  gap: 65px;
 
   align-items: start;
 }
 
 
 /* =========================================================
-   COLUMN
-========================================================= */
+   FOOTER COLUMN
+   ========================================================= */
 
 .footer-column {
   min-width: 0;
@@ -377,53 +391,55 @@
 
 
 /* =========================================================
-   COLUMN HEADINGS
-========================================================= */
+   COLUMN HEADING
+   ========================================================= */
 
 .footer-column h3 {
   margin:
     0
     0
-    10px;
+    11px;
 
-  color: #f4eacb;
+  color: #e0efdf;
 
   font-size: 20px;
 
-  line-height: 1.25;
+  line-height: 1.3;
 
   font-weight: 700;
 
-  letter-spacing: 1.8px;
+  letter-spacing: 1.6px;
 }
 
 
 /* =========================================================
-   GOLD UNDERLINE
-========================================================= */
+   TITLE UNDERLINE
+   ========================================================= */
 
 .footer-title-line {
-  width: 55px;
+  width: 50px;
 
   height: 2px;
 
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 
-  background: #cdb15e;
+  border-radius: 20px;
+
+  background: #a9d4b0;
 
   transition:
-    width 0.3s ease;
+    width 0.25s ease;
 }
 
 
 .footer-column:hover .footer-title-line {
-  width: 85px;
+  width: 70px;
 }
 
 
 /* =========================================================
    QUICK LINKS
-========================================================= */
+   ========================================================= */
 
 .footer-quick ul {
   margin: 0;
@@ -438,7 +454,7 @@
   margin:
     0
     0
-    9px;
+    10px;
 }
 
 
@@ -447,13 +463,14 @@
 
   align-items: center;
 
-  gap: 7px;
+  gap: 10px;
 
-  color: rgba(255, 255, 255, 0.84);
+  color:
+    rgba(255, 255, 255, 0.84);
 
-  font-size: 15px;
+  font-size: 16px;
 
-  line-height: 1.45;
+  line-height: 1.55;
 
   text-decoration: none;
 
@@ -463,36 +480,60 @@
 }
 
 
-.footer-arrow {
-  color: #d0b45e;
+/* =========================================================
+   QUICK LINK ICON
+   ========================================================= */
 
-  opacity: 0;
+.footer-link-icon {
+  width: 18px;
+  height: 18px;
 
-  transform: translateX(-7px);
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #b9ddbe;
+
+  opacity: 0.85;
 
   transition:
-    opacity 0.25s ease,
+    color 0.25s ease,
     transform 0.25s ease;
 }
 
 
-.footer-quick li a:hover {
-  color: #ead48b;
+.footer-link-icon svg {
+  display: block;
 
-  transform: translateX(4px);
+  fill: none;
+
+  stroke: currentColor;
 }
 
 
-.footer-quick li a:hover .footer-arrow {
-  opacity: 1;
+/* Quick link hover */
 
-  transform: translateX(0);
+.footer-quick li a:hover {
+  color: #ffffff;
+
+  transform: translateX(3px);
+}
+
+
+.footer-quick li a:hover .footer-link-icon {
+  color: #ffffff;
+
+  transform: translateX(2px);
 }
 
 
 /* =========================================================
    PRODUCTS
-========================================================= */
+   ========================================================= */
 
 .products-grid {
   display: grid;
@@ -503,24 +544,27 @@
 
   column-gap: 38px;
 
-  row-gap: 8px;
+  row-gap: 11px;
 }
 
+
+/* Product links */
 
 .products-grid a {
   display: flex;
 
   align-items: center;
 
-  gap: 6px;
+  gap: 9px;
 
   width: fit-content;
 
-  color: rgba(255, 255, 255, 0.82);
+  color:
+    rgba(255, 255, 255, 0.82);
 
-  font-size: 14px;
+  font-size: 15px;
 
-  line-height: 1.45;
+  line-height: 1.5;
 
   text-decoration: none;
 
@@ -530,173 +574,206 @@
 }
 
 
-.products-grid a:hover {
-  color: #ead48b;
+/* =========================================================
+   PRODUCT ICON
+   ========================================================= */
 
-  transform: translateX(4px);
+.footer-product-icon {
+  width: 18px;
+  height: 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #b9ddbe;
+
+  opacity: 0.85;
 }
 
 
-.products-grid a:hover .footer-arrow {
-  opacity: 1;
+.footer-product-icon svg {
+  display: block;
 
-  transform: translateX(0);
+  fill: none;
+
+  stroke: currentColor;
+}
+
+
+/* Product hover */
+
+.products-grid a:hover {
+  color: #ffffff;
+
+  transform: translateX(3px);
+}
+
+
+.products-grid a:hover .footer-product-icon {
+  color: #ffffff;
 }
 
 
 /* =========================================================
    VIEW ALL PRODUCTS
-========================================================= */
+   ========================================================= */
 
 .footer-view-products {
   display: inline-flex;
 
   align-items: center;
-  justify-content: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  margin-top: 19px;
+  margin-top: 21px;
 
   padding-bottom: 5px;
 
-  color: #d7bd6b;
+  color: #cde5d0;
 
   font-size: 12px;
 
+  line-height: 1.4;
+
   font-weight: 700;
 
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
 
   text-decoration: none;
 
   border-bottom:
-    1px solid
-    rgba(215, 189, 107, 0.70);
+    1px
+    solid
+    rgba(205, 229, 208, 0.45);
 
   transition:
-    gap 0.3s ease,
-    color 0.3s ease;
+    color 0.25s ease,
+    gap 0.25s ease;
 }
 
 
-.footer-view-products span {
-  font-size: 18px;
+.footer-view-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.footer-view-icon svg {
+  display: block;
+
+  fill: none;
+
+  stroke: currentColor;
 }
 
 
 .footer-view-products:hover {
-  gap: 18px;
+  gap: 15px;
 
-  color: #f1dda0;
+  color: #ffffff;
 }
 
 
 /* =========================================================
-   GET IN TOUCH
-========================================================= */
+   CONTACT COLUMN
+   ========================================================= */
 
 .footer-contact {
   width: 100%;
 
-  max-width: 360px;
-}
-
-
-/* =========================================================
-   GET IN TOUCH HEADING
-========================================================= */
-
-.footer-contact h3 {
-  margin:
-    0
-    0
-    10px;
-
-  color: #f4eacb;
-
-  font-size: 20px;
-
-  line-height: 1.2;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-
-/* =========================================================
-   GET IN TOUCH TITLE LINE
-========================================================= */
-
-.footer-contact .footer-title-line {
-  width: 55px;
-
-  height: 2px;
-
-  margin-bottom: 24px;
-
-  background: #cdb15e;
+  max-width: 390px;
 }
 
 
 /* =========================================================
    CONTACT ITEM
-========================================================= */
+   ========================================================= */
 
 .footer-contact .footer-contact-item {
   display: flex;
 
   align-items: flex-start;
 
-  gap: 16px;
+  gap: 14px;
 
   width: 100%;
 
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 
 /* =========================================================
    CONTACT ICON
-========================================================= */
+   ========================================================= */
 
 .footer-contact .contact-icon {
+  width: 42px;
+  height: 42px;
+
+  min-width: 42px;
+
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  width: 48px;
-  height: 48px;
+  margin-top: 1px;
 
-  min-width: 48px;
+  color: #d8efdd;
 
-  margin-top: 0;
+  background:
+    rgba(255, 255, 255, 0.07);
 
   border:
-    1px solid
-    rgba(211, 185, 100, 0.65);
+    1px
+    solid
+    rgba(216, 239, 221, 0.25);
 
   border-radius: 50%;
 
-  background:
-    rgba(255, 255, 255, 0.06);
-
-  color: #d8bd69;
-
-  font-size: 19px;
-
   line-height: 1;
 
-  box-shadow:
-    0 3px 10px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.footer-contact .contact-icon svg {
+  display: block;
+
+  fill: none;
+
+  stroke: currentColor;
+}
+
+
+/* Contact icon hover */
+
+.footer-contact-item:hover .contact-icon {
+  transform: translateY(-2px);
+
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  border-color:
+    rgba(216, 239, 221, 0.50);
 }
 
 
 /* =========================================================
    CONTACT CONTENT
-========================================================= */
+   ========================================================= */
 
 .footer-contact .contact-content {
   flex: 1;
@@ -707,7 +784,7 @@
 
 /* =========================================================
    CONTACT LABEL
-========================================================= */
+   ========================================================= */
 
 .footer-contact .contact-label {
   display: block;
@@ -715,130 +792,104 @@
   margin:
     1px
     0
-    7px;
+    6px;
 
-  color: #d5b95f;
+  color: #c9e3cc;
 
-  font-size: 11px;
+  font-size: 12px;
 
-  line-height: 1.2;
+  line-height: 1.3;
 
   font-weight: 700;
 
-  letter-spacing: 1.7px;
+  letter-spacing: 1.5px;
 }
 
 
 /* =========================================================
    CONTACT PARAGRAPH
-========================================================= */
+   ========================================================= */
 
 .footer-contact .contact-content p {
-  max-width: 280px;
+  max-width: 320px;
 
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.88);
+  color:
+    rgba(255, 255, 255, 0.84);
 
   font-size: 15px;
 
-  line-height: 1.55;
-
-  font-weight: 400;
+  line-height: 1.6;
 }
 
 
 /* =========================================================
-   CONTACT LINKS
-========================================================= */
+   CONTACT LINK
+   ========================================================= */
 
 .footer-contact .contact-link {
   display: inline;
 
-  max-width: 280px;
+  max-width: 320px;
 
-  color: rgba(255, 255, 255, 0.90);
+  color:
+    rgba(255, 255, 255, 0.86);
 
   font-size: 15px;
 
-  line-height: 1.55;
+  line-height: 1.6;
 
   text-decoration: none;
-
-  word-break: normal;
 
   overflow-wrap: break-word;
 
   transition:
-    color 0.25s ease,
-    opacity 0.25s ease;
+    color 0.25s ease;
 }
 
 
-/* =========================================================
-   CONTACT LINK HOVER
-========================================================= */
-
 .footer-contact .contact-link:hover {
-  color: #e2c96f;
+  color: #ffffff;
 
   text-decoration: underline;
 }
 
 
 /* =========================================================
-   ADDRESS
-========================================================= */
-
-.footer-contact .contact-content a.contact-link {
-  color: rgba(255, 255, 255, 0.90);
-}
-
-
-/* =========================================================
-   PHONE / MOBILE / WEBSITE
-========================================================= */
-
-.footer-contact .contact-link[href^="tel:"] {
-  color: #ffffff;
-
-  font-size: 15px;
-}
-
-
-.footer-contact .contact-link[href*="anchanayurveda"] {
-  color: #ffffff;
-}
-
-
-/* =========================================================
    ENQUIRE BUTTON
-========================================================= */
+   ========================================================= */
 
 .footer-contact .footer-enquire {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 10px;
 
-  margin-top: 2px;
+  margin-top: 5px;
 
   padding:
     10px
-    18px;
+    19px;
 
-  border:
-    1px solid
-    rgba(213, 185, 95, 0.75);
+  color: #d8efdd;
 
   background:
-    rgba(255, 255, 255, 0.035);
+    rgba(255, 255, 255, 0.07);
 
-  color: #e0c574;
+  border:
+    1px
+    solid
+    rgba(216, 239, 221, 0.35);
 
-  font-size: 11px;
+  border-radius: 3px;
+
+  font-size: 12px;
+
+  line-height: 1.3;
 
   font-weight: 700;
 
@@ -847,46 +898,57 @@
   text-decoration: none;
 
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    gap 0.3s ease,
-    transform 0.3s ease;
+    background 0.25s ease,
+    color 0.25s ease,
+    gap 0.25s ease,
+    transform 0.25s ease;
 }
 
 
-.footer-contact .footer-enquire b {
-  font-size: 17px;
+.footer-enquire-icon {
+  display: inline-flex;
 
-  font-weight: 400;
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.footer-enquire-icon svg {
+  display: block;
+
+  fill: none;
+
+  stroke: currentColor;
 }
 
 
 .footer-contact .footer-enquire:hover {
-  gap: 16px;
+  gap: 15px;
 
   transform: translateY(-2px);
 
-  background: #c7aa55;
+  color: #073b27;
 
-  color: #082e1e;
+  background: #d8efdd;
 }
 
 
 /* =========================================================
    BOTTOM DIVIDER
-========================================================= */
+   ========================================================= */
 
 .footer-bottom-divider {
   margin:
-    36px
+    38px
     0
-    18px;
+    20px;
 }
 
 
 /* =========================================================
-   BOTTOM BAR
-========================================================= */
+   FOOTER BOTTOM
+   ========================================================= */
 
 .footer-bottom {
   display: flex;
@@ -901,22 +963,23 @@
 
 /* =========================================================
    COPYRIGHT
-========================================================= */
+   ========================================================= */
 
 .copyright {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.65);
+  color:
+    rgba(255, 255, 255, 0.65);
 
-  font-size: 12px;
+  font-size: 13px;
 
   line-height: 1.5;
 }
 
 
 /* =========================================================
-   LEGAL
-========================================================= */
+   LEGAL LINKS
+   ========================================================= */
 
 .footer-legal {
   display: flex;
@@ -925,14 +988,17 @@
 
   justify-content: flex-end;
 
-  gap: 10px;
+  gap: 9px;
 }
 
 
 .footer-legal a {
-  color: rgba(255, 255, 255, 0.65);
+  color:
+    rgba(255, 255, 255, 0.65);
 
-  font-size: 12px;
+  font-size: 13px;
+
+  line-height: 1.5;
 
   text-decoration: none;
 
@@ -942,82 +1008,74 @@
 
 
 .footer-legal a:hover {
-  color: #dfc878;
+  color: #ffffff;
 }
 
 
 .footer-legal span {
-  color: rgba(210, 180, 88, 0.45);
+  color:
+    rgba(216, 239, 221, 0.35);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .footer-container {
+    padding:
+      50px
+      40px
+      22px;
+  }
+
+
+  .footer-main {
+    gap: 45px;
+  }
+
+
+  .footer-company {
+    font-size: 34px;
+  }
+
+
+  .footer-column h3 {
+    font-size: 19px;
+  }
+
+
+  .footer-quick li a {
+    font-size: 15px;
+  }
+
+
+  .products-grid a {
+    font-size: 14px;
+  }
+
+
+  .footer-contact .contact-content p,
+  .footer-contact .contact-link {
+    font-size: 14px;
+  }
+
 }
 
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 1100px) {
-
-  .footer-container {
-    padding:
-      42px
-      35px
-      18px;
-  }
-
-
-  .footer-main {
-    grid-template-columns:
-      0.85fr
-      1.4fr
-      0.9fr;
-
-    gap: 40px;
-  }
-
-
-  .footer-company {
-    font-size: 30px;
-  }
-
-
-  .footer-column h3 {
-    font-size: 18px;
-  }
-
-
-  .footer-quick li a {
-    font-size: 14px;
-  }
-
-
-  .products-grid a {
-    font-size: 13px;
-  }
-
-
-  .footer-contact {
-    max-width: 340px;
-  }
-
-
-  .footer-contact .contact-link,
-  .footer-contact .contact-content p {
-    font-size: 14px;
-  }
-}
-
-
-/* =========================================================
-   TABLET PORTRAIT
-========================================================= */
-
-@media (max-width: 800px) {
+@media (max-width: 950px) {
 
   .footer-container {
     padding:
-      40px
-      28px
-      18px;
+      45px
+      30px
+      20px;
   }
 
 
@@ -1027,8 +1085,8 @@
       1fr;
 
     gap:
-      38px
-      30px;
+      40px
+      35px;
   }
 
 
@@ -1039,10 +1097,9 @@
   }
 
 
-  .footer-contact .footer-contact-item {
-    display: flex;
-
-    margin-right: 0;
+  .footer-contact .contact-content p,
+  .footer-contact .contact-link {
+    max-width: 500px;
   }
 
 
@@ -1058,93 +1115,45 @@
   .footer-legal {
     justify-content: center;
   }
+
 }
 
 
 /* =========================================================
-   MOBILE
-========================================================= */
+   TABLET / MOBILE
+   ========================================================= */
 
-@media (max-width: 550px) {
-
-  .anchan-footer {
-    min-height: auto;
-  }
-
+@media (max-width: 700px) {
 
   .footer-container {
     padding:
-      35px
-      20px
-      16px;
+      42px
+      25px
+      18px;
   }
 
 
-  /* COMPANY */
-
   .footer-company {
-    font-size: 23px;
-
-    line-height: 1.25;
+    font-size: 30px;
 
     letter-spacing: 1.5px;
   }
 
 
-  /* TAGLINE */
-
   .footer-tagline {
-    max-width: 360px;
-
-    font-size: 14px;
-
-    line-height: 1.5;
+    font-size: 17px;
   }
 
-
-  /* DESCRIPTION */
 
   .footer-description {
-    max-width: 380px;
-
-    font-size: 12px;
-
-    line-height: 1.65;
+    font-size: 14px;
   }
 
-
-  /* SOCIAL */
-
-  .footer-social {
-    gap: 10px;
-
-    margin-top: 18px;
-  }
-
-
-  .footer-social-link {
-    width: 44px;
-
-    height: 44px;
-  }
-
-
-  /* DIVIDER */
-
-  .footer-divider {
-    margin:
-      28px
-      0
-      27px;
-  }
-
-
-  /* MAIN GRID */
 
   .footer-main {
     grid-template-columns: 1fr;
 
-    gap: 30px;
+    gap: 32px;
   }
 
 
@@ -1155,21 +1164,204 @@
   }
 
 
-  /* HEADINGS */
+  .products-grid {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .footer-bottom {
+    gap: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+  /* -----------------------------------------
+     FOOTER
+     ----------------------------------------- */
+
+  .anchan-footer {
+    min-height: auto;
+  }
+
+
+  /* -----------------------------------------
+     CONTAINER
+     ----------------------------------------- */
+
+  .footer-container {
+    padding:
+      38px
+      20px
+      16px;
+  }
+
+
+  /* -----------------------------------------
+     BACKGROUND
+     ----------------------------------------- */
+
+  .footer-bg-image {
+    opacity: 0.28;
+
+    background-position: center;
+  }
+
+
+  .footer-bg-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 38, 24, 0.86),
+        rgba(4, 53, 33, 0.94)
+      );
+  }
+
+
+  /* -----------------------------------------
+     COMPANY
+     ----------------------------------------- */
+
+  .footer-company {
+    font-size: 27px;
+
+    line-height: 1.3;
+
+    letter-spacing: 1.2px;
+  }
+
+
+  /* -----------------------------------------
+     TAGLINE
+     ----------------------------------------- */
+
+  .footer-tagline {
+    max-width: 380px;
+
+    margin-top: 10px;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+  }
+
+
+  /* -----------------------------------------
+     DESCRIPTION
+     ----------------------------------------- */
+
+  .footer-description {
+    max-width: 380px;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+  }
+
+
+  /* -----------------------------------------
+     SOCIAL
+     ----------------------------------------- */
+
+  .footer-social {
+    gap: 9px;
+
+    margin-top: 19px;
+  }
+
+
+  .footer-social-link {
+    width: 41px;
+    height: 41px;
+  }
+
+
+  /* -----------------------------------------
+     DIVIDER
+     ----------------------------------------- */
+
+  .footer-divider {
+    margin:
+      29px
+      0
+      28px;
+
+    gap: 10px;
+  }
+
+
+  .footer-divider-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+
+  /* -----------------------------------------
+     COLUMNS
+     ----------------------------------------- */
+
+  .footer-main {
+    grid-template-columns: 1fr;
+
+    gap: 31px;
+  }
+
+
+  /* -----------------------------------------
+     HEADING
+     ----------------------------------------- */
 
   .footer-column h3 {
-    font-size: 18px;
+    margin-bottom: 9px;
+
+    font-size: 19px;
+
+    letter-spacing: 1.3px;
   }
 
 
-  /* QUICK LINKS */
+  .footer-title-line {
+    width: 45px;
+
+    margin-bottom: 18px;
+  }
+
+
+  /* -----------------------------------------
+     QUICK LINKS
+     ----------------------------------------- */
+
+  .footer-quick li {
+    margin-bottom: 9px;
+  }
+
 
   .footer-quick li a {
-    font-size: 14px;
+    font-size: 15px;
+
+    line-height: 1.5;
   }
 
 
-  /* PRODUCTS */
+  .footer-link-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  /* -----------------------------------------
+     PRODUCTS
+     ----------------------------------------- */
 
   .products-grid {
     grid-template-columns:
@@ -1178,80 +1370,106 @@
 
     column-gap: 20px;
 
-    row-gap: 8px;
+    row-gap: 9px;
   }
 
 
   .products-grid a {
-    font-size: 13px;
+    font-size: 14px;
+
+    line-height: 1.5;
   }
 
 
-  /* GET IN TOUCH */
+  .footer-product-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+
+  .footer-view-products {
+    margin-top: 18px;
+
+    font-size: 11px;
+  }
+
+
+  /* -----------------------------------------
+     CONTACT
+     ----------------------------------------- */
 
   .footer-contact .footer-contact-item {
-    display: flex;
-
-    gap: 12px;
-
-    margin-right: 0;
+    gap: 11px;
 
     margin-bottom: 16px;
   }
 
 
   .footer-contact .contact-icon {
-    width: 40px;
+    width: 39px;
+    height: 39px;
 
-    height: 40px;
+    min-width: 39px;
+  }
 
-    min-width: 40px;
 
-    font-size: 16px;
+  .footer-contact .contact-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
 
   .footer-contact .contact-label {
-    font-size: 10px;
+    margin-bottom: 5px;
 
-    letter-spacing: 1.4px;
+    font-size: 11px;
+
+    letter-spacing: 1.3px;
   }
 
 
   .footer-contact .contact-content p,
   .footer-contact .contact-link {
-    font-size: 13px;
+    max-width: 100%;
 
-    line-height: 1.5;
+    font-size: 14px;
+
+    line-height: 1.55;
   }
 
+
+  /* -----------------------------------------
+     ENQUIRE
+     ----------------------------------------- */
 
   .footer-contact .footer-enquire {
     padding:
       9px
       16px;
 
-    font-size: 10px;
+    font-size: 11px;
   }
 
 
-  /* BOTTOM */
+  /* -----------------------------------------
+     BOTTOM
+     ----------------------------------------- */
 
   .footer-bottom-divider {
     margin:
-      28px
+      29px
       0
-      17px;
+      18px;
   }
 
 
   .footer-bottom {
-    gap: 10px;
+    gap: 11px;
   }
 
 
   .copyright {
-    font-size: 10px;
+    font-size: 11px;
 
     text-align: center;
   }
@@ -1262,75 +1480,51 @@
 
     justify-content: center;
 
-    gap: 7px;
+    gap: 6px;
   }
 
 
   .footer-legal a {
-    font-size: 10px;
+    font-size: 11px;
   }
 
-
-  /* LEAF */
-
-  .footer-bg-image {
-    opacity: 0.25;
-
-    background-position: center center;
-  }
-
-
-  .footer-bg-overlay {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(3, 38, 24, 0.72),
-        rgba(4, 53, 33, 0.76)
-      );
-  }
 }
 
 
 /* =========================================================
    SMALL MOBILE
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 380px) {
 
   .footer-container {
     padding:
-      30px
+      32px
       15px
       14px;
   }
 
 
   .footer-company {
-    font-size: 20px;
+    font-size: 23px;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
 
 
   .footer-tagline {
-    font-size: 13px;
+    font-size: 14px;
   }
 
 
   .footer-description {
-    font-size: 11px;
+    font-size: 12px;
   }
 
 
   .footer-social-link {
-    width: 40px;
-
-    height: 40px;
-  }
-
-
-  .products-grid {
-    grid-template-columns: 1fr;
+    width: 38px;
+    height: 38px;
   }
 
 
@@ -1339,7 +1533,16 @@
   }
 
 
-  .footer-quick li a,
+  .footer-quick li a {
+    font-size: 14px;
+  }
+
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+
   .products-grid a {
     font-size: 13px;
   }
@@ -1347,49 +1550,84 @@
 
   .footer-contact .contact-icon {
     width: 37px;
-
     height: 37px;
 
     min-width: 37px;
+  }
 
-    font-size: 15px;
+
+  .footer-contact .contact-icon svg {
+    width: 17px;
+    height: 17px;
   }
 
 
   .footer-contact .contact-label {
-    font-size: 9px;
+    font-size: 10px;
   }
 
 
   .footer-contact .contact-content p,
   .footer-contact .contact-link {
-    font-size: 12px;
+    font-size: 13px;
+  }
+
+
+  .footer-contact .footer-enquire {
+    font-size: 10px;
+  }
+
+
+  .copyright {
+    font-size: 10px;
   }
 
 
   .footer-legal {
     flex-direction: column;
 
-    gap: 5px;
+    gap: 4px;
+  }
+
+
+  .footer-legal a {
+    font-size: 10px;
   }
 
 
   .footer-legal span {
     display: none;
   }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.anchan-footer a:focus-visible {
+  outline:
+    2px
+    solid
+    #d8efdd;
+
+  outline-offset: 4px;
+
+  border-radius: 3px;
 }
 
 
 /* =========================================================
    REDUCED MOTION
-========================================================= */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
   .anchan-footer *,
   .anchan-footer *::before,
   .anchan-footer *::after {
-
     transition: none !important;
   }
+
 }
