@@ -1,5 +1,6 @@
 /* =========================================================
-   HERO — ANCHAN AYURVEDIC INDUSTRIES
+   ANCHAN AYURVEDIC INDUSTRIES
+   HERO SECTION
 ========================================================= */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
@@ -16,6 +17,10 @@
   box-sizing: border-box;
 }
 
+.hero button {
+  font-family: inherit;
+}
+
 
 /* =========================================================
    HERO
@@ -23,9 +28,9 @@
 
 .hero {
   --forest: #063c2b;
-  --forest-dark: #032e21;
+  --forest-deep: #033322;
   --cream: #f1f4d7;
-  --gold: #e7d77f;
+  --gold: #e5d27b;
 
   position: relative;
 
@@ -65,7 +70,7 @@
 
 
 /* =========================================================
-   GALLERY ITEM
+   GALLERY ITEMS
 ========================================================= */
 
 .item {
@@ -119,7 +124,7 @@
 
 
 /* =========================================================
-   MAIN IMAGE
+   MAIN IMAGE — DESKTOP
 ========================================================= */
 
 .image {
@@ -134,14 +139,14 @@
 
   max-width: none;
 
-  object-fit: cover;
-
-  object-position: center center;
-
   margin: 0;
   padding: 0;
 
   border: 0;
+
+  object-fit: cover;
+
+  object-position: center center;
 
   transform: translateZ(0);
 
@@ -151,7 +156,8 @@
 
   -webkit-user-drag: none;
 
-  transition: object-position 0.5s ease;
+  transition:
+    object-position 0.45s ease;
 }
 
 
@@ -193,8 +199,8 @@
     linear-gradient(
       90deg,
       rgba(3, 48, 32, 0.78) 0%,
-      rgba(3, 48, 32, 0.48) 20%,
-      rgba(3, 48, 32, 0.15) 48%,
+      rgba(3, 48, 32, 0.45) 21%,
+      rgba(3, 48, 32, 0.12) 50%,
       rgba(3, 48, 32, 0) 100%
     );
 }
@@ -218,15 +224,15 @@
   background:
     linear-gradient(
       90deg,
-      rgba(3, 48, 32, 0.34) 0%,
-      rgba(3, 48, 32, 0.12) 35%,
-      rgba(3, 48, 32, 0) 68%
+      rgba(3, 48, 32, 0.32) 0%,
+      rgba(3, 48, 32, 0.10) 38%,
+      rgba(3, 48, 32, 0) 70%
     );
 }
 
 
 /* =========================================================
-   RIGHT LIGHT
+   LIGHT EFFECT
 ========================================================= */
 
 .hero::after {
@@ -234,10 +240,10 @@
 
   position: absolute;
 
-  width: 800px;
-  height: 800px;
+  width: 750px;
+  height: 750px;
 
-  right: -350px;
+  right: -330px;
   top: 50%;
 
   transform: translateY(-50%);
@@ -247,8 +253,8 @@
   background:
     radial-gradient(
       circle,
-      rgba(211, 229, 165, 0.13) 0%,
-      rgba(151, 192, 126, 0.05) 42%,
+      rgba(211, 229, 165, 0.12) 0%,
+      rgba(151, 192, 126, 0.04) 45%,
       transparent 72%
     );
 
@@ -277,11 +283,13 @@
 
   overflow: hidden;
 
-  border: 3px solid rgba(232, 218, 137, 0.8);
+  border:
+    3px solid
+    rgba(232, 218, 137, 0.8);
 
   border-radius: 50%;
 
-  background: #063c2b;
+  background: var(--forest);
 
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.35);
@@ -315,7 +323,7 @@
 
 
 /* =========================================================
-   CONTENT RAIL
+   CONTENT RAIL — DESKTOP
 ========================================================= */
 
 .rail {
@@ -367,11 +375,12 @@
 
 
 @keyframes heroContentIn {
+
   from {
     opacity: 0;
 
     transform:
-      translateY(18px);
+      translateY(15px);
   }
 
   to {
@@ -399,7 +408,7 @@
     0 17px;
 
   margin:
-    0 0 17px;
+    0 0 16px;
 
   border:
     1px solid
@@ -408,17 +417,18 @@
   border-radius: 50px;
 
   background:
-    rgba(25, 73, 49, 0.38);
+    rgba(25, 73, 49, 0.4);
 
   backdrop-filter: blur(8px);
 
-  color: #eee7b0;
+  color:
+    #eee7b0;
 
   font-size: 10px;
 
   font-weight: 600;
 
-  letter-spacing: 2.2px;
+  letter-spacing: 2px;
 
   line-height: 1;
 
@@ -432,7 +442,7 @@
 
 .kicker {
   margin:
-    0 0 10px;
+    0 0 9px;
 
   padding: 0;
 
@@ -465,11 +475,12 @@
   max-width: 590px;
 
   margin:
-    0 0 21px;
+    0 0 20px;
 
   padding: 0;
 
-  color: #ffffff;
+  color:
+    #ffffff;
 
   font-family:
     "Cormorant Garamond",
@@ -496,6 +507,7 @@
     rgba(0, 0, 0, 0.25);
 }
 
+
 .title span {
   display: block;
 
@@ -517,7 +529,7 @@
   max-width: 500px;
 
   margin:
-    0 0 27px;
+    0 0 26px;
 
   padding: 0;
 
@@ -528,7 +540,7 @@
 
   font-weight: 400;
 
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 
@@ -571,6 +583,8 @@
 
   font-weight: 600;
 
+  line-height: 1;
+
   cursor: pointer;
 
   pointer-events: auto;
@@ -584,6 +598,7 @@
     background 0.3s ease;
 }
 
+
 .exploreButton:hover {
   transform:
     translateY(-3px);
@@ -591,6 +606,7 @@
   background:
     #ffffff;
 }
+
 
 .exploreButton .arrow {
   font-size: 18px;
@@ -601,6 +617,7 @@
     transform 0.3s ease;
 }
 
+
 .exploreButton:hover .arrow {
   transform:
     translateX(5px);
@@ -608,7 +625,7 @@
 
 
 /* =========================================================
-   CONTROLS
+   CONTROLS — DESKTOP
 ========================================================= */
 
 .controls {
@@ -622,6 +639,7 @@
 
   pointer-events: auto;
 }
+
 
 .navBtn {
   display: flex;
@@ -658,6 +676,7 @@
     background 0.3s ease;
 }
 
+
 .navBtn:hover {
   transform:
     scale(1.06);
@@ -665,6 +684,7 @@
   background:
     rgba(232, 218, 137, 0.18);
 }
+
 
 .navBtn svg {
   width: 20px;
@@ -686,6 +706,7 @@
   pointer-events: none;
 }
 
+
 .circleOne {
   width: 500px;
   height: 500px;
@@ -700,6 +721,7 @@
     1px solid
     rgba(237, 218, 130, 0.25);
 }
+
 
 .circleTwo {
   width: 620px;
@@ -741,10 +763,12 @@
   pointer-events: none;
 }
 
+
 .dotOne {
   right: 15%;
   top: 18%;
 }
+
 
 .dotTwo {
   right: 9%;
@@ -831,12 +855,18 @@
 
 
 /* =========================================================
-   HIDE GALLERY STATUS
+   HIDE GALLERY ANNOUNCEMENT
+   Fixes "Item 1 of 4."
 ========================================================= */
 
 .hero [role="status"],
+.hero [aria-live],
 .hero [aria-live="polite"],
-.hero [aria-live="assertive"] {
+.hero [aria-live="assertive"],
+.hero .sr-only,
+.hero .sr-only-text,
+.hero .visually-hidden,
+.hero .visuallyHiddenText {
   position: absolute !important;
 
   width: 1px !important;
@@ -889,7 +919,7 @@
 
 
 /* =========================================================
-   MOBILE — 700px
+   MOBILE
 ========================================================= */
 
 @media screen and (max-width: 700px) {
@@ -932,7 +962,7 @@
 
 
   /* =======================================================
-     ITEM
+     ITEMS
   ======================================================= */
 
   .item {
@@ -954,11 +984,13 @@
     transform: none !important;
   }
 
+
   .item[data-active="true"] {
     display: block !important;
 
     z-index: 5 !important;
   }
+
 
   .item[data-active="false"] {
     display: none !important;
@@ -974,24 +1006,21 @@
 
     inset: 0;
 
-    width: 100vw !important;
+    width: 100vw;
 
-    height: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
+    height: 100%;
 
     overflow: hidden;
 
     background:
       #063c2b;
-
-    transform: none !important;
   }
 
 
   /* =======================================================
-     FULL WIDTH 16:9 IMAGE
+     MOBILE IMAGE
+     
+     KEEP ORIGINAL 16:9 RATIO
   ======================================================= */
 
   .image,
@@ -1030,9 +1059,6 @@
 
     transform: none !important;
 
-    background:
-      #063c2b;
-
     opacity: 1 !important;
 
     visibility: visible !important;
@@ -1051,7 +1077,8 @@
 
     width: 100%;
 
-    height: 255px;
+    height:
+      calc(100vw * 0.5625 + 45px);
 
     z-index: 2;
 
@@ -1061,17 +1088,16 @@
       linear-gradient(
         to bottom,
         rgba(3, 50, 34, 0) 40%,
-        rgba(3, 50, 34, 0.06) 54%,
-        rgba(3, 50, 34, 0.18) 68%,
-        rgba(3, 50, 34, 0.45) 83%,
-        rgba(3, 50, 34, 0.8) 96%,
+        rgba(3, 50, 34, 0.05) 55%,
+        rgba(3, 50, 34, 0.20) 72%,
+        rgba(3, 50, 34, 0.55) 88%,
         #063c2b 100%
       );
   }
 
 
   /* =======================================================
-     GREEN BACKGROUND TRANSITION
+     MOBILE GREEN FADE
   ======================================================= */
 
   .hero::before {
@@ -1081,19 +1107,19 @@
       linear-gradient(
         to bottom,
         rgba(3, 50, 34, 0) 0,
-        rgba(3, 50, 34, 0) 145px,
-        rgba(3, 50, 34, 0.04) 175px,
-        rgba(3, 50, 34, 0.14) 195px,
-        rgba(3, 50, 34, 0.38) 215px,
-        rgba(3, 50, 34, 0.7) 245px,
-        #063c2b 285px,
+        rgba(3, 50, 34, 0) 45%,
+        rgba(3, 50, 34, 0.05) 48%,
+        rgba(3, 50, 34, 0.18) 53%,
+        rgba(3, 50, 34, 0.42) 58%,
+        rgba(3, 50, 34, 0.75) 64%,
+        #063c2b 72%,
         #063c2b 100%
       );
   }
 
 
   /* =======================================================
-     RIGHT LIGHT
+     REMOVE RIGHT LIGHT ON MOBILE
   ======================================================= */
 
   .hero::after {
@@ -1103,9 +1129,9 @@
 
     right: -220px;
 
-    top: 43%;
+    top: 45%;
 
-    opacity: 0.08;
+    opacity: 0.06;
 
     filter: blur(30px);
   }
@@ -1114,10 +1140,12 @@
   /* =======================================================
      CONTENT RAIL
      
-     379px screen:
-     379 × 9 / 16 = 213px image height
+     IMAGE HEIGHT = 56.25vw
      
-     Content starts at 219px.
+     At 379px:
+     56.25vw = 213.2px
+     
+     Content starts only 9px after image.
   ======================================================= */
 
   .rail {
@@ -1125,9 +1153,6 @@
 
     top: 0;
     left: 0;
-
-    right: 0;
-    bottom: 0;
 
     width: 100%;
     height: 100%;
@@ -1143,9 +1168,9 @@
     align-items: flex-start;
 
     padding:
-      220px
+      calc(56.25vw + 9px)
       20px
-      82px;
+      20px;
 
     margin: 0;
 
@@ -1162,14 +1187,14 @@
 
     max-width: 100%;
 
-    margin: 0;
-    padding: 0;
-
     display: flex;
 
     flex-direction: column;
 
     align-items: flex-start;
+
+    margin: 0;
+    padding: 0;
   }
 
 
@@ -1191,16 +1216,16 @@
       0 11px;
 
     margin:
-      0 0 8px;
+      0 0 6px;
 
     border:
       1px solid
-      rgba(232, 222, 159, 0.75);
+      rgba(232, 222, 159, 0.78);
 
     border-radius: 50px;
 
     background:
-      rgba(18, 72, 48, 0.65);
+      rgba(18, 72, 48, 0.7);
 
     backdrop-filter:
       blur(7px);
@@ -1212,7 +1237,7 @@
 
     font-weight: 600;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.95px;
 
     line-height: 1;
 
@@ -1226,18 +1251,18 @@
 
   .kicker {
     margin:
-      0 0 7px;
+      0 0 5px;
 
     padding: 0;
 
     color:
       #dfd58c;
 
-    font-size: 9px;
+    font-size: 8.7px;
 
     font-weight: 600;
 
-    letter-spacing: 2px;
+    letter-spacing: 1.9px;
 
     line-height: 1.2;
   }
@@ -1259,7 +1284,7 @@
     max-width: 100%;
 
     margin:
-      0 0 11px;
+      0 0 9px;
 
     padding: 0;
 
@@ -1275,20 +1300,21 @@
     font-size:
       clamp(
         34px,
-        10vw,
-        38px
+        9.6vw,
+        37px
       );
 
     font-weight: 600;
 
-    line-height: 0.94;
+    line-height: 0.92;
 
     letter-spacing: -0.4px;
 
     text-shadow:
       0 3px 15px
-      rgba(0, 0, 0, 0.22);
+      rgba(0, 0, 0, 0.25);
   }
+
 
   .title span {
     display: block;
@@ -1311,22 +1337,18 @@
     max-width: 345px;
 
     margin:
-      0 0 15px;
+      0 0 13px;
 
     padding: 0;
 
     color:
-      rgba(255, 255, 255, 0.92);
+      rgba(255, 255, 255, 0.94);
 
-    font-family:
-      "Poppins",
-      sans-serif;
-
-    font-size: 11.7px;
+    font-size: 11.4px;
 
     font-weight: 400;
 
-    line-height: 1.45;
+    line-height: 1.42;
 
     display:
       -webkit-box;
@@ -1340,7 +1362,7 @@
 
 
   /* =======================================================
-     EXPLORE BUTTON
+     BUTTON
   ======================================================= */
 
   .exploreButton {
@@ -1349,16 +1371,16 @@
     align-items: center;
     justify-content: center;
 
-    gap: 13px;
+    gap: 12px;
 
-    width: 174px;
+    width: 170px;
 
-    min-width: 174px;
+    min-width: 170px;
 
     height: 46px;
 
     padding:
-      0 18px;
+      0 17px;
 
     margin: 0;
 
@@ -1372,11 +1394,7 @@
     color:
       #18553b;
 
-    font-family:
-      "Poppins",
-      sans-serif;
-
-    font-size: 11.8px;
+    font-size: 11.5px;
 
     font-weight: 600;
 
@@ -1385,9 +1403,10 @@
     pointer-events: auto;
 
     box-shadow:
-      0 8px 22px
+      0 8px 20px
       rgba(0, 0, 0, 0.15);
   }
+
 
   .exploreButton .arrow {
     font-size: 17px;
@@ -1399,17 +1418,14 @@
   /* =======================================================
      CONTROLS
      
-     FIXED TO BOTTOM
+     IMPORTANT:
+     NO absolute bottom positioning.
+     
+     They stay naturally below the button.
   ======================================================= */
 
   .controls {
-    position: absolute;
-
-    left: 20px;
-
-    bottom: 19px;
-
-    z-index: 30;
+    position: static;
 
     display: flex;
 
@@ -1417,7 +1433,8 @@
 
     gap: 9px;
 
-    margin: 0;
+    margin:
+      25px 0 0;
 
     padding: 0;
 
@@ -1444,7 +1461,7 @@
     border-radius: 50%;
 
     background:
-      rgba(19, 75, 49, 0.75);
+      rgba(19, 75, 49, 0.72);
 
     color:
       #f1e49a;
@@ -1455,6 +1472,7 @@
     cursor: pointer;
   }
 
+
   .navBtn svg {
     width: 19px;
 
@@ -1463,7 +1481,7 @@
 
 
   /* =======================================================
-     HIDE DESKTOP DECORATIONS
+     MOBILE DECORATIONS
   ======================================================= */
 
   .verticalText,
@@ -1473,7 +1491,7 @@
 
 
   .decorativeCircle {
-    opacity: 0.08;
+    opacity: 0.07;
 
     z-index: 7;
   }
@@ -1519,27 +1537,17 @@
 
   .rail {
     padding:
-      219px
+      calc(56.25vw + 9px)
       18px
-      82px;
+      20px;
   }
 
   .description {
     max-width: 345px;
   }
 
-  .exploreButton {
-    width: 172px;
-
-    min-width: 172px;
-
-    height: 46px;
-  }
-
   .controls {
-    left: 18px;
-
-    bottom: 19px;
+    margin-top: 24px;
   }
 }
 
@@ -1552,9 +1560,9 @@
 
   .rail {
     padding:
-      218px
+      calc(56.25vw + 9px)
       18px
-      82px;
+      18px;
   }
 
   .ayurvedaTag {
@@ -1565,59 +1573,59 @@
     padding:
       0 10px;
 
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     font-size: 7.2px;
 
-    letter-spacing: 0.9px;
+    letter-spacing: 0.85px;
   }
 
   .kicker {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 
-    font-size: 8.7px;
+    font-size: 8.5px;
 
     letter-spacing: 1.8px;
   }
 
   .title {
-    font-size: 36px;
+    font-size: 35px;
 
-    line-height: 0.94;
+    line-height: 0.93;
 
-    letter-spacing: -0.35px;
-
-    margin-bottom: 10px;
+    margin-bottom: 9px;
   }
 
   .description {
-    max-width: 345px;
+    font-size: 11.2px;
 
-    font-size: 11.5px;
+    line-height: 1.42;
 
-    line-height: 1.44;
-
-    margin-bottom: 14px;
+    margin-bottom: 13px;
   }
 
   .exploreButton {
-    width: 170px;
+    width: 168px;
 
-    min-width: 170px;
+    min-width: 168px;
 
-    height: 46px;
+    height: 45px;
   }
 
   .controls {
-    left: 18px;
+    margin-top: 23px;
+  }
 
-    bottom: 18px;
+  .navBtn {
+    width: 46px;
+
+    height: 46px;
   }
 }
 
 
 /* =========================================================
-   379px — EXACT TARGET
+   379px — TARGET SIZE
 ========================================================= */
 
 @media screen and (max-width: 379px) {
@@ -1633,12 +1641,11 @@
   }
 
 
-  /* =======================================================
-     16:9 IMAGE
-
-     379 × 9 / 16
-     = 213.19px
-  ======================================================= */
+  /* -------------------------------------------------------
+     IMAGE
+     
+     379 × 9 / 16 = 213.19px
+  ------------------------------------------------------- */
 
   .image,
   .image[data-slide-id="1"],
@@ -1646,55 +1653,35 @@
   .image[data-slide-id="3"],
   .image[data-slide-id="4"] {
 
-    position: absolute !important;
-
-    top: 0 !important;
-
-    left: 0 !important;
-
     width: 100vw !important;
 
-    min-width: 100vw !important;
-
     height: auto !important;
-
-    max-width: none !important;
 
     aspect-ratio: 16 / 9;
 
     object-fit: contain !important;
 
     object-position: center top !important;
-
-    transform: none !important;
   }
 
 
-  /* =======================================================
-     CONTENT START
-  ======================================================= */
+  /* -------------------------------------------------------
+     CONTENT
+
+     Only 9px after the image.
+  ------------------------------------------------------- */
 
   .rail {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    right: 0;
-    bottom: 0;
-
-    width: 100%;
-
     padding:
-      219px
+      calc(56.25vw + 9px)
       20px
-      82px;
+      15px;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      TAG
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .ayurvedaTag {
     height: 28px;
@@ -1704,77 +1691,62 @@
     padding:
       0 10px;
 
-    margin:
-      0 0 7px;
+    margin-bottom: 6px;
 
-    font-size: 7.2px;
+    font-size: 7.1px;
 
-    letter-spacing: 0.9px;
+    letter-spacing: 0.85px;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      NUMBER
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .kicker {
-    margin:
-      0 0 6px;
+    margin-bottom: 5px;
 
-    font-size: 8.7px;
+    font-size: 8.5px;
 
     letter-spacing: 1.8px;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      TITLE
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .title {
-    width: 100%;
-
-    margin:
-      0 0 10px;
-
     font-size: 35px;
 
-    line-height: 0.94;
+    line-height: 0.93;
 
-    letter-spacing: -0.35px;
+    letter-spacing: -0.3px;
+
+    margin-bottom: 9px;
   }
 
 
-  .title span {
-    width: auto;
-
-    white-space: normal;
-  }
-
-
-  /* =======================================================
+  /* -------------------------------------------------------
      DESCRIPTION
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .description {
-    width: 100%;
-
     max-width: 339px;
 
-    margin:
-      0 0 14px;
+    font-size: 11.2px;
 
-    font-size: 11.4px;
+    line-height: 1.42;
 
-    line-height: 1.45;
+    margin-bottom: 13px;
 
     -webkit-line-clamp: 2;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      BUTTON
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .exploreButton {
     width: 168px;
@@ -1783,41 +1755,60 @@
 
     height: 45px;
 
-    padding:
-      0 17px;
-
-    gap: 12px;
-
     font-size: 11.5px;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      CONTROLS
-  ======================================================= */
+     
+     Just 23px below button.
+  ------------------------------------------------------- */
 
   .controls {
-    position: absolute;
+    position: static;
 
-    left: 20px;
-
-    bottom: 18px;
+    margin-top: 23px;
 
     gap: 9px;
-
-    margin: 0;
   }
+
 
   .navBtn {
     width: 46px;
 
     height: 46px;
   }
+
+
+  /* -------------------------------------------------------
+     DECORATION
+  ------------------------------------------------------- */
+
+  .circleOne {
+    width: 260px;
+
+    height: 260px;
+
+    right: -205px;
+
+    top: 44%;
+  }
+
+  .circleTwo {
+    width: 330px;
+
+    height: 330px;
+
+    right: -250px;
+
+    top: 44%;
+  }
 }
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   350px AND BELOW
 ========================================================= */
 
 @media screen and (max-width: 350px) {
@@ -1832,23 +1823,23 @@
 
   .rail {
     padding:
-      205px
+      calc(56.25vw + 8px)
       15px
-      80px;
+      15px;
   }
 
   .title {
     font-size: 32px;
 
-    line-height: 0.95;
+    line-height: 0.94;
   }
 
   .description {
-    font-size: 10.8px;
+    font-size: 10.7px;
 
-    line-height: 1.43;
+    line-height: 1.42;
 
-    margin-bottom: 13px;
+    margin-bottom: 12px;
   }
 
   .exploreButton {
@@ -1862,9 +1853,7 @@
   }
 
   .controls {
-    left: 15px;
-
-    bottom: 17px;
+    margin-top: 20px;
   }
 
   .navBtn {
