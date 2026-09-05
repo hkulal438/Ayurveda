@@ -1,122 +1,191 @@
 import React from "react";
 import "./Intro.css";
+import heroImage from "../../images/Medicinal herbs.png";
 
-const Intro = () => {
+const lineage = [
+  {
+    name: "Pandit Thoma Poojary",
+    role: "Founder, Padubidri",
+    detail:
+      "Prepared classical Ayurvedic medicines by hand, earning the trust of patients and physicians through decades of disciplined practice.",
+  },
+  {
+    name: "Dr. N. T. Anchan",
+    role: "Second generation",
+    detail:
+      "Completed his Ayurvedic education, opened his own clinical practice, and carried his father's knowledge into medicine manufacturing.",
+  },
+  {
+    name: "Anchan Ayurvedic Industries",
+    role: "Today",
+    detail:
+      "A family legacy grown into an organisation bringing traditional formulations to a wider community.",
+  },
+];
+
+const About = () => {
   return (
-    <section className="intro-section" id="about-us">
-      <div className="intro-container">
+    <section className="about-section" id="about">
+      <div className="about-inner">
 
         {/* =================================
-            TOP CONTENT
+            ABOUT STORY
         ================================= */}
-        <div className="intro-top">
 
-          {/* IMAGE SIDE */}
-          <div
-            className="intro-image-column"
-            data-aos="fade-right"
+        <figure className="about-figure">
+          <div className="about-figure-frame">
+            <img
+              src={heroImage}
+              alt="An Ayurvedic practitioner preparing medicinal herbs using traditional methods"
+            />
+          </div>
+
+          {/* Decorative botanical vein */}
+          <svg
+            className="about-vein"
+            viewBox="0 0 220 520"
+            fill="none"
+            aria-hidden="true"
           >
+            <path
+              d="M110 8 C60 90 170 140 90 230 C30 300 150 340 100 430 C70 480 120 500 110 512"
+              stroke="var(--sea-green)"
+              strokeWidth="2"
+            />
 
-            <div className="intro-image-wrapper">
+            <path
+              d="M110 60 C90 70 70 78 55 70"
+              stroke="var(--forest-green)"
+              strokeWidth="1.6"
+            />
 
-              {/* Main Ayurvedic Image */}
-              <div className="intro-main-image">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1726769198572-542339268a7f?q=80&w=1139&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Traditional Ayurvedic heritage"
-                />
-              </div>
+            <path
+              d="M120 170 C145 180 160 190 172 182"
+              stroke="var(--forest-green)"
+              strokeWidth="1.6"
+            />
 
-              {/* Small Botanical Image */}
-              <div className="intro-small-image">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1682098134401-61573db798a1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Ayurvedic herbs"
-                />
-              </div>
+            <path
+              d="M95 300 C70 312 55 322 40 316"
+              stroke="var(--forest-green)"
+              strokeWidth="1.6"
+            />
 
-              {/* Decorative Circle */}
-              <div className="intro-leaf-circle">
-                <span>02</span>
-              </div>
+            <path
+              d="M115 420 C138 430 152 438 164 432"
+              stroke="var(--forest-green)"
+              strokeWidth="1.6"
+            />
+          </svg>
+        </figure>
 
-            </div>
+        {/* =================================
+            ABOUT CONTENT
+        ================================= */}
 
-          </div>
+        <div className="about-content">
+
+          <p className="about-label">
+            About Us
+          </p>
+
+          <h2 className="about-heading">
+            Our story begins
+            <br />
+            with tradition.
+          </h2>
+
+          <p className="about-copy">
+            Anchan Ayurvedic Industries has its roots in the traditional
+            Ayurvedic practice of Pandit Thoma Poojary, a respected
+            practitioner from Padubidri.
+          </p>
+
+          <p className="about-copy">
+            Known for preparing classical Ayurvedic medicines using
+            traditional methods, he earned the trust of patients and
+            physicians through his dedication to Ayurveda.
+          </p>
+
+          <p className="about-copy">
+            His son, Dr. N. T. Anchan, carried this knowledge forward —
+            first into his own clinical practice, and later into Ayurvedic
+            medicine manufacturing. What began as a family legacy gradually
+            evolved into an organisation committed to bringing traditional
+            formulations to a wider community.
+          </p>
 
 
-          {/* CONTENT SIDE */}
-          <div className="intro-content">
+          {/* =================================
+              LINEAGE
+          ================================= */}
 
-            <div
-              className="intro-label"
-              data-aos="fade-up"
+          <ol className="about-lineage">
+            {lineage.map((person) => (
+              <li
+                className="about-lineage-item"
+                key={person.name}
+              >
+
+                <span
+                  className="about-leaf"
+                  aria-hidden="true"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M4 20C4 12 8 6 20 4C18 16 12 20 4 20Z"
+                      fill="var(--sea-green)"
+                    />
+
+                    <path
+                      d="M6 18C10 14 14 10 18 6"
+                      stroke="var(--ivory)"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                </span>
+
+                <div>
+                  <p className="about-lineage-name">
+                    {person.name}
+                  </p>
+
+                  <p className="about-lineage-role">
+                    {person.role}
+                  </p>
+
+                  <p className="about-lineage-detail">
+                    {person.detail}
+                  </p>
+                </div>
+
+              </li>
+            ))}
+          </ol>
+
+
+          {/* =================================
+              CTA
+          ================================= */}
+
+          <a
+            className="about-cta"
+            href="#philosophy"
+          >
+            <span>
+              Discover Our Philosophy
+            </span>
+
+            <span
+              className="about-cta-arrow"
+              aria-hidden="true"
             >
-              <span className="intro-label-line"></span>
-              ABOUT US
-            </div>
-
-            <h2
-              className="intro-heading"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              Our Story Begins
-              <span> With Tradition.</span>
-            </h2>
-
-            <p
-              className="intro-lead"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              Anchan Ayurvedic Industries has its roots in the traditional
-              Ayurvedic practice of <strong>Pandit Thoma Poojary</strong>,
-              a respected practitioner from Padubidri.
-            </p>
-
-            <p
-              className="intro-text"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              Known for preparing classical Ayurvedic medicines using
-              traditional methods, Pandit Thoma Poojary earned the trust of
-              patients and physicians through his dedication to Ayurveda.
-            </p>
-
-            <p
-              className="intro-text"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              His son, <strong>Dr. N. T. Anchan</strong>, carried this
-              knowledge forward. After completing his Ayurvedic education,
-              Dr. Anchan established his clinical practice and later expanded
-              into Ayurvedic medicine manufacturing.
-            </p>
-
-            <p
-              className="intro-text"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              What began as a family legacy gradually evolved into an
-              organization committed to bringing traditional Ayurvedic
-              formulations to a wider community.
-            </p>
-
-            <a
-              href="#philosophy"
-              className="intro-button"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              <span>Discover Our Philosophy</span>
-              <span className="intro-button-arrow">→</span>
-            </a>
-
-          </div>
+              →
+            </span>
+          </a>
 
         </div>
 
@@ -124,11 +193,14 @@ const Intro = () => {
         {/* =================================
             PHILOSOPHY SECTION
         ================================= */}
+
         <div
           className="intro-philosophy"
           id="philosophy"
           data-aos="fade-up"
         >
+
+          {/* Philosophy Heading */}
 
           <div className="philosophy-heading">
 
@@ -137,6 +209,7 @@ const Intro = () => {
               data-aos="fade-up"
             >
               <span className="intro-label-line"></span>
+
               OUR PHILOSOPHY
             </div>
 
@@ -145,7 +218,7 @@ const Intro = () => {
               data-aos-delay="100"
             >
               Ayurveda Rooted in
-              <span> Knowledge & Integrity.</span>
+              <span> Knowledge &amp; Integrity.</span>
             </h3>
 
             <p
@@ -159,10 +232,14 @@ const Intro = () => {
           </div>
 
 
-          {/* Philosophy Cards */}
+          {/* =================================
+              PHILOSOPHY CARDS
+          ================================= */}
+
           <div className="philosophy-cards">
 
             {/* Knowledge */}
+
             <div
               className="philosophy-card"
               data-aos="fade-up"
@@ -177,7 +254,9 @@ const Intro = () => {
                 ✦
               </div>
 
-              <h4>Knowledge.</h4>
+              <h4>
+                Knowledge.
+              </h4>
 
               <p>
                 Respect for the principles that have shaped Ayurveda
@@ -188,6 +267,7 @@ const Intro = () => {
 
 
             {/* Quality */}
+
             <div
               className="philosophy-card active"
               data-aos="fade-up"
@@ -202,7 +282,9 @@ const Intro = () => {
                 ✧
               </div>
 
-              <h4>Quality.</h4>
+              <h4>
+                Quality.
+              </h4>
 
               <p>
                 Careful attention to ingredients, processes and
@@ -213,6 +295,7 @@ const Intro = () => {
 
 
             {/* Responsibility */}
+
             <div
               className="philosophy-card"
               data-aos="fade-up"
@@ -227,7 +310,9 @@ const Intro = () => {
                 ❋
               </div>
 
-              <h4>Responsibility.</h4>
+              <h4>
+                Responsibility.
+              </h4>
 
               <p>
                 A commitment to developing and providing Ayurvedic
@@ -245,4 +330,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default About;

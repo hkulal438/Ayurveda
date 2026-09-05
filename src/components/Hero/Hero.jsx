@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 import {
   Gallery,
@@ -17,7 +17,6 @@ import Ayurveda from "../../images/ayurveda_image_1.png";
 import Anchan from "../../images/scene1.png";
 import Dr from "../../images/drtanchan.png";
 import Family from "../../images/Family.png";
-
 
 // =========================================================
 // SLIDER DATA
@@ -75,7 +74,6 @@ const ITEMS = [
 
 const TOTAL = ITEMS.length;
 
-
 // =========================================================
 // FIND ITEM INDEX
 // =========================================================
@@ -83,7 +81,6 @@ const TOTAL = ITEMS.length;
 const indexOfId = (id) => {
   return ITEMS.findIndex((item) => item.id === id);
 };
-
 
 // =========================================================
 // SLIDES
@@ -96,7 +93,6 @@ function Slides({ thumbOrder }) {
     <GalleryMain
       className="track"
       renderGalleryItem={({ item, index, active }) => {
-
         const offset =
           thumbOrder.indexOf(item.id) -
           (thumbOrder.length - 1) / 2;
@@ -109,14 +105,12 @@ function Slides({ thumbOrder }) {
             className="item"
             data-active={String(active)}
           >
-
             <div
               className="slide"
               style={{
                 "--offset": offset,
               }}
             >
-
               <img
                 src={item.src}
                 alt={item.alt}
@@ -125,7 +119,6 @@ function Slides({ thumbOrder }) {
               />
 
               <div className="imageOverlay" />
-
 
               {!active && (
                 <button
@@ -140,9 +133,7 @@ function Slides({ thumbOrder }) {
                   </span>
                 </button>
               )}
-
             </div>
-
           </GalleryItem>
         );
       }}
@@ -150,13 +141,11 @@ function Slides({ thumbOrder }) {
   );
 }
 
-
 // =========================================================
 // ACTIVE CONTENT
 // =========================================================
 
 function ActiveContent({ thumbOrder }) {
-
   const {
     activeIndex,
     goToIndex,
@@ -168,39 +157,24 @@ function ActiveContent({ thumbOrder }) {
     return null;
   }
 
-
-  // Previous slide
   const previousIndex = indexOfId(
     thumbOrder[thumbOrder.length - 1]
   );
 
-
-  // Next slide
   const nextIndex = indexOfId(
     thumbOrder[0]
   );
 
-
   return (
     <div className="rail">
-
-      {/* =====================================================
-          CONTENT
-      ===================================================== */}
 
       <div
         className="content"
         key={item.id}
       >
-
-        {/* TAG */}
-
         <span className="ayurvedaTag">
           NATURAL • PURE • AYURVEDIC
         </span>
-
-
-        {/* SLIDE NUMBER */}
 
         <p className="kicker">
           {String(activeIndex + 1).padStart(2, "0")}
@@ -208,11 +182,7 @@ function ActiveContent({ thumbOrder }) {
           {String(TOTAL).padStart(2, "0")}
         </p>
 
-
-        {/* MAIN HEADING */}
-
         <h1 className="title">
-
           <span>
             {item.titleLine1}
           </span>
@@ -220,24 +190,16 @@ function ActiveContent({ thumbOrder }) {
           <span>
             {item.titleLine2}
           </span>
-
         </h1>
-
-
-        {/* DESCRIPTION */}
 
         <p className="description">
           {item.description}
         </p>
 
-
-        {/* EXPLORE BUTTON */}
-
         <button
           type="button"
           className="exploreButton"
         >
-
           <span>
             Explore Wellness
           </span>
@@ -245,19 +207,10 @@ function ActiveContent({ thumbOrder }) {
           <span className="arrow">
             →
           </span>
-
         </button>
-
       </div>
 
-
-      {/* =====================================================
-          CONTROLS
-      ===================================================== */}
-
       <div className="controls">
-
-        {/* PREVIOUS */}
 
         <button
           type="button"
@@ -265,7 +218,6 @@ function ActiveContent({ thumbOrder }) {
           aria-label="Previous slide"
           onClick={() => goToIndex(previousIndex)}
         >
-
           <svg
             width="20"
             height="20"
@@ -277,15 +229,9 @@ function ActiveContent({ thumbOrder }) {
             strokeLinejoin="round"
             aria-hidden="true"
           >
-
             <polyline points="15 18 9 12 15 6" />
-
           </svg>
-
         </button>
-
-
-        {/* NEXT */}
 
         <button
           type="button"
@@ -293,7 +239,6 @@ function ActiveContent({ thumbOrder }) {
           aria-label="Next slide"
           onClick={() => goToIndex(nextIndex)}
         >
-
           <svg
             width="20"
             height="20"
@@ -305,11 +250,8 @@ function ActiveContent({ thumbOrder }) {
             strokeLinejoin="round"
             aria-hidden="true"
           >
-
             <polyline points="9 18 15 12 9 6" />
-
           </svg>
-
         </button>
 
       </div>
@@ -318,38 +260,63 @@ function ActiveContent({ thumbOrder }) {
   );
 }
 
-
 // =========================================================
 // MAIN GALLERY
 // =========================================================
 
 function EnlargeGallery() {
-
   const [thumbOrder, setThumbOrder] = useState(() =>
     ITEMS.slice(1).map((item) => item.id)
   );
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // =======================================================
+  // NAVBAR SCROLL STATE
+  // =======================================================
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      { passive: true }
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+    };
+  }, []);
+
+  // =======================================================
+  // SLIDER CHANGE
+  // =======================================================
 
   const handleChange = useCallback(
     ({ oldIndex, newIndex }) => {
-
       setThumbOrder((order) => [
-
         ...order.filter(
           (id) => id !== ITEMS[newIndex].id
         ),
-
         ITEMS[oldIndex].id,
-
       ]);
     },
     []
   );
 
-
   return (
     <section
-      className="hero"
+      className={`hero ${
+        isScrolled ? "hero-scrolled" : ""
+      }`}
       id="hero-section"
     >
 
@@ -359,7 +326,6 @@ function EnlargeGallery() {
         className="gallery"
         onChange={handleChange}
       >
-
         <Slides
           thumbOrder={thumbOrder}
         />
@@ -367,7 +333,6 @@ function EnlargeGallery() {
         <ActiveContent
           thumbOrder={thumbOrder}
         />
-
       </Gallery>
 
 
@@ -406,15 +371,10 @@ function EnlargeGallery() {
   );
 }
 
-
 // =========================================================
 // EXPORT
 // =========================================================
 
 export default function Hero() {
-
-  return (
-    <EnlargeGallery />
-  );
-
+  return <EnlargeGallery />;
 }

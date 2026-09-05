@@ -28,6 +28,10 @@ body {
   min-height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 
 /* =========================================================
    HERO
@@ -149,7 +153,7 @@ body {
 
 
 /* =========================================================
-   IMAGE
+   MAIN IMAGE
 ========================================================= */
 
 .image {
@@ -159,14 +163,16 @@ body {
   height: 100%;
 
   /*
-    COVER fills the complete hero.
-    object-position prevents important content
-    from being pushed outside the visible area.
+    Keep the image full width.
+
+    The important change is object-position.
+    Instead of centering the crop vertically,
+    we keep more of the upper portion visible.
   */
 
   object-fit: cover;
 
-  object-position: center center;
+  object-position: center 20%;
 
   user-select: none;
 
@@ -181,30 +187,48 @@ body {
 
 
 /* =========================================================
-   INDIVIDUAL DESKTOP IMAGE POSITIONS
+   INDIVIDUAL IMAGE FRAMING
 ========================================================= */
 
-/* Ayurveda */
+/* ---------------------------------------------------------
+   SLIDE 01 — AYURVEDA
+--------------------------------------------------------- */
+
 .image[data-slide-id="1"] {
-  object-position: center center;
+  object-position: center 25%;
 }
 
 
-/* Anchan */
+/* ---------------------------------------------------------
+   SLIDE 02 — ANCHAN
+--------------------------------------------------------- */
+
 .image[data-slide-id="2"] {
-  object-position: center center;
+  object-position: center 20%;
 }
 
 
-/* Dr. Anchan */
+/* ---------------------------------------------------------
+   SLIDE 03 — DR. ANCHAN
+--------------------------------------------------------- */
+
 .image[data-slide-id="3"] {
-  object-position: center center;
+  object-position: center 12%;
 }
 
 
-/* Family */
+/* ---------------------------------------------------------
+   SLIDE 04 — FAMILY
+---------------------------------------------------------
+
+   This is the important one for your screenshot.
+
+   The people are positioned higher in the image,
+   so we move the crop upward to preserve their heads.
+--------------------------------------------------------- */
+
 .image[data-slide-id="4"] {
-  object-position: center center;
+  object-position: center 10%;
 }
 
 
@@ -276,6 +300,15 @@ body {
 
 
 /* =========================================================
+   THUMBNAIL IMAGES
+========================================================= */
+
+.item[data-active="false"] .image {
+  object-position: center center;
+}
+
+
+/* =========================================================
    IMAGE OVERLAY
 ========================================================= */
 
@@ -289,7 +322,7 @@ body {
   background:
     linear-gradient(
       135deg,
-      rgba(7, 52, 34, 0.16),
+      rgba(7, 52, 34, 0.12),
       transparent 45%,
       rgba(4, 35, 24, 0.22)
     );
@@ -299,7 +332,7 @@ body {
 
 
 /* =========================================================
-   GREEN CONTENT OVERLAY
+   MAIN GREEN CONTENT OVERLAY
 ========================================================= */
 
 .hero::before {
@@ -325,7 +358,7 @@ body {
 
 
 /* =========================================================
-   SOFT GLOW
+   SOFT RIGHT GLOW
 ========================================================= */
 
 .hero::after {
@@ -421,7 +454,6 @@ body {
 ========================================================= */
 
 @keyframes contentIn {
-
   from {
     opacity: 0;
 
@@ -435,7 +467,6 @@ body {
     transform:
       translateY(0);
   }
-
 }
 
 
@@ -544,10 +575,6 @@ body {
   white-space: normal;
 }
 
-
-/* =========================================================
-   TITLE LINE
-========================================================= */
 
 .title span {
   display: block;
@@ -974,6 +1001,27 @@ body {
     height: 530px;
   }
 
+
+  /*
+     Slightly higher image framing on smaller
+     desktop/tablet screens.
+  */
+
+  .image[data-slide-id="1"] {
+    object-position: center 22%;
+  }
+
+  .image[data-slide-id="2"] {
+    object-position: center 18%;
+  }
+
+  .image[data-slide-id="3"] {
+    object-position: center 10%;
+  }
+
+  .image[data-slide-id="4"] {
+    object-position: center 7%;
+  }
 }
 
 
@@ -1042,48 +1090,34 @@ body {
     object-fit: cover;
 
     /*
-      IMPORTANT:
-      Keep the upper portion of the image visible.
-      This prevents faces and heads from being lost.
+       Keep faces and upper body visible.
     */
 
+    object-position: center 18%;
+  }
+
+
+  /* -------------------------------------------------------
+     INDIVIDUAL MOBILE FRAMING
+  ------------------------------------------------------- */
+
+  .image[data-slide-id="1"] {
+    object-position: center 22%;
+  }
+
+
+  .image[data-slide-id="2"] {
     object-position: center 20%;
   }
 
 
-  /* -------------------------------------------------------
-     AYURVEDA IMAGE
-  ------------------------------------------------------- */
-
-  .image[data-slide-id="1"] {
-    object-position: center 25%;
-  }
-
-
-  /* -------------------------------------------------------
-     ANCHAN IMAGE
-  ------------------------------------------------------- */
-
-  .image[data-slide-id="2"] {
-    object-position: center 25%;
-  }
-
-
-  /* -------------------------------------------------------
-     DR ANCHAN IMAGE
-  ------------------------------------------------------- */
-
   .image[data-slide-id="3"] {
-    object-position: center 15%;
+    object-position: center 10%;
   }
 
-
-  /* -------------------------------------------------------
-     FAMILY IMAGE
-  ------------------------------------------------------- */
 
   .image[data-slide-id="4"] {
-    object-position: center 25%;
+    object-position: center 8%;
   }
 
 
@@ -1092,7 +1126,6 @@ body {
   ------------------------------------------------------- */
 
   .hero::before {
-
     background:
       linear-gradient(
         180deg,
@@ -1109,7 +1142,6 @@ body {
   ------------------------------------------------------- */
 
   .rail {
-
     position: absolute;
 
     inset:
@@ -1149,7 +1181,6 @@ body {
   ------------------------------------------------------- */
 
   .content {
-
     width: 100%;
 
     max-width: 100%;
@@ -1163,7 +1194,6 @@ body {
   ------------------------------------------------------- */
 
   .ayurvedaTag {
-
     margin-bottom: 14px;
 
     padding:
@@ -1187,7 +1217,6 @@ body {
   ------------------------------------------------------- */
 
   .kicker {
-
     margin-bottom: 9px;
 
     font-size: 9px;
@@ -1201,7 +1230,6 @@ body {
   ------------------------------------------------------- */
 
   .title {
-
     width: 100%;
 
     max-width: 100%;
@@ -1222,7 +1250,6 @@ body {
 
 
   .title span {
-
     width: auto;
 
     max-width: 100%;
@@ -1236,7 +1263,6 @@ body {
   ------------------------------------------------------- */
 
   .description {
-
     width: 100%;
 
     max-width: 95%;
@@ -1263,7 +1289,6 @@ body {
   ------------------------------------------------------- */
 
   .exploreButton {
-
     padding:
       11px
       18px;
@@ -1279,7 +1304,6 @@ body {
   ------------------------------------------------------- */
 
   .controls {
-
     margin-top: 22px;
 
     gap: 8px;
@@ -1287,7 +1311,6 @@ body {
 
 
   .navBtn {
-
     width: 44px;
 
     height: 44px;
@@ -1309,8 +1332,8 @@ body {
     height: 64px;
 
     /*
-      Move thumbnails to the upper-right.
-      This prevents overlap with the text content.
+       Move thumbnails to upper-right so they
+       don't interfere with content.
     */
 
     left: auto;
@@ -1350,7 +1373,6 @@ body {
   ------------------------------------------------------- */
 
   .circleOne {
-
     width: 300px;
 
     height: 300px;
@@ -1360,7 +1382,6 @@ body {
 
 
   .circleTwo {
-
     width: 380px;
 
     height: 380px;
@@ -1375,7 +1396,6 @@ body {
 
   .verticalText,
   .decorativeDot {
-
     display: none;
   }
 
@@ -1534,6 +1554,12 @@ body {
     right: -175px;
   }
 
+
+  /* Better framing for the family photograph */
+
+  .image[data-slide-id="4"] {
+    object-position: center 6%;
+  }
 }
 
 
@@ -1605,6 +1631,11 @@ body {
         )
       )
       scale(0.88);
+  }
+
+
+  .image[data-slide-id="4"] {
+    object-position: center 5%;
   }
 
 }

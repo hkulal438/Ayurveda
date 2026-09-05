@@ -4,11 +4,14 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+
 import "./Header.css";
 
 import logo from "../../images/Anchan_Ayurvedic_industries_-_Logo-removebg-preview (1).png";
 
+
 const Header = () => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,21 +19,30 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+
   // =====================================================
   // HEADER SCROLL EFFECT
   // =====================================================
 
   useEffect(() => {
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Check immediately on page load
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
   }, []);
+
 
   // =====================================================
   // MOBILE MENU
@@ -40,19 +52,21 @@ const Header = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+
   const closeMenu = () => {
     setIsMenuOpen(false);
     setActiveDropdown(null);
   };
+
 
   // =====================================================
   // SCROLL TO SECTION
   // =====================================================
 
   const scrollToSection = (id) => {
-    // If we are NOT on homepage,
-    // go to homepage first and pass the section ID.
+
     if (location.pathname !== "/") {
+
       navigate("/", {
         state: {
           scrollToId: id,
@@ -60,21 +74,25 @@ const Header = () => {
       });
 
       closeMenu();
+
       return;
     }
 
-    // If already on homepage
+
     const section = document.getElementById(id);
 
     if (section) {
+
       section.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
+
     }
 
     closeMenu();
   };
+
 
   // =====================================================
   // PRODUCTS
@@ -95,6 +113,7 @@ const Header = () => {
     "Aloe Vera Gel",
   ];
 
+
   // =====================================================
   // PRODUCT SLUG
   // =====================================================
@@ -105,25 +124,36 @@ const Header = () => {
       .replace(/\s+/g, "-")
       .replace(/[^a-z0-9-]/g, "");
 
+
   return (
-    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
+
+    <header
+      className={`header ${
+        isScrolled ? "scrolled" : ""
+      }`}
+    >
 
       <div className="header-container">
+
 
         {/* =================================================
             LOGO
         ================================================= */}
 
         <div className="logo">
+
           <RouterLink
             to="/"
             onClick={closeMenu}
           >
+
             <img
               src={logo}
               alt="Anchan Ayurvedic Industries"
             />
+
           </RouterLink>
+
         </div>
 
 
@@ -131,13 +161,19 @@ const Header = () => {
             NAVIGATION
         ================================================= */}
 
-        <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
+        <nav
+          className={`nav ${
+            isMenuOpen ? "open" : ""
+          }`}
+        >
 
           <ul className="nav-list">
+
 
             {/* ================= HOME ================= */}
 
             <li>
+
               <button
                 type="button"
                 className="nav-link"
@@ -147,12 +183,14 @@ const Header = () => {
               >
                 Home
               </button>
+
             </li>
 
 
             {/* ================= ABOUT ================= */}
 
             <li>
+
               <button
                 type="button"
                 className="nav-link"
@@ -162,12 +200,14 @@ const Header = () => {
               >
                 About Us
               </button>
+
             </li>
 
 
             {/* ================= LEGACY ================= */}
 
             <li>
+
               <button
                 type="button"
                 className="nav-link"
@@ -177,13 +217,12 @@ const Header = () => {
               >
                 Our Legacy
               </button>
+
             </li>
 
 
             {/* =================================================
                 PRODUCTS
-                CLICK = SCROLL
-                HOVER = DROPDOWN
             ================================================= */}
 
             <li
@@ -192,9 +231,11 @@ const Header = () => {
                   ? "active"
                   : ""
               }`}
+
               onMouseEnter={() =>
                 setActiveDropdown("products")
               }
+
               onMouseLeave={() =>
                 setActiveDropdown(null)
               }
@@ -203,20 +244,29 @@ const Header = () => {
               <button
                 type="button"
                 className="nav-link products-button"
+
                 onClick={() => {
-                  scrollToSection("products-section");
+
+                  scrollToSection(
+                    "products-section"
+                  );
+
                   setActiveDropdown(null);
+
                 }}
               >
+
                 Products
 
                 <span className="dropdown-arrow"></span>
+
               </button>
 
 
               {/* ================= PRODUCT DROPDOWN ================= */}
 
               <div className="products-dropdown">
+
 
                 <div className="dropdown-header">
 
@@ -233,30 +283,39 @@ const Header = () => {
 
                 <div className="products-grid">
 
-                  {products.map((product, index) => (
+                  {products.map(
+                    (product, index) => (
 
-                    <RouterLink
-                      key={product}
-                      to={`/products/${createSlug(product)}`}
-                      className="product-item"
-                      onClick={closeMenu}
-                    >
+                      <RouterLink
+                        key={product}
+                        to={`/products/${createSlug(
+                          product
+                        )}`}
 
-                      <span className="product-number">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
+                        className="product-item"
 
-                      <span className="product-name">
-                        {product}
-                      </span>
+                        onClick={closeMenu}
+                      >
 
-                      <span className="product-arrow">
-                        →
-                      </span>
+                        <span className="product-number">
+                          {String(index + 1).padStart(
+                            2,
+                            "0"
+                          )}
+                        </span>
 
-                    </RouterLink>
+                        <span className="product-name">
+                          {product}
+                        </span>
 
-                  ))}
+                        <span className="product-arrow">
+                          →
+                        </span>
+
+                      </RouterLink>
+
+                    )
+                  )}
 
                 </div>
 
@@ -268,11 +327,13 @@ const Header = () => {
                   className="view-all-products"
                   onClick={closeMenu}
                 >
+
                   View All Products
 
                   <span>
                     →
                   </span>
+
                 </RouterLink>
 
               </div>
@@ -283,6 +344,7 @@ const Header = () => {
             {/* ================= QUALITY ================= */}
 
             <li>
+
               <button
                 type="button"
                 className="nav-link"
@@ -292,12 +354,14 @@ const Header = () => {
               >
                 Quality
               </button>
+
             </li>
 
 
             {/* ================= DR ANCHAN ================= */}
 
             <li>
+
               <button
                 type="button"
                 className="nav-link"
@@ -307,12 +371,14 @@ const Header = () => {
               >
                 Dr. Anchan
               </button>
+
             </li>
 
 
             {/* ================= CONTACT ================= */}
 
             <li>
+
               <button
                 type="button"
                 className="nav-link"
@@ -322,6 +388,7 @@ const Header = () => {
               >
                 Contact
               </button>
+
             </li>
 
           </ul>
@@ -335,16 +402,21 @@ const Header = () => {
 
         <div className="header-actions">
 
+
+          {/* ================= ENQUIRE ================= */}
+
           <RouterLink
             to="/enquire"
             className="enquire-btn"
             onClick={closeMenu}
           >
+
             Enquire Now
 
             <span>
               ↗
             </span>
+
           </RouterLink>
 
 
@@ -352,11 +424,15 @@ const Header = () => {
 
           <button
             type="button"
+
             className={`menu-toggle ${
               isMenuOpen ? "open" : ""
             }`}
+
             onClick={toggleMenu}
+
             aria-label="Toggle navigation"
+
             aria-expanded={isMenuOpen}
           >
 
@@ -373,5 +449,6 @@ const Header = () => {
     </header>
   );
 };
+
 
 export default Header;
