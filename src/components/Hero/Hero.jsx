@@ -18,7 +18,7 @@ import "./Hero.css";
 import Ayurveda from "../../images/ayurveda_image_1.png";
 import Anchan from "../../images/scene1.png";
 import Dr from "../../images/drtanchan.png";
-import Family from "../../images/Family1.png";
+import Family from "../../images/Family.png";
 
 // =========================================================
 // SLIDER DATA
