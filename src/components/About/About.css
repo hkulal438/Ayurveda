@@ -1,794 +1,280 @@
 /* =========================================================
+   ABOUT US
    ANCHAN AYURVEDIC INDUSTRIES
-   ABOUT PAGE
 ========================================================= */
 
-.about-page {
-  --forest-green: #0b3d2e;
-  --dark-forest: #073c2d;
-  --deep-green: #14532d;
-
-  --sea-green: #2e8b72;
-  --nature-green: #6f9f3d;
-  --light-green: #a8c77b;
-
-  --sage-green: #eaf2e4;
-  --soft-green: #f3f7ed;
-
-  --gold: #c8a45c;
-
+.about-section {
+  position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 110px 0 80px;
 
-  color: var(--forest-green);
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(144, 238, 144, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(46, 139, 87, 0.08),
+      transparent 30%
+    ),
+    #f7fbf5;
+
+  color: #173d2d;
 
   font-family:
     Cambria,
     Georgia,
     "Times New Roman",
     serif;
-
-  background: #ffffff;
 }
 
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-.about-page *,
-.about-page *::before,
-.about-page *::after {
-  box-sizing: border-box;
-}
-
-.about-page img {
-  display: block;
-  max-width: 100%;
-}
-
-
-/* =========================================================
-   INTRODUCTION SECTION
-========================================================= */
-
-.about-introduction {
+.about-container {
   position: relative;
-
-  width: 100%;
-  min-height: 650px;
-
-  display: flex;
-  align-items: center;
-
-  overflow: hidden;
-
-  padding: 45px 5vw 50px;
-
-  background:
-    radial-gradient(
-      circle at 24% 50%,
-      rgba(111, 159, 61, 0.10),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 75%,
-      rgba(46, 139, 114, 0.06),
-      transparent 30%
-    ),
-    linear-gradient(
-      115deg,
-      #ffffff 0%,
-      #fcfdf9 50%,
-      #f7faf5 100%
-    );
-}
-
-
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
-
-.about-bg-glow {
-  position: absolute;
-
-  width: 650px;
-  height: 650px;
-
-  left: 1%;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(111, 159, 61, 0.13),
-      rgba(111, 159, 61, 0.045) 43%,
-      transparent 72%
-    );
-
-  filter: blur(12px);
-
-  pointer-events: none;
-
-  z-index: 0;
-}
-
-
-/* =========================================================
-   TOP RIGHT LEAVES
-========================================================= */
-
-.about-top-leaves {
-  position: absolute;
-
-  top: -35px;
-  right: -10px;
-
-  width: 235px;
-  height: 180px;
-
-  object-fit: contain;
-
-  opacity: 0.38;
-
-  /*
-    Hides the filename printed
-    inside the PNG.
-  */
-  clip-path: inset(0 0 18% 0);
-
-  mix-blend-mode: multiply;
-
-  background: transparent !important;
-
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-  pointer-events: none;
-
-  z-index: 1;
-}
-
-
-/* =========================================================
-   SNAKE ART
-========================================================= */
-
-.about-snake-art {
-  position: absolute;
-
-  right: -20px;
-  bottom: -45px;
-
-  width: 430px;
-  height: 330px;
-
-  object-fit: contain;
-
-  background: transparent !important;
-
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-  mix-blend-mode: multiply;
-
-  /*
-    Hide filename area.
-  */
-  clip-path: inset(0 0 12% 0);
-
-  opacity: 0.22;
-
-  filter:
-    drop-shadow(
-      0 10px 20px rgba(20, 83, 45, 0.05)
-    );
-
-  pointer-events: none;
-
-  z-index: 1;
-}
-
-
-/* =========================================================
-   LEFT ARTWORK
-========================================================= */
-
-.about-art-wrapper {
-  position: relative;
-
-  width: 49%;
-  height: 570px;
-
-  flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  background: transparent;
-
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-
   z-index: 2;
+
+  width: min(1240px, calc(100% - 80px));
+  margin: 0 auto;
 }
 
 
 /* =========================================================
-   ARTWORK GLOW
+   BACKGROUND
 ========================================================= */
 
-.about-art-glow {
+.about-bg-leaf {
   position: absolute;
 
-  width: 510px;
-  height: 510px;
+  width: 280px;
+  height: 280px;
 
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(111, 159, 61, 0.15),
-      rgba(46, 139, 114, 0.06) 45%,
-      transparent 72%
-    );
-
-  filter: blur(14px);
-
-  z-index: 1;
+  border: 1px solid rgba(46, 139, 87, 0.18);
+  border-radius: 100% 0 100% 0;
 
   pointer-events: none;
 }
 
+.about-bg-leaf-1 {
+  right: -140px;
+  top: 90px;
 
-/* =========================================================
-   MAIN DEVATHA IMAGE
-========================================================= */
+  transform: rotate(35deg);
+}
 
-.about-main-art {
-  position: absolute;
+.about-bg-leaf-2 {
+  left: -150px;
+  bottom: 100px;
 
-  left: 50%;
-  top: 50%;
+  width: 240px;
+  height: 240px;
 
-  transform: translate(-50%, -50%);
-
-  width: 115%;
-  height: 115%;
-
-  max-width: none;
-
-  object-fit: contain;
-
-  background: transparent !important;
-
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-  /*
-    Removes the harsh white PNG appearance.
-  */
-  mix-blend-mode: multiply;
-
-  /*
-    Hide filename at bottom.
-  */
-  clip-path: inset(0 0 9% 0);
-
-  filter:
-    drop-shadow(
-      0 18px 25px rgba(11, 61, 46, 0.07)
-    );
-
-  z-index: 4;
+  transform: rotate(-35deg);
 }
 
 
 /* =========================================================
-   HERBS ART
+   ABOUT LABEL
 ========================================================= */
 
-.about-herbs-art {
-  position: absolute;
-
-  left: -25px;
-  bottom: -5px;
-
-  width: 230px;
-  height: 230px;
-
-  object-fit: contain;
-
-  background: transparent !important;
-
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-  mix-blend-mode: multiply;
-
-  /*
-    Hide filename.
-  */
-  clip-path: inset(0 0 13% 0);
-
-  opacity: 0.97;
-
-  filter:
-    drop-shadow(
-      0 8px 15px rgba(11, 61, 46, 0.07)
-    );
-
-  z-index: 5;
-}
-
-
-/* =========================================================
-   INTRO CONTENT
-========================================================= */
-
-.about-intro-content {
-  position: relative;
-
-  width: 51%;
-
-  padding: 10px 1vw 10px 30px;
-
-  z-index: 10;
-}
-
-
-/* =========================================================
-   INTRO EYEBROW
-========================================================= */
-
-.about-eyebrow {
+.about-label {
   display: flex;
-
   align-items: center;
 
-  gap: 14px;
+  gap: 18px;
 
-  margin-bottom: 18px;
+  margin-bottom: 65px;
+}
 
-  color: var(--sea-green);
-
-  font-size: 15px;
-
+.about-label > span {
+  font-size: 13px;
   font-weight: 700;
 
   letter-spacing: 4px;
 
-  line-height: 1;
-
-  text-transform: uppercase;
+  color: #2e8b57;
 }
 
-.about-eyebrow span {
-  display: block;
-
-  width: 42px;
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--nature-green),
-      var(--sea-green)
-    );
-
-  border-radius: 10px;
-}
-
-
-/* =========================================================
-   INTRO HEADING
-========================================================= */
-
-.about-intro-content h1 {
-  margin: 0 0 25px;
-
-  color: var(--dark-forest);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: clamp(48px, 4.25vw, 72px);
-
-  font-weight: 700;
-
-  line-height: 1.03;
-
-  letter-spacing: -2px;
-}
-
-.about-intro-content h1 span {
-  color: var(--sea-green);
-
-  font-weight: 400;
-}
-
-
-/* =========================================================
-   INTRO LEAD
-========================================================= */
-
-.about-lead {
-  max-width: 780px;
-
-  margin: 0 0 25px;
-
-  color: #315d4e;
-
-  font-size: 19px;
-
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   INTRO BODY
-========================================================= */
-
-.about-intro-content p:not(.about-lead) {
-  max-width: 800px;
-
-  margin: 0 0 15px;
-
-  color: #29483c;
-
-  font-size: 16px;
-
-  line-height: 1.62;
-}
-
-
-/* =========================================================
-   READ OUR STORY
-========================================================= */
-
-.about-story-link {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 17px;
-
-  min-width: 185px;
-  height: 49px;
-
-  margin-top: 9px;
-
-  padding: 0 23px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #5b963f,
-      #2e8b72
-    );
-
-  border: none;
-
-  border-radius: 30px;
-
-  color: #ffffff;
-
-  text-decoration: none;
-
-  font-size: 16px;
-
-  font-weight: 700;
-
-  box-shadow:
-    0 9px 22px rgba(46, 139, 114, 0.20);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
-}
-
-.about-story-link:hover {
-  transform: translateY(-3px);
-
-  background:
-    linear-gradient(
-      135deg,
-      #2e8b72,
-      #14532d
-    );
-
-  box-shadow:
-    0 14px 28px rgba(20, 83, 45, 0.22);
-}
-
-.story-arrow {
-  font-family: Arial, sans-serif;
-
-  font-size: 23px;
-
-  line-height: 1;
-
-  transition:
-    transform 0.3s ease;
-}
-
-.about-story-link:hover .story-arrow {
-  transform: translateX(5px);
-}
-
-
-/* =========================================================
-   AYURVEDA & EXPERTISE SECTION
-========================================================= */
-
-.about-expertise {
+.about-label-line {
   position: relative;
 
-  width: 100%;
-
-  min-height: 555px;
-
-  padding: 50px 30px 55px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(111, 159, 61, 0.10),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #edf5e8 0%,
-      #f8faf4 48%,
-      #e9f3e9 100%
-    );
-}
-
-
-/* =========================================================
-   EXPERTISE CONTENT
-========================================================= */
-
-.expertise-content {
-  position: relative;
-
-  z-index: 5;
-
-  width: min(1240px, 100%);
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   EXPERTISE EYEBROW
-========================================================= */
-
-.expertise-eyebrow {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 13px;
-
-  margin-bottom: 12px;
-
-  color: var(--sea-green);
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  letter-spacing: 3px;
-
-  text-transform: uppercase;
-}
-
-.expertise-eyebrow span {
-  width: 34px;
+  width: 75px;
   height: 1px;
 
-  background: var(--nature-green);
+  background: #3cb371;
 }
 
-
-/* =========================================================
-   EXPERTISE HEADING
-========================================================= */
-
-.expertise-content h2 {
-  margin: 0;
-
-  color: var(--dark-forest);
-
-  font-size: clamp(36px, 3.25vw, 53px);
-
-  font-weight: 700;
-
-  line-height: 1.10;
-
-  letter-spacing: -1px;
-}
-
-.expertise-content h2 span {
-  color: #4c8d70;
-
-  font-weight: 400;
-}
-
-
-/* =========================================================
-   DIVIDER
-========================================================= */
-
-.expertise-divider {
-  position: relative;
-
-  width: 145px;
-  height: 18px;
-
-  margin: 10px auto;
-}
-
-.expertise-divider::before {
+.about-label-line::after {
   content: "";
 
   position: absolute;
 
-  left: 0;
   right: 0;
-
   top: 50%;
 
-  height: 1px;
+  width: 6px;
+  height: 6px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(111, 159, 61, 0.65),
-      transparent
-    );
+  border-radius: 50%;
+
+  background: #2e8b57;
+
+  transform: translateY(-50%);
 }
 
-.expertise-divider i {
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 95px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   IMAGE AREA
+========================================================= */
+
+.about-visual {
+  position: relative;
+
+  padding: 0 25px 45px 0;
+}
+
+.about-image-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 510px;
+
+  margin: auto;
+
+  padding: 14px;
+}
+
+.about-image-wrapper::before {
+  content: "";
+
   position: absolute;
 
-  left: 50%;
-  top: 50%;
+  inset: 0;
 
-  width: 7px;
-  height: 7px;
+  border: 1px solid rgba(46, 139, 87, 0.5);
 
-  transform:
-    translate(-50%, -50%)
-    rotate(45deg);
+  transform: rotate(-2deg);
+}
 
-  background: var(--gold);
+.about-image-wrapper::after {
+  content: "";
 
-  border: 2px solid #edf5e8;
+  position: absolute;
+
+  inset: 8px;
+
+  border: 1px solid rgba(60, 179, 113, 0.25);
 }
 
 
 /* =========================================================
-   EXPERTISE TEXT
+   IMAGE
 ========================================================= */
 
-.expertise-lead {
-  max-width: 900px;
+.about-herbs-image {
+  position: relative;
+  z-index: 2;
 
-  margin: 0 auto 4px;
+  display: block;
 
-  color: #365b4d;
+  width: 100%;
 
-  font-size: 17px;
+  aspect-ratio: 4 / 4.7;
 
-  line-height: 1.55;
+  object-fit: cover;
+
+  filter: saturate(0.9);
+
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
 }
 
-.expertise-description {
-  max-width: 900px;
+.about-image-wrapper:hover .about-herbs-image {
+  transform: scale(1.035);
 
-  margin: 0 auto;
-
-  color: #547067;
-
-  font-size: 16px;
-
-  line-height: 1.55;
+  filter: saturate(1.05);
 }
 
 
 /* =========================================================
-   APPROACH TITLE
+   IMAGE CORNERS
 ========================================================= */
 
-.expertise-content h3 {
+.about-corner {
+  position: absolute;
+
+  z-index: 4;
+
+  width: 32px;
+  height: 32px;
+
+  border-color: #2e8b57;
+
+  border-style: solid;
+}
+
+.about-corner-top {
+  top: -7px;
+  right: 22px;
+
+  border-width: 2px 2px 0 0;
+}
+
+.about-corner-bottom {
+  bottom: -7px;
+  left: 22px;
+
+  border-width: 0 0 2px 2px;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.about-badge {
+  position: absolute;
+
+  z-index: 5;
+
+  right: -5px;
+  bottom: 12px;
+
+  width: 135px;
+  height: 135px;
+
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  gap: 11px;
+  border-radius: 50%;
 
-  margin: 17px 0 13px;
+  background: #f7fbf5;
 
-  color: var(--deep-green);
-
-  font-size: 17px;
-
-  font-weight: 700;
+  box-shadow:
+    0 15px 35px rgba(20, 75, 45, 0.13);
 }
 
-.expertise-content h3 span {
-  color: var(--nature-green);
-
-  font-size: 12px;
-}
-
-
-/* =========================================================
-   APPROACH GRID
-   NO PLUS MARKS
-========================================================= */
-
-.approach-grid {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  align-items: stretch;
-
-  gap: 18px;
-
-  margin: 0 auto;
-}
-
-
-/* =========================================================
-   APPROACH CARD
-========================================================= */
-
-.approach-item {
-  position: relative;
-
-  min-height: 138px;
-
-  padding: 28px 13px 15px;
+.about-badge-inner {
+  width: 112px;
+  height: 112px;
 
   display: flex;
 
@@ -797,45 +283,295 @@
   align-items: center;
   justify-content: center;
 
-  background:
-    rgba(255, 255, 255, 0.76);
+  padding: 12px;
 
-  border:
-    1px solid rgba(46, 139, 114, 0.20);
+  text-align: center;
 
-  border-radius: 13px;
+  border: 1px solid #3cb371;
 
-  box-shadow:
-    0 7px 18px rgba(20, 83, 45, 0.055);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  border-radius: 50%;
 }
 
-.approach-item:hover {
-  transform: translateY(-5px);
+.about-badge-inner span {
+  font-size: 7px;
 
-  border-color:
-    rgba(46, 139, 114, 0.38);
+  letter-spacing: 1.5px;
 
-  box-shadow:
-    0 14px 28px rgba(20, 83, 45, 0.11);
+  color: #5b7867;
+}
+
+.about-badge-inner strong {
+  margin: 7px 0;
+
+  font-size: 16px;
+
+  letter-spacing: 1px;
+
+  color: #1f6842;
 }
 
 
 /* =========================================================
-   APPROACH ICON
+   IMAGE CAPTION
 ========================================================= */
 
-.approach-icon {
+.about-image-caption {
   position: absolute;
 
-  top: -27px;
+  left: 8px;
+  bottom: 5px;
 
-  width: 53px;
-  height: 53px;
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.caption-line {
+  width: 32px;
+  height: 1px;
+
+  background: #3cb371;
+}
+
+.about-image-caption span:last-child {
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  color: #668071;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about-story-content {
+  max-width: 650px;
+}
+
+.about-overline {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #3b8c5d;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.about-title {
+  margin: 0;
+
+  font-family:
+    Cambria,
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(43px, 4.3vw, 64px);
+
+  font-weight: 600;
+
+  line-height: 1.04;
+
+  letter-spacing: -1.5px;
+
+  color: #174d35;
+}
+
+.about-title span {
+  color: #3b8c5d;
+
+  font-style: italic;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TITLE DECORATION
+========================================================= */
+
+.about-title-decoration {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 22px;
+}
+
+.about-title-decoration span {
+  width: 48px;
+  height: 2px;
+
+  display: block;
+
+  background: #3cb371;
+}
+
+.about-title-decoration i {
+  width: 9px;
+  height: 9px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #90ee90;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.about-timeline {
+  position: relative;
+
+  margin-top: 38px;
+}
+
+.about-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+
+  top: 15px;
+  bottom: 15px;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(46, 139, 87, 0.32),
+      transparent
+    );
+}
+
+.timeline-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 33px 1fr;
+
+  gap: 22px;
+
+  margin-bottom: 24px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TIMELINE MARKER
+========================================================= */
+
+.timeline-marker {
+  position: relative;
+  z-index: 2;
+
+  width: 33px;
+  height: 33px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(46, 139, 87, 0.42);
+
+  border-radius: 50%;
+
+  background: #f7fbf5;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  color: #2e8b57;
+}
+
+
+/* =========================================================
+   STORY TEXT
+========================================================= */
+
+.timeline-content {
+  padding-top: 1px;
+}
+
+.timeline-content p {
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #52685b;
+}
+
+.timeline-content strong {
+  color: #236640;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.about-action {
+  margin-top: 38px;
+}
+
+.about-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #1f6842;
+
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.about-button:hover {
+  gap: 22px;
+
+  color: #174d35;
+}
+
+.about-arrow {
+  width: 38px;
+  height: 38px;
 
   display: flex;
 
@@ -844,750 +580,409 @@
 
   border-radius: 50%;
 
-  background:
-    linear-gradient(
-      135deg,
-      #659d43,
-      #2e8b72
-    );
+  background: #2e8b57;
 
   color: #ffffff;
 
-  font-family: Georgia, serif;
+  font-family: Arial, sans-serif;
 
-  font-size: 23px;
+  font-size: 18px;
 
-  border:
-    4px solid #edf5e8;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
 
-  box-shadow:
-    0 6px 14px rgba(20, 83, 45, 0.17);
+.about-button:hover .about-arrow {
+  transform: translateX(4px);
+
+  background: #1f6842;
 }
 
 
 /* =========================================================
-   CARD NUMBER
+   BOTTOM STRIP
 ========================================================= */
 
-.approach-number {
-  margin-top: 5px;
-
-  margin-bottom: 5px;
-
-  color: var(--nature-green);
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
-
-.approach-item h4 {
-  margin: 0;
-
-  color: var(--forest-green);
-
-  font-size: 17px;
-
-  font-weight: 700;
-
-  line-height: 1.35;
-}
-
-
-/* =========================================================
-   FINAL STATEMENT
-========================================================= */
-
-.expertise-result {
-  width: 100%;
-  max-width: 950px;
-
-  margin: 18px auto 0;
-
+.about-footer {
   display: flex;
 
   align-items: center;
 
-  gap: 17px;
+  gap: 25px;
+
+  margin-top: 90px;
 }
 
-.result-line {
+.about-footer-line {
   flex: 1;
 
   height: 1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(46, 139, 114, 0.32)
-    );
+  background: rgba(46, 139, 87, 0.2);
 }
 
-.expertise-result p {
-  margin: 0;
+.about-footer-text {
+  display: flex;
 
-  color: #365b4d;
+  align-items: center;
 
-  font-size: 15px;
+  gap: 12px;
 
-  line-height: 1.45;
+  white-space: nowrap;
+
+  font-size: 10px;
+
+  letter-spacing: 1.4px;
+
+  color: #668071;
 }
 
-
-/* =========================================================
-   EXPERTISE DECORATIVE LEAVES
-========================================================= */
-
-.expertise-leaf {
-  position: absolute;
-
-  width: 230px;
-
-  opacity: 0.15;
-
-  background: transparent !important;
-
-  border: none !important;
-
-  border-radius: 0 !important;
-
-  box-shadow: none !important;
-
-  mix-blend-mode: multiply;
-
-  clip-path: inset(0 0 16% 0);
-
-  pointer-events: none;
-
-  z-index: 1;
-}
-
-.expertise-leaf-left {
-  left: -55px;
-  top: -25px;
-
-  transform: rotate(-30deg);
-}
-
-.expertise-leaf-right {
-  right: -65px;
-  bottom: -45px;
-
-  transform: rotate(145deg);
+.about-footer-text b {
+  color: #3cb371;
 }
 
 
 /* =========================================================
-   BACKGROUND HERBS
+   LAPTOP
 ========================================================= */
 
-.expertise-herbs {
-  position: absolute;
+@media (max-width: 1100px) {
 
-  left: -90px;
-  bottom: -120px;
-
-  width: 390px;
-
-  opacity: 0.09;
-
-  background: transparent !important;
-
-  border: none !important;
-
-  border-radius: 0 !important;
-
-  box-shadow: none !important;
-
-  mix-blend-mode: multiply;
-
-  clip-path: inset(0 0 13% 0);
-
-  transform: rotate(-8deg);
-
-  pointer-events: none;
-
-  z-index: 1;
-}
-
-
-/* =========================================================
-   FORCE FLAT ARTWORK
-========================================================= */
-
-.about-page .about-art-wrapper img,
-.about-page .about-introduction img,
-.about-page .about-expertise img {
-  border-radius: 0 !important;
-
-  border-color: transparent !important;
-}
-
-
-/* =========================================================
-   IMAGE BLENDING
-========================================================= */
-
-.about-page .about-main-art,
-.about-page .about-herbs-art,
-.about-page .about-top-leaves,
-.about-page .about-snake-art,
-.about-page .expertise-leaf,
-.about-page .expertise-herbs {
-  background: transparent !important;
-
-  mix-blend-mode: multiply;
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1600px) {
-
-  .about-introduction {
-    min-height: 680px;
-
-    padding-left: 7vw;
-    padding-right: 7vw;
+  .about-section {
+    padding: 90px 0 70px;
   }
 
-  .about-art-wrapper {
-    height: 620px;
+  .about-container {
+    width: min(920px, calc(100% - 60px));
   }
 
-  .about-main-art {
-    width: 118%;
-    height: 118%;
+  .about-grid {
+    gap: 55px;
   }
 
-  .about-intro-content h1 {
-    font-size: 76px;
+  .about-title {
+    font-size: clamp(40px, 5vw, 56px);
   }
 
-  .about-lead {
-    font-size: 20px;
-  }
-
-  .about-intro-content p:not(.about-lead) {
-    font-size: 17px;
-  }
-
-  .about-expertise {
-    min-height: 590px;
-  }
-}
-
-
-/* =========================================================
-   1200px
-========================================================= */
-
-@media (max-width: 1200px) {
-
-  .about-introduction {
-    padding-left: 35px;
-    padding-right: 35px;
-  }
-
-  .about-art-wrapper {
-    width: 47%;
-    height: 530px;
-  }
-
-  .about-intro-content {
-    width: 53%;
-
-    padding-left: 25px;
-  }
-
-  .about-intro-content h1 {
-    font-size: 51px;
-  }
-
-  .about-lead {
-    font-size: 17px;
-  }
-
-  .about-intro-content p:not(.about-lead) {
-    font-size: 15px;
-  }
-
-  .about-snake-art {
-    width: 390px;
-    height: 300px;
-  }
-
-  .approach-grid {
-    gap: 13px;
-  }
-
-  .approach-item h4 {
+  .timeline-content p {
     font-size: 15px;
   }
 }
 
 
 /* =========================================================
-   1000px
+   TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 820px) {
 
-  .about-introduction {
-    min-height: 610px;
-
-    padding: 40px 25px;
+  .about-section {
+    padding: 80px 0 60px;
   }
 
-  .about-art-wrapper {
-    width: 45%;
-
-    height: 500px;
+  .about-container {
+    width: calc(100% - 45px);
   }
 
-  .about-main-art {
-    width: 118%;
-    height: 118%;
+  .about-label {
+    margin-bottom: 45px;
   }
 
-  .about-herbs-art {
-    width: 185px;
-    height: 185px;
+  .about-grid {
+    grid-template-columns: 1fr;
 
-    left: -15px;
+    gap: 65px;
   }
 
-  .about-intro-content {
-    width: 55%;
-
-    padding-left: 20px;
-  }
-
-  .about-intro-content h1 {
-    font-size: 44px;
-
-    letter-spacing: -1px;
-  }
-
-  .about-lead {
-    font-size: 16px;
-  }
-
-  .about-intro-content p:not(.about-lead) {
-    font-size: 14px;
-
-    line-height: 1.58;
-  }
-
-  .about-story-link {
-    height: 46px;
-
-    min-width: 170px;
-
-    font-size: 15px;
-  }
-
-  .about-snake-art {
-    right: -45px;
-    bottom: -35px;
-
-    width: 350px;
-    height: 280px;
-
-    opacity: 0.18;
-  }
-
-  .approach-grid {
-    gap: 10px;
-  }
-
-  .approach-item {
-    min-height: 120px;
-
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .approach-item h4 {
-    font-size: 14px;
-  }
-}
-
-
-/* =========================================================
-   850px — TABLET
-========================================================= */
-
-@media (max-width: 850px) {
-
-  .about-introduction {
-    min-height: auto;
-
-    padding: 35px 25px 60px;
-
-    display: flex;
-
-    flex-direction: column;
-  }
-
-  .about-art-wrapper {
-    width: 100%;
-
-    height: 440px;
-
-    order: 1;
-  }
-
-  .about-main-art {
-    width: 105%;
-    height: 105%;
-  }
-
-  .about-herbs-art {
-    width: 180px;
-    height: 180px;
-
-    left: 0;
-    bottom: -5px;
-  }
-
-  .about-intro-content {
-    width: 100%;
-
-    padding: 0;
-
-    text-align: center;
-
-    order: 2;
-  }
-
-  .about-eyebrow {
-    justify-content: center;
-  }
-
-  .about-intro-content h1 {
-    font-size: 44px;
-  }
-
-  .about-lead,
-  .about-intro-content p:not(.about-lead) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .about-story-link {
-    margin-top: 10px;
-  }
-
-  .about-snake-art {
-    right: -55px;
-    bottom: -25px;
-
-    width: 310px;
-    height: 250px;
-
-    opacity: 0.14;
-  }
-
-
-  /* EXPERTISE */
-
-  .about-expertise {
-    padding: 50px 20px;
-  }
-
-  .approach-grid {
-    max-width: 650px;
+  .about-visual {
+    width: min(620px, 100%);
 
     margin: 0 auto;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 32px 14px;
   }
 
-  .approach-item {
-    width: 100%;
+  .about-story-content {
+    max-width: 680px;
+
+    margin: 0 auto;
+  }
+
+  .about-title {
+    font-size: clamp(42px, 7vw, 58px);
+  }
+
+  .about-footer {
+    margin-top: 65px;
   }
 }
 
 
 /* =========================================================
-   600px — MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
 
-  .about-introduction {
-    padding: 20px 18px 50px;
+  .about-section {
+    padding: 65px 0 50px;
   }
 
-  .about-art-wrapper {
-    height: 350px;
+  .about-container {
+    width: calc(100% - 32px);
   }
 
-  .about-main-art {
-    width: 110%;
-    height: 110%;
 
-    clip-path: inset(0 0 9% 0);
+  /* Label */
+
+  .about-label {
+    gap: 12px;
+
+    margin-bottom: 35px;
   }
 
-  .about-herbs-art {
-    width: 145px;
-    height: 145px;
+  .about-label > span {
+    font-size: 10px;
 
-    left: -12px;
+    letter-spacing: 3px;
+  }
+
+  .about-label-line {
+    width: 50px;
+  }
+
+
+  /* Image */
+
+  .about-visual {
+    padding-right: 9px;
+
+    padding-bottom: 25px;
+  }
+
+  .about-image-wrapper {
+    padding: 10px;
+  }
+
+  .about-image-wrapper::before {
+    transform: rotate(-1.5deg);
+  }
+
+  .about-herbs-image {
+    aspect-ratio: 1 / 1.05;
+  }
+
+  .about-badge {
+    right: -6px;
     bottom: 0;
 
-    clip-path: inset(0 0 14% 0);
+    width: 105px;
+    height: 105px;
   }
 
-  .about-top-leaves {
-    width: 145px;
-    height: 120px;
+  .about-badge-inner {
+    width: 88px;
+    height: 88px;
 
-    top: -15px;
-    right: -8px;
-
-    clip-path: inset(0 0 18% 0);
+    padding: 9px;
   }
 
-  .about-snake-art {
-    right: -70px;
-    bottom: -30px;
+  .about-badge-inner span {
+    font-size: 6px;
 
-    width: 270px;
-    height: 220px;
+    letter-spacing: 1px;
+  }
 
-    opacity: 0.11;
+  .about-badge-inner strong {
+    margin: 5px 0;
+
+    font-size: 13px;
+  }
+
+  .about-image-caption {
+    left: 2px;
+    bottom: 0;
+  }
+
+  .about-image-caption span:last-child {
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
   }
 
 
-  /* INTRO TEXT */
+  /* Content */
 
-  .about-eyebrow {
-    gap: 8px;
-
-    margin-bottom: 14px;
-
+  .about-overline {
     font-size: 10px;
 
     letter-spacing: 2.5px;
+
+    margin-bottom: 10px;
   }
 
-  .about-eyebrow span {
-    width: 25px;
+  .about-title {
+    font-size: clamp(36px, 10.5vw, 48px);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.8px;
   }
 
-  .about-intro-content h1 {
-    margin-bottom: 20px;
-
-    font-size: 35px;
-
-    line-height: 1.08;
+  .about-title-decoration {
+    margin-top: 18px;
   }
 
-  .about-lead {
-    margin-bottom: 20px;
-
-    font-size: 15px;
-
-    line-height: 1.6;
+  .about-title-decoration span {
+    width: 38px;
   }
 
-  .about-intro-content p:not(.about-lead) {
+
+  /* Timeline */
+
+  .about-timeline {
+    margin-top: 30px;
+  }
+
+  .about-timeline::before {
+    left: 13px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 27px 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 22px;
+  }
+
+  .timeline-marker {
+    width: 27px;
+    height: 27px;
+
+    font-size: 7px;
+  }
+
+  .timeline-content p {
     font-size: 14px;
 
-    line-height: 1.7;
-  }
-
-  .about-story-link {
-    min-width: 165px;
-
-    height: 45px;
-
-    font-size: 14px;
-  }
-
-  .story-arrow {
-    font-size: 20px;
+    line-height: 1.65;
   }
 
 
-  /* =====================================================
-     EXPERTISE MOBILE
-  ===================================================== */
+  /* CTA */
 
-  .about-expertise {
-    min-height: auto;
-
-    padding: 45px 15px 50px;
+  .about-action {
+    margin-top: 32px;
   }
 
-  .expertise-eyebrow {
-    gap: 8px;
+  .about-button {
+    gap: 13px;
 
-    font-size: 9px;
-
-    letter-spacing: 2px;
-  }
-
-  .expertise-eyebrow span {
-    width: 20px;
-  }
-
-  .expertise-content h2 {
-    font-size: 29px;
-
-    line-height: 1.15;
-  }
-
-  .expertise-divider {
-    margin: 9px auto;
-  }
-
-  .expertise-lead {
-    font-size: 14px;
-
-    line-height: 1.6;
-  }
-
-  .expertise-description {
-    font-size: 14px;
-
-    line-height: 1.6;
-  }
-
-  .expertise-content h3 {
-    margin: 20px 0 13px;
-
-    font-size: 14px;
-  }
-
-
-  /* TWO COLUMN CARDS */
-
-  .approach-grid {
-    grid-template-columns: 1fr 1fr;
-
-    gap: 30px 10px;
-  }
-
-  .approach-item {
-    min-height: 105px;
-  }
-
-  .approach-icon {
-    width: 47px;
-    height: 47px;
-
-    top: -24px;
-
-    font-size: 20px;
-  }
-
-  .approach-number {
-    font-size: 10px;
-  }
-
-  .approach-item h4 {
-    font-size: 14px;
-  }
-
-
-  /* FINAL STATEMENT */
-
-  .expertise-result {
-    display: block;
-
-    margin-top: 24px;
-  }
-
-  .result-line {
-    display: block;
-
-    width: 100%;
-
-    margin-bottom: 12px;
-  }
-
-  .expertise-result p {
     font-size: 13px;
+  }
 
-    line-height: 1.55;
+  .about-arrow {
+    width: 34px;
+    height: 34px;
+
+    font-size: 17px;
   }
 
 
-  /* DECORATION */
+  /* Footer */
 
-  .expertise-leaf {
+  .about-footer {
+    margin-top: 50px;
+
+    gap: 10px;
+  }
+
+  .about-footer-text {
+    gap: 6px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 0.7px;
+  }
+
+  .about-footer-line {
+    min-width: 12px;
+  }
+
+
+  /* Background */
+
+  .about-bg-leaf-1 {
+    width: 170px;
+    height: 170px;
+
+    right: -100px;
+    top: 220px;
+  }
+
+  .about-bg-leaf-2 {
     width: 150px;
-  }
+    height: 150px;
 
-  .expertise-herbs {
-    width: 250px;
+    left: -100px;
+    bottom: 180px;
   }
 }
 
 
 /* =========================================================
-   400px — SMALL MOBILE
+   SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
 
-  .about-art-wrapper {
-    height: 315px;
+  .about-container {
+    width: calc(100% - 26px);
   }
 
-  .about-main-art {
-    width: 112%;
-    height: 112%;
+  .about-title {
+    font-size: 34px;
   }
 
-  .about-herbs-art {
-    width: 125px;
-    height: 125px;
+  .timeline-content p {
+    font-size: 13.5px;
+
+    line-height: 1.6;
   }
 
-  .about-snake-art {
-    right: -75px;
-    bottom: -20px;
-
-    width: 230px;
-    height: 190px;
-
-    opacity: 0.09;
+  .about-badge {
+    width: 92px;
+    height: 92px;
   }
 
-  .about-intro-content h1 {
-    font-size: 31px;
+  .about-badge-inner {
+    width: 77px;
+    height: 77px;
   }
 
-  .about-lead {
-    font-size: 14px;
+  .about-badge-inner strong {
+    font-size: 11px;
   }
 
-  .about-intro-content p:not(.about-lead) {
-    font-size: 13px;
+  .about-badge-inner span {
+    font-size: 5px;
   }
 
-  .approach-grid {
-    grid-template-columns: 1fr;
+  .about-footer-text {
+    font-size: 5.5px;
   }
+}
 
-  .approach-item {
-    min-height: 95px;
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-herbs-image,
+  .about-button,
+  .about-arrow {
+    transition: none;
   }
 }

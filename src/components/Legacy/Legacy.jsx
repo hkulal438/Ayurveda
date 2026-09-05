@@ -42,13 +42,13 @@ const timelineData = [
     ],
   },
   {
-    year: "1975–76 – 1980",
+    year: "1975 – 1980",
     title: "A New Chapter",
     image: doctorImage,
     imageAlt:
       "Dr. Narayana T. Anchan representing his Ayurvedic education and clinical practice",
     paragraphs: [
-      "Inspired by his father's knowledge and practice, Dr. Narayana T. Anchan pursued formal education in Ayurveda. He completed his Ayurvedic qualification during 1975–76, followed by further studies at SDM College of Ayurveda, Udupi.",
+      "Inspired by his father's knowledge and practice, Dr. Narayana T. Anchan pursued formal education in Ayurveda. He completed his Ayurvedic qualification during 1975 – 1980, followed by further studies at SDM College of Ayurveda, Udupi.",
       "In 1980, he began his clinical practice, carrying forward the traditional Ayurvedic knowledge he had inherited while developing his own clinical experience.",
     ],
   },
