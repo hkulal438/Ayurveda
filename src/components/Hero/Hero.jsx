@@ -1,12 +1,14 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Gallery,
   GalleryMain,
   GalleryItem,
+  GalleryNav,
   useGallery,
 } from "@wethegit/react-gallery";
 
+import "@wethegit/react-gallery/style.css";
 import "./Hero.css";
 
 // =========================================================
@@ -75,28 +77,16 @@ const ITEMS = [
 const TOTAL = ITEMS.length;
 
 // =========================================================
-// FIND ITEM INDEX
-// =========================================================
-
-const indexOfId = (id) => {
-  return ITEMS.findIndex((item) => item.id === id);
-};
-
-// =========================================================
 // SLIDES
 // =========================================================
 
-function Slides({ thumbOrder }) {
+function Slides() {
   const { goToIndex } = useGallery();
 
   return (
     <GalleryMain
       className="track"
       renderGalleryItem={({ item, index, active }) => {
-        const offset =
-          thumbOrder.indexOf(item.id) -
-          (thumbOrder.length - 1) / 2;
-
         return (
           <GalleryItem
             key={item.id}
@@ -105,12 +95,7 @@ function Slides({ thumbOrder }) {
             className="item"
             data-active={String(active)}
           >
-            <div
-              className="slide"
-              style={{
-                "--offset": offset,
-              }}
-            >
+            <div className="slide">
               <img
                 src={item.src}
                 alt={item.alt}
@@ -119,6 +104,10 @@ function Slides({ thumbOrder }) {
               />
 
               <div className="imageOverlay" />
+
+              {/* =================================================
+                  OPTIONAL CLICK ON INACTIVE SLIDES
+              ================================================= */}
 
               {!active && (
                 <button
@@ -145,11 +134,8 @@ function Slides({ thumbOrder }) {
 // ACTIVE CONTENT
 // =========================================================
 
-function ActiveContent({ thumbOrder }) {
-  const {
-    activeIndex,
-    goToIndex,
-  } = useGallery();
+function ActiveContent() {
+  const { activeIndex } = useGallery();
 
   const item = ITEMS[activeIndex];
 
@@ -157,30 +143,32 @@ function ActiveContent({ thumbOrder }) {
     return null;
   }
 
-  const previousIndex = indexOfId(
-    thumbOrder[thumbOrder.length - 1]
-  );
-
-  const nextIndex = indexOfId(
-    thumbOrder[0]
-  );
-
   return (
     <div className="rail">
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
 
       <div
         className="content"
         key={item.id}
       >
+        {/* NATURAL TAG */}
+
         <span className="ayurvedaTag">
           NATURAL • PURE • AYURVEDIC
         </span>
+
+        {/* SLIDE NUMBER */}
 
         <p className="kicker">
           {String(activeIndex + 1).padStart(2, "0")}
           {" / "}
           {String(TOTAL).padStart(2, "0")}
         </p>
+
+        {/* TITLE */}
 
         <h1 className="title">
           <span>
@@ -192,9 +180,13 @@ function ActiveContent({ thumbOrder }) {
           </span>
         </h1>
 
+        {/* DESCRIPTION */}
+
         <p className="description">
           {item.description}
         </p>
+
+        {/* BUTTON */}
 
         <button
           type="button"
@@ -210,13 +202,22 @@ function ActiveContent({ thumbOrder }) {
         </button>
       </div>
 
+      {/* =====================================================
+          NAVIGATION
+
+          IMPORTANT:
+          GalleryNav is used instead of manually calling
+          goToIndex(). This connects directly to the gallery.
+      ===================================================== */}
+
       <div className="controls">
 
-        <button
-          type="button"
+        {/* PREVIOUS */}
+
+        <GalleryNav
+          direction={0}
           className="navBtn"
           aria-label="Previous slide"
-          onClick={() => goToIndex(previousIndex)}
         >
           <svg
             width="20"
@@ -231,13 +232,18 @@ function ActiveContent({ thumbOrder }) {
           >
             <polyline points="15 18 9 12 15 6" />
           </svg>
-        </button>
 
-        <button
-          type="button"
+          <span className="visuallyHidden">
+            Previous slide
+          </span>
+        </GalleryNav>
+
+        {/* NEXT */}
+
+        <GalleryNav
+          direction={1}
           className="navBtn"
           aria-label="Next slide"
-          onClick={() => goToIndex(nextIndex)}
         >
           <svg
             width="20"
@@ -252,7 +258,11 @@ function ActiveContent({ thumbOrder }) {
           >
             <polyline points="9 18 15 12 9 6" />
           </svg>
-        </button>
+
+          <span className="visuallyHidden">
+            Next slide
+          </span>
+        </GalleryNav>
 
       </div>
 
@@ -265,9 +275,6 @@ function ActiveContent({ thumbOrder }) {
 // =========================================================
 
 function EnlargeGallery() {
-  const [thumbOrder, setThumbOrder] = useState(() =>
-    ITEMS.slice(1).map((item) => item.id)
-  );
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -276,6 +283,7 @@ function EnlargeGallery() {
   // =======================================================
 
   useEffect(() => {
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
     };
@@ -294,23 +302,12 @@ function EnlargeGallery() {
         handleScroll
       );
     };
+
   }, []);
 
   // =======================================================
-  // SLIDER CHANGE
+  // GALLERY
   // =======================================================
-
-  const handleChange = useCallback(
-    ({ oldIndex, newIndex }) => {
-      setThumbOrder((order) => [
-        ...order.filter(
-          (id) => id !== ITEMS[newIndex].id
-        ),
-        ITEMS[oldIndex].id,
-      ]);
-    },
-    []
-  );
 
   return (
     <section
@@ -322,19 +319,59 @@ function EnlargeGallery() {
 
       <Gallery
         items={ITEMS}
+
+        /*
+          IMPORTANT:
+          Allows:
+          1 → 2 → 3 → 4 → 1
+          and
+          4 → 3 → 2 → 1 → 4
+        */
+
+        loop={true}
+
+        /*
+          We are using buttons instead of
+          mouse dragging.
+        */
+
         draggable={false}
+
         className="gallery"
-        onChange={handleChange}
+
+        /*
+          Controls the gallery animation speed.
+        */
+
+        style={{
+          "--duration": "0.75s",
+          "--item-width": "100%",
+          "--gap": "0px",
+          "--active-gap": "0px",
+        }}
+
+        /*
+          Optional:
+          keeps the accessibility announcement
+          from appearing as visible content.
+        */
+
+        ariaLiveText="Slide $i of $t."
       >
-        <Slides
-          thumbOrder={thumbOrder}
-        />
 
-        <ActiveContent
-          thumbOrder={thumbOrder}
-        />
+        {/* =================================================
+            SLIDES
+        ================================================= */}
+
+        <Slides />
+
+        {/* =================================================
+            ACTIVE CONTENT + NAVIGATION
+        ================================================= */}
+
+        <ActiveContent />
+
       </Gallery>
-
 
       {/* =====================================================
           DECORATIVE ELEMENTS
