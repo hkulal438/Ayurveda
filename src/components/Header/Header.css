@@ -1,7 +1,28 @@
 /* =========================================================
    ANCHAN AYURVEDIC INDUSTRIES
    HEADER / NAVBAR
+   PREMIUM TRANSPARENT → WHITE HEADER
 ========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 
 /* =========================================================
@@ -10,38 +31,83 @@
 
 .header {
   position: fixed;
+
   top: 0;
   left: 0;
 
-  width: 100%;
+  width: 100vw;
+
   height: 102px;
 
   z-index: 9999;
 
-  background: rgba(8, 55, 38, 0.22);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin: 0;
+  padding: 0;
 
   /*
     IMPORTANT:
-    No backdrop blur.
-    This keeps the hero image completely sharp.
+
+    Completely transparent header.
+
+    The gradient below is created with ::before
+    so there is NO visible rectangular transparent box.
   */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+
+  background: transparent;
+
+  border: none;
 
   box-shadow: none;
 
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
   transition:
-    height 0.4s ease,
-    background 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
+    height 0.45s ease,
+    background 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
 
 /* =========================================================
-   HEADER AFTER SCROLL
+   SUBTLE HERO GRADIENT
+
+   This makes the navigation readable without creating
+   a visible rectangular transparent panel.
+========================================================= */
+
+.header::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 38, 27, 0.42) 0%,
+      rgba(2, 38, 27, 0.18) 45%,
+      rgba(2, 38, 27, 0.02) 100%
+    );
+
+  opacity: 1;
+
+  transition:
+    opacity 0.45s ease;
+}
+
+
+/* =========================================================
+   SCROLLED HEADER
 ========================================================= */
 
 .header.scrolled {
@@ -49,13 +115,17 @@
 
   background: #ffffff;
 
-  border-bottom: 1px solid rgba(22, 59, 44, 0.08);
+  border: none;
 
   box-shadow:
-    0 6px 25px rgba(0, 0, 0, 0.08);
+    0 5px 25px rgba(0, 0, 0, 0.08);
+}
 
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+
+/* Remove hero gradient after scrolling */
+
+.header.scrolled::before {
+  opacity: 0;
 }
 
 
@@ -65,15 +135,18 @@
 
 .header-container {
   width: 100%;
+
   max-width: 1500px;
 
   height: 100%;
 
   margin: 0 auto;
 
-  padding: 0 38px;
+  padding:
+    0 38px;
 
   display: flex;
+
   align-items: center;
 }
 
@@ -86,6 +159,7 @@
   flex-shrink: 0;
 
   display: flex;
+
   align-items: center;
 }
 
@@ -97,12 +171,18 @@
   padding: 7px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   box-sizing: border-box;
 
-  background: rgba(255, 255, 255, 0.92);
+  /*
+    Keep the white logo card.
+  */
+
+  background:
+    rgba(255, 255, 255, 0.96);
 
   border-radius: 16px;
 
@@ -123,6 +203,7 @@
 
 .logo img {
   width: auto;
+
   height: 70px;
 
   max-width: 100%;
@@ -137,7 +218,7 @@
 
 
 /* =========================================================
-   LOGO AFTER SCROLL
+   LOGO — SCROLLED
 ========================================================= */
 
 .header.scrolled .logo a {
@@ -167,22 +248,28 @@
   flex: 1;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   margin-left: 65px;
+
   margin-right: 55px;
 }
 
 
 .nav-list {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 38px;
 
   margin: 0;
+
   padding: 0;
 
   list-style: none;
@@ -197,7 +284,9 @@
   position: relative;
 
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 6px;
@@ -223,7 +312,7 @@
   cursor: pointer;
 
   text-shadow:
-    0 1px 5px rgba(0, 0, 0, 0.35);
+    0 2px 7px rgba(0, 0, 0, 0.38);
 
   transition:
     color 0.3s ease,
@@ -358,7 +447,6 @@
 
     color: #e8dc91;
   }
-
 
   .header.scrolled
   .dropdown:hover
@@ -589,7 +677,9 @@
   position: static !important;
 
   width: 34px !important;
+
   min-width: 34px !important;
+
   max-width: 34px !important;
 
   height: auto !important;
@@ -601,6 +691,7 @@
   justify-content: flex-start;
 
   margin: 0 !important;
+
   padding: 0 !important;
 
   color: #9da79f !important;
@@ -638,6 +729,7 @@
   display: block !important;
 
   margin: 0 !important;
+
   padding: 0 !important;
 
   color: #222222 !important;
@@ -791,6 +883,7 @@
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 8px;
@@ -873,7 +966,7 @@
   padding: 0;
 
   background:
-    rgba(255, 255, 255, 0.92);
+    rgba(255, 255, 255, 0.94);
 
   border:
     1px solid rgba(255, 255, 255, 0.7);
@@ -941,29 +1034,24 @@
       0 28px;
   }
 
-
   .nav {
     margin-left: 50px;
 
     margin-right: 45px;
   }
 
-
   .nav-list {
     gap: 30px;
   }
-
 
   .nav-link {
     font-size: 17px;
   }
 
-
   .enquire-btn {
     padding:
       0 20px;
   }
-
 
   .products-dropdown {
     width: 660px;
@@ -983,28 +1071,23 @@
       0 22px;
   }
 
-
   .logo a {
     width: 74px;
     height: 74px;
   }
 
-
   .logo img {
     height: 64px;
   }
-
 
   .header.scrolled .logo a {
     width: 66px;
     height: 66px;
   }
 
-
   .header.scrolled .logo img {
     height: 57px;
   }
-
 
   .nav {
     margin-left: 30px;
@@ -1012,16 +1095,13 @@
     margin-right: 25px;
   }
 
-
   .nav-list {
     gap: 20px;
   }
 
-
   .nav-link {
     font-size: 16px;
   }
-
 
   .enquire-btn {
     height: 44px;
@@ -1032,11 +1112,9 @@
     font-size: 13px;
   }
 
-
   .products-dropdown {
     width: 600px;
   }
-
 
   .product-item {
     grid-template-columns:
@@ -1045,7 +1123,6 @@
       20px;
   }
 
-
   .product-number {
     width: 32px !important;
 
@@ -1053,7 +1130,6 @@
 
     max-width: 32px !important;
   }
-
 
   .product-name {
     font-size: 14px !important;
@@ -1072,39 +1148,32 @@
     height: 82px;
   }
 
-
   .header.scrolled {
     height: 76px;
   }
-
 
   .header-container {
     padding:
       0 20px;
   }
 
-
   .logo a {
     width: 68px;
     height: 68px;
   }
 
-
   .logo img {
     height: 59px;
   }
-
 
   .header.scrolled .logo a {
     width: 62px;
     height: 62px;
   }
 
-
   .header.scrolled .logo img {
     height: 54px;
   }
-
 
   .nav {
     margin-left: 20px;
@@ -1112,16 +1181,13 @@
     margin-right: 15px;
   }
 
-
   .nav-list {
     gap: 14px;
   }
 
-
   .nav-link {
     font-size: 15px;
   }
-
 
   .enquire-btn {
     height: 42px;
@@ -1131,7 +1197,6 @@
 
     font-size: 12px;
   }
-
 
   .products-dropdown {
     width: 520px;
@@ -1149,14 +1214,27 @@
   .header {
     height: 76px;
 
-    background:
-      rgba(8, 55, 38, 0.24);
+    /*
+      Still transparent.
+      No rectangular green panel.
+    */
 
-    backdrop-filter: none;
+    background: transparent;
 
-    -webkit-backdrop-filter: none;
+    box-shadow: none;
+
+    border: none;
   }
 
+  .header::before {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(2, 38, 27, 0.32) 0%,
+        rgba(2, 38, 27, 0.10) 55%,
+        rgba(2, 38, 27, 0) 100%
+      );
+  }
 
   .header.scrolled {
     height: 70px;
@@ -1165,6 +1243,12 @@
 
     box-shadow:
       0 5px 20px rgba(0, 0, 0, 0.08);
+
+    border: none;
+  }
+
+  .header.scrolled::before {
+    opacity: 0;
   }
 
 
@@ -1196,16 +1280,14 @@
     border-radius: 12px;
 
     background:
-      rgba(255, 255, 255, 0.94);
+      rgba(255, 255, 255, 0.96);
   }
-
 
   .logo img {
     height: 52px;
 
     max-width: 100%;
   }
-
 
   .header.scrolled .logo a {
     width: 56px;
@@ -1215,7 +1297,6 @@
 
     background: #ffffff;
   }
-
 
   .header.scrolled .logo img {
     height: 48px;
@@ -1361,7 +1442,6 @@
   ------------------------------------------------------- */
 
   .nav-link {
-
     width: 100%;
 
     min-height: 54px;
@@ -1406,7 +1486,6 @@
   ------------------------------------------------------- */
 
   .dropdown {
-
     width: 100%;
 
     padding-bottom: 0;
@@ -1416,7 +1495,6 @@
 
 
   .products-button {
-
     width: 100%;
 
     justify-content:
@@ -1425,7 +1503,6 @@
 
 
   .dropdown-arrow {
-
     flex-shrink: 0;
 
     font-size: 16px;
@@ -1441,7 +1518,6 @@
   ------------------------------------------------------- */
 
   .products-dropdown {
-
     position: static;
 
     width: 100%;
@@ -1483,7 +1559,6 @@
 
 
   .dropdown.active .dropdown-arrow {
-
     transform:
       rotate(180deg);
 
@@ -1496,7 +1571,6 @@
   ------------------------------------------------------- */
 
   .dropdown-header {
-
     padding:
       14px 15px;
 
@@ -1509,7 +1583,6 @@
 
 
   .dropdown-label {
-
     display: block;
 
     font-size: 11px;
@@ -1523,7 +1596,6 @@
 
 
   .dropdown-header p {
-
     margin:
       5px 0 0;
 
@@ -1540,7 +1612,6 @@
   ------------------------------------------------------- */
 
   .products-grid {
-
     width: 100%;
 
     display: flex;
@@ -1559,7 +1630,6 @@
   ------------------------------------------------------- */
 
   .product-item {
-
     width: 100% !important;
 
     min-height: 48px;
@@ -1602,7 +1672,6 @@
   ------------------------------------------------------- */
 
   .product-number {
-
     width: 30px !important;
 
     min-width: 30px !important;
@@ -1618,7 +1687,6 @@
   ------------------------------------------------------- */
 
   .product-name {
-
     font-size: 14px !important;
 
     font-weight: 600 !important;
@@ -1632,7 +1700,6 @@
   ------------------------------------------------------- */
 
   .product-arrow {
-
     width: 20px;
 
     min-width: 20px;
@@ -1650,7 +1717,6 @@
   ------------------------------------------------------- */
 
   .view-all-products {
-
     margin:
       7px;
 
@@ -1673,17 +1739,14 @@
     height: 72px;
   }
 
-
   .header.scrolled {
     height: 68px;
   }
-
 
   .header-container {
     padding:
       0 12px;
   }
-
 
   .logo a {
     width: 56px;
@@ -1694,28 +1757,23 @@
     border-radius: 11px;
   }
 
-
   .logo img {
     height: 49px;
   }
-
 
   .header.scrolled .logo a {
     width: 52px;
     height: 52px;
   }
 
-
   .header.scrolled .logo img {
     height: 45px;
   }
-
 
   .menu-toggle {
     width: 40px;
     height: 40px;
   }
-
 
   .nav {
     top: 72px;
@@ -1724,14 +1782,12 @@
       calc(100vh - 72px);
   }
 
-
   .header.scrolled .nav {
     top: 68px;
 
     max-height:
       calc(100vh - 68px);
   }
-
 
   .nav-link {
     min-height: 52px;
@@ -1742,29 +1798,23 @@
     font-size: 16px;
   }
 
-
   .dropdown-arrow {
     font-size: 15px;
   }
-
 
   .dropdown-header {
     padding: 13px;
   }
 
-
   .dropdown-label {
     font-size: 10px;
   }
-
 
   .dropdown-header p {
     font-size: 11.5px;
   }
 
-
   .product-item {
-
     min-height: 46px;
 
     grid-template-columns:
@@ -1777,9 +1827,7 @@
     padding: 8px;
   }
 
-
   .product-number {
-
     width: 28px !important;
 
     min-width: 28px !important;
@@ -1789,21 +1837,17 @@
     font-size: 11px !important;
   }
 
-
   .product-name {
     font-size: 13.5px !important;
   }
 
-
   .product-arrow {
-
     width: 18px;
 
     min-width: 18px;
 
     font-size: 13px;
   }
-
 
   .view-all-products {
     font-size: 12.5px;
@@ -1823,31 +1867,25 @@
       0 10px;
   }
 
-
   .logo a {
     width: 52px;
     height: 52px;
   }
 
-
   .logo img {
     height: 45px;
   }
-
 
   .header.scrolled .logo a {
     width: 49px;
     height: 49px;
   }
 
-
   .header.scrolled .logo img {
     height: 42px;
   }
 
-
   .nav-link {
-
     min-height: 50px;
 
     padding:
@@ -1856,9 +1894,7 @@
     font-size: 15px;
   }
 
-
   .product-item {
-
     min-height: 44px;
 
     grid-template-columns:
@@ -1871,9 +1907,7 @@
     padding: 7px;
   }
 
-
   .product-number {
-
     width: 26px !important;
 
     min-width: 26px !important;
@@ -1882,7 +1916,6 @@
 
     font-size: 10.5px !important;
   }
-
 
   .product-name {
     font-size: 13px !important;
@@ -1900,7 +1933,6 @@
 .menu-toggle:focus-visible,
 .product-item:focus-visible,
 .view-all-products:focus-visible {
-
   outline:
     2px solid #2b8a3e;
 
@@ -1915,6 +1947,7 @@
 @media (prefers-reduced-motion: reduce) {
 
   .header,
+  .header::before,
   .nav,
   .nav-link,
   .products-dropdown,
@@ -1924,7 +1957,6 @@
   .logo,
   .logo a,
   .logo img {
-
     transition: none;
   }
 
