@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import "./Intro.css";
 import heroImage from "../../images/Medicinal herbs.png";
 
@@ -24,15 +27,41 @@ const lineage = [
 ];
 
 const About = () => {
+  /* =================================
+     INITIALIZE AOS
+  ================================= */
+
+  useEffect(() => {
+    AOS.init({
+      duration: 900,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 80,
+      delay: 0,
+    });
+
+    // Refresh after page/content is rendered
+    AOS.refresh();
+
+    return () => {
+      AOS.refreshHard();
+    };
+  }, []);
+
   return (
     <section className="about-section" id="about">
       <div className="about-inner">
 
         {/* =================================
-            ABOUT STORY
+            ABOUT STORY IMAGE
         ================================= */}
 
-        <figure className="about-figure">
+        <figure
+          className="about-figure"
+          data-aos="fade-right"
+          data-aos-duration="1100"
+          data-aos-offset="100"
+        >
           <div className="about-figure-frame">
             <img
               src={heroImage}
@@ -41,6 +70,7 @@ const About = () => {
           </div>
 
           {/* Decorative botanical vein */}
+
           <svg
             className="about-vein"
             viewBox="0 0 220 520"
@@ -79,35 +109,74 @@ const About = () => {
           </svg>
         </figure>
 
+
         {/* =================================
             ABOUT CONTENT
         ================================= */}
 
         <div className="about-content">
 
-          <p className="about-label">
+          {/* About Label */}
+
+          <p
+            className="about-label"
+            data-aos="fade-up"
+            data-aos-duration="700"
+          >
             About Us
           </p>
 
-          <h2 className="about-heading">
+
+          {/* Heading */}
+
+          <h2
+            className="about-heading"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="900"
+          >
             Our story begins
             <br />
             with tradition.
           </h2>
 
-          <p className="about-copy">
+
+          {/* First Paragraph */}
+
+          <p
+            className="about-copy"
+            data-aos="fade-up"
+            data-aos-delay="180"
+            data-aos-duration="850"
+          >
             Anchan Ayurvedic Industries has its roots in the traditional
             Ayurvedic practice of Pandit Thoma Poojary, a respected
             practitioner from Padubidri.
           </p>
 
-          <p className="about-copy">
+
+          {/* Second Paragraph */}
+
+          <p
+            className="about-copy"
+            data-aos="fade-up"
+            data-aos-delay="260"
+            data-aos-duration="850"
+          >
             Known for preparing classical Ayurvedic medicines using
             traditional methods, he earned the trust of patients and
             physicians through his dedication to Ayurveda.
           </p>
 
-          <p className="about-copy">
+
+          {/* Third Paragraph */}
+
+          <p
+            className="about-copy"
+            data-aos="fade-up"
+            data-aos-delay="340"
+            data-aos-duration="850"
+          >
             His son, Dr. N. T. Anchan, carried this knowledge forward —
             first into his own clinical practice, and later into Ayurvedic
             medicine manufacturing. What began as a family legacy gradually
@@ -121,10 +190,14 @@ const About = () => {
           ================================= */}
 
           <ol className="about-lineage">
-            {lineage.map((person) => (
+
+            {lineage.map((person, index) => (
               <li
                 className="about-lineage-item"
                 key={person.name}
+                data-aos="fade-up"
+                data-aos-delay={450 + index * 120}
+                data-aos-duration="850"
               >
 
                 <span
@@ -148,7 +221,9 @@ const About = () => {
                   </svg>
                 </span>
 
+
                 <div>
+
                   <p className="about-lineage-name">
                     {person.name}
                   </p>
@@ -160,10 +235,12 @@ const About = () => {
                   <p className="about-lineage-detail">
                     {person.detail}
                   </p>
+
                 </div>
 
               </li>
             ))}
+
           </ol>
 
 
@@ -174,6 +251,9 @@ const About = () => {
           <a
             className="about-cta"
             href="#philosophy"
+            data-aos="fade-up"
+            data-aos-delay="850"
+            data-aos-duration="900"
           >
             <span>
               Discover Our Philosophy
@@ -198,32 +278,48 @@ const About = () => {
           className="intro-philosophy"
           id="philosophy"
           data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-offset="100"
         >
 
-          {/* Philosophy Heading */}
+          {/* =================================
+              PHILOSOPHY HEADING
+          ================================= */}
 
           <div className="philosophy-heading">
+
+            {/* Label */}
 
             <div
               className="intro-label"
               data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="700"
             >
               <span className="intro-label-line"></span>
 
               OUR PHILOSOPHY
             </div>
 
+
+            {/* Heading */}
+
             <h3
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="180"
+              data-aos-duration="900"
             >
               Ayurveda Rooted in
               <span> Knowledge &amp; Integrity.</span>
             </h3>
 
+
+            {/* Description */}
+
             <p
               data-aos="fade-up"
-              data-aos-delay="200"
+              data-aos-delay="280"
+              data-aos-duration="850"
             >
               We believe authentic Ayurveda requires respect for tradition,
               uncompromising quality and a deep sense of responsibility.
@@ -238,12 +334,15 @@ const About = () => {
 
           <div className="philosophy-cards">
 
-            {/* Knowledge */}
+            {/* =================================
+                KNOWLEDGE
+            ================================= */}
 
             <div
               className="philosophy-card"
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="350"
+              data-aos-duration="850"
             >
 
               <div className="philosophy-number">
@@ -266,12 +365,15 @@ const About = () => {
             </div>
 
 
-            {/* Quality */}
+            {/* =================================
+                QUALITY
+            ================================= */}
 
             <div
               className="philosophy-card active"
               data-aos="fade-up"
-              data-aos-delay="200"
+              data-aos-delay="480"
+              data-aos-duration="850"
             >
 
               <div className="philosophy-number">
@@ -294,12 +396,15 @@ const About = () => {
             </div>
 
 
-            {/* Responsibility */}
+            {/* =================================
+                RESPONSIBILITY
+            ================================= */}
 
             <div
               className="philosophy-card"
               data-aos="fade-up"
-              data-aos-delay="300"
+              data-aos-delay="610"
+              data-aos-duration="850"
             >
 
               <div className="philosophy-number">
