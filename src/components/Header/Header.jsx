@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import {
   Link as RouterLink,
   useLocation,
@@ -30,7 +31,6 @@ const Header = () => {
       setIsScrolled(window.scrollY > 30);
     };
 
-    // Check immediately on page load
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, {
@@ -65,6 +65,12 @@ const Header = () => {
 
   const scrollToSection = (id) => {
 
+    // ---------------------------------------------------
+    // If not on homepage, navigate home first.
+    // The home page can then use the state value to
+    // perform the scroll.
+    // ---------------------------------------------------
+
     if (location.pathname !== "/") {
 
       navigate("/", {
@@ -79,6 +85,10 @@ const Header = () => {
     }
 
 
+    // ---------------------------------------------------
+    // Find requested section
+    // ---------------------------------------------------
+
     const section = document.getElementById(id);
 
     if (section) {
@@ -89,6 +99,7 @@ const Header = () => {
       });
 
     }
+
 
     closeMenu();
   };
@@ -267,7 +278,6 @@ const Header = () => {
 
               <div className="products-dropdown">
 
-
                 <div className="dropdown-header">
 
                   <span className="dropdown-label">
@@ -288,6 +298,7 @@ const Header = () => {
 
                       <RouterLink
                         key={product}
+
                         to={`/products/${createSlug(
                           product
                         )}`}

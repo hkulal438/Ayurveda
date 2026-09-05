@@ -1,11 +1,17 @@
 import React from "react";
+import {
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
 import "./Footer.css";
 
 import FooterLeaves from "../../images/footer-leaves.png";
 
+
 /* =========================================================
    REUSABLE SVG ICON
-   ========================================================= */
+========================================================= */
 
 const Icon = ({
   name,
@@ -13,6 +19,7 @@ const Icon = ({
   strokeWidth = 1.8,
   className = "",
 }) => {
+
   const commonProps = {
     width: size,
     height: size,
@@ -26,7 +33,9 @@ const Icon = ({
     "aria-hidden": "true",
   };
 
+
   const icons = {
+
     home: (
       <>
         <path d="M3 10.5 12 3l9 7.5" />
@@ -35,12 +44,14 @@ const Icon = ({
       </>
     ),
 
+
     about: (
       <>
         <circle cx="12" cy="8" r="3.5" />
         <path d="M5.5 21c.7-3.3 3-5.2 6.5-5.2s5.8 1.9 6.5 5.2" />
       </>
     ),
+
 
     legacy: (
       <>
@@ -52,6 +63,7 @@ const Icon = ({
       </>
     ),
 
+
     products: (
       <>
         <path d="M7 4h10" />
@@ -60,12 +72,14 @@ const Icon = ({
       </>
     ),
 
+
     quality: (
       <>
         <path d="m12 3 2.1 2.1 3-.1.8 2.9 2.4 1.8-1.2 2.7 1.2 2.7-2.4 1.8-.8 2.9-3-.1L12 21l-2.1-2.1-3 .1-.8-2.9-2.4-1.8 1.2-2.7-1.2-2.7L6.1 7.9l.8-2.9 3 .1L12 3Z" />
         <path d="m9 12 2 2 4-4" />
       </>
     ),
+
 
     doctor: (
       <>
@@ -75,6 +89,7 @@ const Icon = ({
       </>
     ),
 
+
     contact: (
       <>
         <path d="M20 11.2a7.2 7.2 0 0 1-7.5 7.2 8.2 8.2 0 0 1-3.1-.6L4 19.5l1.5-4.2a7 7 0 0 1-1.2-4.1A7.2 7.2 0 0 1 12 4a7.2 7.2 0 0 1 8 7.2Z" />
@@ -82,12 +97,14 @@ const Icon = ({
       </>
     ),
 
+
     location: (
       <>
         <path d="M19 10.2c0 5-7 10.2-7 10.2S5 15.2 5 10.2a7 7 0 1 1 14 0Z" />
         <circle cx="12" cy="10.2" r="2.2" />
       </>
     ),
+
 
     building: (
       <>
@@ -97,11 +114,13 @@ const Icon = ({
       </>
     ),
 
+
     phone: (
       <>
         <path d="M7.2 3.8 5.4 5.6c-.8.8-.8 2.1-.3 3.1 1.9 3.9 5.1 7.1 9 9 .9.5 2.3.5 3.1-.3l1.8-1.8c.6-.6.6-1.5 0-2.1l-2.1-2.1c-.5-.5-1.2-.6-1.8-.2l-1.6 1.1a14.4 14.4 0 0 1-3.8-3.8l1.1-1.6c.4-.6.3-1.3-.2-1.8L9.3 3.8c-.6-.6-1.5-.6-2.1 0Z" />
       </>
     ),
+
 
     mobile: (
       <>
@@ -109,6 +128,7 @@ const Icon = ({
         <path d="M10.5 5h3M11 18.5h2" />
       </>
     ),
+
 
     globe: (
       <>
@@ -119,6 +139,7 @@ const Icon = ({
       </>
     ),
 
+
     arrow: (
       <>
         <path d="M5 12h13" />
@@ -126,10 +147,23 @@ const Icon = ({
       </>
     ),
 
+
     instagram: (
       <>
-        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-        <circle cx="12" cy="12" r="4" />
+        <rect
+          x="3.5"
+          y="3.5"
+          width="17"
+          height="17"
+          rx="5"
+        />
+
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+        />
+
         <circle
           cx="17.4"
           cy="6.7"
@@ -140,11 +174,13 @@ const Icon = ({
       </>
     ),
 
+
     facebook: (
       <>
         <path d="M14 21v-8h2.8l.5-3H14V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H8v3h2.5v8" />
       </>
     ),
+
 
     twitter: (
       <>
@@ -154,6 +190,7 @@ const Icon = ({
       </>
     ),
 
+
     whatsapp: (
       <>
         <path d="M20 11.7a8 8 0 0 1-11.7 7L4 20l1.4-4.1A8 8 0 1 1 20 11.7Z" />
@@ -161,6 +198,7 @@ const Icon = ({
       </>
     ),
   };
+
 
   return (
     <svg {...commonProps}>
@@ -172,23 +210,51 @@ const Icon = ({
 
 /* =========================================================
    QUICK LINKS
-   ========================================================= */
+========================================================= */
 
 const quickLinks = [
-  { name: "Home", target: "home", icon: "home" },
-  { name: "About Us", target: "about", icon: "about" },
-  { name: "Our Legacy", target: "legacy", icon: "legacy" },
-  { name: "Products", target: "products", icon: "products" },
-  { name: "Quality", target: "quality", icon: "quality" },
-  { name: "Dr. Anchan", target: "dr-anchan", icon: "doctor" },
-  { name: "Contact", target: "contact", icon: "contact" },
+  {
+    name: "Home",
+    target: "hero-section",
+    icon: "home",
+  },
+  {
+    name: "About Us",
+    target: "about-company-section",
+    icon: "about",
+  },
+  {
+    name: "Our Legacy",
+    target: "legacy-section",
+    icon: "legacy",
+  },
+  {
+    name: "Products",
+    target: "products-section",
+    icon: "products",
+  },
+  {
+    name: "Quality",
+    target: "quality-section",
+    icon: "quality",
+  },
+  {
+    name: "Dr. Anchan",
+    target: "dr-anchan-section",
+    icon: "doctor",
+  },
+  {
+    name: "Contact",
+    target: "contact-section",
+    icon: "contact",
+  },
 ];
 
 
 /* =========================================================
    PRODUCTS
-   Hingoli REMOVED
-   ========================================================= */
+   HINGOLI REMOVED
+========================================================= */
 
 const products = [
   "Manasa",
@@ -202,17 +268,69 @@ const products = [
   "Bhrangamalaka Thaila",
   "Kumari Shampoo",
   "Aloe Vera Gel",
- 
 ];
 
 
 /* =========================================================
    FOOTER COMPONENT
-   ========================================================= */
+========================================================= */
 
 const Footer = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+
+  /* =======================================================
+     SCROLL TO SECTION
+  ======================================================= */
+
+  const scrollToSection = (id) => {
+
+    // -----------------------------------------------------
+    // If the user is on another page, return to homepage
+    // first and pass the section ID.
+    // -----------------------------------------------------
+
+    if (location.pathname !== "/") {
+
+      navigate("/", {
+        state: {
+          scrollToId: id,
+        },
+      });
+
+      return;
+    }
+
+
+    // -----------------------------------------------------
+    // Find section
+    // -----------------------------------------------------
+
+    const section = document.getElementById(id);
+
+
+    // -----------------------------------------------------
+    // Smooth scroll
+    // -----------------------------------------------------
+
+    if (section) {
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+    }
+
+  };
+
+
   return (
+
     <footer className="anchan-footer">
+
 
       {/* =====================================================
           BACKGROUND
@@ -333,16 +451,20 @@ const Footer = () => {
         ==================================================== */}
 
         <div className="footer-divider">
+
           <span></span>
 
           <span className="footer-divider-icon">
+
             <Icon
               name="legacy"
               size={15}
             />
+
           </span>
 
           <span></span>
+
         </div>
 
 
@@ -372,13 +494,21 @@ const Footer = () => {
 
                 <li key={link.name}>
 
-                  <a href={`#${link.target}`}>
+                  <a
+                    href={`#${link.target}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(link.target);
+                    }}
+                  >
 
                     <span className="footer-link-icon">
+
                       <Icon
                         name={link.icon}
                         size={15}
                       />
+
                     </span>
 
                     <span>
@@ -414,15 +544,21 @@ const Footer = () => {
               {products.map((product) => (
 
                 <a
-                  href="#products"
+                  href="#products-section"
                   key={product}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("products-section");
+                  }}
                 >
 
                   <span className="footer-product-icon">
+
                     <Icon
                       name="products"
                       size={14}
                     />
+
                   </span>
 
                   <span>
@@ -437,8 +573,12 @@ const Footer = () => {
 
 
             <a
-              href="#products"
+              href="#products-section"
               className="footer-view-products"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("products-section");
+              }}
             >
 
               <span>
@@ -446,10 +586,12 @@ const Footer = () => {
               </span>
 
               <span className="footer-view-icon">
+
                 <Icon
                   name="arrow"
                   size={17}
                 />
+
               </span>
 
             </a>
@@ -475,10 +617,12 @@ const Footer = () => {
             <div className="footer-contact-item">
 
               <div className="contact-icon">
+
                 <Icon
                   name="location"
                   size={20}
                 />
+
               </div>
 
 
@@ -514,10 +658,12 @@ const Footer = () => {
             <div className="footer-contact-item">
 
               <div className="contact-icon">
+
                 <Icon
                   name="building"
                   size={20}
                 />
+
               </div>
 
 
@@ -546,10 +692,12 @@ const Footer = () => {
             <div className="footer-contact-item">
 
               <div className="contact-icon">
+
                 <Icon
                   name="phone"
                   size={20}
                 />
+
               </div>
 
 
@@ -577,10 +725,12 @@ const Footer = () => {
             <div className="footer-contact-item">
 
               <div className="contact-icon">
+
                 <Icon
                   name="mobile"
                   size={20}
                 />
+
               </div>
 
 
@@ -608,10 +758,12 @@ const Footer = () => {
             <div className="footer-contact-item">
 
               <div className="contact-icon">
+
                 <Icon
                   name="globe"
                   size={20}
                 />
+
               </div>
 
 
@@ -639,8 +791,12 @@ const Footer = () => {
             {/* ENQUIRE */}
 
             <a
-              href="#contact"
+              href="#contact-section"
               className="footer-enquire"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("contact-section");
+              }}
             >
 
               <span>
@@ -648,10 +804,12 @@ const Footer = () => {
               </span>
 
               <span className="footer-enquire-icon">
+
                 <Icon
                   name="arrow"
                   size={17}
                 />
+
               </span>
 
             </a>
@@ -670,10 +828,12 @@ const Footer = () => {
           <span></span>
 
           <span className="footer-divider-icon">
+
             <Icon
               name="legacy"
               size={15}
             />
+
           </span>
 
           <span></span>
