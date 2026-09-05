@@ -1,64 +1,57 @@
 /* =========================================================
-   ANCHAN AYURVEDIC INDUSTRIES
-   HERO
+   HERO — BASE
 ========================================================= */
-
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
-
-.hero,
-.hero *,
-.hero *::before,
-.hero *::after {
-  box-sizing: border-box;
-}
 
 .hero {
   --forest: #063c2b;
-  --forest-deep: #033322;
-  --cream: #f1f4d7;
-  --gold: #e5d27b;
+  --forest-light: #0b4d38;
+  --cream: #f4f2d8;
+  --gold: #e2d68e;
+  --white: #ffffff;
 
   position: relative;
   width: 100%;
   height: 100vh;
-  height: 100dvh;
-  min-height: 650px;
+  min-height: 680px;
 
   overflow: hidden;
 
   background: var(--forest);
-  color: #fff;
-
-  font-family: "Poppins", sans-serif;
-
-  isolation: isolate;
 }
 
-.hero button {
-  font-family: inherit;
-}
 
 /* =========================================================
    GALLERY
 ========================================================= */
 
-.gallery,
+.gallery {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
 .track {
   position: absolute;
+
   inset: 0;
 
   width: 100%;
   height: 100%;
 
-  overflow: hidden !important;
+  overflow: hidden;
 }
 
+
 /* =========================================================
-   ITEMS
+   SLIDES
 ========================================================= */
 
 .item {
   position: absolute !important;
+
   inset: 0 !important;
 
   width: 100% !important;
@@ -68,43 +61,24 @@
   padding: 0 !important;
 
   overflow: hidden !important;
-
-  transform: none !important;
 }
-
-.item[data-active="true"] {
-  z-index: 5 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.item[data-active="false"] {
-  z-index: 1 !important;
-}
-
-/* =========================================================
-   SLIDE
-========================================================= */
 
 .slide {
   position: absolute;
+
   inset: 0;
 
   width: 100%;
   height: 100%;
 
-  margin: 0;
-  padding: 0;
-
   overflow: hidden;
 
   background: var(--forest);
-
-  transform: none !important;
 }
 
+
 /* =========================================================
-   IMAGE
+   IMAGE — DESKTOP
 ========================================================= */
 
 .image {
@@ -112,46 +86,26 @@
 
   inset: 0;
 
-  display: block;
-
   width: 100%;
   height: 100%;
-
-  max-width: none;
-
-  margin: 0;
-  padding: 0;
-
-  border: 0;
 
   object-fit: cover;
   object-position: center center;
 
-  transform: translateZ(0);
+  display: block;
 
-  backface-visibility: hidden;
+  margin: 0;
+  padding: 0;
 
-  user-select: none;
-  -webkit-user-drag: none;
+  transform: none;
+
+  opacity: 1;
+
+  transition:
+    opacity 0.7s ease,
+    transform 1s ease;
 }
 
-/* Desktop image positioning */
-
-.image[data-slide-id="1"] {
-  object-position: center 28%;
-}
-
-.image[data-slide-id="2"] {
-  object-position: center 23%;
-}
-
-.image[data-slide-id="3"] {
-  object-position: center 16%;
-}
-
-.image[data-slide-id="4"] {
-  object-position: center 12%;
-}
 
 /* =========================================================
    IMAGE OVERLAY
@@ -159,6 +113,7 @@
 
 .imageOverlay {
   position: absolute;
+
   inset: 0;
 
   z-index: 2;
@@ -168,180 +123,62 @@
   background:
     linear-gradient(
       90deg,
-      rgba(3, 48, 32, 0.78) 0%,
-      rgba(3, 48, 32, 0.45) 21%,
-      rgba(3, 48, 32, 0.12) 50%,
-      rgba(3, 48, 32, 0) 100%
-    );
-}
-
-/* =========================================================
-   HERO OVERLAY
-========================================================= */
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 6;
-
-  pointer-events: none;
-
-  background:
+      rgba(2, 43, 30, 0.82) 0%,
+      rgba(2, 43, 30, 0.58) 25%,
+      rgba(2, 43, 30, 0.12) 58%,
+      rgba(2, 43, 30, 0.08) 100%
+    ),
     linear-gradient(
-      90deg,
-      rgba(3, 48, 32, 0.32) 0%,
-      rgba(3, 48, 32, 0.1) 38%,
-      rgba(3, 48, 32, 0) 70%
+      to bottom,
+      rgba(2, 43, 30, 0.05) 45%,
+      rgba(2, 43, 30, 0.12) 65%,
+      rgba(2, 43, 30, 0.45) 100%
     );
 }
 
-/* =========================================================
-   SOFT LIGHT
-========================================================= */
-
-.hero::after {
-  content: "";
-
-  position: absolute;
-
-  width: 750px;
-  height: 750px;
-
-  right: -330px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(211, 229, 165, 0.12) 0%,
-      rgba(151, 192, 126, 0.04) 45%,
-      transparent 72%
-    );
-
-  filter: blur(20px);
-
-  z-index: 7;
-
-  pointer-events: none;
-}
 
 /* =========================================================
-   DESKTOP THUMBNAILS
-========================================================= */
-
-.item[data-active="false"] .slide {
-  position: absolute;
-
-  top: auto;
-  left: 50%;
-  bottom: 30px;
-
-  width: 110px;
-  height: 110px;
-
-  overflow: hidden;
-
-  border: 3px solid rgba(232, 218, 137, 0.8);
-
-  border-radius: 50%;
-
-  background: var(--forest);
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.35);
-
-  filter:
-    brightness(0.76)
-    saturate(0.88);
-
-  transform:
-    translateX(
-      calc(var(--offset) * 128px)
-    )
-    scale(0.95);
-
-  transition:
-    transform 0.6s ease,
-    filter 0.35s ease;
-}
-
-.item[data-active="false"] .slide:hover {
-  filter:
-    brightness(1)
-    saturate(1);
-
-  transform:
-    translateX(
-      calc(var(--offset) * 128px)
-    )
-    scale(1.04);
-}
-
-/* =========================================================
-   CONTENT RAIL
+   CONTENT RAIL — DESKTOP
 ========================================================= */
 
 .rail {
   position: absolute;
 
-  inset: 0 auto 0 0;
+  inset: 0;
 
-  z-index: 20;
+  z-index: 10;
 
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: flex-start;
-
-  width: min(650px, 58%);
-
-  padding-left:
-    clamp(55px, 8vw, 130px);
-
-  padding-right: 35px;
+  width: 100%;
+  height: 100%;
 
   pointer-events: none;
 }
 
+
 /* =========================================================
-   CONTENT
+   CONTENT — DESKTOP
 ========================================================= */
 
 .content {
-  width: 100%;
-  max-width: 590px;
+  position: absolute;
+
+  left: 8%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: min(620px, 42vw);
 
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
 
-  animation:
-    heroContentIn
-    0.7s
-    cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: auto;
 }
 
-@keyframes heroContentIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* =========================================================
    TAG
@@ -353,47 +190,52 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 34px;
+  height: 34px;
 
   padding: 0 17px;
 
-  margin: 0 0 16px;
+  margin: 0 0 18px;
 
-  border:
-    1px solid
-    rgba(232, 222, 159, 0.7);
+  border: 1px solid
+    rgba(226, 214, 142, 0.8);
 
   border-radius: 50px;
 
   background:
-    rgba(25, 73, 49, 0.4);
+    rgba(9, 67, 47, 0.5);
 
   backdrop-filter: blur(8px);
 
-  color: #eee7b0;
+  color: var(--gold);
+
+  font-family:
+    "Poppins",
+    sans-serif;
 
   font-size: 10px;
 
   font-weight: 600;
 
-  letter-spacing: 2px;
-
-  line-height: 1;
+  letter-spacing: 1.8px;
 
   white-space: nowrap;
 }
 
+
 /* =========================================================
-   KICKER
+   NUMBER
 ========================================================= */
 
 .kicker {
-  margin: 0 0 9px;
-  padding: 0;
+  margin: 0 0 15px;
 
-  color: #dfd58c;
+  color: var(--gold);
 
-  font-size: 11px;
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 12px;
 
   font-weight: 600;
 
@@ -402,23 +244,23 @@
   line-height: 1.2;
 }
 
+
 /* =========================================================
-   TITLE
+   MAIN HEADING
 ========================================================= */
 
 .title {
   display: flex;
 
   flex-direction: column;
+
   align-items: flex-start;
 
-  width: 100%;
-  max-width: 590px;
+  margin: 0 0 22px;
 
-  margin: 0 0 20px;
   padding: 0;
 
-  color: #fff;
+  color: var(--white);
 
   font-family:
     "Cormorant Garamond",
@@ -428,56 +270,56 @@
     serif;
 
   font-size:
-    clamp(
-      3.8rem,
-      5.4vw,
-      5.6rem
-    );
+    clamp(58px, 5.3vw, 88px);
 
   font-weight: 600;
 
   line-height: 0.88;
 
-  letter-spacing: -1.5px;
+  letter-spacing: -1.8px;
 
   text-shadow:
-    0 4px 20px
-    rgba(0, 0, 0, 0.25);
+    0 4px 18px
+    rgba(0, 0, 0, 0.18);
 }
 
 .title span {
   display: block;
 
-  width: max-content;
+  margin: 0;
 
-  max-width: 100%;
-
-  white-space: nowrap;
+  padding: 0;
 }
+
 
 /* =========================================================
    DESCRIPTION
 ========================================================= */
 
 .description {
-  width: 100%;
-  max-width: 500px;
+  max-width: 590px;
 
-  margin: 0 0 26px;
+  margin: 0 0 28px;
+
   padding: 0;
 
   color:
-    rgba(255, 255, 255, 0.9);
+    rgba(255, 255, 255, 0.92);
 
-  font-size: 14px;
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 16px;
 
   font-weight: 400;
 
   line-height: 1.65;
 }
 
+
 /* =========================================================
-   BUTTON
+   EXPLORE BUTTON
 ========================================================= */
 
 .exploreButton {
@@ -486,14 +328,13 @@
   align-items: center;
   justify-content: center;
 
-  gap: 15px;
+  gap: 24px;
 
-  min-width: 185px;
-  height: 51px;
+  width: 216px;
 
-  padding: 0 23px;
+  height: 56px;
 
-  margin: 0;
+  padding: 0 24px;
 
   border: none;
 
@@ -501,56 +342,58 @@
 
   background: var(--cream);
 
-  color: #18553b;
+  color: #14563d;
 
-  font-size: 12px;
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 14px;
 
   font-weight: 600;
 
-  line-height: 1;
-
   cursor: pointer;
 
-  pointer-events: auto;
-
   box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.18);
+    0 10px 25px
+    rgba(0, 0, 0, 0.14);
 
   transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .exploreButton:hover {
-  transform: translateY(-3px);
-  background: #fff;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 30px
+    rgba(0, 0, 0, 0.2);
 }
 
 .exploreButton .arrow {
-  font-size: 18px;
+  font-size: 22px;
+
   line-height: 1;
-
-  transition:
-    transform 0.3s ease;
 }
 
-.exploreButton:hover .arrow {
-  transform: translateX(5px);
-}
 
 /* =========================================================
-   CONTROLS
+   CONTROLS — DESKTOP
 ========================================================= */
 
 .controls {
+  position: absolute;
+
+  left: 8%;
+
+  bottom: 9%;
+
   display: flex;
 
   align-items: center;
 
   gap: 10px;
-
-  margin-top: 29px;
 
   pointer-events: auto;
 }
@@ -561,38 +404,35 @@
   align-items: center;
   justify-content: center;
 
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
 
   padding: 0;
 
-  border:
-    1px solid
-    rgba(232, 218, 137, 0.6);
+  border: 1px solid
+    rgba(226, 214, 142, 0.8);
 
   border-radius: 50%;
 
   background:
-    rgba(19, 75, 49, 0.55);
+    rgba(7, 67, 46, 0.62);
 
-  color: #f1e49a;
+  color: var(--gold);
 
   backdrop-filter: blur(8px);
 
   cursor: pointer;
 
-  appearance: none;
-
   transition:
-    transform 0.3s ease,
-    background 0.3s ease;
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .navBtn:hover {
-  transform: scale(1.06);
-
   background:
-    rgba(232, 218, 137, 0.18);
+    rgba(226, 214, 142, 0.16);
+
+  transform: translateY(-2px);
 }
 
 .navBtn svg {
@@ -600,110 +440,6 @@
   height: 20px;
 }
 
-/* =========================================================
-   DECORATIVE CIRCLES
-========================================================= */
-
-.decorativeCircle {
-  position: absolute;
-
-  z-index: 8;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-}
-
-.circleOne {
-  width: 500px;
-  height: 500px;
-
-  right: -210px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  border:
-    1px solid
-    rgba(237, 218, 130, 0.25);
-}
-
-.circleTwo {
-  width: 620px;
-  height: 620px;
-
-  right: -270px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  border:
-    1px dashed
-    rgba(237, 218, 130, 0.15);
-}
-
-/* =========================================================
-   DOTS
-========================================================= */
-
-.decorativeDot {
-  position: absolute;
-
-  z-index: 9;
-
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  background: var(--gold);
-
-  box-shadow:
-    0 0 15px
-    rgba(231, 215, 127, 0.65);
-
-  pointer-events: none;
-}
-
-.dotOne {
-  right: 15%;
-  top: 18%;
-}
-
-.dotTwo {
-  right: 9%;
-  bottom: 23%;
-}
-
-/* =========================================================
-   VERTICAL TEXT
-========================================================= */
-
-.verticalText {
-  position: absolute;
-
-  right: 25px;
-  top: 50%;
-
-  z-index: 20;
-
-  transform:
-    rotate(90deg)
-    translateX(50%);
-
-  color:
-    rgba(255, 255, 255, 0.45);
-
-  font-size: 9px;
-
-  font-weight: 600;
-
-  letter-spacing: 4px;
-
-  white-space: nowrap;
-
-  pointer-events: none;
-}
 
 /* =========================================================
    THUMB BUTTON
@@ -714,10 +450,10 @@
 
   inset: 0;
 
+  z-index: 4;
+
   width: 100%;
   height: 100%;
-
-  padding: 0;
 
   border: 0;
 
@@ -726,8 +462,97 @@
   cursor: pointer;
 }
 
+
 /* =========================================================
-   ACCESSIBILITY
+   DECORATIVE ELEMENTS
+========================================================= */
+
+.decorativeCircle {
+  position: absolute;
+
+  z-index: 4;
+
+  border: 1px solid
+    rgba(226, 214, 142, 0.22);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.circleOne {
+  width: 520px;
+  height: 520px;
+
+  right: -270px;
+  top: 15%;
+}
+
+.circleTwo {
+  width: 700px;
+  height: 700px;
+
+  right: -360px;
+  top: 4%;
+}
+
+.decorativeDot {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  pointer-events: none;
+}
+
+.dotOne {
+  right: 12%;
+  top: 20%;
+}
+
+.dotTwo {
+  right: 10%;
+  bottom: 22%;
+}
+
+.verticalText {
+  position: absolute;
+
+  right: 4%;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    rotate(90deg);
+
+  z-index: 5;
+
+  color:
+    rgba(244, 242, 216, 0.72);
+
+  font-family:
+    "Poppins",
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 5px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   VISUALLY HIDDEN
 ========================================================= */
 
 .visuallyHidden {
@@ -743,104 +568,78 @@
 
   clip: rect(0, 0, 0, 0) !important;
 
-  clip-path: inset(50%) !important;
-
   white-space: nowrap !important;
 
   border: 0 !important;
 }
 
-/* =========================================================
-   HIDE GALLERY STATUS TEXT
-========================================================= */
-
-.hero [role="status"],
-.hero [aria-live],
-.hero .sr-only,
-.hero .sr-only-text,
-.hero .visually-hidden,
-.hero .visuallyHiddenText {
-  position: absolute !important;
-
-  width: 1px !important;
-  height: 1px !important;
-
-  padding: 0 !important;
-  margin: -1px !important;
-
-  overflow: hidden !important;
-
-  clip: rect(0, 0, 0, 0) !important;
-
-  clip-path: inset(50%) !important;
-
-  white-space: nowrap !important;
-
-  border: 0 !important;
-}
 
 /* =========================================================
    TABLET
 ========================================================= */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
 
-  .rail {
-    width: 63%;
+  .content {
+    left: 6%;
 
-    padding-left: 5%;
-    padding-right: 25px;
+    width: 52vw;
   }
 
   .title {
-    font-size:
-      clamp(
-        3.2rem,
-        6vw,
-        4.8rem
-      );
+    font-size: clamp(52px, 7vw, 72px);
   }
 
   .description {
-    max-width: 450px;
+    font-size: 14px;
 
-    font-size: 13px;
+    max-width: 500px;
+  }
+
+  .controls {
+    left: 6%;
   }
 }
 
+
 /* =========================================================
    MOBILE
+   IMPORTANT:
+   IMAGE REMAINS 16:9
 ========================================================= */
 
 @media screen and (max-width: 700px) {
 
-  /* -------------------------------------------------------
-     HERO HEIGHT
-
-     16:9 image
-     +
-     compact content area
-  ------------------------------------------------------- */
-
   .hero {
-    width: 100%;
+
+    /*
+      16:9 image
+      + compact content
+
+      Example:
+      379px wide
+      image ≈ 213px
+    */
 
     height:
-      calc(56.25vw + 390px);
+      calc(56.25vw + 365px);
 
     min-height: 0;
 
     overflow: hidden;
 
-    background: #063c2b;
+    background:
+      var(--forest);
   }
 
-  /* -------------------------------------------------------
+
+  /* =======================================================
      GALLERY
-  ------------------------------------------------------- */
+  ======================================================= */
 
   .gallery,
   .track {
+
     position: absolute;
 
     inset: 0;
@@ -851,17 +650,19 @@
     overflow: hidden !important;
   }
 
-  /* -------------------------------------------------------
-     ACTIVE SLIDE
-  ------------------------------------------------------- */
+
+  /* =======================================================
+     SLIDES
+  ======================================================= */
 
   .item {
+
     position: absolute !important;
 
     inset: 0 !important;
 
-    width: 100vw !important;
-    min-width: 100vw !important;
+    width: 100% !important;
+    min-width: 100% !important;
 
     height: 100% !important;
 
@@ -883,29 +684,31 @@
     display: none !important;
   }
 
-  /* -------------------------------------------------------
-     SLIDE
-  ------------------------------------------------------- */
 
   .slide {
+
     position: absolute;
 
     inset: 0;
 
-    width: 100vw;
+    width: 100%;
     height: 100%;
 
     overflow: hidden;
 
-    background: #063c2b;
+    background:
+      var(--forest);
   }
 
-  /* =======================================================
-     MOBILE 16:9 IMAGE
 
-     379 × 648 screen:
-     image width = 379px
-     image height = approximately 213px
+  /* =======================================================
+     MOBILE IMAGE
+
+     DO NOT USE COVER.
+
+     Your images are 16:9.
+     We preserve that ratio so the people do not get
+     unnecessarily cropped.
   ======================================================= */
 
   .image,
@@ -913,6 +716,7 @@
   .image[data-slide-id="2"],
   .image[data-slide-id="3"],
   .image[data-slide-id="4"] {
+
     position: absolute !important;
 
     top: 0 !important;
@@ -930,14 +734,13 @@
 
     object-fit: contain !important;
 
-    object-position: center top !important;
+    object-position:
+      center top !important;
 
     display: block !important;
 
     margin: 0 !important;
     padding: 0 !important;
-
-    border: 0 !important;
 
     transform: none !important;
 
@@ -946,20 +749,24 @@
     visibility: visible !important;
   }
 
-  /* -------------------------------------------------------
-     IMAGE FADE
-  ------------------------------------------------------- */
+
+  /* =======================================================
+     IMAGE OVERLAY
+
+     Only fades into the green content area.
+  ======================================================= */
 
   .imageOverlay {
+
     position: absolute;
 
     top: 0;
     left: 0;
 
-    width: 100%;
+    width: 100vw;
 
     height:
-      calc(56.25vw + 25px);
+      calc(56.25vw + 35px);
 
     z-index: 2;
 
@@ -968,67 +775,29 @@
     background:
       linear-gradient(
         to bottom,
-        rgba(3, 50, 34, 0) 45%,
-        rgba(3, 50, 34, 0.08) 55%,
-        rgba(3, 50, 34, 0.25) 68%,
-        rgba(3, 50, 34, 0.58) 83%,
+        rgba(4, 60, 43, 0) 45%,
+        rgba(4, 60, 43, 0.04) 53%,
+        rgba(4, 60, 43, 0.18) 65%,
+        rgba(4, 60, 43, 0.55) 83%,
         #063c2b 100%
       );
   }
 
-  /* -------------------------------------------------------
-     MOBILE HERO FADE
-  ------------------------------------------------------- */
-
-  .hero::before {
-    z-index: 6;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(3, 50, 34, 0) 42%,
-        rgba(3, 50, 34, 0.04) 50%,
-        rgba(3, 50, 34, 0.14) 58%,
-        rgba(3, 50, 34, 0.42) 66%,
-        rgba(3, 50, 34, 0.75) 72%,
-        #063c2b 78%,
-        #063c2b 100%
-      );
-  }
-
-  /* -------------------------------------------------------
-     REMOVE LARGE DESKTOP LIGHT
-  ------------------------------------------------------- */
-
-  .hero::after {
-    width: 280px;
-    height: 280px;
-
-    right: -210px;
-    top: 42%;
-
-    opacity: 0.05;
-
-    filter: blur(30px);
-  }
 
   /* =======================================================
      CONTENT RAIL
 
-     THIS IS THE IMPORTANT PART.
-
-     Image ends at 56.25vw.
-
-     Then:
-       14px gap
-       TAG
-       9px gap
-       NUMBER
-       10px gap
-       HEADING
+     IMAGE
+       ↓ 12px
+     TAG
+       ↓ 8px
+     NUMBER
+       ↓ 9px
+     HEADING
   ======================================================= */
 
   .rail {
+
     position: absolute;
 
     top: 0;
@@ -1048,22 +817,28 @@
     align-items: flex-start;
 
     padding:
-      calc(56.25vw + 14px)
+      calc(56.25vw + 12px)
       20px
-      20px;
+      15px;
 
     margin: 0;
 
     pointer-events: none;
   }
 
-  /* -------------------------------------------------------
+
+  /* =======================================================
      CONTENT
-  ------------------------------------------------------- */
+  ======================================================= */
 
   .content {
+
+    position: static;
+
     width: 100%;
     max-width: 100%;
+
+    transform: none;
 
     display: flex;
 
@@ -1075,13 +850,13 @@
     padding: 0;
   }
 
-  /* =======================================================
-     GOLDEN TAG
 
-     Image → 14px → tag
+  /* =======================================================
+     TAG
   ======================================================= */
 
   .ayurvedaTag {
+
     display: inline-flex;
 
     align-items: center;
@@ -1094,24 +869,28 @@
       0 12px;
 
     margin:
-      0 0 9px;
+      0 0 8px;
 
     border:
       1px solid
-      rgba(232, 222, 159, 0.82);
+      rgba(226, 214, 142, 0.85);
 
     border-radius: 50px;
 
     background:
-      rgba(18, 72, 48, 0.76);
+      rgba(13, 71, 49, 0.78);
 
     backdrop-filter:
       blur(7px);
 
     color:
-      #eee7b0;
+      #eee5a7;
 
-    font-size: 7.6px;
+    font-family:
+      "Poppins",
+      sans-serif;
+
+    font-size: 7.5px;
 
     font-weight: 600;
 
@@ -1122,20 +901,24 @@
     white-space: nowrap;
   }
 
+
   /* =======================================================
      NUMBER
-
-     Tag → 9px → number
   ======================================================= */
 
   .kicker {
+
     margin:
-      0 0 11px;
+      0 0 9px;
 
     padding: 0;
 
     color:
-      #dfd58c;
+      #e0d58c;
+
+    font-family:
+      "Poppins",
+      sans-serif;
 
     font-size: 9px;
 
@@ -1146,13 +929,13 @@
     line-height: 1.2;
   }
 
+
   /* =======================================================
      HEADING
-
-     Number → 11px → heading
   ======================================================= */
 
   .title {
+
     display: flex;
 
     flex-direction: column;
@@ -1160,14 +943,16 @@
     align-items: flex-start;
 
     width: 100%;
+
     max-width: 100%;
 
     margin:
-      0 0 11px;
+      0 0 10px;
 
     padding: 0;
 
-    color: #ffffff;
+    color:
+      #ffffff;
 
     font-family:
       "Cormorant Garamond",
@@ -1187,43 +972,53 @@
 
     line-height: 0.92;
 
-    letter-spacing: -0.35px;
+    letter-spacing:
+      -0.35px;
 
     text-shadow:
-      0 3px 15px
-      rgba(0, 0, 0, 0.25);
+      0 3px 14px
+      rgba(0, 0, 0, 0.2);
   }
 
+
   .title span {
+
     display: block;
 
     width: auto;
 
     max-width: 100%;
 
+    margin: 0;
+    padding: 0;
+
     white-space: normal;
   }
 
+
   /* =======================================================
      DESCRIPTION
-
-     Heading → 11px → description
   ======================================================= */
 
   .description {
+
     width: 100%;
 
-    max-width: 350px;
+    max-width: 345px;
 
     margin:
-      0 0 14px;
+      0 0 13px;
 
     padding: 0;
 
     color:
       rgba(255, 255, 255, 0.94);
 
-    font-size: 11.5px;
+    font-family:
+      "Poppins",
+      sans-serif;
+
+    font-size: 11.2px;
 
     font-weight: 400;
 
@@ -1232,20 +1027,22 @@
     display:
       -webkit-box;
 
-    -webkit-box-orient: vertical;
+    -webkit-box-orient:
+      vertical;
 
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp:
+      2;
 
     overflow: hidden;
   }
 
+
   /* =======================================================
      BUTTON
-
-     Description → 14px → button
   ======================================================= */
 
   .exploreButton {
+
     display: inline-flex;
 
     align-items: center;
@@ -1268,10 +1065,14 @@
     border-radius: 50px;
 
     background:
-      #f1f4d7;
+      #f2f3d7;
 
     color:
       #18553b;
+
+    font-family:
+      "Poppins",
+      sans-serif;
 
     font-size: 11.5px;
 
@@ -1283,32 +1084,37 @@
 
     box-shadow:
       0 8px 20px
-      rgba(0, 0, 0, 0.15);
+      rgba(0, 0, 0, 0.14);
   }
 
+
   .exploreButton .arrow {
+
     font-size: 17px;
 
     line-height: 1;
   }
 
+
   /* =======================================================
      CONTROLS
 
-     Button → 20px → controls
+     NO position: fixed
+     NO bottom: 50px
+     NO huge gap
 
-     NOT fixed to bottom.
-     This removes the huge empty space.
+     They naturally follow the button.
   ======================================================= */
 
   .controls {
+
     position: static;
 
     display: flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
     margin:
       20px 0 0;
@@ -1318,7 +1124,9 @@
     pointer-events: auto;
   }
 
+
   .navBtn {
+
     display: flex;
 
     align-items: center;
@@ -1331,15 +1139,15 @@
 
     border:
       1px solid
-      rgba(232, 218, 137, 0.75);
+      rgba(226, 214, 142, 0.8);
 
     border-radius: 50%;
 
     background:
-      rgba(19, 75, 49, 0.72);
+      rgba(12, 72, 49, 0.7);
 
     color:
-      #f1e49a;
+      #f0df91;
 
     backdrop-filter:
       blur(7px);
@@ -1347,12 +1155,19 @@
     cursor: pointer;
 
     appearance: none;
+
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
   }
 
+
   .navBtn svg {
+
     width: 19px;
     height: 19px;
   }
+
 
   /* =======================================================
      DECORATIONS
@@ -1360,39 +1175,48 @@
 
   .verticalText,
   .decorativeDot {
+
     display: none !important;
   }
 
   .decorativeCircle {
+
     opacity: 0.07;
 
     z-index: 7;
   }
 
   .circleOne {
+
     width: 260px;
     height: 260px;
 
     right: -205px;
-    top: 44%;
+
+    top: 42%;
   }
 
   .circleTwo {
-    width: 330px;
-    height: 330px;
 
-    right: -250px;
-    top: 44%;
+    width: 340px;
+    height: 340px;
+
+    right: -265px;
+
+    top: 39%;
   }
 
+
   /* =======================================================
-     HIDE THUMB BUTTONS
+     THUMBNAILS OFF ON MOBILE
   ======================================================= */
 
   .thumbButton {
+
     display: none !important;
   }
 }
+
 
 /* =========================================================
    480px
@@ -1401,18 +1225,21 @@
 @media screen and (max-width: 480px) {
 
   .hero {
+
     height:
-      calc(56.25vw + 390px);
+      calc(56.25vw + 365px);
   }
 
   .rail {
+
     padding:
-      calc(56.25vw + 14px)
+      calc(56.25vw + 12px)
       18px
-      20px;
+      15px;
   }
 
   .title {
+
     font-size:
       clamp(
         33px,
@@ -1422,9 +1249,11 @@
   }
 
   .description {
+
     max-width: 345px;
   }
 }
+
 
 /* =========================================================
    390px
@@ -1433,19 +1262,23 @@
 @media screen and (max-width: 390px) {
 
   .hero {
+
     height:
-      calc(56.25vw + 380px);
+      calc(56.25vw + 365px);
   }
 
   .rail {
+
     padding:
-      calc(56.25vw + 13px)
+      calc(56.25vw + 12px)
       18px
-      18px;
+      15px;
   }
 
   .ayurvedaTag {
+
     height: 29px;
+
     min-height: 29px;
 
     padding:
@@ -1454,19 +1287,17 @@
     margin-bottom: 8px;
 
     font-size: 7.2px;
-
-    letter-spacing: 0.9px;
   }
 
   .kicker {
-    margin-bottom: 10px;
+
+    margin-bottom: 9px;
 
     font-size: 8.6px;
-
-    letter-spacing: 1.8px;
   }
 
   .title {
+
     font-size: 34px;
 
     line-height: 0.93;
@@ -1475,7 +1306,8 @@
   }
 
   .description {
-    font-size: 11.1px;
+
+    font-size: 11px;
 
     line-height: 1.44;
 
@@ -1483,128 +1315,118 @@
   }
 
   .exploreButton {
+
     width: 168px;
+
     min-width: 168px;
 
     height: 45px;
   }
 
   .controls {
+
     margin-top: 19px;
   }
 
   .navBtn {
+
     width: 46px;
     height: 46px;
   }
 }
 
+
 /* =========================================================
-   379px
+   379px — TARGET MOBILE SIZE
 ========================================================= */
 
 @media screen and (max-width: 379px) {
 
   .hero {
-    /*
-      379px × 9 / 16
-      ≈ 213px image height
 
-      Compact content below it.
+    /*
+      379 × 9 / 16 ≈ 213px image
     */
 
     height:
-      calc(56.25vw + 375px);
-
-    min-height: 0;
+      calc(56.25vw + 365px);
   }
 
-  /* -------------------------------------------------------
-     IMAGE
-  ------------------------------------------------------- */
-
-  .image,
-  .image[data-slide-id="1"],
-  .image[data-slide-id="2"],
-  .image[data-slide-id="3"],
-  .image[data-slide-id="4"] {
-    width: 100vw !important;
-
-    height: auto !important;
-
-    aspect-ratio: 16 / 9;
-
-    object-fit: contain !important;
-
-    object-position: center top !important;
-  }
-
-  /* -------------------------------------------------------
-     CONTENT START
-
-     IMAGE
-       ↓
-     14px
-       ↓
-     GOLD TAG
-  ------------------------------------------------------- */
 
   .rail {
+
+    /*
+      213px image
+      + 12px gap
+    */
+
     padding:
-      calc(56.25vw + 14px)
+      calc(56.25vw + 12px)
       20px
       15px;
   }
 
+
   /* -------------------------------------------------------
-     GOLD TAG
+     TAG
   ------------------------------------------------------- */
 
   .ayurvedaTag {
+
     height: 29px;
+
     min-height: 29px;
 
     padding:
       0 11px;
 
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 
     font-size: 7px;
 
-    letter-spacing: 0.85px;
+    letter-spacing:
+      0.85px;
   }
+
 
   /* -------------------------------------------------------
      NUMBER
   ------------------------------------------------------- */
 
   .kicker {
-    margin-bottom: 11px;
+
+    margin-bottom: 9px;
 
     font-size: 8.5px;
 
-    letter-spacing: 1.8px;
+    letter-spacing:
+      1.8px;
   }
+
 
   /* -------------------------------------------------------
      HEADING
   ------------------------------------------------------- */
 
   .title {
+
     font-size: 34px;
 
     line-height: 0.93;
 
-    letter-spacing: -0.25px;
+    letter-spacing:
+      -0.25px;
 
     margin-bottom: 10px;
   }
+
 
   /* -------------------------------------------------------
      DESCRIPTION
   ------------------------------------------------------- */
 
   .description {
+
     max-width: 338px;
 
     font-size: 11px;
@@ -1616,12 +1438,15 @@
     -webkit-line-clamp: 2;
   }
 
+
   /* -------------------------------------------------------
      BUTTON
   ------------------------------------------------------- */
 
   .exploreButton {
+
     width: 168px;
+
     min-width: 168px;
 
     height: 45px;
@@ -1629,11 +1454,13 @@
     font-size: 11.5px;
   }
 
+
   /* -------------------------------------------------------
      CONTROLS
   ------------------------------------------------------- */
 
   .controls {
+
     position: static;
 
     margin-top: 20px;
@@ -1642,66 +1469,55 @@
   }
 
   .navBtn {
+
     width: 46px;
+
     height: 46px;
-  }
-
-  /* -------------------------------------------------------
-     DECORATIONS
-  ------------------------------------------------------- */
-
-  .circleOne {
-    width: 260px;
-    height: 260px;
-
-    right: -205px;
-    top: 44%;
-  }
-
-  .circleTwo {
-    width: 330px;
-    height: 330px;
-
-    right: -250px;
-    top: 44%;
   }
 }
 
+
 /* =========================================================
-   VERY SMALL PHONES
+   350px AND BELOW
 ========================================================= */
 
 @media screen and (max-width: 350px) {
 
   .hero {
+
     height:
-      calc(56.25vw + 360px);
+      calc(56.25vw + 350px);
   }
 
   .rail {
+
     padding:
-      calc(56.25vw + 13px)
+      calc(56.25vw + 11px)
       15px
-      15px;
+      14px;
   }
 
   .ayurvedaTag {
+
     height: 28px;
+
     min-height: 28px;
 
-    font-size: 6.8px;
+    margin-bottom: 7px;
 
-    margin-bottom: 8px;
+    font-size: 6.7px;
   }
 
   .kicker {
-    margin-bottom: 9px;
+
+    margin-bottom: 8px;
 
     font-size: 8px;
   }
 
   .title {
-    font-size: 32px;
+
+    font-size: 31px;
 
     line-height: 0.94;
 
@@ -1709,7 +1525,8 @@
   }
 
   .description {
-    font-size: 10.5px;
+
+    font-size: 10.3px;
 
     line-height: 1.42;
 
@@ -1717,23 +1534,29 @@
   }
 
   .exploreButton {
+
     width: 158px;
+
     min-width: 158px;
 
     height: 43px;
 
-    font-size: 11px;
+    font-size: 10.8px;
   }
 
   .controls {
+
     margin-top: 18px;
   }
 
   .navBtn {
+
     width: 44px;
+
     height: 44px;
   }
 }
+
 
 /* =========================================================
    REDUCED MOTION
@@ -1742,11 +1565,8 @@
 @media (prefers-reduced-motion: reduce) {
 
   .image,
-  .slide,
-  .content,
-  .navBtn,
-  .exploreButton {
-    animation: none !important;
+  .exploreButton,
+  .navBtn {
 
     transition: none !important;
   }
