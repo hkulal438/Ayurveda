@@ -1,465 +1,129 @@
 import React, { useState, useEffect } from "react";
-
-import {
-  Link as RouterLink,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Link as RouterLink, NavLink, useLocation } from "react-router-dom";
 
 import "./Header.css";
 
 import logo from "../../images/Anchan_Ayurvedic_industries_-_Logo-removebg-preview (1).png";
 
+// =====================================================
+// NAV ITEMS — each one opens its own page
+// =====================================================
+
+const NAV_ITEMS = [
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Our Legacy", to: "/legacy" },
+  { label: "Products", to: "/products" },
+  { label: "Quality", to: "/quality" },
+  { label: "Dr. Anchan", to: "/dr-anchan" },
+  { label: "Contact", to: "/contact" },
+];
+
+const ArrowIcon = () => (
+  <span className="pill-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="14" height="14">
+      <path
+        d="M9 6l6 6-6 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </span>
+);
 
 const Header = () => {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
-  const navigate = useNavigate();
-
 
   // =====================================================
-  // HEADER SCROLL EFFECT
+  // SHADOW ONCE THE PAGE IS SCROLLED
   // =====================================================
 
   useEffect(() => {
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 30);
 
     handleScroll();
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-  // =====================================================
-  // MOBILE MENU
-  // =====================================================
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
-
-  const closeMenu = () => {
+  // close the mobile menu whenever the page changes
+  useEffect(() => {
     setIsMenuOpen(false);
-    setActiveDropdown(null);
-  };
+  }, [location.pathname]);
 
-
-  // =====================================================
-  // SCROLL TO SECTION
-  // =====================================================
-
-  const scrollToSection = (id) => {
-
-    // ---------------------------------------------------
-    // If not on homepage, navigate home first.
-    // The home page can then use the state value to
-    // perform the scroll.
-    // ---------------------------------------------------
-
-    if (location.pathname !== "/") {
-
-      navigate("/", {
-        state: {
-          scrollToId: id,
-        },
-      });
-
-      closeMenu();
-
-      return;
-    }
-
-
-    // ---------------------------------------------------
-    // Find requested section
-    // ---------------------------------------------------
-
-    const section = document.getElementById(id);
-
-    if (section) {
-
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-    }
-
-
-    closeMenu();
-  };
-
-
-  // =====================================================
-  // PRODUCTS
-  // =====================================================
-
-  const products = [
-    "Manasa",
-    "Madhuna",
-    "Madhiphala Rasayana",
-    "Shwashari",
-    "Nirvedhan Oil",
-    "Rumovin Liniment",
-    "Chyawanprash",
-    "Hingoli",
-    "Pusti",
-    "Bhrangamalaka Thaila",
-    "Aloe Vera Shampoo",
-    "Aloe Vera Gel",
-  ];
-
-
-  // =====================================================
-  // PRODUCT SLUG
-  // =====================================================
-
-  const createSlug = (product) =>
-    product
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "");
-
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-
-    <header
-      className={`header ${
-        isScrolled ? "scrolled" : ""
-      }`}
-    >
-
+    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-container">
-
-
-        {/* =================================================
-            LOGO
-        ================================================= */}
-
+        {/* ================= LOGO ================= */}
         <div className="logo">
-
-          <RouterLink
-            to="/"
-            onClick={closeMenu}
-          >
-
-            <img
-              src={logo}
-              alt="Anchan Ayurvedic Industries"
-            />
-
+          <RouterLink to="/" onClick={closeMenu}>
+            <img src={logo} alt="Anchan Ayurvedic Industries" />
           </RouterLink>
-
         </div>
 
-
-        {/* =================================================
-            NAVIGATION
-        ================================================= */}
-
-        <nav
-          className={`nav ${
-            isMenuOpen ? "open" : ""
-          }`}
-        >
-
+        {/* ================= NAVIGATION ================= */}
+        <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
           <ul className="nav-list">
-
-
-            {/* ================= HOME ================= */}
-
-            <li>
-
-              <button
-                type="button"
-                className="nav-link"
-                onClick={() =>
-                  scrollToSection("hero-section")
-                }
-              >
-                Home
-              </button>
-
-            </li>
-
-
-            {/* ================= ABOUT ================= */}
-
-            <li>
-
-              <button
-                type="button"
-                className="nav-link"
-                onClick={() =>
-                  scrollToSection("about-company-section")
-                }
-              >
-                About Us
-              </button>
-
-            </li>
-
-
-            {/* ================= LEGACY ================= */}
-
-            <li>
-
-              <button
-                type="button"
-                className="nav-link"
-                onClick={() =>
-                  scrollToSection("legacy-section")
-                }
-              >
-                Our Legacy
-              </button>
-
-            </li>
-
-
-            {/* =================================================
-                PRODUCTS
-            ================================================= */}
-
-            <li
-              className={`dropdown ${
-                activeDropdown === "products"
-                  ? "active"
-                  : ""
-              }`}
-
-              onMouseEnter={() =>
-                setActiveDropdown("products")
-              }
-
-              onMouseLeave={() =>
-                setActiveDropdown(null)
-              }
-            >
-
-              <button
-                type="button"
-                className="nav-link products-button"
-
-                onClick={() => {
-
-                  scrollToSection(
-                    "products-section"
-                  );
-
-                  setActiveDropdown(null);
-
-                }}
-              >
-
-                Products
-
-                <span className="dropdown-arrow"></span>
-
-              </button>
-
-
-              {/* ================= PRODUCT DROPDOWN ================= */}
-
-              <div className="products-dropdown">
-
-                <div className="dropdown-header">
-
-                  <span className="dropdown-label">
-                    OUR PRODUCTS
-                  </span>
-
-                  <p>
-                    Explore our range of Ayurvedic products
-                  </p>
-
-                </div>
-
-
-                <div className="products-grid">
-
-                  {products.map(
-                    (product, index) => (
-
-                      <RouterLink
-                        key={product}
-
-                        to={`/products/${createSlug(
-                          product
-                        )}`}
-
-                        className="product-item"
-
-                        onClick={closeMenu}
-                      >
-
-                        <span className="product-number">
-                          {String(index + 1).padStart(
-                            2,
-                            "0"
-                          )}
-                        </span>
-
-                        <span className="product-name">
-                          {product}
-                        </span>
-
-                        <span className="product-arrow">
-                          →
-                        </span>
-
-                      </RouterLink>
-
-                    )
-                  )}
-
-                </div>
-
-
-                {/* ================= VIEW ALL ================= */}
-
-                <RouterLink
-                  to="/products"
-                  className="view-all-products"
+            {NAV_ITEMS.map((item) => (
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  end={item.to === "/"}
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "is-active" : ""}`
+                  }
                   onClick={closeMenu}
                 >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
 
-                  View All Products
-
-                  <span>
-                    →
-                  </span>
-
-                </RouterLink>
-
-              </div>
-
+            {/* Mobile-only CTA inside the menu */}
+            <li className="mobile-cta">
+              <RouterLink to="/contact" className="pill-btn" onClick={closeMenu}>
+                Enquire Now
+                <ArrowIcon />
+              </RouterLink>
             </li>
-
-
-            {/* ================= QUALITY ================= */}
-
-            <li>
-
-              <button
-                type="button"
-                className="nav-link"
-                onClick={() =>
-                  scrollToSection("quality-section")
-                }
-              >
-                Quality
-              </button>
-
-            </li>
-
-
-            {/* ================= DR ANCHAN ================= */}
-
-            <li>
-
-              <button
-                type="button"
-                className="nav-link"
-                onClick={() =>
-                  scrollToSection("dr-anchan-section")
-                }
-              >
-                Dr. Anchan
-              </button>
-
-            </li>
-
-
-            {/* ================= CONTACT ================= */}
-
-            <li>
-
-              <button
-                type="button"
-                className="nav-link"
-                onClick={() =>
-                  scrollToSection("contact-section")
-                }
-              >
-                Contact
-              </button>
-
-            </li>
-
           </ul>
-
         </nav>
 
-
-        {/* =================================================
-            HEADER ACTIONS
-        ================================================= */}
-
+        {/* ================= HEADER ACTIONS ================= */}
         <div className="header-actions">
-
-
-          {/* ================= ENQUIRE ================= */}
-
           <RouterLink
-            to="/enquire"
-            className="enquire-btn"
+            to="/contact"
+            className="pill-btn enquire-btn"
             onClick={closeMenu}
           >
-
             Enquire Now
-
-            <span>
-              ↗
-            </span>
-
+            <ArrowIcon />
           </RouterLink>
-
-
-          {/* ================= MOBILE MENU ================= */}
 
           <button
             type="button"
-
-            className={`menu-toggle ${
-              isMenuOpen ? "open" : ""
-            }`}
-
+            className={`menu-toggle ${isMenuOpen ? "open" : ""}`}
             onClick={toggleMenu}
-
             aria-label="Toggle navigation"
-
             aria-expanded={isMenuOpen}
           >
-
             <span></span>
             <span></span>
             <span></span>
-
           </button>
-
         </div>
-
       </div>
-
     </header>
   );
 };
-
 
 export default Header;

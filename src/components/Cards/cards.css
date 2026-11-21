@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lexend+Deca:wght@300;400;500;600&display=swap");
+
 /* ========================================
    PRODUCTS SECTION
 ======================================== */
@@ -6,7 +8,7 @@
   position: relative;
   overflow: hidden;
   padding: 90px 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2f1 100%);
+  background: #faf7f2;   /* same ivory as the Legacy section */
 }
 
 /* Remove old decorative background */
@@ -502,4 +504,32 @@
 
     font-size: 1.1rem;
   }
+}
+
+/* ========================================
+   FONTS
+   Headings: Playfair Display · Content: Lexend Deca
+   (scoped to this section only)
+======================================== */
+
+.restaurant {
+  font-family: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+}
+
+.restaurant .section-title h2,
+.restaurant .products-intro h3,
+.restaurant .info-content > h4,
+.restaurant .feature-content h4 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.restaurant .section-subtitle,
+.restaurant .restaurant-description,
+.restaurant .feature-content p {
+  font-family: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+}
+
+.restaurant .restaurant-description,
+.restaurant .feature-content p {
+  font-weight: 300;
 }

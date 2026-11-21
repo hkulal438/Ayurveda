@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Footer.css";
 
@@ -215,37 +212,37 @@ const Icon = ({
 const quickLinks = [
   {
     name: "Home",
-    target: "hero-section",
+    target: "/",
     icon: "home",
   },
   {
     name: "About Us",
-    target: "about-company-section",
+    target: "/about",
     icon: "about",
   },
   {
     name: "Our Legacy",
-    target: "legacy-section",
+    target: "/legacy",
     icon: "legacy",
   },
   {
     name: "Products",
-    target: "products-section",
+    target: "/products",
     icon: "products",
   },
   {
     name: "Quality",
-    target: "quality-section",
+    target: "/quality",
     icon: "quality",
   },
   {
     name: "Dr. Anchan",
-    target: "dr-anchan-section",
+    target: "/dr-anchan",
     icon: "doctor",
   },
   {
     name: "Contact",
-    target: "contact-section",
+    target: "/contact",
     icon: "contact",
   },
 ];
@@ -253,21 +250,25 @@ const quickLinks = [
 
 /* =========================================================
    PRODUCTS
-   HINGOLI REMOVED
+   (same 15 products as the Products section)
 ========================================================= */
 
 const products = [
   "Manasa",
   "Madhuna",
   "Madhiphala Rasayana",
-  "Shwashari",
+  "Shwasari",
   "Nirvedhan Oil",
   "Rumovin Liniment",
   "Chyawanprash",
   "Pusti",
-  "Bhrangamalaka Thaila",
-  "Kumari Shampoo",
+  "Bhringamalakadi Taila",
   "Aloe Vera Gel",
+  "Kumari",
+  "Balagraha Taila",
+  "Bananthi Taila",
+  "Gandhaka Malahara",
+  "Ashtanga Dhoopa",
 ];
 
 
@@ -277,7 +278,6 @@ const products = [
 
 const Footer = () => {
 
-  const location = useLocation();
   const navigate = useNavigate();
 
 
@@ -285,45 +285,9 @@ const Footer = () => {
      SCROLL TO SECTION
   ======================================================= */
 
-  const scrollToSection = (id) => {
-
-    // -----------------------------------------------------
-    // If the user is on another page, return to homepage
-    // first and pass the section ID.
-    // -----------------------------------------------------
-
-    if (location.pathname !== "/") {
-
-      navigate("/", {
-        state: {
-          scrollToId: id,
-        },
-      });
-
-      return;
-    }
-
-
-    // -----------------------------------------------------
-    // Find section
-    // -----------------------------------------------------
-
-    const section = document.getElementById(id);
-
-
-    // -----------------------------------------------------
-    // Smooth scroll
-    // -----------------------------------------------------
-
-    if (section) {
-
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-    }
-
+  // Footer links open their page (and the page starts at the top)
+  const goTo = (path) => {
+    navigate(path);
   };
 
 
@@ -495,10 +459,10 @@ const Footer = () => {
                 <li key={link.name}>
 
                   <a
-                    href={`#${link.target}`}
+                    href={link.target}
                     onClick={(e) => {
                       e.preventDefault();
-                      scrollToSection(link.target);
+                      goTo(link.target);
                     }}
                   >
 
@@ -544,11 +508,11 @@ const Footer = () => {
               {products.map((product) => (
 
                 <a
-                  href="#products-section"
+                  href="/products"
                   key={product}
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection("products-section");
+                    goTo("/products");
                   }}
                 >
 
@@ -573,11 +537,11 @@ const Footer = () => {
 
 
             <a
-              href="#products-section"
+              href="/products"
               className="footer-view-products"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection("products-section");
+                goTo("/products");
               }}
             >
 
@@ -791,11 +755,11 @@ const Footer = () => {
             {/* ENQUIRE */}
 
             <a
-              href="#contact-section"
+              href="/contact"
               className="footer-enquire"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection("contact-section");
+                goTo("/contact");
               }}
             >
 

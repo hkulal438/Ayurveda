@@ -1,1178 +1,583 @@
 /* =========================================================
-   ABOUT SECTION
    ANCHAN AYURVEDIC INDUSTRIES
-   PROFESSIONAL / CLEAN / CAMBRIA
+   INTRO — Story (triptych) · Growth (lineage) · Principles
+   Headings: Playfair Display (regular) · Content: Lexend Deca
+   All classes are prefixed "intro-" (no clashes with About).
 ========================================================= */
 
-.about-section {
-  --forest-deep: #163b2c;
-  --forest-green: #1f6b3b;
-  --sea-green: #2e8b67;
-  --light-green: #b8d8b0;
-  --ivory: #fbf8f0;
-  --cream: #f7f4e9;
-  --text: #526258;
-  --text-light: #68766d;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lexend+Deca:wght@300;400;500&display=swap");
 
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.intro-section {
+  --in-navy: #1c2340;
+  --in-text: #4a4a4a;
+  --in-muted: #6b6b6b;
+  --in-green: #8cc63f;
+  --in-green-dark: #6fa52a;
+  --in-green-deep: #3f6b1f;
+  --in-forest: #1f3b2c;
+  --in-forest-2: #2a4d39;
+  --in-cream: #f1eae0;
+  --in-cream-soft: #faf7f2;
+  --in-gold: #c8a45c;
 
-  background: var(--ivory);
-  color: var(--text);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  overflow: hidden;
-}
-
-
-/* =========================================================
-   INNER
-========================================================= */
-
-.about-inner {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-
-/* =========================================================
-   MAIN ABOUT CONTAINER
-========================================================= */
-
-.about-section > .about-inner {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  width: 100%;
-
-  padding: 65px 0 75px;
-}
-
-
-/* =========================================================
-   ABOUT IMAGE
-========================================================= */
-
-.about-figure {
-  order: 1;
+  --in-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --in-sans: "Lexend Deca", "Segoe UI", Arial, sans-serif;
 
   position: relative;
-
-  width:
-    min(
-      1320px,
-      calc(100% - 50px)
-    );
-
-  margin: 0 auto 50px;
-
-  padding: 0;
-
-  overflow: visible;
-}
-
-
-.about-figure-frame {
-  position: relative;
-
   width: 100%;
-
-  margin: 0;
-
-  padding: 0;
-
   overflow: hidden;
+  overflow: clip;          /* clip (not hidden) keeps the sticky heading working */
+  background: #ffffff;
+  color: var(--in-text);
+  font-family: var(--in-sans);
+}
 
-  background: #e7eee2;
-
-  border-radius:
-    7px 55px
-    7px 55px;
-
-  box-shadow:
-    0 22px 50px
-    rgba(22, 59, 44, 0.10),
-
-    0 6px 20px
-    rgba(22, 59, 44, 0.05);
+.intro-section *,
+.intro-section *::before,
+.intro-section *::after {
+  box-sizing: border-box;
 }
 
 
-.about-figure-frame img {
+/* =========================================================
+   SHARED HEADING + BUTTON
+========================================================= */
+
+.intro-heading {
+  margin: 0 0 26px;
+
+  color: var(--in-navy);
+  font-family: var(--in-serif);
+  font-size: clamp(36px, 3.5vw, 56px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.intro-heading span {
   display: block;
+  color: var(--in-green-dark);
+}
 
-  width: 100%;
+.intro-heading--center {
+  text-align: center;
+}
 
-  height: auto;
+.intro-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  margin-top: 22px;
+  padding: 0 12px 0 26px;
 
-  max-width: 100%;
+  background: var(--in-green);
+  color: #ffffff;
+  border-radius: 999px;
+  text-decoration: none;
 
-  margin: 0;
+  font-family: var(--in-sans);
+  font-size: 16px;
+  font-weight: 400;
 
-  padding: 0;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
 
-  object-fit: contain;
+.intro-cta:hover {
+  background: var(--in-green-dark);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(140, 198, 63, 0.35);
+}
 
-  object-position: center;
+.intro-cta-icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  border-radius: inherit;
+  background: #ffffff;
+  color: var(--in-green);
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+.intro-cta:hover .intro-cta-icon {
+  transform: translateX(2px);
 }
 
 
 /* =========================================================
-   IMAGE SOFT OVERLAY
+   1. STORY — panorama feature
 ========================================================= */
 
-.about-figure-frame::after {
-  content: "";
+.intro-story {
+  padding: 110px 32px 120px;
+  background: var(--in-cream);
+}
 
+.intro-story-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* wide cinematic photo */
+.intro-pano {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-radius: 36px;
+  box-shadow: 0 40px 80px -30px rgba(31, 59, 44, 0.45);
+}
+
+.intro-pano img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  transform: scale(1.02);
+  transition: transform 1.6s ease;
+}
+
+.intro-pano:hover img {
+  transform: scale(1.06);
+}
+
+/* text under the photo: heading left, content right */
+.intro-story-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 80px;
+  align-items: start;
+
+  margin-top: 70px;
+  padding: 56px 56px 0;
+  border-top: 1px solid rgba(28, 35, 64, 0.12);
+}
+
+.intro-story-heading {
+  margin: 0;
+}
+
+.intro-story-body {
+  max-width: 640px;
+}
+
+/* opening line: larger, navy, with a green rule */
+.intro-story-lead {
+  margin: 0 0 22px;
+  padding-left: 20px;
+  border-left: 3px solid var(--in-green);
+
+  color: var(--in-navy);
+  font-family: var(--in-sans);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.intro-story-lead strong {
+  color: var(--in-green-dark);
+  font-weight: 500;
+}
+
+.intro-copy {
+  margin: 0 0 16px;
+  color: var(--in-text);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.intro-copy strong {
+  color: var(--in-navy);
+  font-weight: 500;
+}
+
+.intro-story-body .intro-cta {
+  margin-top: 14px;
+}
+
+
+/* =========================================================
+   2. GROWTH — seed → sapling → tree on a rising vine
+========================================================= */
+
+.intro-growth {
+  padding: 130px 32px 120px;
+  background: #ffffff;
+}
+
+.intro-growth .intro-heading {
+  margin-bottom: 64px;
+}
+
+.intro-growth-track {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-vine {
   position: absolute;
-
+  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 65px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(22, 59, 44, 0.08)
-    );
-
+  width: 100%;
+  height: 260px;
   pointer-events: none;
 }
 
-
-/* =========================================================
-   BOTANICAL VEIN
-========================================================= */
-
-.about-vein {
-  display: none;
-}
-
-
-/* =========================================================
-   ABOUT CONTENT
-========================================================= */
-
-.about-content {
-  order: 2;
-
-  width:
-    min(
-      1200px,
-      calc(100% - 60px)
-    );
-
-  margin: 0 auto;
-
+.intro-growth-list {
+  position: relative;
+  margin: 0;
   padding: 0;
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   ABOUT LABEL
-========================================================= */
-
-.about-label {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 11px;
-
-  margin: 0 0 14px;
-
-  color: var(--sea-green);
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 700;
-
-  letter-spacing: 2.5px;
-
-  line-height: 1.3;
-
-  text-transform: uppercase;
-}
-
-
-.about-label::before,
-.about-label::after {
-  content: "";
-
-  width: 32px;
-
-  height: 1px;
-
-  background:
-    var(--sea-green);
-}
-
-
-/* =========================================================
-   MAIN ABOUT HEADING
-   CAMBRIA
-   TWO COLORS
-========================================================= */
-
-.about-heading {
-  max-width: 850px;
-
-  margin: 0 auto 25px;
-
-  color:
-    var(--forest-deep);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      48px,
-      5.3vw,
-      68px
-    );
-
-  font-weight: 700;
-
-  line-height: 0.98;
-
-  letter-spacing: -1.2px;
-}
-
-
-/* First heading line */
-
-.about-heading span:first-child {
-  color:
-    var(--forest-deep);
-}
-
-
-/* Second heading line */
-
-.about-heading span:last-child {
-  color:
-    var(--sea-green);
-}
-
-
-/* =========================================================
-   STORY PARAGRAPHS
-========================================================= */
-
-.about-copy {
-  max-width: 850px;
-
-  margin: 0 auto 14px;
-
-  color:
-    var(--text);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 17px;
-
-  font-weight: 400;
-
-  line-height: 1.65;
-
-  text-align: center;
-}
-
-
-/* First paragraph emphasis */
-
-.about-copy:first-of-type {
-  color:
-    var(--forest-deep);
-
-  font-size: 18px;
-
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   HERITAGE / FAMILY LINEAGE
-   FULL-WIDTH CARDS
-========================================================= */
-
-.about-lineage {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
-  gap: 20px;
-
-  width: 100%;
-
-  margin: 45px auto 0;
-
-  padding: 0;
-
   list-style: none;
 
-  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
 }
 
+.intro-growth-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-/* =========================================================
-   LINEAGE CARD
-========================================================= */
+.intro-growth-step--1 { padding-top: 178px; }
+.intro-growth-step--2 { padding-top: 104px; }
+.intro-growth-step--3 { padding-top: 14px; }
 
-.about-lineage-item {
-  position: relative;
+.intro-growth-node {
+  width: 74px;
+  height: 74px;
+  margin: -37px 0 22px;
 
-  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  margin: 0;
-
-  padding:
-    30px
-    30px
-    31px;
-
-  background:
-    #ffffff;
-
-  border:
-    1px solid
-    rgba(22, 59, 44, 0.10);
-
-  border-radius: 7px;
-
+  background: #ffffff;
+  border: 2px solid var(--in-green);
+  border-radius: 50%;
   box-shadow:
-    0 8px 25px
-    rgba(22, 59, 44, 0.045);
+    0 0 0 10px #ffffff,
+    0 16px 34px rgba(63, 107, 31, 0.18);
 
-  overflow: hidden;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  color: var(--in-green-deep);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-
-/* =========================================================
-   CARD TOP ACCENT
-========================================================= */
-
-.about-lineage-item::after {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  height: 3px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--forest-deep),
-      var(--sea-green)
-    );
+.intro-growth-step:hover .intro-growth-node {
+  background: var(--in-green);
+  color: #ffffff;
+  transform: scale(1.06);
 }
 
-
-/* =========================================================
-   REMOVE OLD NUMBERING
-========================================================= */
-
-.about-lineage-item::before {
-  display: none !important;
-}
-
-
-/* =========================================================
-   REMOVE OLD LEAF
-========================================================= */
-
-.about-leaf {
-  display: none !important;
-}
-
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
-
-.about-lineage-item:hover {
-  transform:
-    translateY(-4px);
-
-  border-color:
-    rgba(46, 139, 103, 0.22);
-
-  box-shadow:
-    0 15px 35px
-    rgba(22, 59, 44, 0.09);
-}
-
-
-/* =========================================================
-   LINEAGE NAME
-========================================================= */
-
-.about-lineage-name {
-  margin: 0 0 7px;
-
-  color:
-    var(--forest-deep);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 23px;
-
-  font-weight: 700;
-
-  line-height: 1.15;
-
-  letter-spacing: -0.2px;
-}
-
-
-/* =========================================================
-   LINEAGE ROLE
-========================================================= */
-
-.about-lineage-role {
-  margin: 0 0 15px;
-
-  color:
-    var(--sea-green);
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.7px;
-
-  line-height: 1.4;
-
+.intro-growth-stage {
+  margin: 0 0 6px;
+  color: var(--in-gold);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
+.intro-growth-name {
+  margin: 0 0 4px;
+  color: var(--in-navy);
+  font-family: var(--in-serif);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
 
-/* =========================================================
-   LINEAGE DESCRIPTION
-========================================================= */
-
-.about-lineage-detail {
-  max-width: 100%;
-
-  margin: 0;
-
-  color:
-    var(--text-light);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 15px;
-
+.intro-growth-role {
+  margin: 0 0 14px;
+  color: var(--in-green-dark);
+  font-size: 13.5px;
   font-weight: 400;
+}
 
-  line-height: 1.6;
+.intro-growth-detail {
+  max-width: 330px;
+  margin: 0;
+  color: var(--in-text);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
 }
 
 
 /* =========================================================
-   CTA
-========================================================= */
-
-.about-cta {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 12px;
-
-  margin-top: 35px;
-
-  padding:
-    12px
-    22px;
-
-  color: #ffffff;
-
-  background:
-    var(--forest-deep);
-
-  border:
-    1px solid
-    var(--forest-deep);
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.6px;
-
-  text-decoration: none;
-
-  transition:
-    background 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-
-.about-cta:hover {
-  background:
-    var(--sea-green);
-
-  border-color:
-    var(--sea-green);
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 8px 22px
-    rgba(46, 139, 103, 0.18);
-}
-
-
-.about-cta-arrow {
-  font-size: 17px;
-
-  line-height: 1;
-
-  transition:
-    transform 0.3s ease;
-}
-
-
-.about-cta:hover
-.about-cta-arrow {
-  transform:
-    translateX(4px);
-}
-
-
-/* =========================================================
-   PHILOSOPHY SECTION
+   3. PRINCIPLES — dark band, editorial index rows
 ========================================================= */
 
 .intro-philosophy {
-  order: 3;
-
-  width:
-    min(
-      1200px,
-      calc(100% - 60px)
-    );
-
-  margin: 40px auto 0;
-
-  padding:
-    68px
-    0
-    5px;
-
-  border-top:
-    1px solid
-    rgba(46, 139, 103, 0.14);
-}
-
-
-/* =========================================================
-   PHILOSOPHY HEADING AREA
-========================================================= */
-
-.philosophy-heading {
-  max-width: 900px;
-
-  margin: 0 auto 42px;
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   PHILOSOPHY LABEL
-========================================================= */
-
-.intro-label {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  margin: 0 0 14px;
-
-  color:
-    var(--sea-green);
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 2.3px;
-
-  line-height: 1.3;
-
-  text-transform: uppercase;
-}
-
-
-.intro-label-line {
-  width: 30px;
-
-  height: 1px;
+  position: relative;
+  padding: 130px 32px;
+  overflow: hidden;
+  overflow: clip;
 
   background:
-    var(--sea-green);
+    radial-gradient(circle at 0% 0%, rgba(140, 198, 63, 0.16), transparent 40%),
+    linear-gradient(160deg, #18301f 0%, var(--in-forest) 55%, var(--in-forest-2) 100%);
+  color: #ffffff;
 }
 
-
-/* =========================================================
-   PHILOSOPHY MAIN HEADING
-   CAMBRIA
-   TWO COLORS
-========================================================= */
-
-.philosophy-heading h3 {
-  max-width: 900px;
-
-  margin: 0 auto 16px;
-
-  color:
-    var(--forest-deep);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      42px,
-      4.8vw,
-      62px
-    );
-
-  font-weight: 700;
-
-  line-height: 1.02;
-
-  letter-spacing: -1px;
-}
-
-
-/* Green second part */
-
-.philosophy-heading h3 span {
-  color:
-    var(--sea-green);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-style: normal;
-}
-
-
-/* =========================================================
-   PHILOSOPHY DESCRIPTION
-========================================================= */
-
-.philosophy-heading p {
-  max-width: 700px;
-
+.intro-philosophy-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
   margin: 0 auto;
 
-  color:
-    var(--text-light);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 17px;
-
-  font-weight: 400;
-
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   PHILOSOPHY CARDS
-========================================================= */
-
-.philosophy-cards {
   display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
-  gap: 18px;
-
-  width: 100%;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 90px;
+  align-items: start;
 }
 
+/* heading stays in view while the rows scroll past */
+.intro-philosophy-head {
+  position: sticky;
+  top: 140px;
+}
 
-.philosophy-card {
+.intro-philosophy .intro-heading {
+  color: #ffffff;
+}
+
+.intro-philosophy .intro-heading span {
+  color: var(--in-green);
+}
+
+.intro-philosophy-text {
+  margin: 0;
+  max-width: 440px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.85;
+}
+
+.intro-principles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.intro-principle {
   position: relative;
+  overflow: hidden;
+  isolation: isolate;      /* keeps the hover fill inside the row */
 
-  min-height: 230px;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) 48px;
+  grid-template-areas:
+    "num title arrow"
+    "num text  arrow";
+  column-gap: 24px;
+  row-gap: 8px;
+  align-items: center;
 
-  padding:
-    28px
-    27px;
+  padding: 40px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 
-  background:
-    #eef4e9;
+  transition: color 0.4s ease;
+}
 
-  border:
-    1px solid
-    rgba(46, 139, 103, 0.12);
+/* green fill that sweeps in on hover */
+.intro-principle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--in-green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
 
-  text-align: left;
+.intro-principle:hover::before {
+  transform: scaleX(1);
+}
+
+.intro-principle-number {
+  grid-area: num;
+  color: var(--in-gold);
+  font-family: var(--in-serif);
+  font-size: 54px;
+  font-weight: 500;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.intro-principle-title {
+  grid-area: title;
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--in-serif);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.15;
+  transition: color 0.4s ease;
+}
+
+.intro-principle-text {
+  grid-area: text;
+  margin: 0;
+  max-width: 480px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 1.75;
+  transition: color 0.4s ease;
+}
+
+.intro-principle-arrow {
+  grid-area: arrow;
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: #ffffff;
 
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.4s ease,
+    background 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
 }
 
-
-.philosophy-card:hover {
-  transform:
-    translateY(-4px);
-
-  background:
-    #e8f1e3;
-
-  box-shadow:
-    0 14px 30px
-    rgba(22, 59, 44, 0.07);
+.intro-principle:hover .intro-principle-number,
+.intro-principle:hover .intro-principle-title {
+  color: var(--in-forest);
 }
 
+.intro-principle:hover .intro-principle-text {
+  color: rgba(31, 59, 44, 0.85);
+}
 
-/* =========================================================
-   ACTIVE PHILOSOPHY CARD
-========================================================= */
-
-.philosophy-card.active {
-  background:
-    var(--forest-deep);
-
-  border-color:
-    var(--forest-deep);
-
-  box-shadow:
-    0 16px 34px
-    rgba(22, 59, 44, 0.12);
+.intro-principle:hover .intro-principle-arrow {
+  background: var(--in-forest);
+  border-color: var(--in-forest);
+  color: var(--in-green);
+  transform: rotate(45deg);
 }
 
 
 /* =========================================================
-   CARD NUMBER
+   LAPTOP
 ========================================================= */
 
-.philosophy-number {
-  margin: 0 0 30px;
+@media (max-width: 1150px) {
+  .intro-story-content {
+    gap: 50px;
+    padding: 48px 24px 0;
+  }
 
-  color:
-    var(--sea-green);
+  .intro-philosophy-inner {
+    gap: 56px;
+  }
 
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
+  .intro-principle {
+    grid-template-columns: 70px minmax(0, 1fr) 44px;
+    padding: 34px 20px;
+  }
 
-  font-size: 10px;
+  .intro-principle-number {
+    font-size: 44px;
+  }
 
-  font-weight: 700;
-
-  letter-spacing: 1.8px;
-}
-
-
-.philosophy-card.active
-.philosophy-number {
-  color:
-    var(--light-green);
+  .intro-principle-title {
+    font-size: 29px;
+  }
 }
 
 
 /* =========================================================
-   HIDE PHILOSOPHY ICON
+   TABLET — stack
 ========================================================= */
 
-.philosophy-icon {
-  display: none;
-}
-
-
-/* =========================================================
-   PHILOSOPHY CARD TITLE
-========================================================= */
-
-.philosophy-card h4 {
-  margin: 0 0 10px;
-
-  color:
-    var(--forest-deep);
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 29px;
-
-  font-weight: 700;
-
-  line-height: 1;
-}
-
-
-.philosophy-card.active h4 {
-  color:
-    #ffffff;
-}
-
-
-/* =========================================================
-   PHILOSOPHY CARD DESCRIPTION
-========================================================= */
-
-.philosophy-card p {
-  max-width: 360px;
-
-  margin: 0;
-
-  color:
-    #65746b;
-
-  font-family:
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 16px;
-
-  font-weight: 400;
-
-  line-height: 1.5;
-}
-
-
-.philosophy-card.active p {
-  color:
-    rgba(255, 255, 255, 0.78);
-}
-
-
-/* =========================================================
-   LARGE TABLET
-========================================================= */
-
-@media (max-width: 1100px) {
-
-  .about-section > .about-inner {
-    padding-top: 55px;
+@media (max-width: 900px) {
+  /* story */
+  .intro-story {
+    padding: 80px 24px 90px;
   }
 
-
-  .about-figure {
-    width:
-      calc(100% - 35px);
+  .intro-pano {
+    aspect-ratio: 16 / 10;
+    border-radius: 28px;
   }
 
-
-  .about-content {
-    width:
-      min(
-        950px,
-        calc(100% - 50px)
-      );
-  }
-
-
-  .about-heading {
-    font-size:
-      clamp(
-        44px,
-        5.8vw,
-        60px
-      );
-  }
-
-
-  .about-copy {
-    font-size: 16px;
-  }
-
-
-  .about-copy:first-of-type {
-    font-size: 17px;
-  }
-
-
-  /* Lineage */
-
-  .about-lineage {
-    max-width: 950px;
-
-    gap: 16px;
-  }
-
-
-  .about-lineage-item {
-    padding:
-      27px
-      25px
-      28px;
-  }
-
-
-  .about-lineage-name {
-    font-size: 21px;
-  }
-
-
-  .about-lineage-detail {
-    font-size: 14.5px;
-  }
-
-
-  /* Philosophy */
-
-  .intro-philosophy {
-    width:
-      calc(100% - 50px);
-  }
-
-
-  .philosophy-heading h3 {
-    font-size:
-      clamp(
-        40px,
-        5.5vw,
-        56px
-      );
-  }
-
-
-  .philosophy-card h4 {
-    font-size: 27px;
-  }
-
-
-  .philosophy-card p {
-    font-size: 15px;
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 800px) {
-
-  .about-section > .about-inner {
-    padding:
-      48px
-      0
-      60px;
-  }
-
-
-  /* Image */
-
-  .about-figure {
-    width:
-      calc(100% - 25px);
-
-    margin-bottom: 38px;
-  }
-
-
-  .about-figure-frame {
-    border-radius:
-      6px 42px
-      6px 42px;
-  }
-
-
-  /* Content */
-
-  .about-content {
-    width:
-      calc(100% - 44px);
-  }
-
-
-  .about-heading {
-    font-size:
-      clamp(
-        40px,
-        7vw,
-        55px
-      );
-
-    line-height: 1;
-  }
-
-
-  .about-copy {
-    max-width: 700px;
-
-    font-size: 16px;
-  }
-
-
-  .about-copy:first-of-type {
-    font-size: 17px;
-  }
-
-
-  /* =======================================================
-     LINEAGE CARDS
-  ======================================================= */
-
-  .about-lineage {
+  .intro-story-content {
     grid-template-columns: 1fr;
-
-    gap: 16px;
-
-    max-width: 650px;
-
-    margin-top: 32px;
-
-    text-align: left;
+    gap: 24px;
+    margin-top: 48px;
+    padding: 40px 0 0;
   }
 
-
-  .about-lineage-item {
-    padding:
-      25px
-      26px
-      27px;
+  /* growth */
+  .intro-growth {
+    padding: 100px 24px 90px;
   }
 
-
-  .about-lineage-name {
-    font-size: 22px;
+  .intro-vine {
+    display: none;
   }
 
-
-  .about-lineage-detail {
-    max-width: 100%;
-
-    margin: 0;
-
-    font-size: 15px;
-  }
-
-
-  /* =======================================================
-     PHILOSOPHY
-  ======================================================= */
-
-  .intro-philosophy {
-    width:
-      calc(100% - 44px);
-
-    padding-top: 55px;
-  }
-
-
-  .philosophy-cards {
+  .intro-growth-list {
     grid-template-columns: 1fr;
-
-    gap: 12px;
+    gap: 56px;
+    max-width: 460px;
+    margin: 0 auto;
   }
 
-
-  .philosophy-card {
-    min-height: auto;
+  .intro-growth-step--1,
+  .intro-growth-step--2,
+  .intro-growth-step--3 {
+    padding-top: 0;
   }
 
+  .intro-growth-node {
+    margin-top: 0;
+  }
+
+  .intro-growth-step + .intro-growth-step::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 36px;
+    margin: -46px auto 10px;
+    background: repeating-linear-gradient(180deg, var(--in-green) 0 3px, transparent 3px 9px);
+  }
+
+  /* principles */
+  .intro-philosophy {
+    padding: 90px 24px;
+  }
+
+  .intro-philosophy-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .intro-philosophy-head {
+    position: static;
+  }
 }
 
 
@@ -1181,550 +586,100 @@
 ========================================================= */
 
 @media (max-width: 600px) {
-
-  .about-section > .about-inner {
-    padding:
-      32px
-      0
-      45px;
-  }
-
-
-  /* =======================================================
-     IMAGE
-  ======================================================= */
-
-  .about-figure {
-    width:
-      calc(100% - 12px);
-
-    margin-bottom: 32px;
-  }
-
-
-  .about-figure-frame {
-    border-radius:
-      5px 28px
-      5px 28px;
-  }
-
-
-  .about-figure-frame img {
-    width: 100%;
-
-    height: auto;
-
-    object-fit: contain;
-
-    object-position: center;
-  }
-
-
-  /* =======================================================
-     CONTENT
-  ======================================================= */
-
-  .about-content {
-    width:
-      calc(100% - 30px);
-  }
-
-
-  /* =======================================================
-     ABOUT LABEL
-  ======================================================= */
-
-  .about-label {
-    gap: 8px;
-
-    margin-bottom: 11px;
-
-    font-size: 8px;
-
-    letter-spacing: 1.8px;
-  }
-
-
-  .about-label::before,
-  .about-label::after {
-    width: 22px;
-  }
-
-
-  /* =======================================================
-     ABOUT HEADING
-  ======================================================= */
-
-  .about-heading {
-    max-width: 360px;
-
+  .intro-heading {
+    font-size: clamp(30px, 8.4vw, 38px);
     margin-bottom: 18px;
-
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size:
-      clamp(
-        34px,
-        9.5vw,
-        43px
-      );
-
-    font-weight: 700;
-
-    line-height: 1.02;
-
-    letter-spacing: -0.5px;
   }
 
+  .intro-story {
+    padding: 64px 18px 70px;
+  }
 
-  /* =======================================================
-     STORY
-  ======================================================= */
+  .intro-pano {
+    aspect-ratio: 4 / 3;
+    border-radius: 24px;
+  }
 
-  .about-copy {
-    margin-bottom: 11px;
+  .intro-pano img {
+    object-position: 54% center;
+  }
 
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
+  .intro-story-content {
+    margin-top: 36px;
+    padding-top: 30px;
+    gap: 18px;
+  }
 
+  .intro-story-lead {
+    font-size: 16.5px;
+    padding-left: 16px;
+  }
+
+  .intro-copy {
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+
+  .intro-cta {
+    height: 48px;
     font-size: 15px;
-
-    line-height: 1.55;
+    padding: 0 10px 0 22px;
   }
 
-
-  .about-copy:first-of-type {
-    font-size: 15.5px;
+  .intro-growth {
+    padding: 80px 18px 70px;
   }
 
-
-  /* =======================================================
-     LINEAGE CARDS
-  ======================================================= */
-
-  .about-lineage {
-    grid-template-columns: 1fr;
-
-    gap: 13px;
-
-    width: 100%;
-
-    margin-top: 27px;
-
-    text-align: left;
+  .intro-growth .intro-heading {
+    margin-bottom: 44px;
   }
 
-
-  .about-lineage-item {
-    width: 100%;
-
-    padding:
-      23px
-      22px
-      24px;
-
-    border-radius: 5px;
+  .intro-growth-node {
+    width: 64px;
+    height: 64px;
   }
 
-
-  .about-lineage-name {
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size: 20px;
-
-    line-height: 1.15;
+  .intro-growth-name {
+    font-size: 21px;
   }
 
-
-  .about-lineage-role {
-    margin-bottom: 10px;
-
-    font-size: 7.5px;
-
-    letter-spacing: 1.3px;
-  }
-
-
-  .about-lineage-detail {
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
+  .intro-growth-detail {
     font-size: 14px;
-
-    line-height: 1.55;
   }
-
-
-  /* =======================================================
-     CTA
-  ======================================================= */
-
-  .about-cta {
-    margin-top: 27px;
-
-    padding:
-      11px
-      18px;
-
-    font-size: 10px;
-  }
-
-
-  /* =======================================================
-     PHILOSOPHY
-  ======================================================= */
 
   .intro-philosophy {
-    width:
-      calc(100% - 30px);
-
-    margin-top: 0;
-
-    padding:
-      43px
-      0
-      0;
+    padding: 70px 18px;
   }
 
-
-  .philosophy-heading {
-    margin-bottom: 27px;
+  .intro-philosophy-text {
+    font-size: 15px;
   }
 
-
-  /* =======================================================
-     PHILOSOPHY LABEL
-  ======================================================= */
-
-  .intro-label {
-    gap: 8px;
-
-    margin-bottom: 11px;
-
-    font-size: 7.5px;
-
-    letter-spacing: 1.8px;
+  .intro-principle {
+    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-areas:
+      "num title"
+      "num text";
+    column-gap: 14px;
+    padding: 26px 8px;
   }
 
-
-  .intro-label-line {
-    width: 22px;
+  .intro-principle-arrow {
+    display: none;
   }
 
-
-  /* =======================================================
-     PHILOSOPHY HEADING
-     CAMBRIA + TWO COLORS
-  ======================================================= */
-
-  .philosophy-heading h3 {
-    max-width: 360px;
-
-    margin-bottom: 13px;
-
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size:
-      clamp(
-        32px,
-        8.8vw,
-        41px
-      );
-
-    font-weight: 700;
-
-    line-height: 1.04;
-
-    letter-spacing: -0.4px;
+  .intro-principle-number {
+    font-size: 36px;
+    align-self: start;
   }
 
-
-  .philosophy-heading h3 span {
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    color:
-      var(--sea-green);
-
-    font-style: normal;
-  }
-
-
-  /* =======================================================
-     PHILOSOPHY DESCRIPTION
-  ======================================================= */
-
-  .philosophy-heading p {
-    max-width: 350px;
-
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size: 14.5px;
-
-    line-height: 1.55;
-  }
-
-
-  /* =======================================================
-     PHILOSOPHY CARDS
-  ======================================================= */
-
-  .philosophy-cards {
-    gap: 10px;
-  }
-
-
-  .philosophy-card {
-    padding:
-      23px
-      20px;
-  }
-
-
-  .philosophy-number {
-    margin-bottom: 22px;
-
-    font-size: 9px;
-  }
-
-
-  .philosophy-card h4 {
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
+  .intro-principle-title {
     font-size: 25px;
   }
 
-
-  .philosophy-card p {
-    font-family:
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-  .about-figure {
-    width:
-      calc(100% - 8px);
-  }
-
-
-  .about-figure-frame {
-    border-radius:
-      4px 23px
-      4px 23px;
-  }
-
-
-  .about-content {
-    width:
-      calc(100% - 24px);
-  }
-
-
-  .about-heading {
-    font-size: 32px;
-
-    letter-spacing: -0.3px;
-  }
-
-
-  .about-copy {
+  .intro-principle-text {
     font-size: 14px;
   }
-
-
-  .about-copy:first-of-type {
-    font-size: 14.5px;
-  }
-
-
-  /* Lineage */
-
-  .about-lineage {
-    gap: 12px;
-
-    margin-top: 25px;
-  }
-
-
-  .about-lineage-item {
-    padding:
-      21px
-      19px
-      22px;
-  }
-
-
-  .about-lineage-name {
-    font-size: 20px;
-  }
-
-
-  .about-lineage-detail {
-    font-size: 13.5px;
-  }
-
-
-  /* CTA */
-
-  .about-cta {
-    margin-top: 24px;
-  }
-
-
-  /* Philosophy */
-
-  .intro-philosophy {
-    width:
-      calc(100% - 24px);
-
-    padding-top: 39px;
-  }
-
-
-  .philosophy-heading h3 {
-    font-size: 30px;
-
-    line-height: 1.05;
-  }
-
-
-  .philosophy-heading p {
-    font-size: 14px;
-  }
-
-
-  .philosophy-card {
-    padding:
-      22px
-      18px;
-  }
-
-
-  .philosophy-card h4 {
-    font-size: 24px;
-  }
-
-
-  .philosophy-card p {
-    font-size: 13.5px;
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 350px) {
-
-  .about-figure {
-    width:
-      calc(100% - 6px);
-  }
-
-
-  .about-content {
-    width:
-      calc(100% - 20px);
-  }
-
-
-  .about-heading {
-    font-size: 29px;
-  }
-
-
-  .about-copy {
-    font-size: 13.5px;
-  }
-
-
-  .about-copy:first-of-type {
-    font-size: 14px;
-  }
-
-
-  .about-lineage-name {
-    font-size: 19px;
-  }
-
-
-  .about-lineage-detail {
-    font-size: 12.5px;
-  }
-
-
-  .philosophy-heading h3 {
-    font-size: 27px;
-  }
-
-
-  .philosophy-heading p {
-    font-size: 13px;
-  }
-
-
-  .philosophy-card {
-    padding:
-      20px
-      17px;
-  }
-
-
-  .philosophy-card h4 {
-    font-size: 23px;
-  }
-
-
-  .philosophy-card p {
-    font-size: 13px;
-  }
-
 }
 
 
@@ -1732,13 +687,22 @@
    ACCESSIBILITY
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+.intro-cta:focus-visible {
+  outline: 2px solid var(--in-green-dark);
+  outline-offset: 3px;
+}
 
-  .about-cta,
-  .about-cta-arrow,
-  .about-lineage-item,
-  .philosophy-card {
+@media (prefers-reduced-motion: reduce) {
+  .intro-cta,
+  .intro-cta-icon,
+  .intro-pano img,
+  .intro-growth-node,
+  .intro-principle,
+  .intro-principle::before,
+  .intro-principle-number,
+  .intro-principle-title,
+  .intro-principle-text,
+  .intro-principle-arrow {
     transition: none;
   }
-
 }

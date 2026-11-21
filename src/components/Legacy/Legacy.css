@@ -1,612 +1,691 @@
-/*
-=========================================================
-LEGACY SECTION
-=========================================================
+/* =========================================================
+   ANCHAN AYURVEDIC INDUSTRIES — LEGACY
+   Scroll-story: sticky photo + chapters, journey bar, vision
+   Headings: Playfair Display · Content: Lexend Deca
+========================================================= */
 
-Compact Ayurvedic heritage timeline.
-Typography: Cambria
-Palette: Deep Green / Gold / Clay / Ivory
-=========================================================
-*/
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lexend+Deca:wght@300;400;500&display=swap");
 
 .legacy-root {
-  --legacy-green: #1f3d2b;
-  --legacy-green-soft: #2f5a3d;
-  --legacy-gold: #b9862c;
-  --legacy-clay: #9c5a3c;
-  --legacy-ivory: #f7f2e7;
-  --legacy-card: #fffdf8;
-  --legacy-ink: #2a271f;
-  --legacy-muted: #6c6656;
-  --legacy-line: rgba(31, 61, 43, 0.28);
+  --lg-navy: #1c2340;
+  --lg-text: #4a4a4a;
+  --lg-muted: #6b6b6b;
+  --lg-green: #8cc63f;
+  --lg-green-dark: #6fa52a;
+  --lg-green-deep: #3f6b1f;
+  --lg-forest: #1f3b2c;
+  --lg-forest-2: #2a4d39;
+  --lg-cream: #f1eae0;
+  --lg-ivory: #faf7f2;
+  --lg-gold: #c8a45c;
 
-  --legacy-font-display:
-    Cambria,
-    "Hoefler Text",
-    "Liberation Serif",
-    Georgia,
-    serif;
-
-  --legacy-font-body:
-    Cambria,
-    Georgia,
-    "Liberation Serif",
-    Times,
-    serif;
+  --lg-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --lg-sans: "Lexend Deca", "Segoe UI", Arial, sans-serif;
 
   width: 100%;
-  min-width: 0;
-
-  background: var(--legacy-ivory);
-  color: var(--legacy-ink);
-
-  font-family: var(--legacy-font-body);
-  font-size: 15px;
-
-  padding: 65px 24px 75px;
-
+  padding: 120px 32px 130px;
   overflow: hidden;
+  overflow: clip;          /* clip keeps the sticky photo working */
   box-sizing: border-box;
+
+  background: var(--lg-ivory);
+  color: var(--lg-text);
+  font-family: var(--lg-sans);
 }
 
-.legacy-root * {
+.legacy-root *,
+.legacy-root *::before,
+.legacy-root *::after {
   box-sizing: border-box;
 }
 
 
 /* =========================================================
-   HERO
+   HEADER
 ========================================================= */
 
 .legacy-hero {
-  width: 100%;
-  max-width: 700px;
-
-  margin: 0 auto 55px;
-
+  max-width: 820px;
+  margin: 0 auto 90px;
   text-align: center;
 }
 
 .legacy-eyebrow {
   display: inline-flex;
-
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
 
-  gap: 7px;
-
-  font-family: var(--legacy-font-body);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  letter-spacing: 0.1em;
-  line-height: 1;
-
+  color: var(--lg-green-dark);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-
-  color: var(--legacy-clay);
-
-  padding: 7px 14px;
-
-  border: 1px solid var(--legacy-clay);
-
-  border-radius: 999px;
-
-  margin-bottom: 18px;
 }
 
 .legacy-eyebrow-icon {
-  width: 13px;
-  height: 13px;
-
-  color: var(--legacy-clay);
-
-  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  color: var(--lg-green);
 }
 
 .legacy-title {
   margin: 0;
+  color: var(--lg-navy);
+  font-family: var(--lg-serif);
+  font-size: clamp(36px, 3.6vw, 56px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
 
-  font-family: var(--legacy-font-display);
-
-  font-size: clamp(27px, 3.3vw, 38px);
-
-  font-weight: 700;
-
-  line-height: 1.18;
-
-  letter-spacing: normal;
-
-  color: var(--legacy-green);
+.legacy-title span {
+  display: block;
+  color: var(--lg-green-dark);
 }
 
 
 /* =========================================================
-   TIMELINE
+   CHAPTERS — sticky stage + scrolling text
 ========================================================= */
 
-.legacy-timeline {
-  position: relative;
-
-  width: 100%;
-  max-width: 1020px;
-
+.legacy-chapters {
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0;
 
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 90px;
+  align-items: start;
+}
+
+/* ---------- sticky photo ---------- */
+
+.legacy-stage {
+  position: sticky;
+  top: 120px;
+}
+
+.legacy-stage-frame {
+  position: relative;
+  aspect-ratio: 4 / 4.4;
+  max-height: calc(100vh - 220px);
+  width: 100%;
+  overflow: hidden;
+  border-radius: 34px;
+  background: var(--lg-cream);
+  box-shadow: 0 40px 70px -30px rgba(31, 59, 44, 0.5);
+}
+
+.legacy-stage-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.8s ease,
+    transform 1.4s ease;
+}
+
+.legacy-stage-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* soft dark wash at the bottom for the year card */
+.legacy-stage-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgba(14, 28, 20, 0.55) 0%, rgba(14, 28, 20, 0) 40%);
+}
+
+.legacy-stage-year {
+  position: absolute;
+  left: 28px;
+  bottom: 26px;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.legacy-stage-count {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.legacy-stage-year strong {
+  display: block;
+  font-family: var(--lg-serif);
+  font-size: clamp(34px, 3.2vw, 50px);
+  font-weight: 600;
+  line-height: 1.05;
+  animation: legacyYearIn 0.6s ease both;
+}
+
+@keyframes legacyYearIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* progress bars under the photo */
+.legacy-progress {
+  display: flex;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
   list-style: none;
 }
 
+.legacy-progress li {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(31, 59, 44, 0.12);
+  transition: background 0.5s ease;
+}
 
-/* Central timeline line */
+.legacy-progress li.is-done {
+  background: var(--lg-green);
+}
 
+/* ---------- chapters ---------- */
+
+.legacy-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 34px;
+  list-style: none;
+}
+
+/* thin vertical rule beside the chapters */
 .legacy-timeline::before {
   content: "";
-
   position: absolute;
-
-  top: 8px;
-  bottom: 8px;
-
-  left: 50%;
-
+  left: 9px;
+  top: 30vh;
+  bottom: 30vh;
   width: 2px;
-
-  transform: translateX(-50%);
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--legacy-line) 6%,
-    var(--legacy-line) 94%,
-    transparent
-  );
+  background: linear-gradient(180deg, rgba(140, 198, 63, 0.7), rgba(200, 164, 92, 0.5));
 }
 
-
-/* =========================================================
-   TIMELINE ROW
-========================================================= */
-
-.legacy-row {
+.legacy-chapter {
   position: relative;
-
+  min-height: 72vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
 
-  align-items: flex-start;
-
-  gap: 28px;
-
-  width: 100%;
-
-  padding: 35px 0;
+  opacity: 0.3;
+  transition: opacity 0.6s ease;
 }
 
-.legacy-row.is-media-right {
-  flex-direction: row-reverse;
+.legacy-chapter.is-active {
+  opacity: 1;
 }
 
-.legacy-row .legacy-media {
-  flex: 1 1 0;
-
-  min-width: 0;
+.legacy-chapter-media {
+  display: none;       /* shown on tablet / phone only */
 }
 
-.legacy-row .legacy-content {
-  flex: 1 1 0;
-
-  min-width: 0;
+.legacy-chapter-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 14px -34px;
 }
-
-.legacy-row .legacy-node {
-  flex: 0 0 38px;
-
-  align-self: stretch;
-}
-
-
-/* =========================================================
-   MEDIA
-========================================================= */
-
-.legacy-media {
-  position: relative;
-
-  width: 100%;
-
-  margin: 0;
-
-  aspect-ratio: 4 / 3;
-
-  overflow: hidden;
-
-  border-radius: 14px;
-
-  border: 1px solid rgba(31, 61, 43, 0.08);
-
-  background: #ebe5d7;
-
-  box-shadow:
-    0 14px 30px -20px rgba(31, 61, 43, 0.55);
-}
-
-.legacy-media img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  border: 0;
-}
-
-
-/* =========================================================
-   TIMELINE NODE
-========================================================= */
 
 .legacy-node {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  z-index: 2;
-}
-
-.legacy-node-dot {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 38px;
-  height: 38px;
-
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  background: var(--lg-ivory);
+  border: 2px solid var(--lg-green);
   border-radius: 50%;
-
-  background: var(--legacy-green);
-
-  box-shadow:
-    0 0 0 5px var(--legacy-ivory),
-    0 0 0 6px var(--legacy-line);
+  box-shadow: 0 0 0 5px var(--lg-ivory);
+  transition: background 0.4s ease, transform 0.4s ease;
 }
 
 .legacy-node-leaf {
-  width: 16px;
-  height: 16px;
-
-  color: var(--legacy-gold);
+  width: 10px;
+  height: 10px;
+  color: var(--lg-ivory);
 }
 
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.legacy-content {
-  min-width: 0;
-
-  padding: 2px;
-}
-
-.legacy-row.is-media-right .legacy-content {
-  text-align: right;
+.legacy-chapter.is-active .legacy-node {
+  background: var(--lg-green);
+  transform: scale(1.3);
 }
 
 .legacy-year {
-  display: inline-block;
-
-  margin-bottom: 7px;
-
-  font-family: var(--legacy-font-body);
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  line-height: 1.3;
-
-  letter-spacing: 0.08em;
-
+  color: var(--lg-gold);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-
-  color: var(--legacy-gold);
 }
 
 .legacy-entry-title {
-  margin: 0 0 9px;
-
-  font-family: var(--legacy-font-display);
-
-  font-size: clamp(19px, 1.7vw, 23px);
-
-  font-weight: 700;
-
-  line-height: 1.25;
-
-  color: var(--legacy-green);
+  margin: 0 0 18px;
+  color: var(--lg-navy);
+  font-family: var(--lg-serif);
+  font-size: clamp(28px, 2.6vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-.legacy-content p {
-  margin: 0 0 9px;
-
-  font-family: var(--legacy-font-body);
-
-  font-size: 14px;
-
-  font-weight: 400;
-
-  line-height: 1.6;
-
-  color: var(--legacy-muted);
+.legacy-chapter p {
+  margin: 0 0 14px;
+  max-width: 560px;
+  color: var(--lg-text);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
 }
 
-.legacy-content p:last-child {
+.legacy-chapter p:last-child {
   margin-bottom: 0;
 }
 
 
 /* =========================================================
-   JOURNEY SECTION
+   JOURNEY — cream band · big outlined numbers · gold line
 ========================================================= */
 
 .legacy-journey {
-  width: 100%;
-  max-width: 860px;
+  position: relative;
+  max-width: 1240px;
+  margin: 120px auto 0;
+  padding: 76px 56px 70px;
+  overflow: hidden;
 
-  margin: 25px auto 55px;
-
-  padding: 34px 26px;
-
-  text-align: center;
-
-  background: var(--legacy-card);
-
-  border: 1px solid rgba(31, 61, 43, 0.1);
-
-  border-radius: 18px;
-
-  box-shadow: 0 10px 30px rgba(31, 61, 43, 0.04);
+  background: var(--lg-cream);
+  border-radius: 36px;
 }
 
-.legacy-journey h2 {
-  margin: 0 0 20px;
-
-  font-family: var(--legacy-font-display);
-
-  font-size: clamp(20px, 2vw, 25px);
-
-  font-weight: 700;
-
-  line-height: 1.25;
-
-  color: var(--legacy-green);
+.legacy-journey-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 60px;
 }
 
-.legacy-journey-flow {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 7px 5px;
-
-  margin-bottom: 18px;
+.legacy-journey-title {
+  margin: 0;
+  color: var(--lg-navy);
+  font-family: var(--lg-serif);
+  font-size: clamp(32px, 3vw, 48px);
+  font-weight: 600;
+  line-height: 1.15;
 }
 
-.legacy-journey-step {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 8px 14px;
-
-  font-family: var(--legacy-font-body);
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  line-height: 1.2;
-
-  color: var(--legacy-green);
-
-  background: var(--legacy-ivory);
-
-  border: 1px solid rgba(31, 61, 43, 0.15);
-
-  border-radius: 999px;
-
-  white-space: nowrap;
-}
-
-.legacy-journey-arrow {
-  color: var(--legacy-gold);
-
-  font-size: 14px;
-
-  line-height: 1;
-
-  opacity: 0.8;
+.legacy-journey-title span {
+  display: block;
+  color: var(--lg-green-dark);
 }
 
 .legacy-journey-note {
-  width: 100%;
-  max-width: 580px;
+  margin: 0;
+  max-width: 460px;
+  justify-self: end;
+  color: var(--lg-text);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+}
 
-  margin: 0 auto;
+/* ---------- the five stages ---------- */
 
-  font-family: var(--legacy-font-body);
+.legacy-jsteps {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-  font-size: 14px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
 
-  line-height: 1.6;
+/* thin gold line through the dots */
+.legacy-jsteps::before {
+  content: "";
+  position: absolute;
+  /* from the first dot to the last dot (centre of columns 1 and 5) */
+  left: calc((100% - 80px) / 10);
+  right: calc((100% - 80px) / 10);
+  top: 134px;             /* number 72 − overlap 22 + icon 62 + gap 15 + half dot 7 */
+  height: 2px;
+  background: linear-gradient(90deg, var(--lg-gold), var(--lg-green));
+  opacity: 0.7;
+}
 
-  color: var(--legacy-muted);
+.legacy-jstep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* very large outlined number behind the icon */
+.legacy-jstep-num {
+  display: block;
+  height: 72px;
+
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(200, 164, 92, 0.75);
+  font-family: var(--lg-serif);
+  font-size: 78px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+
+  transition: color 0.4s ease, -webkit-text-stroke-color 0.4s ease;
+}
+
+.legacy-jstep-icon {
+  position: relative;
+  z-index: 1;
+  width: 62px;
+  height: 62px;
+  margin-top: -22px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: var(--lg-green-deep);
+  border-radius: 50%;
+  box-shadow: 0 14px 26px -12px rgba(31, 59, 44, 0.45);
+
+  transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
+}
+
+/* dot sitting on the gold line */
+.legacy-jstep-dot {
+  position: relative;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  margin: 15px 0 22px;
+
+  background: var(--lg-green);
+  border: 3px solid var(--lg-cream);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--lg-green);
+}
+
+.legacy-jstep-name {
+  max-width: 180px;
+  color: var(--lg-navy);
+  font-family: var(--lg-serif);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* hover: number fills in, icon turns green */
+.legacy-jstep:hover .legacy-jstep-num {
+  color: rgba(200, 164, 92, 0.25);
+}
+
+.legacy-jstep:hover .legacy-jstep-icon {
+  background: var(--lg-green);
+  color: #ffffff;
+  transform: translateY(-4px);
+}
+
+/* last stage — destination */
+.legacy-jstep:last-child .legacy-jstep-icon {
+  background: var(--lg-forest);
+  color: var(--lg-green);
+}
+
+.legacy-jstep:last-child .legacy-jstep-name {
+  color: var(--lg-green-dark);
 }
 
 
 /* =========================================================
-   VISION
+   VISION — forest card
 ========================================================= */
 
 .legacy-vision {
-  width: 100%;
-  max-width: 650px;
-
-  margin: 0 auto;
-
-  padding: 45px 30px;
-
+  position: relative;
+  overflow: hidden;
+  max-width: 1240px;
+  margin: 110px auto 0;
+  padding: 90px 48px;
   text-align: center;
 
-  color: var(--legacy-ivory);
-
-  background: var(--legacy-green);
-
-  border-radius: 20px;
+  background:
+    radial-gradient(circle at 50% 120%, rgba(140, 198, 63, 0.3), transparent 55%),
+    linear-gradient(150deg, #18301f 0%, var(--lg-forest) 50%, var(--lg-forest-2) 100%);
+  border-radius: 36px;
 }
 
-.legacy-eyebrow--on-dark {
-  color: var(--legacy-gold);
-
-  border-color: var(--legacy-gold);
+.legacy-vision-leaf {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  color: rgba(140, 198, 63, 0.12);
+  pointer-events: none;
 }
 
-.legacy-eyebrow--on-dark .legacy-eyebrow-icon {
-  color: var(--legacy-gold);
+/* show only the leaf shape, not its centre vein */
+.legacy-vision-leaf path:last-child {
+  display: none;
+}
+
+.legacy-vision-leaf--a {
+  top: -40px;
+  left: -30px;
+  transform: rotate(-20deg);
+}
+
+.legacy-vision-leaf--b {
+  right: -30px;
+  bottom: -50px;
+  transform: rotate(160deg);
+}
+
+.legacy-vision-label {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 8px 18px;
+
+  border: 1px solid rgba(140, 198, 63, 0.5);
+  border-radius: 999px;
+
+  color: var(--lg-green);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
 
 .legacy-vision-statement {
-  margin: 18px 0 12px;
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 20px;
 
-  font-family: var(--legacy-font-display);
-
-  font-size: clamp(19px, 2.1vw, 25px);
-
-  font-weight: 700;
-
-  line-height: 1.4;
-
-  color: var(--legacy-ivory);
+  color: #ffffff;
+  font-family: var(--lg-serif);
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .legacy-vision-tag {
+  position: relative;
   margin: 0;
-
-  font-family: var(--legacy-font-body);
-
-  font-size: 13px;
-
-  font-weight: 400;
-
-  line-height: 1.6;
-
-  color: rgba(247, 242, 231, 0.72);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 
 /* =========================================================
-   TABLET
+   LAPTOP
 ========================================================= */
 
-@media (max-width: 860px) {
-
+@media (max-width: 1150px) {
   .legacy-root {
-    padding: 50px 20px 65px;
+    padding-left: 22px;
+    padding-right: 22px;
   }
 
-  .legacy-hero {
-    margin-bottom: 42px;
-  }
-
-  .legacy-title {
-    font-size: 32px;
-  }
-
-  .legacy-timeline::before {
-    left: 20px;
-  }
-
-  .legacy-row {
-    display: grid;
-
-    grid-template-columns: 40px minmax(0, 1fr);
-
-    align-items: start;
-
-    gap: 16px;
-
-    padding: 28px 0;
-  }
-
-  .legacy-row.is-media-left,
-  .legacy-row.is-media-right {
-    flex-direction: unset;
-  }
-
-  .legacy-row .legacy-node {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-
-    align-self: stretch;
-
-    align-items: flex-start;
-
-    padding-top: 3px;
-
-    flex: none;
-  }
-
-  .legacy-row .legacy-media {
-    grid-column: 2;
-    grid-row: 1;
-
-    width: 100%;
-
-    flex: none;
-
-    margin: 0 0 15px;
-  }
-
-  .legacy-row .legacy-content {
-    grid-column: 2;
-    grid-row: 2;
-
-    width: 100%;
-
-    flex: none;
-
-    margin: 0;
-  }
-
-  .legacy-row.is-media-left .legacy-content,
-  .legacy-row.is-media-right .legacy-content {
-    text-align: left !important;
-  }
-
-  .legacy-media {
-    aspect-ratio: 16 / 10;
+  .legacy-chapters {
+    gap: 56px;
   }
 
   .legacy-journey {
-    padding: 30px 20px;
-
-    border-radius: 16px;
+    padding: 60px 32px 56px;
   }
 
-  .legacy-vision {
-    padding: 40px 22px;
+  .legacy-jstep-num {
+    font-size: 66px;
+    height: 62px;
+  }
 
-    border-radius: 18px;
+  .legacy-jsteps::before {
+    top: 124px;
+  }
+
+  .legacy-jstep-name {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   TABLET — no sticky stage; photo inside each chapter
+========================================================= */
+
+@media (max-width: 900px) {
+  .legacy-root {
+    padding: 90px 24px 100px;
+  }
+
+  .legacy-hero {
+    margin-bottom: 56px;
+  }
+
+  .legacy-chapters {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
+
+  .legacy-stage {
+    display: none;
+  }
+
+  .legacy-timeline::before {
+    top: 0;
+    bottom: 0;
+  }
+
+  .legacy-chapter {
+    min-height: 0;
+    padding: 0 0 56px;
+    opacity: 1;
+  }
+
+  .legacy-chapter-media {
+    display: block;
+    margin: 0 0 22px;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 24px 46px -24px rgba(31, 59, 44, 0.5);
+  }
+
+  .legacy-chapter-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .legacy-chapter .legacy-node {
+    background: var(--lg-green);
+  }
+
+  /* journey: vertical — gold line runs down the left */
+  .legacy-journey-head {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .legacy-journey-note {
+    justify-self: start;
+  }
+
+  .legacy-jsteps {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .legacy-jsteps::before {
+    left: 30px;
+    right: auto;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--lg-gold), var(--lg-green));
+  }
+
+  .legacy-jstep {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    text-align: left;
+  }
+
+  .legacy-jstep-num {
+    order: 3;
+    height: auto;
+    margin-left: auto;
+    font-size: 40px;
+  }
+
+  .legacy-jstep-icon {
+    order: 1;
+    margin: 0;
+  }
+
+  .legacy-jstep-dot {
+    display: none;
+  }
+
+  .legacy-jstep-name {
+    order: 2;
+    max-width: none;
+  }
+
+  .legacy-journey,
+  .legacy-vision {
+    margin-top: 80px;
   }
 }
 
@@ -616,210 +695,88 @@ Palette: Deep Green / Gold / Clay / Ivory
 ========================================================= */
 
 @media (max-width: 600px) {
-
   .legacy-root {
-    padding: 42px 15px 55px;
-
-    font-size: 14px;
-  }
-
-  .legacy-hero {
-    margin-bottom: 32px;
-  }
-
-  .legacy-eyebrow {
-    gap: 6px;
-
-    font-size: 10px;
-
-    padding: 5px 12px;
-
-    margin-bottom: 14px;
-  }
-
-  .legacy-eyebrow-icon {
-    width: 12px;
-    height: 12px;
+    padding: 70px 18px 80px;
   }
 
   .legacy-title {
-    font-size: 27px;
+    font-size: clamp(30px, 8.4vw, 38px);
+  }
 
-    line-height: 1.2;
+  .legacy-timeline {
+    padding-left: 28px;
   }
 
   .legacy-timeline::before {
-    left: 18px;
+    left: 7px;
   }
 
-  .legacy-row {
-    grid-template-columns: 36px minmax(0, 1fr);
-
-    gap: 13px;
-
-    padding: 22px 0;
+  .legacy-chapter-head {
+    margin-left: -28px;
   }
 
-  .legacy-row .legacy-node {
-    grid-column: 1;
+  .legacy-node {
+    width: 16px;
+    height: 16px;
   }
 
-  .legacy-node-dot {
-    width: 34px;
-    height: 34px;
-
-    box-shadow:
-      0 0 0 4px var(--legacy-ivory),
-      0 0 0 5px var(--legacy-line);
-  }
-
-  .legacy-node-leaf {
-    width: 14px;
-    height: 14px;
-  }
-
-  .legacy-media {
-    aspect-ratio: 16 / 10;
-
-    margin-bottom: 12px !important;
-
-    border-radius: 11px;
-  }
-
-  .legacy-year {
-    font-size: 10px;
-
-    margin-bottom: 5px;
+  .legacy-chapter-media {
+    border-radius: 18px;
   }
 
   .legacy-entry-title {
-    font-size: 19px;
-
-    margin-bottom: 7px;
+    font-size: 25px;
+    margin-bottom: 12px;
   }
 
-  .legacy-content p {
-    font-size: 13px;
+  .legacy-chapter p {
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
 
-    line-height: 1.55;
-
-    margin-bottom: 8px;
+  .legacy-journey-title {
+    font-size: clamp(28px, 7.6vw, 34px);
+    margin-bottom: 30px;
   }
 
   .legacy-journey {
-    margin: 20px auto 40px;
-
-    padding: 26px 15px;
-
-    border-radius: 15px;
+    padding: 48px 18px 20px;
+    border-radius: 26px;
   }
 
-  .legacy-journey h2 {
-    font-size: 21px;
 
-    margin-bottom: 16px;
+  .legacy-jstep-name {
+    font-size: 17px;
   }
 
-  .legacy-journey-flow {
-    gap: 6px 4px;
+  .legacy-jstep-icon {
+    width: 54px;
+    height: 54px;
   }
 
-  .legacy-journey-step {
-    font-size: 11px;
-
-    padding: 7px 11px;
+  .legacy-jsteps::before {
+    left: 26px;
   }
 
-  .legacy-journey-arrow {
-    font-size: 13px;
+  .legacy-jstep-num {
+    font-size: 32px;
   }
 
   .legacy-journey-note {
-    font-size: 13px;
-
-    line-height: 1.55;
+    font-size: 14.5px;
   }
 
   .legacy-vision {
-    padding: 34px 18px;
-
-    border-radius: 16px;
+    padding: 60px 22px;
+    border-radius: 26px;
   }
 
   .legacy-vision-statement {
-    font-size: 20px;
-
-    margin: 16px 0 10px;
+    font-size: clamp(24px, 6.6vw, 30px);
   }
 
   .legacy-vision-tag {
-    font-size: 12px;
-
-    line-height: 1.55;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-  .legacy-root {
-    padding: 35px 12px 45px;
-  }
-
-  .legacy-title {
-    font-size: 24px;
-  }
-
-  .legacy-row {
-    grid-template-columns: 32px minmax(0, 1fr);
-
-    gap: 11px;
-
-    padding: 19px 0;
-  }
-
-  .legacy-timeline::before {
-    left: 16px;
-  }
-
-  .legacy-node-dot {
-    width: 30px;
-    height: 30px;
-
-    box-shadow:
-      0 0 0 4px var(--legacy-ivory),
-      0 0 0 5px var(--legacy-line);
-  }
-
-  .legacy-node-leaf {
-    width: 12px;
-    height: 12px;
-  }
-
-  .legacy-entry-title {
-    font-size: 18px;
-  }
-
-  .legacy-content p {
-    font-size: 12.5px;
-  }
-
-  .legacy-journey {
-    padding: 22px 12px;
-  }
-
-  .legacy-journey-step {
-    font-size: 10.5px;
-
-    padding: 6px 9px;
-  }
-
-  .legacy-vision {
-    padding: 30px 15px;
+    font-size: 14.5px;
   }
 }
 
@@ -829,9 +786,16 @@ Palette: Deep Green / Gold / Clay / Ivory
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .legacy-root * {
-    scroll-behavior: auto !important;
-    transition: none !important;
-    animation: none !important;
+  .legacy-stage-img,
+  .legacy-chapter,
+  .legacy-node,
+  .legacy-progress li,
+  .legacy-jstep-num,
+  .legacy-jstep-icon {
+    transition: none;
+  }
+
+  .legacy-stage-year strong {
+    animation: none;
   }
 }

@@ -1,157 +1,192 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap");
-
 /* =========================================================
-   MAIN SECTION
+   ANCHAN AYURVEDIC INDUSTRIES — DR. N. T. ANCHAN
+   Same structure as before, restyled.
+   Headings: Playfair Display · Content: Lexend Deca
 ========================================================= */
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lexend+Deca:wght@300;400;500&display=swap");
+
 .dr-anchan-section {
+  --dr-navy: #1c2340;
+  --dr-text: #4a4a4a;
+  --dr-green: #8cc63f;
+  --dr-green-dark: #6fa52a;
+  --dr-green-deep: #3f6b1f;
+  --dr-forest: #1f3b2c;
+  --dr-forest-2: #2a4d39;
+  --dr-cream: #f1eae0;
+  --dr-gold: #c8a45c;
+
+  --dr-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --dr-sans: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+
+  position: relative;
   width: 100%;
-  padding: 70px 0;
-  background: #fffde5;
+  padding: 120px 32px;
   overflow: hidden;
   box-sizing: border-box;
+
+  background:
+    radial-gradient(circle at 92% 12%, rgba(140, 198, 63, 0.12), transparent 32%),
+    radial-gradient(circle at 4% 96%, rgba(200, 164, 92, 0.12), transparent 30%),
+    #fffde5;
+  color: var(--dr-text);
+  font-family: var(--dr-sans);
 }
+
+.dr-anchan-section *,
+.dr-anchan-section *::before,
+.dr-anchan-section *::after {
+  box-sizing: border-box;
+}
+
 
 /* =========================================================
    CONTAINER
 ========================================================= */
 
 .dr-anchan-container {
-  width: 90%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   align-items: center;
-
-  gap: 50px;
-
-  box-sizing: border-box;
+  gap: 90px;
 }
 
+
 /* =========================================================
-   LEFT SIDE
+   LEFT — PHOTO
 ========================================================= */
 
 .dr-anchan-left {
-  width: 100%;
   min-width: 0;
 }
 
-/* =========================================================
-   IMAGE BOX
-========================================================= */
+.dr-anchan-image-wrap {
+  position: relative;
+  max-width: 500px;
+  margin: 0 0 0 24px;
+}
+
+/* soft green block offset behind the photo */
+.dr-anchan-image-wrap::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  right: 40px;
+  bottom: 60px;
+  border-radius: 32px;
+  background: linear-gradient(150deg, rgba(140, 198, 63, 0.28), rgba(140, 198, 63, 0.06));
+}
 
 .dr-anchan-image-box {
   position: relative;
-
-  width: 100%;
-  max-width: 460px;
-  height: 460px;
-
+  aspect-ratio: 4 / 5;
   overflow: hidden;
-
-  border-radius: 4px;
-
-  background: #e9e8d4;
-
-  box-shadow:
-    0 15px 35px rgba(0, 60, 35, 0.12);
-
-  box-sizing: border-box;
+  border-radius: 32px;
+  box-shadow: 0 34px 60px -24px rgba(31, 59, 44, 0.45);
 }
-
-/* Inner image border */
-
-.dr-anchan-image-box::before {
-  content: "";
-
-  position: absolute;
-
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-
-  border: 1px solid rgba(255, 255, 255, 0.65);
-
-  z-index: 2;
-
-  pointer-events: none;
-}
-
-/* Image */
 
 .dr-anchan-image-box img {
+  display: block;
   width: 100%;
   height: 100%;
-
-  display: block;
-
   object-fit: cover;
-
-  transition: transform 0.5s ease;
+  object-position: 68% center;   /* keeps Dr. Anchan in frame */
+  transition: transform 1.2s ease;
 }
-
-/* Image hover */
 
 .dr-anchan-image-box:hover img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
-/* =========================================================
-   IMAGE CAPTION
-========================================================= */
+/* round "Since 1980" badge */
+.dr-anchan-since {
+  position: absolute;
+  top: 28px;
+  right: -28px;
+  z-index: 2;
 
+  width: 104px;
+  height: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--dr-forest);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 7px #fffde5,
+    0 16px 34px rgba(31, 59, 44, 0.35);
+}
+
+.dr-anchan-since small {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dr-anchan-since strong {
+  color: var(--dr-green);
+  font-family: var(--dr-serif);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+/* floating caption card */
 .dr-anchan-image-caption {
   position: absolute;
+  left: -24px;
+  bottom: 34px;
+  z-index: 2;
 
-  left: 22px;
-  right: 22px;
-  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px 16px 16px;
 
-  padding: 15px 18px;
-
-  background: rgba(0, 55, 35, 0.90);
-
-  backdrop-filter: blur(5px);
-
-  z-index: 3;
-
-  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(28, 35, 64, 0.16);
 }
 
-.dr-anchan-image-caption span {
+.dr-anchan-caption-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--dr-green);
+  color: #ffffff;
+  border-radius: 12px;
+}
+
+.dr-anchan-image-caption span:not(.dr-anchan-caption-icon) {
   display: block;
-
-  font-family: "Cambria", Georgia, serif;
-
-  font-size: 21px;
+  color: var(--dr-navy);
+  font-family: var(--dr-serif);
+  font-size: 20px;
   font-weight: 600;
-
   line-height: 1.25;
-
-  color: #fffde5;
 }
 
 .dr-anchan-image-caption small {
   display: block;
-
-  margin-top: 4px;
-
-  font-family: "Cambria", Georgia, serif;
-
-  font-size: 11px;
+  margin-top: 3px;
+  color: var(--dr-green-dark);
+  font-size: 12.5px;
   font-weight: 400;
-
-  line-height: 1.4;
-
-  letter-spacing: 0.8px;
-
-  color: #b8d817;
 }
+
 
 /* =========================================================
    CERTIFICATIONS
@@ -159,642 +194,384 @@
 
 .dr-certifications {
   display: flex;
-
   align-items: center;
-
-  gap: 15px;
-
-  margin-top: 18px;
-
-  flex-wrap: wrap;
+  gap: 16px;
+  margin: 40px 0 0 24px;
 }
 
-.certification-card {
-  width: 82px;
-  height: 82px;
+.dr-cert-card {
+  width: 84px;
+  height: 84px;
+  padding: 8px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  padding: 7px;
-
   background: #ffffff;
-
-  border: 1px solid rgba(0, 87, 53, 0.12);
-
   border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(31, 59, 44, 0.1);
 
-  box-shadow:
-    0 6px 18px rgba(0, 60, 35, 0.07);
-
-  box-sizing: border-box;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.certification-card:hover {
+.dr-cert-card:hover {
   transform: translateY(-4px);
-
-  box-shadow:
-    0 10px 25px rgba(0, 60, 35, 0.13);
+  box-shadow: 0 16px 30px rgba(31, 59, 44, 0.16);
 }
 
-.certification-card img {
+.dr-cert-card img {
   width: 100%;
   height: 100%;
-
-  display: block;
-
   object-fit: contain;
-
-  border-radius: 50%;
+  display: block;
 }
 
+
 /* =========================================================
-   RIGHT CONTENT
+   RIGHT — CONTENT
 ========================================================= */
 
 .dr-anchan-content {
-  width: 100%;
   max-width: 600px;
-
-  box-sizing: border-box;
 }
-
-/* =========================================================
-   LABEL
-========================================================= */
 
 .dr-anchan-label {
-  display: block;
+  display: inline-block;
+  margin: 0 0 18px;
 
-  margin: 0 0 8px;
-
-  font-family: "Cambria", Georgia, serif;
-
-  font-size: 12px;
-  font-weight: 700;
-
-  line-height: 1.3;
-
+  color: var(--dr-green-dark);
+  font-family: var(--dr-sans);
+  font-size: 12.5px;
+  font-weight: 500;
   letter-spacing: 3px;
-
-  color: #b8d817;
+  text-transform: uppercase;
 }
-
-/* =========================================================
-   MAIN HEADING
-========================================================= */
 
 .dr-anchan-content h2 {
   margin: 0;
 
-  font-family: "Playfair Display", serif;
-
-  font-size: 44px;
+  color: var(--dr-navy);
+  font-family: var(--dr-serif);
+  font-size: clamp(36px, 3.5vw, 54px);
   font-weight: 600;
-
-  line-height: 1.12;
-
-  color: #005735;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
 }
 
-.dr-anchan-content h2 em {
-  font-weight: 500;
-
-  color: #343434;
+.dr-anchan-content h2 span {
+  display: block;
+  color: var(--dr-green-dark);
 }
-
-/* =========================================================
-   GREEN LINE
-========================================================= */
 
 .dr-green-line {
-  width: 55px;
+  width: 64px;
   height: 3px;
-
-  margin: 18px 0 22px;
-
-  background: #b8d817;
+  margin: 24px 0 26px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--dr-green), var(--dr-gold));
 }
 
-/* =========================================================
-   PARAGRAPHS
-========================================================= */
-
 .dr-anchan-content > p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 
-  font-family: "Cambria", Georgia, serif;
-
+  color: var(--dr-text);
+  font-family: var(--dr-sans);
   font-size: 16px;
-  font-weight: 400;
-
-  line-height: 1.65;
-
-  color: #555555;
+  font-weight: 300;
+  line-height: 1.85;
 }
 
 .dr-anchan-content > p strong {
-  color: #005735;
-
-  font-weight: 700;
+  color: var(--dr-navy);
+  font-weight: 500;
 }
 
+
 /* =========================================================
-   QUOTE
+   QUOTE — forest card
 ========================================================= */
 
 .dr-quote {
   position: relative;
+  margin-top: 30px;
+  padding: 28px 30px 28px 84px;
 
-  margin-top: 22px;
-
-  padding: 18px 25px 18px 48px;
-
-  border-left: 3px solid #b8d817;
-
-  background: rgba(255, 255, 255, 0.42);
-
-  box-sizing: border-box;
+  background: linear-gradient(140deg, var(--dr-forest) 0%, var(--dr-forest-2) 100%);
+  border-radius: 22px;
+  box-shadow: 0 24px 46px -20px rgba(31, 59, 44, 0.55);
 }
 
-.quote-mark {
+.dr-quote-mark {
   position: absolute;
+  left: 24px;
+  top: 18px;
 
-  left: 14px;
-  top: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
 
-  font-family: "Playfair Display", serif;
+  background: var(--dr-green);
+  border-radius: 50%;
 
-  font-size: 38px;
-
+  color: var(--dr-forest);
+  font-family: var(--dr-serif);
+  font-size: 44px;
   line-height: 1;
-
-  color: #b8d817;
 }
 
 .dr-quote p {
   margin: 0;
-
-  font-family: "Cambria", Georgia, serif;
-
-  font-size: 18px;
-  font-weight: 400;
-
-  font-style: italic;
-
-  line-height: 1.5;
-
-  color: #005735;
+  color: #ffffff;
+  font-family: var(--dr-serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.55;
 }
 
+
 /* =========================================================
-   BUTTON
+   BUTTON — same pill as the rest of the site
 ========================================================= */
 
 .dr-anchan-button {
   display: inline-flex;
-
   align-items: center;
-
   gap: 12px;
+  height: 52px;
+  margin-top: 32px;
+  padding: 0 12px 0 26px;
 
-  margin-top: 22px;
-
-  padding: 12px 22px;
-
-  border-radius: 30px;
-
-  background: #005735;
-
-  color: #fffde5;
-
-  font-family: "Cambria", Georgia, serif;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  line-height: 1;
-
+  background: var(--dr-green);
+  color: #ffffff;
+  border-radius: 999px;
   text-decoration: none;
 
+  font-family: var(--dr-sans);
+  font-size: 16px;
+  font-weight: 400;
+
   transition:
-    background 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.dr-anchan-button span {
-  font-size: 18px;
-
-  line-height: 0;
-
-  transition: transform 0.3s ease;
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .dr-anchan-button:hover {
-  background: #073f2a;
-
-  color: #fffde5;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 8px 18px rgba(0, 60, 35, 0.15);
+  background: var(--dr-green-dark);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(140, 198, 63, 0.35);
 }
 
-.dr-anchan-button:hover span {
-  transform: translateX(4px);
+.dr-anchan-button-icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: var(--dr-green);
+  border-radius: 50%;
+  transition: transform 0.25s ease;
 }
+
+.dr-anchan-button:hover .dr-anchan-button-icon {
+  transform: translateX(2px);
+}
+
 
 /* =========================================================
-   LARGE DESKTOP
+   LAPTOP
 ========================================================= */
 
-@media (min-width: 1300px) {
-
+@media (max-width: 1150px) {
   .dr-anchan-section {
-    padding: 75px 0;
+    padding: 100px 22px;
   }
 
   .dr-anchan-container {
-    max-width: 1250px;
-
     gap: 60px;
   }
 
-  .dr-anchan-image-box {
-    max-width: 480px;
-    height: 480px;
-  }
-
-  .dr-anchan-content h2 {
-    font-size: 46px;
+  .dr-anchan-since {
+    right: -12px;
   }
 }
 
+
 /* =========================================================
-   LARGE TABLET / SMALL DESKTOP
+   TABLET — stack
 ========================================================= */
 
-@media (max-width: 1050px) {
-
+@media (max-width: 900px) {
   .dr-anchan-section {
-    padding: 60px 0;
+    padding: 90px 24px;
   }
 
   .dr-anchan-container {
-    width: 90%;
-
-    gap: 35px;
-  }
-
-  .dr-anchan-image-box {
-    max-width: 430px;
-
-    height: 430px;
-  }
-
-  .dr-anchan-content h2 {
-    font-size: 40px;
-  }
-
-  .dr-anchan-content > p {
-    font-size: 15px;
-
-    line-height: 1.65;
-  }
-
-  .dr-quote p {
-    font-size: 17px;
-  }
-}
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 800px) {
-
-  .dr-anchan-section {
-    padding: 55px 0;
-  }
-
-  .dr-anchan-container {
-    width: 88%;
-
-    display: grid;
-
     grid-template-columns: 1fr;
-
-    gap: 38px;
+    gap: 70px;
   }
 
   .dr-anchan-left {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
   }
 
-  .dr-anchan-image-box {
-    width: 100%;
+  .dr-anchan-image-wrap {
+    width: calc(100% - 24px);
+    max-width: 480px;
+    margin: 24px 0 0 24px;
+  }
 
-    max-width: 520px;
-
-    height: 430px;
+  .dr-certifications {
+    margin-left: 0;
+    justify-content: center;
   }
 
   .dr-anchan-content {
-    width: 100%;
-
-    max-width: 700px;
-
+    max-width: 680px;
     margin: 0 auto;
   }
-
-  .dr-anchan-content h2 {
-    font-size: 38px;
-
-    line-height: 1.15;
-  }
-
-  .dr-green-line {
-    margin: 16px 0 20px;
-  }
-
-  .dr-anchan-content > p {
-    font-size: 15px;
-  }
 }
+
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
-
   .dr-anchan-section {
-    padding: 45px 0;
+    padding: 70px 18px;
   }
 
   .dr-anchan-container {
-    width: 88%;
-
-    gap: 30px;
+    gap: 56px;
   }
 
-  /* Image */
-
-  .dr-anchan-image-box {
-    width: 100%;
-
-    height: 360px;
-
-    border-radius: 4px;
+  .dr-anchan-image-wrap {
+    width: calc(100% - 16px);
+    margin: 16px 0 0 16px;
   }
 
-  .dr-anchan-image-box::before {
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-  }
-
-  /* Caption */
-
-  .dr-anchan-image-caption {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-
-    padding: 12px 14px;
-  }
-
-  .dr-anchan-image-caption span {
-    font-size: 18px;
-  }
-
-  .dr-anchan-image-caption small {
-    margin-top: 3px;
-
-    font-size: 10px;
-  }
-
-  /* Certifications */
-
-  .dr-certifications {
-    gap: 12px;
-
-    margin-top: 15px;
-  }
-
-  .certification-card {
-    width: 68px;
-    height: 68px;
-
-    padding: 6px;
-  }
-
-  /* Label */
-
-  .dr-anchan-label {
-    margin-bottom: 7px;
-
-    font-size: 10px;
-
-    letter-spacing: 2.5px;
-  }
-
-  /* Heading */
-
-  .dr-anchan-content h2 {
-    font-size: 32px;
-
-    line-height: 1.15;
-  }
-
-  /* Green line */
-
-  .dr-green-line {
-    width: 45px;
-    height: 2px;
-
-    margin: 15px 0 18px;
-  }
-
-  /* Paragraph */
-
-  .dr-anchan-content > p {
-    margin-bottom: 12px;
-
-    font-size: 14px;
-
-    line-height: 1.65;
-  }
-
-  /* Quote */
-
-  .dr-quote {
-    margin-top: 18px;
-
-    padding: 16px 17px 16px 40px;
-  }
-
-  .quote-mark {
-    left: 12px;
-    top: 7px;
-
-    font-size: 32px;
-  }
-
-  .dr-quote p {
-    font-size: 16px;
-
-    line-height: 1.45;
-  }
-
-  /* Button */
-
-  .dr-anchan-button {
-    margin-top: 18px;
-
-    padding: 11px 19px;
-
-    font-size: 13px;
-  }
-
-  .dr-anchan-button span {
-    font-size: 16px;
-  }
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-  .dr-anchan-section {
-    padding: 40px 0;
-  }
-
-  .dr-anchan-container {
-    width: 90%;
-
-    gap: 26px;
+  .dr-anchan-image-wrap::before {
+    top: -16px;
+    left: -16px;
+    right: 24px;
+    border-radius: 24px;
   }
 
   .dr-anchan-image-box {
-    height: 330px;
+    border-radius: 24px;
+  }
+
+  .dr-anchan-since {
+    width: 82px;
+    height: 82px;
+    top: 18px;
+    right: -8px;
+  }
+
+  .dr-anchan-since strong {
+    font-size: 23px;
+  }
+
+  .dr-anchan-since small {
+    font-size: 9.5px;
   }
 
   .dr-anchan-image-caption {
-    left: 13px;
-    right: 13px;
-    bottom: 13px;
-
-    padding: 11px 12px;
+    left: -10px;
+    right: 14px;
+    bottom: 18px;
+    padding: 12px 14px 12px 12px;
   }
 
-  .dr-anchan-image-caption span {
+  .dr-anchan-caption-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .dr-anchan-image-caption span:not(.dr-anchan-caption-icon) {
     font-size: 17px;
   }
 
-  .dr-anchan-content h2 {
-    font-size: 29px;
-  }
-
-  .dr-anchan-content > p {
-    font-size: 13.5px;
-
-    line-height: 1.6;
-  }
-
-  .dr-green-line {
-    margin: 13px 0 17px;
-  }
-
-  .certification-card {
-    width: 62px;
-    height: 62px;
-  }
-
-  .dr-quote {
-    padding: 14px 15px 14px 37px;
-  }
-
-  .quote-mark {
-    left: 10px;
-
-    font-size: 29px;
-  }
-
-  .dr-quote p {
-    font-size: 15px;
-  }
-
-  .dr-anchan-button {
-    padding: 10px 17px;
-
-    font-size: 12.5px;
-  }
-}
-
-/* =========================================================
-   VERY SMALL DEVICES
-========================================================= */
-
-@media (max-width: 350px) {
-
-  .dr-anchan-section {
-    padding: 35px 0;
-  }
-
-  .dr-anchan-container {
-    width: 92%;
-
-    gap: 24px;
-  }
-
-  .dr-anchan-image-box {
-    height: 300px;
-  }
-
-  .dr-anchan-content h2 {
-    font-size: 27px;
-  }
-
-  .dr-anchan-content > p {
-    font-size: 13px;
+  .dr-anchan-image-caption small {
+    font-size: 11.5px;
   }
 
   .dr-certifications {
-    gap: 9px;
+    margin-top: 30px;
   }
 
-  .certification-card {
-    width: 57px;
-    height: 57px;
+  .dr-cert-card {
+    width: 70px;
+    height: 70px;
+  }
+
+  .dr-anchan-label {
+    font-size: 11px;
+    letter-spacing: 2.4px;
+  }
+
+  .dr-anchan-content h2 {
+    font-size: clamp(30px, 8.4vw, 38px);
+  }
+
+  .dr-green-line {
+    margin: 18px 0 20px;
+  }
+
+  .dr-anchan-content > p {
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+
+  .dr-quote {
+    padding: 22px 20px 22px 70px;
+    border-radius: 18px;
+  }
+
+  .dr-quote-mark {
+    left: 18px;
+    top: 20px;
+    width: 38px;
+    height: 38px;
+    font-size: 38px;
+  }
+
+  .dr-quote p {
+    font-size: 17px;
+  }
+
+  .dr-anchan-button {
+    height: 48px;
+    font-size: 15px;
+    padding: 0 10px 0 22px;
   }
 }
+
 
 /* =========================================================
    ACCESSIBILITY
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+.dr-anchan-button:focus-visible {
+  outline: 2px solid var(--dr-green-dark);
+  outline-offset: 3px;
+}
 
+@media (prefers-reduced-motion: reduce) {
   .dr-anchan-image-box img,
-  .certification-card,
+  .dr-cert-card,
   .dr-anchan-button,
-  .dr-anchan-button span {
+  .dr-anchan-button-icon {
     transition: none;
   }
 }

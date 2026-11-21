@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "aos/dist/aos.css";
 import "./About.css";
 
@@ -7,30 +8,79 @@ import herbsImage from "../../images/ayurveda-herbs.png";
 import leavesImage from "../../images/ayurveda-leaves.png";
 import snakeImage from "../../images/ayurveda-snake.png";
 
+// =========================================================
+// APPROACH CARDS
+// =========================================================
+
+const APPROACH = [
+  {
+    title: "Traditional Ayurvedic Principles",
+    text: "Classical knowledge passed down through generations.",
+    icon: <path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Zm0 0 7-7" />,
+  },
+  {
+    title: "Clinical Experience",
+    text: "Years of practice in understanding real patient needs.",
+    icon: (
+      <>
+        <path d="M6 3v5a4 4 0 0 0 8 0V3" />
+        <path d="M10 12v2a5 5 0 0 0 10 0v-1" />
+        <circle cx="20" cy="11" r="2" />
+      </>
+    ),
+  },
+  {
+    title: "Formulation Knowledge",
+    text: "Carefully prepared classical and proprietary formulations.",
+    icon: (
+      <>
+        <path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3" />
+        <path d="M7.5 15h9" />
+      </>
+    ),
+  },
+  {
+    title: "Quality-Focused Manufacturing",
+    text: "Systematic practices for consistent, dependable medicines.",
+    icon: (
+      <>
+        <path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6l-7-3Z" />
+        <path d="m9 12 2 2 4-4" />
+      </>
+    ),
+  },
+];
+
 const About = () => {
   return (
     <main className="about-page">
 
       {/* =====================================================
-          INTRODUCTION SECTION
+          INTRODUCTION
       ===================================================== */}
-      <section
-        className="about-introduction"
-        id="about-company-section"
-      >
+      <section className="about-introduction" id="about-company-section">
 
-        {/* Soft background glow */}
-        <div className="about-bg-glow"></div>
-
-        {/* Top decorative leaves — NO ANIMATION */}
+        {/* ---------- corner decorations ---------- */}
         <img
           src={leavesImage}
           alt=""
-          className="about-top-leaves"
+          className="about-corner-leaf about-corner-leaf--tr"
+          aria-hidden="true"
+        />
+        <img
+          src={leavesImage}
+          alt=""
+          className="about-corner-leaf about-corner-leaf--tl"
+          aria-hidden="true"
+        />
+        <img
+          src={leavesImage}
+          alt=""
+          className="about-corner-leaf about-corner-leaf--bl"
           aria-hidden="true"
         />
 
-        {/* Bottom-right snake — NO ANIMATION */}
+        {/* snake & mountain — bottom-right of the section */}
         <img
           src={snakeImage}
           alt=""
@@ -38,328 +88,162 @@ const About = () => {
           aria-hidden="true"
         />
 
-        {/* =================================================
-            LEFT SIDE — AYURVEDA ARTWORK
-        ================================================= */}
-        <div className="about-art-wrapper">
+        <div className="about-intro-inner">
 
-          <div className="about-art-glow"></div>
+          {/* ---------- LEFT: deity in a golden halo ---------- */}
+          <div className="about-art" data-aos="fade-right">
+            <div className="about-halo" aria-hidden="true"></div>
 
-          {/* Main Devatha — NO ANIMATION */}
-          <img
-            src={mainImage}
-            alt="Ayurvedic traditional artwork"
-            className="about-main-art"
-          />
+            <img
+              src={mainImage}
+              alt="Ayurvedic traditional artwork"
+              className="about-main-art"
+            />
 
-          {/* Herbal artwork — NO ANIMATION */}
-          <img
-            src={herbsImage}
-            alt=""
-            className="about-herbs-art"
-            aria-hidden="true"
-          />
-
-        </div>
-
-
-        {/* =================================================
-            RIGHT SIDE — INTRODUCTION CONTENT
-        ================================================= */}
-        <div className="about-intro-content">
-
-          <div
-            className="about-eyebrow"
-            data-aos="fade-up"
-          >
-            <span></span>
-            INTRODUCTION
+            <img
+              src={herbsImage}
+              alt=""
+              className="about-herbs-art"
+              aria-hidden="true"
+            />
           </div>
 
-          <h1
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            Rooted in Tradition.
-            <br />
-            <span>Crafted with Purpose.</span>
-          </h1>
+          {/* ---------- RIGHT: content ---------- */}
+          <div className="about-intro-content">
+            <h2 className="about-title" data-aos="fade-up">
+              Rooted in Tradition.
+              <span>Crafted with Purpose.</span>
+            </h2>
 
-          <p
-            className="about-lead"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Ayurveda is more than a system of medicine. It is a
-            tradition of knowledge passed from one generation to
-            the next.
-          </p>
+            <p className="about-lead" data-aos="fade-up" data-aos-delay="100">
+              Ayurveda is more than a system of medicine. It is a tradition
+              of knowledge passed from one generation to the next — and at
+              Anchan Ayurvedic Industries, that tradition is at the heart of
+              everything we do.
+            </p>
 
-          <p
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            At Anchan Ayurvedic Industries, that tradition is at
-            the heart of everything we do. Our journey began with
-            the traditional Ayurvedic knowledge of Pandit Thoma
-            Poojary, a respected practitioner from Padubidri. His
-            dedication to preparing classical Ayurvedic
-            formulations inspired the next generation to preserve
-            this knowledge through authentic, carefully
-            manufactured herbal medicines.
-          </p>
+            {/* Journey: two generations */}
+            <ol className="about-journey">
+              <li data-aos="fade-up" data-aos-delay="200">
+                <span className="journey-dot" aria-hidden="true"></span>
+                <div className="journey-card">
+                  <span className="journey-tag">Where it began</span>
+                  <h3>Pandit Thoma Poojary</h3>
+                  <p>
+                    A respected practitioner from Padubidri whose dedication
+                    to preparing classical Ayurvedic formulations inspired
+                    the next generation to preserve this knowledge through
+                    authentic, carefully manufactured herbal medicines.
+                  </p>
+                </div>
+              </li>
 
-          <p
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            Today, under the guidance and experience of Dr. N. T.
-            Anchan, we continue that journey — bringing together
-            traditional Ayurvedic principles, clinical
-            understanding and systematic quality practices.
-          </p>
+              <li data-aos="fade-up" data-aos-delay="300">
+                <span className="journey-dot" aria-hidden="true"></span>
+                <div className="journey-card">
+                  <span className="journey-tag">Today</span>
+                  <h3>Dr. N. T. Anchan</h3>
+                  <p>
+                    Under his guidance and experience, we continue the
+                    journey — bringing together traditional Ayurvedic
+                    principles, clinical understanding and systematic
+                    quality practices.
+                  </p>
+                </div>
+              </li>
+            </ol>
 
-          <a
-            href="#our-story"
-            className="about-story-link"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <span>Read Our Story</span>
-            <span className="story-arrow">→</span>
-          </a>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          AYURVEDA & EXPERTISE
-      ===================================================== */}
-      <section className="about-expertise">
-
-        {/* Decorative leaves — NO ANIMATION */}
-        <img
-          src={leavesImage}
-          alt=""
-          className="expertise-leaf expertise-leaf-left"
-          aria-hidden="true"
-        />
-
-        <img
-          src={leavesImage}
-          alt=""
-          className="expertise-leaf expertise-leaf-right"
-          aria-hidden="true"
-        />
-
-        {/* Subtle herb decoration — NO ANIMATION */}
-        <img
-          src={herbsImage}
-          alt=""
-          className="expertise-herbs"
-          aria-hidden="true"
-        />
-
-
-        {/* =================================================
-            EXPERTISE CONTENT
-        ================================================= */}
-        <div className="expertise-content">
-
-          {/* Section label */}
-          <div
-            className="expertise-eyebrow"
-            data-aos="fade-up"
-          >
-            <span></span>
-            AYURVEDA &amp; EXPERTISE
-            <span></span>
-          </div>
-
-
-          {/* Heading */}
-          <h2
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            Preserving the Knowledge.
-            <br />
-            <span>Understanding the Need.</span>
-          </h2>
-
-
-          {/* Decorative divider */}
-          <div
-            className="expertise-divider"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <i></i>
-          </div>
-
-
-          {/* Description */}
-          <p
-            className="expertise-lead"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Ayurveda has evolved through centuries of observation,
-            practice and accumulated knowledge.
-          </p>
-
-          <p
-            className="expertise-description"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            At Anchan Ayurvedic Industries, we respect this heritage
-            while understanding that today's wellness needs are
-            different.
-          </p>
-
-
-          {/* Approach heading */}
-          <h3
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <span>✦</span>
-            Our approach combines
-            <span>✦</span>
-          </h3>
-
-
-          {/* =================================================
-              APPROACH CARDS
-              NO PLUS MARKS
-          ================================================= */}
-          <div className="approach-grid">
-
-            {/* CARD 01 */}
-            <div
-              className="approach-item"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-
-              <div className="approach-icon">
-                ◈
-              </div>
-
-              <div className="approach-number">
-                01
-              </div>
-
-              <h4>
-                Traditional
-                <br />
-                Ayurvedic Principles
-              </h4>
-
-            </div>
-
-
-            {/* CARD 02 */}
-            <div
-              className="approach-item"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-
-              <div className="approach-icon">
-                ✦
-              </div>
-
-              <div className="approach-number">
-                02
-              </div>
-
-              <h4>
-                Clinical
-                <br />
-                Experience
-              </h4>
-
-            </div>
-
-
-            {/* CARD 03 */}
-            <div
-              className="approach-item"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-
-              <div className="approach-icon">
-                ✧
-              </div>
-
-              <div className="approach-number">
-                03
-              </div>
-
-              <h4>
-                Formulation
-                <br />
-                Knowledge
-              </h4>
-
-            </div>
-
-
-            {/* CARD 04 */}
-            <div
-              className="approach-item"
+            <Link
+              to="/legacy"
+              className="about-story-link"
               data-aos="fade-up"
               data-aos-delay="400"
             >
-
-              <div className="approach-icon">
-                ✓
-              </div>
-
-              <div className="approach-number">
-                04
-              </div>
-
-              <h4>
-                Quality-Focused
-                <br />
-                Manufacturing
-              </h4>
-
-            </div>
-
+              Read Our Story
+              <span className="about-story-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14">
+                  <path
+                    d="M9 6l6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </Link>
           </div>
-
-
-          {/* =================================================
-              FINAL STATEMENT
-          ================================================= */}
-          <div
-            className="expertise-result"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-
-            <span className="result-line"></span>
-
-            <p>
-              The result is an approach that respects Ayurveda's
-              roots while remaining relevant to today's world.
-            </p>
-
-            <span className="result-line"></span>
-
-          </div>
-
         </div>
-
       </section>
 
+      {/* =====================================================
+          AYURVEDA & EXPERTISE — dark green band
+      ===================================================== */}
+      <section className="about-expertise">
+        <div className="expertise-inner">
+
+          {/* ---------- LEFT: heading ---------- */}
+          <div className="expertise-head">
+            <h2 className="expertise-title" data-aos="fade-up">
+              Preserving the Knowledge.
+              <span>Understanding the Need.</span>
+            </h2>
+
+            <p className="expertise-lead" data-aos="fade-up" data-aos-delay="100">
+              Ayurveda has evolved through centuries of observation, practice
+              and accumulated knowledge. We respect this heritage while
+              understanding that today's wellness needs are different.
+            </p>
+
+            <p className="expertise-result" data-aos="fade-up" data-aos-delay="200">
+              The result is an approach that respects Ayurveda's roots while
+              remaining relevant to today's world.
+            </p>
+          </div>
+
+          {/* ---------- RIGHT: approach cards ---------- */}
+          <div className="expertise-cards">
+            <h3 className="expertise-subtitle" data-aos="fade-up">
+              Our approach combines
+            </h3>
+
+            <div className="approach-grid">
+              {APPROACH.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="approach-item"
+                  data-aos="fade-up"
+                  data-aos-delay={100 * (index + 1)}
+                >
+                  <div className="approach-top">
+                    <div className="approach-icon" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        {item.icon}
+                      </svg>
+                    </div>
+                    <span className="approach-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

@@ -5,434 +5,255 @@ import "aos/dist/aos.css";
 import "./Intro.css";
 import heroImage from "../../images/Medicinal herbs.png";
 
+// =========================================================
+// LINEAGE — told as a plant growing: seed → sapling → tree
+// =========================================================
+
 const lineage = [
   {
+    stage: "The Seed",
     name: "Pandit Thoma Poojary",
     role: "Founder, Padubidri",
     detail:
       "Prepared classical Ayurvedic medicines by hand, earning the trust of patients and physicians through decades of disciplined practice.",
+    // seed
+    icon: (
+      <>
+        <path d="M12 20c-4 0-6-3-6-6 0-4 3-8 6-10 3 2 6 6 6 10 0 3-2 6-6 6Z" />
+        <path d="M12 20v-8" />
+      </>
+    ),
   },
   {
+    stage: "The Sapling",
     name: "Dr. N. T. Anchan",
     role: "Second generation",
     detail:
       "Completed his Ayurvedic education, opened his own clinical practice, and carried his father's knowledge into medicine manufacturing.",
+    // sprout
+    icon: (
+      <>
+        <path d="M12 21v-9" />
+        <path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z" />
+        <path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z" />
+        <path d="M7 21h10" />
+      </>
+    ),
   },
   {
+    stage: "The Tree",
     name: "Anchan Ayurvedic Industries",
     role: "Today",
     detail:
       "A family legacy grown into an organisation bringing traditional formulations to a wider community.",
+    // tree
+    icon: (
+      <>
+        <path d="M12 21v-6" />
+        <path d="M12 15c-4.5 0-7-2.5-7-5.5S7.5 4 9.5 4.5C10 3 11 2.5 12 2.5S14 3 14.5 4.5C16.5 4 19 6.5 19 9.5S16.5 15 12 15Z" />
+        <path d="M9 21h6" />
+      </>
+    ),
   },
 ];
 
-const About = () => {
-  /* =================================
-     INITIALIZE AOS
-  ================================= */
+// =========================================================
+// PHILOSOPHY — three pillars
+// =========================================================
 
+const values = [
+  {
+    title: "Knowledge",
+    text: "Respect for the principles that have shaped Ayurveda for generations.",
+  },
+  {
+    title: "Quality",
+    text: "Careful attention to ingredients, processes and finished formulations.",
+  },
+  {
+    title: "Responsibility",
+    text: "A commitment to developing and providing Ayurvedic products with integrity.",
+  },
+];
+
+const Intro = () => {
   useEffect(() => {
     AOS.init({
       duration: 900,
       easing: "ease-out-cubic",
       once: true,
       offset: 80,
-      delay: 0,
     });
-
-    // Refresh after page/content is rendered
     AOS.refresh();
-
-    return () => {
-      AOS.refreshHard();
-    };
   }, []);
 
   return (
-    <section className="about-section" id="about">
-      <div className="about-inner">
+    <section className="intro-section" id="about">
 
-        {/* =================================
-            ABOUT STORY IMAGE
-        ================================= */}
+      {/* =====================================================
+          1. STORY — panorama feature: wide photo with the
+          heading set on it, story text in two columns below
+      ===================================================== */}
+      <div className="intro-story">
+        <div className="intro-story-inner">
 
-        <figure
-          className="about-figure"
-          data-aos="fade-right"
-          data-aos-duration="1100"
-          data-aos-offset="100"
-        >
-          <div className="about-figure-frame">
+          <figure className="intro-pano" data-aos="fade-up">
             <img
               src={heroImage}
               alt="An Ayurvedic practitioner preparing medicinal herbs using traditional methods"
             />
+          </figure>
+
+          <div className="intro-story-content">
+            <h2 className="intro-heading intro-story-heading" data-aos="fade-up">
+              Our story begins
+              <span>with tradition.</span>
+            </h2>
+
+            <div className="intro-story-body">
+              <p className="intro-story-lead" data-aos="fade-up">
+                Anchan Ayurvedic Industries has its roots in the traditional
+                Ayurvedic practice of <strong>Pandit Thoma Poojary</strong>, a
+                respected practitioner from Padubidri.
+              </p>
+
+              <p className="intro-copy" data-aos="fade-up" data-aos-delay="100">
+                Known for preparing classical Ayurvedic medicines using
+                traditional methods, he earned the trust of patients and
+                physicians through his dedication to Ayurveda.
+              </p>
+
+              <p className="intro-copy" data-aos="fade-up" data-aos-delay="180">
+                His son, <strong>Dr. N. T. Anchan</strong>, carried this
+                knowledge forward — first into his own clinical practice, and
+                later into Ayurvedic medicine manufacturing. What began as a
+                family legacy gradually evolved into an organisation committed
+                to bringing traditional formulations to a wider community.
+              </p>
+
+              <a
+                className="intro-cta"
+                href="#philosophy"
+                data-aos="fade-up"
+                data-aos-delay="260"
+              >
+                Discover Our Philosophy
+                <span className="intro-cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14">
+                    <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor"
+                      strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Decorative botanical vein */}
+      {/* =====================================================
+          2. LINEAGE — a vine that grows seed → sapling → tree
+      ===================================================== */}
+      <div className="intro-growth">
+        <h2 className="intro-heading intro-heading--center" data-aos="fade-up">
+          Three generations,
+          <span>one living tradition.</span>
+        </h2>
 
+        <div className="intro-growth-track">
+          {/* the growing vine */}
           <svg
-            className="about-vein"
-            viewBox="0 0 220 520"
-            fill="none"
+            className="intro-vine"
+            viewBox="0 0 1200 260"
+            preserveAspectRatio="none"
             aria-hidden="true"
           >
             <path
-              d="M110 8 C60 90 170 140 90 230 C30 300 150 340 100 430 C70 480 120 500 110 512"
-              stroke="var(--sea-green)"
-              strokeWidth="2"
+              d="M40 230 C 260 230, 300 150, 600 140 S 940 40, 1160 30"
+              fill="none"
+              stroke="url(#introVine)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeDasharray="2 10"
             />
-
-            <path
-              d="M110 60 C90 70 70 78 55 70"
-              stroke="var(--forest-green)"
-              strokeWidth="1.6"
-            />
-
-            <path
-              d="M120 170 C145 180 160 190 172 182"
-              stroke="var(--forest-green)"
-              strokeWidth="1.6"
-            />
-
-            <path
-              d="M95 300 C70 312 55 322 40 316"
-              stroke="var(--forest-green)"
-              strokeWidth="1.6"
-            />
-
-            <path
-              d="M115 420 C138 430 152 438 164 432"
-              stroke="var(--forest-green)"
-              strokeWidth="1.6"
-            />
+            <defs>
+              <linearGradient id="introVine" x1="0" x2="1">
+                <stop offset="0" stopColor="#c8a45c" />
+                <stop offset="1" stopColor="#8cc63f" />
+              </linearGradient>
+            </defs>
           </svg>
-        </figure>
 
-
-        {/* =================================
-            ABOUT CONTENT
-        ================================= */}
-
-        <div className="about-content">
-
-          {/* About Label */}
-
-          <p
-            className="about-label"
-            data-aos="fade-up"
-            data-aos-duration="700"
-          >
-            About Us
-          </p>
-
-
-          {/* Heading */}
-
-          <h2
-            className="about-heading"
-            data-aos="fade-up"
-            data-aos-delay="100"
-            data-aos-duration="900"
-          >
-            Our story begins
-            <br />
-            with tradition.
-          </h2>
-
-
-          {/* First Paragraph */}
-
-          <p
-            className="about-copy"
-            data-aos="fade-up"
-            data-aos-delay="180"
-            data-aos-duration="850"
-          >
-            Anchan Ayurvedic Industries has its roots in the traditional
-            Ayurvedic practice of Pandit Thoma Poojary, a respected
-            practitioner from Padubidri.
-          </p>
-
-
-          {/* Second Paragraph */}
-
-          <p
-            className="about-copy"
-            data-aos="fade-up"
-            data-aos-delay="260"
-            data-aos-duration="850"
-          >
-            Known for preparing classical Ayurvedic medicines using
-            traditional methods, he earned the trust of patients and
-            physicians through his dedication to Ayurveda.
-          </p>
-
-
-          {/* Third Paragraph */}
-
-          <p
-            className="about-copy"
-            data-aos="fade-up"
-            data-aos-delay="340"
-            data-aos-duration="850"
-          >
-            His son, Dr. N. T. Anchan, carried this knowledge forward —
-            first into his own clinical practice, and later into Ayurvedic
-            medicine manufacturing. What began as a family legacy gradually
-            evolved into an organisation committed to bringing traditional
-            formulations to a wider community.
-          </p>
-
-
-          {/* =================================
-              LINEAGE
-          ================================= */}
-
-          <ol className="about-lineage">
-
+          <ol className="intro-growth-list">
             {lineage.map((person, index) => (
               <li
-                className="about-lineage-item"
                 key={person.name}
+                className={`intro-growth-step intro-growth-step--${index + 1}`}
                 data-aos="fade-up"
-                data-aos-delay={450 + index * 120}
-                data-aos-duration="850"
+                data-aos-delay={index * 150}
               >
-
-                <span
-                  className="about-leaf"
-                  aria-hidden="true"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M4 20C4 12 8 6 20 4C18 16 12 20 4 20Z"
-                      fill="var(--sea-green)"
-                    />
-
-                    <path
-                      d="M6 18C10 14 14 10 18 6"
-                      stroke="var(--ivory)"
-                      strokeWidth="1"
-                    />
+                <span className="intro-growth-node" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="30" height="30" fill="none"
+                    stroke="currentColor" strokeWidth="1.6"
+                    strokeLinecap="round" strokeLinejoin="round">
+                    {person.icon}
                   </svg>
                 </span>
 
-
-                <div>
-
-                  <p className="about-lineage-name">
-                    {person.name}
-                  </p>
-
-                  <p className="about-lineage-role">
-                    {person.role}
-                  </p>
-
-                  <p className="about-lineage-detail">
-                    {person.detail}
-                  </p>
-
-                </div>
-
+                <p className="intro-growth-stage">{person.stage}</p>
+                <h3 className="intro-growth-name">{person.name}</h3>
+                <p className="intro-growth-role">{person.role}</p>
+                <p className="intro-growth-detail">{person.detail}</p>
               </li>
             ))}
-
           </ol>
-
-
-          {/* =================================
-              CTA
-          ================================= */}
-
-          <a
-            className="about-cta"
-            href="#philosophy"
-            data-aos="fade-up"
-            data-aos-delay="850"
-            data-aos-duration="900"
-          >
-            <span>
-              Discover Our Philosophy
-            </span>
-
-            <span
-              className="about-cta-arrow"
-              aria-hidden="true"
-            >
-              →
-            </span>
-          </a>
-
         </div>
+      </div>
 
+      {/* =====================================================
+          3. PHILOSOPHY — editorial index rows
+      ===================================================== */}
+      <div className="intro-philosophy" id="philosophy">
+        <div className="intro-philosophy-inner">
 
-        {/* =================================
-            PHILOSOPHY SECTION
-        ================================= */}
-
-        <div
-          className="intro-philosophy"
-          id="philosophy"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-offset="100"
-        >
-
-          {/* =================================
-              PHILOSOPHY HEADING
-          ================================= */}
-
-          <div className="philosophy-heading">
-
-            {/* Label */}
-
-            <div
-              className="intro-label"
-              data-aos="fade-up"
-              data-aos-delay="100"
-              data-aos-duration="700"
-            >
-              <span className="intro-label-line"></span>
-
-              OUR PHILOSOPHY
-            </div>
-
-
-            {/* Heading */}
-
-            <h3
-              data-aos="fade-up"
-              data-aos-delay="180"
-              data-aos-duration="900"
-            >
+          <div className="intro-philosophy-head">
+            <h2 className="intro-heading" data-aos="fade-up">
               Ayurveda Rooted in
-              <span> Knowledge &amp; Integrity.</span>
-            </h3>
+              <span>Knowledge &amp; Integrity.</span>
+            </h2>
 
-
-            {/* Description */}
-
-            <p
-              data-aos="fade-up"
-              data-aos-delay="280"
-              data-aos-duration="850"
-            >
+            <p className="intro-philosophy-text" data-aos="fade-up" data-aos-delay="100">
               We believe authentic Ayurveda requires respect for tradition,
               uncompromising quality and a deep sense of responsibility.
             </p>
-
           </div>
 
-
-          {/* =================================
-              PHILOSOPHY CARDS
-          ================================= */}
-
-          <div className="philosophy-cards">
-
-            {/* =================================
-                KNOWLEDGE
-            ================================= */}
-
-            <div
-              className="philosophy-card"
-              data-aos="fade-up"
-              data-aos-delay="350"
-              data-aos-duration="850"
-            >
-
-              <div className="philosophy-number">
-                01
-              </div>
-
-              <div className="philosophy-icon">
-                ✦
-              </div>
-
-              <h4>
-                Knowledge.
-              </h4>
-
-              <p>
-                Respect for the principles that have shaped Ayurveda
-                for generations.
-              </p>
-
-            </div>
-
-
-            {/* =================================
-                QUALITY
-            ================================= */}
-
-            <div
-              className="philosophy-card active"
-              data-aos="fade-up"
-              data-aos-delay="480"
-              data-aos-duration="850"
-            >
-
-              <div className="philosophy-number">
-                02
-              </div>
-
-              <div className="philosophy-icon">
-                ✧
-              </div>
-
-              <h4>
-                Quality.
-              </h4>
-
-              <p>
-                Careful attention to ingredients, processes and
-                finished formulations.
-              </p>
-
-            </div>
-
-
-            {/* =================================
-                RESPONSIBILITY
-            ================================= */}
-
-            <div
-              className="philosophy-card"
-              data-aos="fade-up"
-              data-aos-delay="610"
-              data-aos-duration="850"
-            >
-
-              <div className="philosophy-number">
-                03
-              </div>
-
-              <div className="philosophy-icon">
-                ❋
-              </div>
-
-              <h4>
-                Responsibility.
-              </h4>
-
-              <p>
-                A commitment to developing and providing Ayurvedic
-                products with integrity.
-              </p>
-
-            </div>
-
-          </div>
-
+          <ol className="intro-principles">
+            {values.map((value, index) => (
+              <li
+                key={value.title}
+                className="intro-principle"
+                data-aos="fade-up"
+                data-aos-delay={120 + index * 120}
+              >
+                <span className="intro-principle-number" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="intro-principle-title">{value.title}</h3>
+                <p className="intro-principle-text">{value.text}</p>
+                <span className="intro-principle-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                    stroke="currentColor" strokeWidth="2"
+                    strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                  </svg>
+                </span>
+              </li>
+            ))}
+          </ol>
         </div>
-
       </div>
     </section>
   );
 };
 
-export default About;
+export default Intro;

@@ -1,19 +1,26 @@
 /* =========================================================
    ANCHAN AYURVEDIC INDUSTRIES
-   HEADER / NAVBAR
-   PREMIUM TRANSPARENT → WHITE HEADER
+   HEADER / NAVBAR — clean white bar, centered links,
+   green pill CTA. Font: Lexend Deca.
 ========================================================= */
 
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400&display=swap");
 
-/* =========================================================
-   GLOBAL RESET
-========================================================= */
+:root {
+  --hdr-green: #8cc63f;        /* lime green (active link + pill) */
+  --hdr-green-dark: #76ad2c;   /* hover */
+  --hdr-text: #222222;
+  --hdr-border: #ececec;
+  --hdr-bg: #ffffff;
+  --hdr-font: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+  --hdr-height: 100px;
+  --hdr-height-scrolled: 82px;
+}
 
 html,
 body,
 #root {
   width: 100%;
-  min-width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -31,122 +38,39 @@ body,
 
 .header {
   position: fixed;
-
   top: 0;
   left: 0;
-
-  width: 100vw;
-
-  height: 102px;
-
+  width: 100%;
+  height: var(--hdr-height);
   z-index: 9999;
 
-  margin: 0;
-  padding: 0;
-
-  /*
-    IMPORTANT:
-
-    Completely transparent header.
-
-    The gradient below is created with ::before
-    so there is NO visible rectangular transparent box.
-  */
-
-  background: transparent;
-
-  border: none;
-
-  box-shadow: none;
-
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: var(--hdr-bg);
+  border-bottom: 1px solid var(--hdr-border);
+  font-family: var(--hdr-font);
 
   transition:
-    height 0.45s ease,
-    background 0.45s ease,
-    box-shadow 0.45s ease;
+    height 0.35s ease,
+    box-shadow 0.35s ease;
 }
-
-
-/* =========================================================
-   SUBTLE HERO GRADIENT
-
-   This makes the navigation readable without creating
-   a visible rectangular transparent panel.
-========================================================= */
-
-.header::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: -1;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(2, 38, 27, 0.42) 0%,
-      rgba(2, 38, 27, 0.18) 45%,
-      rgba(2, 38, 27, 0.02) 100%
-    );
-
-  opacity: 1;
-
-  transition:
-    opacity 0.45s ease;
-}
-
-
-/* =========================================================
-   SCROLLED HEADER
-========================================================= */
 
 .header.scrolled {
-  height: 82px;
-
-  background: #ffffff;
-
-  border: none;
-
-  box-shadow:
-    0 5px 25px rgba(0, 0, 0, 0.08);
-}
-
-
-/* Remove hero gradient after scrolling */
-
-.header.scrolled::before {
-  opacity: 0;
+  height: var(--hdr-height-scrolled);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 
 /* =========================================================
-   HEADER CONTAINER
+   CONTAINER
 ========================================================= */
 
 .header-container {
   width: 100%;
-
-  max-width: 1500px;
-
+  max-width: 1320px;
   height: 100%;
-
   margin: 0 auto;
-
-  padding:
-    0 38px;
+  padding: 0 32px;
 
   display: flex;
-
   align-items: center;
 }
 
@@ -157,86 +81,26 @@ body,
 
 .logo {
   flex-shrink: 0;
-
   display: flex;
-
   align-items: center;
 }
-
 
 .logo a {
-  width: 82px;
-  height: 82px;
-
-  padding: 7px;
-
   display: flex;
-
   align-items: center;
-  justify-content: center;
-
-  box-sizing: border-box;
-
-  /*
-    Keep the white logo card.
-  */
-
-  background:
-    rgba(255, 255, 255, 0.96);
-
-  border-radius: 16px;
-
   text-decoration: none;
-
-  box-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.12);
-
-  transition:
-    width 0.4s ease,
-    height 0.4s ease,
-    padding 0.4s ease,
-    border-radius 0.4s ease,
-    box-shadow 0.4s ease,
-    background 0.4s ease;
 }
-
 
 .logo img {
+  height: 84px;
   width: auto;
-
-  height: 70px;
-
-  max-width: 100%;
-
   display: block;
-
   object-fit: contain;
-
-  transition:
-    height 0.4s ease;
+  transition: height 0.35s ease;
 }
-
-
-/* =========================================================
-   LOGO — SCROLLED
-========================================================= */
-
-.header.scrolled .logo a {
-  width: 70px;
-  height: 70px;
-
-  padding: 5px;
-
-  background: #ffffff;
-
-  border-radius: 12px;
-
-  box-shadow: none;
-}
-
 
 .header.scrolled .logo img {
-  height: 60px;
+  height: 66px;
 }
 
 
@@ -246,669 +110,82 @@ body,
 
 .nav {
   flex: 1;
-
   display: flex;
-
-  align-items: center;
-
   justify-content: center;
-
-  margin-left: 65px;
-
-  margin-right: 55px;
+  margin: 0 32px;
 }
-
 
 .nav-list {
   display: flex;
-
   align-items: center;
-
-  justify-content: center;
-
-  gap: 38px;
-
+  gap: 40px;
   margin: 0;
-
   padding: 0;
-
   list-style: none;
 }
 
+.mobile-cta {
+  display: none;
+}
+
 
 /* =========================================================
-   NAVIGATION LINK
+   NAV LINK
 ========================================================= */
 
 .nav-link {
-  position: relative;
-
   display: inline-flex;
-
   align-items: center;
-
-  justify-content: center;
-
-  gap: 6px;
-
-  padding: 12px 0;
+  padding: 10px 0;
 
   background: transparent;
-
   border: none;
+  cursor: pointer;
 
-  color: #ffffff !important;
-
-  font-family: inherit;
-
-  font-size: 18px;
-
-  font-weight: 700;
-
+  text-decoration: none;
+  color: var(--hdr-text);
+  font-family: var(--hdr-font);
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.2;
-
   white-space: nowrap;
 
-  cursor: pointer;
+  transition: color 0.25s ease;
+}
 
-  text-shadow:
-    0 2px 7px rgba(0, 0, 0, 0.38);
-
-  transition:
-    color 0.3s ease,
-    text-shadow 0.3s ease;
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--hdr-green);
 }
 
 
 /* =========================================================
-   SCROLLED NAVIGATION
-========================================================= */
-
-.header.scrolled .nav-link {
-  color: #222222 !important;
-
-  text-shadow: none;
-}
-
-
-/* =========================================================
-   NAV HOVER
-========================================================= */
-
-.nav-link:hover {
-  color: #e8dc91 !important;
-}
-
-
-.header.scrolled .nav-link:hover {
-  color: #2b8a3e !important;
-}
-
-
-/* =========================================================
-   NAV UNDERLINE
-========================================================= */
-
-.nav-link::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: 3px;
-
-  width: 100%;
-  height: 2px;
-
-  background: #e8dc91;
-
-  border-radius: 3px;
-
-  transform: scaleX(0);
-
-  transform-origin: center;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-
-.header.scrolled .nav-link::after {
-  background: #2b8a3e;
-}
-
-
-/* =========================================================
-   PRODUCTS DROPDOWN WRAPPER
-========================================================= */
-
-.dropdown {
-  position: relative;
-
-  padding-bottom: 18px;
-
-  margin-bottom: -18px;
-}
-
-
-/* =========================================================
-   PRODUCTS ARROW
-========================================================= */
-
-.products-button {
-  cursor: pointer;
-}
-
-
-.dropdown-arrow {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-left: 3px;
-
-  font-size: 13px;
-
-  line-height: 1;
-
-  color: #ffffff;
-
-  transition:
-    transform 0.3s ease,
-    color 0.25s ease;
-}
-
-
-.header.scrolled .dropdown-arrow {
-  color: #222222;
-}
-
-
-.dropdown-arrow::before {
-  content: "▾";
-}
-
-
-/* =========================================================
-   PRODUCTS ARROW HOVER
-========================================================= */
-
-@media screen and (min-width: 851px) {
-
-  .dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
-
-    color: #e8dc91;
-  }
-
-  .header.scrolled
-  .dropdown:hover
-  .dropdown-arrow {
-    color: #2b8a3e;
-  }
-
-}
-
-
-/* =========================================================
-   PRODUCTS DROPDOWN
-========================================================= */
-
-.products-dropdown {
-  position: absolute;
-
-  top: calc(100% + 15px);
-
-  left: 50%;
-
-  width: 700px;
-
-  padding: 0;
-
-  background: #ffffff;
-
-  border: 1px solid rgba(40, 80, 45, 0.10);
-
-  border-radius: 15px;
-
-  box-shadow:
-    0 20px 55px rgba(25, 60, 35, 0.14),
-    0 5px 15px rgba(0, 0, 0, 0.05);
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  pointer-events: none;
-
-  transform:
-    translate(-50%, 12px);
-
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease,
-    visibility 0.25s ease;
-
-  overflow: hidden;
-
-  z-index: 10000;
-}
-
-
-/* =========================================================
-   DROPDOWN POINTER
-========================================================= */
-
-.products-dropdown::before {
-  content: "";
-
-  position: absolute;
-
-  top: -7px;
-  left: 50%;
-
-  width: 13px;
-  height: 13px;
-
-  background: #ffffff;
-
-  border-left:
-    1px solid rgba(40, 80, 45, 0.10);
-
-  border-top:
-    1px solid rgba(40, 80, 45, 0.10);
-
-  transform:
-    translateX(-50%)
-    rotate(45deg);
-}
-
-
-/* =========================================================
-   DESKTOP DROPDOWN OPEN
-========================================================= */
-
-@media screen and (min-width: 851px) {
-
-  .dropdown:hover .products-dropdown {
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
-    transform:
-      translate(-50%, 0);
-  }
-
-}
-
-
-/* =========================================================
-   DROPDOWN HEADER
-========================================================= */
-
-.dropdown-header {
-  padding:
-    20px 30px 18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f3faf4 0%,
-      #ffffff 100%
-    );
-
-  border-bottom:
-    1px solid #edf1ed;
-}
-
-
-.dropdown-label {
-  display: block;
-
-  color: #2b8a3e !important;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.6px;
-}
-
-
-.dropdown-header p {
-  margin:
-    7px 0 0;
-
-  color: #777777 !important;
-
-  font-size: 14px;
-
-  font-weight: 400;
-
-  line-height: 1.4;
-}
-
-
-/* =========================================================
-   PRODUCTS GRID
-========================================================= */
-
-.products-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  column-gap: 20px;
-
-  row-gap: 0;
-
-  padding:
-    12px 20px;
-}
-
-
-/* =========================================================
-   PRODUCT ITEM
-========================================================= */
-
-.product-item {
-  position: relative;
-
-  width: 100%;
-
-  min-width: 0;
-
-  min-height: 62px;
-
-  display: grid !important;
-
-  grid-template-columns:
-    34px
-    minmax(0, 1fr)
-    22px;
-
-  align-items: center;
-
-  column-gap: 8px;
-
-  padding:
-    8px 12px;
-
-  box-sizing: border-box;
-
-  color: #222222 !important;
-
-  text-decoration: none !important;
-
-  border-radius: 8px;
-
-  opacity: 1 !important;
-
-  visibility: visible !important;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-
-.product-item:hover {
-  background: #f2f8f3;
-
-  color: #2b8a3e !important;
-}
-
-
-/* =========================================================
-   PRODUCT NUMBER
-========================================================= */
-
-.product-number {
-  position: static !important;
-
-  width: 34px !important;
-
-  min-width: 34px !important;
-
-  max-width: 34px !important;
-
-  height: auto !important;
-
-  display: flex !important;
-
-  align-items: center;
-
-  justify-content: flex-start;
-
-  margin: 0 !important;
-
-  padding: 0 !important;
-
-  color: #9da79f !important;
-
-  font-size: 13px !important;
-
-  font-weight: 700 !important;
-
-  line-height: 1;
-
-  letter-spacing: 0.5px;
-
-  white-space: nowrap;
-}
-
-
-.product-item:hover .product-number {
-  color: #2b8a3e !important;
-}
-
-
-/* =========================================================
-   PRODUCT NAME
-========================================================= */
-
-.product-name {
-  position: static !important;
-
-  width: auto !important;
-
-  min-width: 0 !important;
-
-  max-width: 100%;
-
-  display: block !important;
-
-  margin: 0 !important;
-
-  padding: 0 !important;
-
-  color: #222222 !important;
-
-  font-size: 15px !important;
-
-  font-weight: 600 !important;
-
-  line-height: 1.35;
-
-  text-align: left;
-
-  white-space: normal;
-
-  overflow-wrap: break-word;
-}
-
-
-.product-item:hover .product-name {
-  color: #2b8a3e !important;
-}
-
-
-/* =========================================================
-   PRODUCT ARROW
-========================================================= */
-
-.product-arrow {
-  width: 22px;
-
-  min-width: 22px;
-
-  display: flex !important;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: #2b8a3e !important;
-
-  font-size: 15px;
-
-  line-height: 1;
-
-  opacity: 0;
-
-  transform:
-    translateX(-4px);
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-
-.product-item:hover .product-arrow {
-  opacity: 1;
-
-  transform:
-    translateX(0);
-}
-
-
-/* =========================================================
-   VIEW ALL PRODUCTS
-========================================================= */
-
-.view-all-products {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  margin:
-    5px 20px 16px;
-
-  padding:
-    14px 18px;
-
-  background: #2b8a3e;
-
-  border-radius: 10px;
-
-  color: #ffffff !important;
-
-  text-decoration: none !important;
-
-  font-size: 15px;
-
-  font-weight: 700;
-
-  line-height: 1;
-
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-.view-all-products:hover {
-  background: #227334;
-
-  transform:
-    translateY(-1px);
-
-  box-shadow:
-    0 5px 15px rgba(43, 138, 62, 0.18);
-}
-
-
-.view-all-products span {
-  color: #ffffff !important;
-
-  font-size: 18px;
-
-  transition:
-    transform 0.2s ease;
-}
-
-
-.view-all-products:hover span {
-  transform:
-    translateX(3px);
-}
-
-
-/* =========================================================
-   HEADER ACTIONS
+   HEADER ACTIONS + PILL BUTTON
 ========================================================= */
 
 .header-actions {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
-
   flex-shrink: 0;
 }
 
-
-/* =========================================================
-   ENQUIRE BUTTON
-========================================================= */
-
-.enquire-btn {
-  height: 48px;
-
+.pill-btn {
   display: inline-flex;
-
   align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 12px 0 24px;
 
-  justify-content: center;
+  background: var(--hdr-green);
+  color: #ffffff;
+  border-radius: 999px;
+  text-decoration: none;
 
-  gap: 8px;
-
-  padding:
-    0 24px;
-
-  background: #2b8a3e;
-
-  color: #ffffff !important;
-
-  border-radius: 9px;
-
-  text-decoration: none !important;
-
-  font-size: 15px;
-
-  font-weight: 700;
-
-  line-height: 1;
-
+  font-family: var(--hdr-font);
+  font-size: 16px;
+  font-weight: 400;
   white-space: nowrap;
-
-  box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.15);
 
   transition:
     background 0.25s ease,
@@ -916,110 +193,75 @@ body,
     box-shadow 0.25s ease;
 }
 
-
-.enquire-btn:hover {
-  background: #227334;
-
-  color: #ffffff !important;
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.20);
+.pill-btn:hover {
+  background: var(--hdr-green-dark);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(140, 198, 63, 0.35);
 }
 
+.pill-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.enquire-btn span {
-  color: #ffffff !important;
-
-  font-size: 17px;
-
-  transition:
-    transform 0.25s ease;
+  background: #ffffff;
+  color: var(--hdr-green);
+  border-radius: 50%;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
+.pill-btn:hover .pill-icon {
+  color: var(--hdr-green-dark);
+  transform: translateX(2px);
+}
 
-.enquire-btn:hover span {
-  transform:
-    translate(2px, -2px);
+.header.scrolled .pill-btn {
+  height: 46px;
 }
 
 
 /* =========================================================
-   MOBILE MENU BUTTON
+   HAMBURGER
 ========================================================= */
 
 .menu-toggle {
   display: none;
-
-  width: 43px;
-  height: 43px;
-
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  flex-direction: column;
-
   gap: 5px;
-
   padding: 0;
 
-  background:
-    rgba(255, 255, 255, 0.94);
-
-  border:
-    1px solid rgba(255, 255, 255, 0.7);
-
-  border-radius: 8px;
-
+  background: #f5f9ef;
+  border: 1px solid #e3ecd6;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-
-.header.scrolled .menu-toggle {
-  background: #f4f8f4;
-
-  border-color: #e2ebe3;
-}
-
-
 .menu-toggle span {
   display: block;
-
   width: 20px;
   height: 2px;
-
-  background: #2b8a3e;
-
+  background: var(--hdr-green-dark);
   border-radius: 2px;
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
-
-
-/* =========================================================
-   MOBILE MENU ACTIVE
-========================================================= */
 
 .menu-toggle.open span:nth-child(1) {
-  transform:
-    translateY(7px)
-    rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
-
 
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 
-
 .menu-toggle.open span:nth-child(3) {
-  transform:
-    translateY(-7px)
-    rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 
@@ -1028,16 +270,12 @@ body,
 ========================================================= */
 
 @media screen and (max-width: 1350px) {
-
   .header-container {
-    padding:
-      0 28px;
+    padding: 0 28px;
   }
 
   .nav {
-    margin-left: 50px;
-
-    margin-right: 45px;
+    margin: 0 24px;
   }
 
   .nav-list {
@@ -1045,18 +283,14 @@ body,
   }
 
   .nav-link {
-    font-size: 17px;
+    font-size: 15px;
   }
 
-  .enquire-btn {
-    padding:
-      0 20px;
+  .pill-btn {
+    height: 46px;
+    font-size: 15px;
+    padding: 0 10px 0 20px;
   }
-
-  .products-dropdown {
-    width: 660px;
-  }
-
 }
 
 
@@ -1065,34 +299,20 @@ body,
 ========================================================= */
 
 @media screen and (max-width: 1150px) {
-
   .header-container {
-    padding:
-      0 22px;
-  }
-
-  .logo a {
-    width: 74px;
-    height: 74px;
+    padding: 0 22px;
   }
 
   .logo img {
-    height: 64px;
-  }
-
-  .header.scrolled .logo a {
-    width: 66px;
-    height: 66px;
+    height: 72px;
   }
 
   .header.scrolled .logo img {
-    height: 57px;
+    height: 60px;
   }
 
   .nav {
-    margin-left: 30px;
-
-    margin-right: 25px;
+    margin: 0 18px;
   }
 
   .nav-list {
@@ -1100,41 +320,19 @@ body,
   }
 
   .nav-link {
-    font-size: 16px;
+    font-size: 14px;
   }
 
-  .enquire-btn {
-    height: 44px;
-
-    padding:
-      0 16px;
-
-    font-size: 13px;
+  .pill-btn {
+    height: 42px;
+    font-size: 14px;
+    padding: 0 10px 0 18px;
   }
 
-  .products-dropdown {
-    width: 600px;
+  .pill-icon {
+    width: 22px;
+    height: 22px;
   }
-
-  .product-item {
-    grid-template-columns:
-      32px
-      minmax(0, 1fr)
-      20px;
-  }
-
-  .product-number {
-    width: 32px !important;
-
-    min-width: 32px !important;
-
-    max-width: 32px !important;
-  }
-
-  .product-name {
-    font-size: 14px !important;
-  }
-
 }
 
 
@@ -1143,42 +341,24 @@ body,
 ========================================================= */
 
 @media screen and (max-width: 980px) {
-
   .header {
-    height: 82px;
+    height: 84px;
   }
 
   .header.scrolled {
-    height: 76px;
-  }
-
-  .header-container {
-    padding:
-      0 20px;
-  }
-
-  .logo a {
-    width: 68px;
-    height: 68px;
+    height: 74px;
   }
 
   .logo img {
-    height: 59px;
-  }
-
-  .header.scrolled .logo a {
-    width: 62px;
-    height: 62px;
+    height: 64px;
   }
 
   .header.scrolled .logo img {
-    height: 54px;
+    height: 56px;
   }
 
   .nav {
-    margin-left: 20px;
-
-    margin-right: 15px;
+    margin: 0 12px;
   }
 
   .nav-list {
@@ -1186,22 +366,13 @@ body,
   }
 
   .nav-link {
-    font-size: 15px;
+    font-size: 13px;
   }
 
-  .enquire-btn {
-    height: 42px;
-
-    padding:
-      0 13px;
-
-    font-size: 12px;
+  .pill-btn {
+    height: 40px;
+    font-size: 13px;
   }
-
-  .products-dropdown {
-    width: 520px;
-  }
-
 }
 
 
@@ -1210,522 +381,105 @@ body,
 ========================================================= */
 
 @media screen and (max-width: 850px) {
-
   .header {
     height: 76px;
-
-    /*
-      Still transparent.
-      No rectangular green panel.
-    */
-
-    background: transparent;
-
-    box-shadow: none;
-
-    border: none;
-  }
-
-  .header::before {
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(2, 38, 27, 0.32) 0%,
-        rgba(2, 38, 27, 0.10) 55%,
-        rgba(2, 38, 27, 0) 100%
-      );
   }
 
   .header.scrolled {
     height: 70px;
-
-    background: #ffffff;
-
-    box-shadow:
-      0 5px 20px rgba(0, 0, 0, 0.08);
-
-    border: none;
   }
-
-  .header.scrolled::before {
-    opacity: 0;
-  }
-
-
-  /* -------------------------------------------------------
-     CONTAINER
-  ------------------------------------------------------- */
 
   .header-container {
-    width: 100%;
-
-    padding:
-      0 16px;
-
-    justify-content:
-      space-between;
-  }
-
-
-  /* -------------------------------------------------------
-     LOGO
-  ------------------------------------------------------- */
-
-  .logo a {
-    width: 60px;
-    height: 60px;
-
-    padding: 5px;
-
-    border-radius: 12px;
-
-    background:
-      rgba(255, 255, 255, 0.96);
+    padding: 0 16px;
+    justify-content: space-between;
   }
 
   .logo img {
-    height: 52px;
-
-    max-width: 100%;
-  }
-
-  .header.scrolled .logo a {
-    width: 56px;
-    height: 56px;
-
-    padding: 4px;
-
-    background: #ffffff;
+    height: 58px;
   }
 
   .header.scrolled .logo img {
-    height: 48px;
+    height: 52px;
   }
-
-
-  /* -------------------------------------------------------
-     ACTIONS
-  ------------------------------------------------------- */
-
-  .header-actions {
-    gap: 8px;
-  }
-
-
-  /* -------------------------------------------------------
-     ENQUIRE BUTTON
-  ------------------------------------------------------- */
 
   .enquire-btn {
     display: none;
   }
 
-
-  /* -------------------------------------------------------
-     HAMBURGER
-  ------------------------------------------------------- */
-
   .menu-toggle {
     display: flex;
-
-    flex-shrink: 0;
   }
 
-
-  /* -------------------------------------------------------
-     MOBILE NAV
-  ------------------------------------------------------- */
+  /* ----- slide-down panel ----- */
 
   .nav {
     position: absolute;
-
-    top: 76px;
-
+    top: 100%;
     left: 0;
     right: 0;
-
-    width: 100%;
-
     margin: 0;
+    padding: 8px 16px 20px;
 
-    padding:
-      10px 14px 18px;
+    background: #ffffff;
+    border-top: 1px solid var(--hdr-border);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
 
-    box-sizing: border-box;
-
-    background:
-      rgba(255, 255, 255, 0.99);
-
-    border-top:
-      1px solid #edf1ed;
-
-    box-shadow:
-      0 12px 30px rgba(0, 0, 0, 0.10);
-
-    transform:
-      translateY(-12px);
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
 
     opacity: 0;
-
     visibility: hidden;
-
+    transform: translateY(-10px);
     transition:
       opacity 0.3s ease,
       transform 0.3s ease,
       visibility 0.3s ease;
-
-    max-height:
-      calc(100vh - 76px);
-
-    overflow-y: auto;
-
-    overflow-x: hidden;
   }
-
-
-  .header.scrolled .nav {
-    top: 70px;
-
-    max-height:
-      calc(100vh - 70px);
-  }
-
 
   .nav.open {
-    transform:
-      translateY(0);
-
     opacity: 1;
-
     visibility: visible;
+    transform: translateY(0);
   }
-
-
-  /* -------------------------------------------------------
-     MOBILE NAV LIST
-  ------------------------------------------------------- */
 
   .nav-list {
     width: 100%;
-
-    display: flex;
-
     flex-direction: column;
-
     align-items: stretch;
-
     gap: 0;
-
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
   }
-
 
   .nav-list > li {
-    width: 100%;
-
-    border-bottom:
-      1px solid #f0f2f0;
+    border-bottom: 1px solid #f1f1f1;
   }
-
 
   .nav-list > li:last-child {
     border-bottom: none;
   }
 
-
-  /* -------------------------------------------------------
-     MOBILE NAV LINKS
-  ------------------------------------------------------- */
-
   .nav-link {
     width: 100%;
-
     min-height: 54px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding:
-      15px 8px;
-
-    color: #222222 !important;
-
-    font-size: 17px;
-
-    font-weight: 700;
-
-    line-height: 1.2;
-
+    justify-content: flex-start;
+    padding: 14px 6px;
+    font-size: 15px;
     text-align: left;
-
-    text-shadow: none;
-
     white-space: normal;
   }
 
+  /* ----- mobile CTA ----- */
 
-  .nav-link:hover {
-    color: #2b8a3e !important;
-  }
-
-
-  .nav-link::after {
-    display: none;
-  }
-
-
-  /* -------------------------------------------------------
-     MOBILE DROPDOWN
-  ------------------------------------------------------- */
-
-  .dropdown {
-    width: 100%;
-
-    padding-bottom: 0;
-
-    margin-bottom: 0;
-  }
-
-
-  .products-button {
-    width: 100%;
-
-    justify-content:
-      space-between;
-  }
-
-
-  .dropdown-arrow {
-    flex-shrink: 0;
-
-    font-size: 16px;
-
-    color: #333333;
-
-    margin-right: 3px;
-  }
-
-
-  /* -------------------------------------------------------
-     PRODUCTS DROPDOWN
-  ------------------------------------------------------- */
-
-  .products-dropdown {
-    position: static;
-
-    width: 100%;
-
-    max-width: 100%;
-
-    display: none;
-
-    margin:
-      0 0 10px;
-
-    padding: 0;
-
-    background:
-      #f8fbf8;
-
-    border:
-      1px solid #e4ebe5;
-
-    border-radius: 10px;
-
-    box-shadow: none;
-
-    transform: none;
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
-    overflow: hidden;
-  }
-
-
-  .dropdown.active .products-dropdown {
+  .mobile-cta {
     display: block;
+    padding-top: 16px;
   }
 
-
-  .dropdown.active .dropdown-arrow {
-    transform:
-      rotate(180deg);
-
-    color: #2b8a3e;
-  }
-
-
-  /* -------------------------------------------------------
-     DROPDOWN HEADER
-  ------------------------------------------------------- */
-
-  .dropdown-header {
-    padding:
-      14px 15px;
-
-    background:
-      #f1f8f2;
-
-    border-bottom:
-      1px solid #e4ebe5;
-  }
-
-
-  .dropdown-label {
-    display: block;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.4px;
-
-    color: #2b8a3e !important;
-  }
-
-
-  .dropdown-header p {
-    margin:
-      5px 0 0;
-
-    font-size: 12px;
-
-    line-height: 1.4;
-
-    color: #777777 !important;
-  }
-
-
-  /* -------------------------------------------------------
-     PRODUCT GRID
-  ------------------------------------------------------- */
-
-  .products-grid {
+  .mobile-cta .pill-btn {
     width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 0;
-
-    padding:
-      5px 7px;
+    justify-content: space-between;
+    height: 48px;
+    font-size: 15px;
   }
-
-
-  /* -------------------------------------------------------
-     PRODUCT ITEM
-  ------------------------------------------------------- */
-
-  .product-item {
-    width: 100% !important;
-
-    min-height: 48px;
-
-    display: grid !important;
-
-    grid-template-columns:
-      30px
-      minmax(0, 1fr)
-      20px;
-
-    align-items: center;
-
-    column-gap: 7px;
-
-    padding:
-      8px 9px;
-
-    border-bottom:
-      1px solid #e9efea;
-
-    border-radius: 5px;
-  }
-
-
-  .product-item:last-child {
-    border-bottom: none;
-  }
-
-
-  .product-item:hover {
-    background: #edf7ef;
-
-    color: #2b8a3e !important;
-  }
-
-
-  /* -------------------------------------------------------
-     PRODUCT NUMBER
-  ------------------------------------------------------- */
-
-  .product-number {
-    width: 30px !important;
-
-    min-width: 30px !important;
-
-    max-width: 30px !important;
-
-    font-size: 12px !important;
-  }
-
-
-  /* -------------------------------------------------------
-     PRODUCT NAME
-  ------------------------------------------------------- */
-
-  .product-name {
-    font-size: 14px !important;
-
-    font-weight: 600 !important;
-
-    color: #222222 !important;
-  }
-
-
-  /* -------------------------------------------------------
-     PRODUCT ARROW
-  ------------------------------------------------------- */
-
-  .product-arrow {
-    width: 20px;
-
-    min-width: 20px;
-
-    opacity: 1;
-
-    transform: none;
-
-    color: #2b8a3e !important;
-  }
-
-
-  /* -------------------------------------------------------
-     VIEW ALL
-  ------------------------------------------------------- */
-
-  .view-all-products {
-    margin:
-      7px;
-
-    padding:
-      13px 14px;
-
-    font-size: 13px;
-  }
-
 }
 
 
@@ -1734,40 +488,24 @@ body,
 ========================================================= */
 
 @media screen and (max-width: 480px) {
-
   .header {
     height: 72px;
   }
 
   .header.scrolled {
-    height: 68px;
+    height: 66px;
   }
 
   .header-container {
-    padding:
-      0 12px;
-  }
-
-  .logo a {
-    width: 56px;
-    height: 56px;
-
-    padding: 4px;
-
-    border-radius: 11px;
+    padding: 0 12px;
   }
 
   .logo img {
-    height: 49px;
-  }
-
-  .header.scrolled .logo a {
-    width: 52px;
     height: 52px;
   }
 
   .header.scrolled .logo img {
-    height: 45px;
+    height: 48px;
   }
 
   .menu-toggle {
@@ -1775,152 +513,10 @@ body,
     height: 40px;
   }
 
-  .nav {
-    top: 72px;
-
-    max-height:
-      calc(100vh - 72px);
-  }
-
-  .header.scrolled .nav {
-    top: 68px;
-
-    max-height:
-      calc(100vh - 68px);
-  }
-
-  .nav-link {
-    min-height: 52px;
-
-    padding:
-      14px 7px;
-
-    font-size: 16px;
-  }
-
-  .dropdown-arrow {
-    font-size: 15px;
-  }
-
-  .dropdown-header {
-    padding: 13px;
-  }
-
-  .dropdown-label {
-    font-size: 10px;
-  }
-
-  .dropdown-header p {
-    font-size: 11.5px;
-  }
-
-  .product-item {
-    min-height: 46px;
-
-    grid-template-columns:
-      28px
-      minmax(0, 1fr)
-      18px;
-
-    column-gap: 7px;
-
-    padding: 8px;
-  }
-
-  .product-number {
-    width: 28px !important;
-
-    min-width: 28px !important;
-
-    max-width: 28px !important;
-
-    font-size: 11px !important;
-  }
-
-  .product-name {
-    font-size: 13.5px !important;
-  }
-
-  .product-arrow {
-    width: 18px;
-
-    min-width: 18px;
-
-    font-size: 13px;
-  }
-
-  .view-all-products {
-    font-size: 12.5px;
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media screen and (max-width: 360px) {
-
-  .header-container {
-    padding:
-      0 10px;
-  }
-
-  .logo a {
-    width: 52px;
-    height: 52px;
-  }
-
-  .logo img {
-    height: 45px;
-  }
-
-  .header.scrolled .logo a {
-    width: 49px;
-    height: 49px;
-  }
-
-  .header.scrolled .logo img {
-    height: 42px;
-  }
-
   .nav-link {
     min-height: 50px;
-
-    padding:
-      13px 7px;
-
-    font-size: 15px;
+    font-size: 14px;
   }
-
-  .product-item {
-    min-height: 44px;
-
-    grid-template-columns:
-      26px
-      minmax(0, 1fr)
-      18px;
-
-    column-gap: 6px;
-
-    padding: 7px;
-  }
-
-  .product-number {
-    width: 26px !important;
-
-    min-width: 26px !important;
-
-    max-width: 26px !important;
-
-    font-size: 10.5px !important;
-  }
-
-  .product-name {
-    font-size: 13px !important;
-  }
-
 }
 
 
@@ -1929,35 +525,20 @@ body,
 ========================================================= */
 
 .nav-link:focus-visible,
-.enquire-btn:focus-visible,
-.menu-toggle:focus-visible,
-.product-item:focus-visible,
-.view-all-products:focus-visible {
-  outline:
-    2px solid #2b8a3e;
-
+.pill-btn:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--hdr-green-dark);
   outline-offset: 3px;
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
   .header,
-  .header::before,
   .nav,
   .nav-link,
-  .products-dropdown,
-  .product-item,
-  .enquire-btn,
+  .pill-btn,
+  .pill-icon,
   .menu-toggle span,
-  .logo,
-  .logo a,
   .logo img {
     transition: none;
   }
-
 }

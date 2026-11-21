@@ -7,7 +7,11 @@ import Quality3 from "../../images/Quality3.png";
 import Quality4 from "../../images/Quality4.png";
 import Quality5 from "../../images/Quality5.png";
 
-const qualityCards = [
+// =========================================================
+// THE FOUR TESTING STAGES (raw material → shelf life)
+// =========================================================
+
+const qualitySteps = [
   {
     title: "Raw Material Testing",
     image: Quality1,
@@ -28,310 +32,190 @@ const qualityCards = [
     image: Quality4,
     text: "Stability studies help assess product quality and shelf-life over the specified period.",
   },
+];
+
+const tradition = {
+  title: "Where Tradition Meets Process",
+  image: Quality5,
+  text: "Traditional Ayurvedic knowledge forms the foundation of our formulations. Modern quality systems help us bring that knowledge to the present with consistency and responsibility.",
+};
+
+// =========================================================
+// FEATURE ICONS — Lucide shapes (lucide.dev, ISC licence),
+// drawn inline so no extra package is needed
+// =========================================================
+
+const features = [
   {
-    title: "Where Tradition Meets Process",
-    image: Quality5,
-    text: "Traditional Ayurvedic knowledge forms the foundation of our formulations. Modern quality systems help us bring that knowledge to the present with consistency and responsibility.",
+    title: "Natural Ingredients",
+    text: "Carefully Selected",
+    // leaf
+    icon: (
+      <>
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+      </>
+    ),
+  },
+  {
+    title: "Quality Assured",
+    text: "At Every Step",
+    // badge-check
+    icon: (
+      <>
+        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+        <path d="m9 12 2 2 4-4" />
+      </>
+    ),
+  },
+  {
+    title: "Science Backed",
+    text: "Ayurveda",
+    // flask-conical
+    icon: (
+      <>
+        <path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" />
+        <path d="M6.453 15h11.094" />
+        <path d="M8.5 2h7" />
+      </>
+    ),
+  },
+  {
+    title: "Expert Team",
+    text: "Ensuring Excellence",
+    // users
+    icon: (
+      <>
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </>
+    ),
+  },
+  {
+    title: "Sustainable",
+    text: "Responsible Practices",
+    // sprout
+    icon: (
+      <>
+        <path d="M7 20h10" />
+        <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+        <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
+        <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
+      </>
+    ),
   },
 ];
 
+const Icon = ({ children, size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} fill="none"
+    stroke="currentColor" strokeWidth="1.8"
+    strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {children}
+  </svg>
+);
+
 const Quality = () => {
   return (
-    <section
-      className="quality-section"
-      id="quality-section"
-    >
-
-      {/* Background Decoration */}
-      <div className="quality-leaf quality-leaf-left"></div>
-      <div className="quality-leaf quality-leaf-right"></div>
-
+    <section className="quality-section" id="quality-section">
       <div className="quality-container">
 
-        {/* =========================
-            HEADER
-        ========================== */}
-
-        <div
-          className="quality-header"
-          data-aos="fade-up"
-        >
-
-          <span
-            className="quality-eyebrow"
-            data-aos="fade-up"
-          >
-            ANCHAN AYURVEDIC INDUSTRIES
-          </span>
-
-          <h2
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            QUALITY <span>&</span> MANUFACTURING
-          </h2>
-
-          <div
-            className="quality-line"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <span></span>
-            <i>✦</i>
-            <span></span>
-          </div>
-
-          <h3
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Quality You Can Trust. Processes You Can Measure.
-          </h3>
-
-          <p
-            className="quality-intro"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            At Anchan Ayurvedic Industries, quality is not a final checkpoint.
-            It is part of the journey from raw material to finished product.
-          </p>
-
-          <p
-            className="quality-intro"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            Our Quality Control Laboratory is equipped with modern testing
-            facilities and supported by experienced professionals who help
-            ensure that our Ayurvedic products meet defined quality standards.
-          </p>
-
-        </div>
-
-
-        {/* =========================
-            QUALITY CARDS
-        ========================== */}
-
-        <div className="quality-cards">
-
-          {qualityCards.map((card, index) => (
-
-            <article
-              className="quality-card"
-              key={index}
-              data-aos="fade-up"
-              data-aos-delay={(index % 5) * 100}
-            >
-
-              <div
-                className="quality-card-image"
-                style={{
-                  backgroundImage: `url(${card.image})`,
-                }}
-              >
-
-                {/* Image Overlay */}
-                <div className="quality-image-overlay"></div>
-
-
-                {/* =========================
-                    HOVER INFORMATION
-                ========================== */}
-
-                <div className="quality-hover-content">
-
-                  <div className="quality-hover-icon">
-                    <span>✦</span>
-                  </div>
-
-                  <h4>
-                    {card.title}
-                  </h4>
-
-                  <div className="quality-hover-line">
-                    <span></span>
-                    <i>✦</i>
-                    <span></span>
-                  </div>
-
-                  <p>
-                    {card.text}
-                  </p>
-
-                  <div className="quality-hover-label">
-                    QUALITY PROCESS
-                  </div>
-
-                </div>
-
-              </div>
-
-            </article>
-
-          ))}
-
-        </div>
-
-
-        {/* =========================
-            CLOSING STATEMENT
-        ========================== */}
-
-        <div
-          className="quality-closing"
-          data-aos="fade-up"
-        >
-
-          <div
-            className="closing-icon"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-          >
-            <span>♧</span>
-          </div>
-
-          <div
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <h3>
-              Traditional wisdom inspires us.
-            </h3>
-
-            <p>
-              Quality practices guide us.
+        {/* =====================================================
+            HEADER — heading left, intro right
+        ===================================================== */}
+        <header className="quality-header">
+          <div className="quality-header-title" data-aos="fade-up">
+            <h2 className="quality-title">
+              Quality &amp; Manufacturing
+            </h2>
+            <p className="quality-tagline">
+              Quality You Can Trust. Processes You Can Measure.
             </p>
           </div>
 
-        </div>
-
-
-        {/* =========================
-            BOTTOM FEATURES
-        ========================== */}
-
-        <div className="quality-features">
-
-          <div
-            className="quality-feature"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-
-            <div className="feature-icon">
-              ✿
-            </div>
-
-            <div>
-              <strong>
-                Natural Ingredients
-              </strong>
-
-              <span>
-                Carefully Selected
-              </span>
-            </div>
-
+          <div className="quality-header-text" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              At Anchan Ayurvedic Industries, quality is not a final
+              checkpoint. It is part of the journey from raw material to
+              finished product.
+            </p>
+            <p>
+              Our Quality Control Laboratory is equipped with modern testing
+              facilities and supported by experienced professionals who help
+              ensure that our Ayurvedic products meet defined quality
+              standards.
+            </p>
           </div>
+        </header>
 
+        {/* =====================================================
+            PROCESS — four stages joined by a dotted line
+        ===================================================== */}
+        <ol className="quality-process">
+          {qualitySteps.map((step, index) => (
+            <li
+              key={step.title}
+              className="quality-step"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <figure className="quality-step-media">
+                <img src={step.image} alt={step.title} loading="lazy" />
+                {/* round "quality stamp" with the step number */}
+                <span className="quality-stamp" aria-hidden="true">
+                  <small>Step</small>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </figure>
 
-          <div
-            className="quality-feature"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+              <h3 className="quality-step-title">{step.title}</h3>
+              <p className="quality-step-text">{step.text}</p>
+            </li>
+          ))}
+        </ol>
 
-            <div className="feature-icon">
-              ✓
-            </div>
+        {/* =====================================================
+            TRADITION MEETS PROCESS — wide feature card
+        ===================================================== */}
+        <article className="quality-feature-card" data-aos="fade-up">
+          <figure className="quality-feature-media">
+            <img src={tradition.image} alt={tradition.title} loading="lazy" />
+          </figure>
 
-            <div>
-              <strong>
-                Quality Assured
-              </strong>
+          <div className="quality-feature-body">
+            <h3 className="quality-feature-title">{tradition.title}</h3>
+            <p className="quality-feature-text">{tradition.text}</p>
 
-              <span>
-                At Every Step
-              </span>
-            </div>
-
+            <p className="quality-motto">
+              Traditional wisdom inspires us.
+              <span>Quality practices guide us.</span>
+            </p>
           </div>
+        </article>
 
-
-          <div
-            className="quality-feature"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-
-            <div className="feature-icon">
-              ⚗
-            </div>
-
-            <div>
-              <strong>
-                Science Backed
-              </strong>
-
-              <span>
-                Ayurveda
+        {/* =====================================================
+            FEATURES ROW
+        ===================================================== */}
+        <ul className="quality-features">
+          {features.map((item, index) => (
+            <li
+              key={item.title}
+              className="quality-feat"
+              data-aos="fade-up"
+              data-aos-delay={index * 80}
+            >
+              <span className="quality-feat-icon">
+                <Icon>{item.icon}</Icon>
               </span>
-            </div>
-
-          </div>
-
-
-          <div
-            className="quality-feature"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-
-            <div className="feature-icon">
-              ♙
-            </div>
-
-            <div>
-              <strong>
-                Expert Team
-              </strong>
-
-              <span>
-                Ensuring Excellence
+              <span className="quality-feat-text">
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
               </span>
-            </div>
-
-          </div>
-
-
-          <div
-            className="quality-feature"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-
-            <div className="feature-icon">
-              ♧
-            </div>
-
-            <div>
-              <strong>
-                Sustainable
-              </strong>
-
-              <span>
-                Responsible Practices
-              </span>
-            </div>
-
-          </div>
-
-        </div>
-
+            </li>
+          ))}
+        </ul>
       </div>
-
     </section>
   );
 };

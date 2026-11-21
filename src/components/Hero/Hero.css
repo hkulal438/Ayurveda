@@ -1,325 +1,140 @@
 /* =========================================================
    ANCHAN AYURVEDIC INDUSTRIES
-   HERO / GALLERY
+   HERO — 3-slide crossfade (8s each)
+   Slide 1: text + logos · Slides 2–3: image only
+   Title: Playfair Display · Body: Lexend Deca
 ========================================================= */
 
-
-/* =========================================================
-   HERO VARIABLES
-========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lexend+Deca:wght@300;400&display=swap");
 
 .hero {
-  --forest: #063c2b;
-  --forest-light: #0b4d38;
-  --cream: #f4f2d8;
-  --gold: #e2d68e;
-  --white: #ffffff;
-
-  /* react-gallery variables */
-  --item-width: 100%;
-  --gap: 0px;
-  --active-gap: 0px;
-  --duration: 0.75s;
-  --position-offset: 0px;
+  --hero-title: #1c2340;
+  --hero-text: #4a4a4a;
+  --hero-green: #8cc63f;
+  --hero-green-dark: #76ad2c;
+  --hero-bg: #f1eae0;              /* exact wall colour sampled from hr.jpeg */
+  --hero-header: 100px;            /* fixed header height */
+  --hero-fade: 1.2s;               /* crossfade length */
 
   position: relative;
-
+  box-sizing: border-box;   /* header padding counts inside the height */
   width: 100%;
+
+  /* One screen tall (never taller than the 16:9 image itself).
+     The product banner crops its empty top wall; the photo
+     slides are shown whole with a blurred fill at the sides. */
   height: 100vh;
-  min-height: 680px;
-
+  height: 100svh;
+  min-height: 560px;
+  max-height: calc(var(--hero-header) + 56.25vw);
   margin: 0;
-  padding: 0;
+  padding-top: var(--hero-header);
+
+  display: flex;
+  align-items: center;
 
   overflow: hidden;
-
-  background: var(--forest);
+  background: var(--hero-bg);
 }
 
 
 /* =========================================================
-   MAIN GALLERY
+   SLIDES — start BELOW the fixed header, stacked
 ========================================================= */
 
-.gallery {
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  margin: 0;
-  padding: 0;
-
-  overflow: hidden;
-
-  --item-width: 100%;
-  --gap: 0px;
-  --active-gap: 0px;
-  --duration: 0.75s;
-  --position-offset: 0px;
-}
-
-
-/* =========================================================
-   GALLERY TRACK
-========================================================= */
-
-.track {
-  width: 100%;
-  height: 100%;
-
-  margin: 0;
-  padding: 0;
-
-  overflow: visible;
-}
-
-
-/* =========================================================
-   GALLERY ITEM
-
-   IMPORTANT:
-   react-gallery controls the transform/position.
-   Do NOT add position:absolute on desktop.
-========================================================= */
-
-.item {
-  width: 100% !important;
-  height: 100% !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
-  overflow: hidden !important;
-}
-
-
-/* =========================================================
-   SLIDE
-========================================================= */
-
-.slide {
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  margin: 0;
-  padding: 0;
-
-  overflow: hidden;
-
-  background: var(--forest);
-}
-
-
-/* =========================================================
-   DESKTOP IMAGE
-========================================================= */
-
-.image {
+.hero-slides {
   position: absolute;
+  top: var(--hero-header);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
 
+.hero-slide {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--hero-fade) ease,
+    visibility 0s linear var(--hero-fade);
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--hero-fade) ease,
+    visibility 0s;
+}
+
+.hero-image {
+  position: absolute;
   top: 0;
   left: 0;
 
   width: 100%;
   height: 100%;
-
   display: block;
 
-  margin: 0;
-  padding: 0;
-
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
 
-  opacity: 1;
-  visibility: visible;
+  pointer-events: none;
+  user-select: none;
+}
 
-  transition:
-    opacity 0.7s ease,
-    transform 1s ease;
+/* Product banner: keep the products + shelf, trim the empty wall */
+.hero-slide--products .hero-image {
+  object-position: right 85%;
+}
 
-  will-change: transform, opacity;
+/* Photo slides: edge-to-edge. On very wide screens a strip has to
+   be trimmed — keep the TOP (heads) and trim from the bottom. */
+.hero-slide--manasa .hero-image {
+  object-position: center 8%;
+}
+
+.hero-slide--bananti .hero-image {
+  object-position: center 10%;
 }
 
 
 /* =========================================================
-   IMAGE OVERLAY
+   CONTENT — visible on slide 1 only
 ========================================================= */
 
-.imageOverlay {
-  position: absolute;
-
-  inset: 0;
-
+.hero-container {
+  position: relative;
   z-index: 2;
 
   width: 100%;
-  height: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 32px 32px 56px;
 
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2, 43, 30, 0.84) 0%,
-      rgba(2, 43, 30, 0.62) 23%,
-      rgba(2, 43, 30, 0.18) 55%,
-      rgba(2, 43, 30, 0.05) 100%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(2, 43, 30, 0.02) 40%,
-      rgba(2, 43, 30, 0.12) 70%,
-      rgba(2, 43, 30, 0.42) 100%
-    );
+  transition:
+    opacity 0.6s ease,
+    visibility 0s;
 }
 
-
-/* =========================================================
-   CONTENT RAIL
-========================================================= */
-
-.rail {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 20;
-
-  width: 100%;
-  height: 100%;
-
-  margin: 0;
-  padding: 0;
-
+.hero--image-only .hero-container {
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+  transition:
+    opacity 0.6s ease,
+    visibility 0s linear 0.6s;
 }
 
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.content {
-  position: absolute;
-
-  left: 8%;
-  top: 50%;
-
-  width: min(620px, 42vw);
-
-  transform: translateY(-50%);
-
+.hero-content {
+  width: min(600px, 46%);
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-start;
-
-  margin: 0;
-  padding: 0;
-
-  pointer-events: auto;
-
-  animation:
-    heroContentIn 0.65s ease both;
-}
-
-
-/* =========================================================
-   CONTENT ANIMATION
-========================================================= */
-
-@keyframes heroContentIn {
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(
-        calc(-50% + 18px)
-      );
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(-50%);
-  }
-}
-
-
-/* =========================================================
-   AYURVEDA TAG
-========================================================= */
-
-.ayurvedaTag {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  height: 34px;
-
-  padding: 0 17px;
-
-  margin: 0 0 18px;
-
-  border:
-    1px solid
-    rgba(226, 214, 142, 0.8);
-
-  border-radius: 50px;
-
-  background:
-    rgba(9, 67, 47, 0.52);
-
-  color: var(--gold);
-
-  font-family:
-    "Poppins",
-    sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 600;
-
-  letter-spacing: 1.8px;
-
-  line-height: 1;
-
-  white-space: nowrap;
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-
-/* =========================================================
-   SLIDE NUMBER
-========================================================= */
-
-.kicker {
-  margin: 0 0 15px;
-
-  padding: 0;
-
-  color: var(--gold);
-
-  font-family:
-    "Poppins",
-    sans-serif;
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  letter-spacing: 3px;
-
-  line-height: 1.2;
 }
 
 
@@ -327,48 +142,20 @@
    TITLE
 ========================================================= */
 
-.title {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-start;
-
-  width: 100%;
-
+.hero .hero-title {
+  width: max-content;
+  max-width: none;
   margin: 0 0 22px;
 
-  padding: 0;
-
-  color: var(--white);
-
-  font-family:
-    "Cormorant Garamond",
-    Cambria,
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(58px, 5.3vw, 88px);
-
+  color: var(--hero-title);
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(40px, 3.5vw, 68px);
   font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
 
-  line-height: 0.88;
-
-  letter-spacing: -1.8px;
-
-  text-shadow:
-    0 4px 18px
-    rgba(0, 0, 0, 0.18);
-}
-
-
-.title span {
-  display: block;
-
-  margin: 0;
-  padding: 0;
+  /* keep the heading on a single line on desktop */
+  white-space: nowrap !important;
 }
 
 
@@ -376,333 +163,180 @@
    DESCRIPTION
 ========================================================= */
 
-.description {
-  max-width: 590px;
+.hero-description {
+  max-width: 540px;
+  margin: 0 0 30px;
 
-  margin: 0 0 28px;
-
-  padding: 0;
-
-  color:
-    rgba(255, 255, 255, 0.92);
-
-  font-family:
-    "Poppins",
-    sans-serif;
-
-  font-size: 16px;
-
-  font-weight: 400;
-
-  line-height: 1.65;
+  color: var(--hero-text);
+  font-family: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
 }
 
 
 /* =========================================================
-   EXPLORE BUTTON
+   LEARN MORE BUTTON (same pill as header)
 ========================================================= */
 
-.exploreButton {
+.hero-btn {
   display: inline-flex;
-
   align-items: center;
-  justify-content: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 12px 0 26px;
 
-  gap: 24px;
-
-  width: 216px;
-  height: 56px;
-
-  padding: 0 24px;
-
-  margin: 0;
-
+  background: var(--hero-green);
+  color: #ffffff;
   border: none;
-
-  border-radius: 50px;
-
-  background: var(--cream);
-
-  color: #14563d;
-
-  font-family:
-    "Poppins",
-    sans-serif;
-
-  font-size: 14px;
-
-  font-weight: 600;
-
-  line-height: 1;
-
+  border-radius: 999px;
   cursor: pointer;
 
-  box-shadow:
-    0 10px 25px
-    rgba(0, 0, 0, 0.14);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-
-.exploreButton:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 14px 30px
-    rgba(0, 0, 0, 0.20);
-}
-
-
-.exploreButton .arrow {
-  font-size: 22px;
-
-  line-height: 1;
-}
-
-
-/* =========================================================
-   CONTROLS
-========================================================= */
-
-.controls {
-  position: absolute;
-
-  left: 8%;
-  bottom: 9%;
-
-  z-index: 30;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  pointer-events: auto;
-}
-
-
-/* =========================================================
-   NAVIGATION BUTTONS
-========================================================= */
-
-.navBtn {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 58px;
-  height: 58px;
-
-  padding: 0;
-
-  border:
-    1px solid
-    rgba(226, 214, 142, 0.85);
-
-  border-radius: 50%;
-
-  background:
-    rgba(7, 67, 46, 0.65);
-
-  color: var(--gold);
-
-  cursor: pointer;
-
-  appearance: none;
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  font-family: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
 
   transition:
     background 0.25s ease,
     transform 0.25s ease,
-    border-color 0.25s ease;
+    box-shadow 0.25s ease;
 }
 
-
-.navBtn:hover {
-  background:
-    rgba(226, 214, 142, 0.17);
-
-  border-color:
-    rgba(226, 214, 142, 1);
-
-  transform: translateY(-2px);
+.hero-btn:hover {
+  background: var(--hero-green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(140, 198, 63, 0.35);
 }
 
+.hero-btn-icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-.navBtn:active {
-  transform:
-    translateY(0)
-    scale(0.96);
+  background: #ffffff;
+  color: var(--hero-green);
+  border-radius: 50%;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-
-.navBtn svg {
-  width: 20px;
-  height: 20px;
-
-  pointer-events: none;
+.hero-btn:hover .hero-btn-icon {
+  color: var(--hero-green-dark);
+  transform: translateX(2px);
 }
 
 
 /* =========================================================
-   THUMB BUTTON
+   CERTIFICATION LOGOS (no background)
 ========================================================= */
 
-.thumbButton {
-  position: absolute;
+.hero-logos {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 44px;
+}
 
-  inset: 0;
+.hero-logo-card {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  z-index: 5;
-
-  width: 100%;
+.hero-logo-card img {
   height: 100%;
+  width: auto;
+  max-width: 150px;
+  display: block;
+  object-fit: contain;
+}
 
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transform: translateX(-50%);
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
   padding: 0;
 
-  border: 0;
-
-  background: transparent;
-
+  border: none;
+  border-radius: 999px;
+  background: rgba(28, 35, 64, 0.3);
   cursor: pointer;
+
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.hero-dot.is-active {
+  width: 30px;
+  background: var(--hero-green);
 }
 
 
 /* =========================================================
-   VISUALLY HIDDEN
+   SMALL LAPTOP — soft wash on the product slide for the text
 ========================================================= */
 
-.visuallyHidden {
-  position: absolute !important;
+@media screen and (max-width: 1150px) {
+  .hero-slide--products::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgba(241, 234, 224, 0.92) 0%,
+      rgba(241, 234, 224, 0.7) 40%,
+      rgba(241, 234, 224, 0) 65%
+    );
+  }
 
-  width: 1px !important;
-  height: 1px !important;
+  .hero-container {
+    padding: 32px 22px 48px;
+  }
 
-  padding: 0 !important;
-  margin: -1px !important;
+  .hero-content {
+    width: min(540px, 52%);
+  }
 
-  overflow: hidden !important;
+  .hero-description {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
 
-  clip: rect(0, 0, 0, 0) !important;
+  .hero-logos {
+    margin-top: 30px;
+  }
 
-  clip-path: inset(50%) !important;
-
-  white-space: nowrap !important;
-
-  border: 0 !important;
-}
-
-
-/* =========================================================
-   DECORATIVE CIRCLES
-========================================================= */
-
-.decorativeCircle {
-  position: absolute;
-
-  z-index: 4;
-
-  border:
-    1px solid
-    rgba(226, 214, 142, 0.22);
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  opacity: 0.9;
-}
-
-
-.circleOne {
-  width: 520px;
-  height: 520px;
-
-  right: -270px;
-  top: 15%;
-}
-
-
-.circleTwo {
-  width: 700px;
-  height: 700px;
-
-  right: -360px;
-  top: 4%;
-}
-
-
-/* =========================================================
-   DECORATIVE DOTS
-========================================================= */
-
-.decorativeDot {
-  position: absolute;
-
-  z-index: 5;
-
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background: var(--gold);
-
-  pointer-events: none;
-}
-
-
-.dotOne {
-  right: 12%;
-  top: 20%;
-}
-
-
-.dotTwo {
-  right: 10%;
-  bottom: 22%;
-}
-
-
-/* =========================================================
-   VERTICAL TEXT
-========================================================= */
-
-.verticalText {
-  position: absolute;
-
-  right: 4%;
-  top: 50%;
-
-  z-index: 5;
-
-  transform:
-    translateY(-50%)
-    rotate(90deg);
-
-  color:
-    rgba(244, 242, 216, 0.72);
-
-  font-family:
-    "Poppins",
-    sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 600;
-
-  letter-spacing: 5px;
-
-  pointer-events: none;
-
-  white-space: nowrap;
+  .hero-logo-card {
+    height: 76px;
+  }
 }
 
 
@@ -710,1026 +344,219 @@
    TABLET
 ========================================================= */
 
-@media screen and (max-width: 1100px) {
-
-  .content {
-    left: 6%;
-
-    width: 52vw;
+@media screen and (max-width: 980px) {
+  .hero {
+    --hero-header: 84px;
   }
 
-
-  .title {
-    font-size:
-      clamp(52px, 7vw, 72px);
+  .hero-content {
+    width: 58%;
   }
 
+  .hero .hero-title {
+    width: auto;
+    margin-bottom: 14px;
+    font-size: clamp(30px, 4.2vw, 40px);
+    white-space: normal !important;   /* too narrow for one line */
+  }
 
-  .description {
-    max-width: 500px;
-
+  .hero-description {
     font-size: 14px;
-
     line-height: 1.6;
+    margin-bottom: 18px;
   }
 
-
-  .controls {
-    left: 6%;
+  .hero-btn {
+    height: 44px;
+    font-size: 14px;
   }
 
-
-  .navBtn {
-    width: 54px;
-    height: 54px;
+  .hero-logos {
+    margin-top: 20px;
   }
 
+  .hero-logo-card {
+    height: 60px;
+  }
 }
 
 
 /* =========================================================
-   MOBILE
-   700px AND BELOW
+   MOBILE — clean stack:
+   heading/button/logos (on cream) → 16:9 image frame → dots
+   The text sits above the picture (never on it), so it
+   stays put while the three images change underneath.
 ========================================================= */
 
-@media screen and (max-width: 700px) {
-
-  /*
-    MOBILE HERO
-
-    Image:
-    16:9
-
-    Content:
-    immediately below image
-  */
-
+@media screen and (max-width: 768px) {
   .hero {
-    height:
-      calc(56.25vw + 365px);
-
+    --hero-header: 76px;
+    height: auto;
     min-height: 0;
-
-    overflow: hidden;
-
-    background:
-      var(--forest);
-
-    --item-width: 100%;
-    --gap: 0px;
-    --active-gap: 0px;
-  }
-
-
-  /* =======================================================
-     MOBILE GALLERY
-  ======================================================= */
-
-  .gallery {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    overflow: hidden !important;
-  }
-
-
-  .track {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    overflow: hidden !important;
-  }
-
-
-  /* =======================================================
-     MOBILE ITEMS
-
-     Only the active slide is displayed.
-  ======================================================= */
-
-  .item {
-    position: absolute !important;
-
-    inset: 0 !important;
-
-    width: 100% !important;
-    min-width: 100% !important;
-
-    height: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    overflow: hidden !important;
-
-    transform: none !important;
-  }
-
-
-  .item[data-active="true"] {
-    display: block !important;
-
-    z-index: 5 !important;
-
-    opacity: 1 !important;
-
-    visibility: visible !important;
-  }
-
-
-  .item[data-active="false"] {
-    display: none !important;
-
-    z-index: 0 !important;
-
-    opacity: 0 !important;
-
-    visibility: hidden !important;
-  }
-
-
-  /* =======================================================
-     MOBILE SLIDE
-  ======================================================= */
-
-  .slide {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    background:
-      var(--forest);
-  }
-
-
-  /* =======================================================
-     MOBILE IMAGE
-
-     IMPORTANT FIX:
-     Exact 16:9 image height.
-
-     This removes the unwanted empty space
-     between the image and content.
-  ======================================================= */
-
-  .image {
-    position: absolute !important;
-
-    top: 0 !important;
-    left: 0 !important;
-
-    width: 100vw !important;
-
-    height: 56.25vw !important;
-
-    max-width: none !important;
-
-    min-height: 0 !important;
-
-    display: block !important;
-
-    object-fit: cover !important;
-
-    object-position: center center !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    transform: none !important;
-
-    opacity: 1 !important;
-
-    visibility: visible !important;
-  }
-
-
-  /* =======================================================
-     MOBILE OVERLAY
-
-     Same height as the image.
-  ======================================================= */
-
-  .imageOverlay {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-
-    height: 56.25vw;
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(4, 60, 43, 0) 40%,
-        rgba(4, 60, 43, 0.03) 50%,
-        rgba(4, 60, 43, 0.16) 65%,
-        rgba(4, 60, 43, 0.55) 84%,
-        #063c2b 100%
-      );
-  }
-
-
-  /* =======================================================
-     MOBILE RAIL
-
-     Image
-       ↓
-     Small gap
-       ↓
-     Tag
-       ↓
-     Number
-       ↓
-     Title
-       ↓
-     Description
-       ↓
-     Button
-       ↓
-     Controls
-  ======================================================= */
-
-  .rail {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: 20;
+    max-height: none;
 
     display: flex;
-
     flex-direction: column;
-
-    justify-content: flex-start;
-
-    align-items: flex-start;
-
-    padding:
-      calc(56.25vw + 8px)
-      20px
-      15px;
-
-    margin: 0;
-
-    pointer-events: none;
+    align-items: stretch;
   }
 
+  /* ----- text block (slide 1 only — collapses on slides 2–3) ----- */
 
-  /* =======================================================
-     MOBILE CONTENT
-  ======================================================= */
+  .hero-container {
+    order: 1;
+    max-height: 900px;
+    overflow: hidden;
+    padding: 32px 20px 22px;
 
-  .content {
-    position: static;
+    transition:
+      max-height 0.7s ease,
+      padding 0.7s ease,
+      opacity 0.5s ease,
+      visibility 0s;
+  }
+
+  .hero--image-only .hero-container {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      max-height 0.7s ease,
+      padding 0.7s ease,
+      opacity 0.3s ease,
+      visibility 0s linear 0.7s;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero .hero-title {
+    width: auto;
+    margin-bottom: 14px;
+    font-size: clamp(30px, 8.6vw, 42px);
+    line-height: 1.18;
+    white-space: normal !important;
+  }
+
+  .hero-description {
+    margin-bottom: 22px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-btn {
+    height: 48px;
+    font-size: 15px;
+    padding: 0 10px 0 22px;
+  }
+
+  .hero-logos {
+    margin-top: 22px;
+    gap: 16px;
+  }
+
+  .hero-logo-card {
+    height: 64px;
+  }
+
+  .hero-logo-card img {
+    max-width: 110px;
+  }
+
+  /* ----- image frame: 16:9, full images, nothing cut ----- */
+
+  .hero-slides {
+    order: 2;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
 
     width: 100%;
-    max-width: 100%;
+    aspect-ratio: 16 / 9;
+  }
 
+  .hero-slide--products::after {
+    display: none;
+  }
+
+  /* photos: the 16:9 frame matches the photos — shown whole */
+
+  /* Product banner: zoom into the product row so the bottles
+     aren't tiny, and fade the empty wall into the cream. */
+  .hero-slide--products .hero-image {
+    top: -57%;
+    height: 168%;
+    object-position: 98% center;
+
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 45%);
+    mask-image: linear-gradient(to bottom, transparent 30%, #000 45%);
+  }
+
+  /* ----- dots under the frame ----- */
+
+  .hero-dots {
+    order: 3;
+    position: static;
+    align-self: center;
     transform: none;
 
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    margin: 0;
-    padding: 0;
-
-    animation:
-      mobileContentIn 0.55s ease both;
+    margin: 14px 0 20px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
-
-
-  @keyframes mobileContentIn {
-
-    from {
-      opacity: 0;
-
-      transform:
-        translateY(8px);
-    }
-
-    to {
-      opacity: 1;
-
-      transform:
-        translateY(0);
-    }
-
-  }
-
-
-  /* =======================================================
-     MOBILE TAG
-  ======================================================= */
-
-  .ayurvedaTag {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    height: 30px;
-    min-height: 30px;
-
-    padding:
-      0 12px;
-
-    margin:
-      0 0 8px;
-
-    border:
-      1px solid
-      rgba(226, 214, 142, 0.85);
-
-    border-radius: 50px;
-
-    background:
-      rgba(13, 71, 49, 0.78);
-
-    color:
-      #eee5a7;
-
-    font-family:
-      "Poppins",
-      sans-serif;
-
-    font-size: 7.5px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    line-height: 1;
-
-    white-space: nowrap;
-
-    backdrop-filter:
-      blur(7px);
-
-    -webkit-backdrop-filter:
-      blur(7px);
-  }
-
-
-  /* =======================================================
-     MOBILE NUMBER
-  ======================================================= */
-
-  .kicker {
-    margin:
-      0 0 9px;
-
-    padding: 0;
-
-    color:
-      #e0d58c;
-
-    font-family:
-      "Poppins",
-      sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-
-    line-height: 1.2;
-  }
-
-
-  /* =======================================================
-     MOBILE TITLE
-  ======================================================= */
-
-  .title {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    width: 100%;
-    max-width: 100%;
-
-    margin:
-      0 0 10px;
-
-    padding: 0;
-
-    color:
-      #ffffff;
-
-    font-family:
-      "Cormorant Garamond",
-      Cambria,
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size:
-      clamp(
-        34px,
-        9.4vw,
-        38px
-      );
-
-    font-weight: 600;
-
-    line-height: 0.92;
-
-    letter-spacing:
-      -0.35px;
-
-    text-shadow:
-      0 3px 14px
-      rgba(0, 0, 0, 0.2);
-  }
-
-
-  .title span {
-    display: block;
-
-    width: auto;
-    max-width: 100%;
-
-    margin: 0;
-    padding: 0;
-
-    white-space: normal;
-  }
-
-
-  /* =======================================================
-     MOBILE DESCRIPTION
-  ======================================================= */
-
-  .description {
-    width: 100%;
-
-    max-width: 345px;
-
-    margin:
-      0 0 13px;
-
-    padding: 0;
-
-    color:
-      rgba(255, 255, 255, 0.94);
-
-    font-family:
-      "Poppins",
-      sans-serif;
-
-    font-size: 11.2px;
-
-    font-weight: 400;
-
-    line-height: 1.45;
-
-    display:
-      -webkit-box;
-
-    -webkit-box-orient:
-      vertical;
-
-    -webkit-line-clamp: 2;
-
-    overflow: hidden;
-  }
-
-
-  /* =======================================================
-     MOBILE EXPLORE BUTTON
-  ======================================================= */
-
-  .exploreButton {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 13px;
-
-    width: 170px;
-    min-width: 170px;
-
-    height: 46px;
-
-    padding:
-      0 18px;
-
-    margin: 0;
-
-    border: none;
-
-    border-radius: 50px;
-
-    background:
-      #f2f3d7;
-
-    color:
-      #18553b;
-
-    font-family:
-      "Poppins",
-      sans-serif;
-
-    font-size: 11.5px;
-
-    font-weight: 600;
-
-    line-height: 1;
-
-    pointer-events: auto;
-
-    box-shadow:
-      0 8px 20px
-      rgba(0, 0, 0, 0.14);
-  }
-
-
-  .exploreButton .arrow {
-    font-size: 17px;
-
-    line-height: 1;
-  }
-
-
-  /* =======================================================
-     MOBILE CONTROLS
-  ======================================================= */
-
-  .controls {
-    position: static;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    margin:
-      20px 0 0;
-
-    padding: 0;
-
-    pointer-events: auto;
-  }
-
-
-  /* =======================================================
-     MOBILE NAVIGATION
-  ======================================================= */
-
-  .navBtn {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 47px;
-    height: 47px;
-
-    padding: 0;
-
-    border:
-      1px solid
-      rgba(226, 214, 142, 0.8);
-
-    border-radius: 50%;
-
-    background:
-      rgba(12, 72, 49, 0.7);
-
-    color:
-      #f0df91;
-
-    backdrop-filter:
-      blur(7px);
-
-    -webkit-backdrop-filter:
-      blur(7px);
-
-    cursor: pointer;
-
-    appearance: none;
-  }
-
-
-  .navBtn svg {
-    width: 19px;
-    height: 19px;
-  }
-
-
-  /* =======================================================
-     MOBILE DECORATIONS
-  ======================================================= */
-
-  .verticalText,
-  .decorativeDot {
-    display: none !important;
-  }
-
-
-  .decorativeCircle {
-    opacity: 0.07;
-
-    z-index: 7;
-  }
-
-
-  .circleOne {
-    width: 260px;
-    height: 260px;
-
-    right: -205px;
-
-    top: 42%;
-  }
-
-
-  .circleTwo {
-    width: 340px;
-    height: 340px;
-
-    right: -265px;
-
-    top: 39%;
-  }
-
-
-  /* =======================================================
-     MOBILE THUMB BUTTONS
-  ======================================================= */
-
-  .thumbButton {
-    display: none !important;
-  }
-
 }
 
 
 /* =========================================================
-   480px AND BELOW
+   SMALL MOBILE
 ========================================================= */
 
 @media screen and (max-width: 480px) {
-
   .hero {
-    height:
-      calc(56.25vw + 365px);
+    --hero-header: 72px;
   }
 
-
-  .rail {
-    padding:
-      calc(56.25vw + 8px)
-      18px
-      15px;
+  .hero-container {
+    padding: 28px 16px 20px;
   }
 
-
-  .title {
-    font-size:
-      clamp(
-        33px,
-        9.5vw,
-        37px
-      );
+  .hero-description {
+    font-size: 14px;
   }
 
-
-  .description {
-    max-width: 345px;
+  .hero-logo-card {
+    height: 56px;
   }
-
 }
 
 
 /* =========================================================
-   390px AND BELOW
+   ACCESSIBILITY
 ========================================================= */
 
-@media screen and (max-width: 390px) {
-
-  .hero {
-    height:
-      calc(56.25vw + 365px);
-  }
-
-
-  .rail {
-    padding:
-      calc(56.25vw + 8px)
-      18px
-      15px;
-  }
-
-
-  .ayurvedaTag {
-    height: 29px;
-
-    min-height: 29px;
-
-    padding:
-      0 11px;
-
-    margin-bottom: 8px;
-
-    font-size: 7.2px;
-  }
-
-
-  .kicker {
-    margin-bottom: 9px;
-
-    font-size: 8.6px;
-  }
-
-
-  .title {
-    font-size: 34px;
-
-    line-height: 0.93;
-
-    margin-bottom: 10px;
-  }
-
-
-  .description {
-    font-size: 11px;
-
-    line-height: 1.44;
-
-    margin-bottom: 13px;
-  }
-
-
-  .exploreButton {
-    width: 168px;
-
-    min-width: 168px;
-
-    height: 45px;
-  }
-
-
-  .controls {
-    margin-top: 19px;
-  }
-
-
-  .navBtn {
-    width: 46px;
-    height: 46px;
-  }
-
-}
-
-
-/* =========================================================
-   379px AND BELOW
-========================================================= */
-
-@media screen and (max-width: 379px) {
-
-  .hero {
-    height:
-      calc(56.25vw + 365px);
-  }
-
-
-  .rail {
-    padding:
-      calc(56.25vw + 8px)
-      20px
-      15px;
-  }
-
-
-  .ayurvedaTag {
-    height: 29px;
-
-    min-height: 29px;
-
-    padding:
-      0 11px;
-
-    margin-bottom: 8px;
-
-    font-size: 7px;
-
-    letter-spacing:
-      0.85px;
-  }
-
-
-  .kicker {
-    margin-bottom: 9px;
-
-    font-size: 8.5px;
-
-    letter-spacing:
-      1.8px;
-  }
-
-
-  .title {
-    font-size: 34px;
-
-    line-height: 0.93;
-
-    letter-spacing:
-      -0.25px;
-
-    margin-bottom: 10px;
-  }
-
-
-  .description {
-    max-width: 338px;
-
-    font-size: 11px;
-
-    line-height: 1.43;
-
-    margin-bottom: 13px;
-
-    -webkit-line-clamp: 2;
-  }
-
-
-  .exploreButton {
-    width: 168px;
-
-    min-width: 168px;
-
-    height: 45px;
-
-    font-size: 11.5px;
-  }
-
-
-  .controls {
-    position: static;
-
-    margin-top: 20px;
-
-    gap: 9px;
-  }
-
-
-  .navBtn {
-    width: 46px;
-    height: 46px;
-  }
-
-}
-
-
-/* =========================================================
-   350px AND BELOW
-========================================================= */
-
-@media screen and (max-width: 350px) {
-
-  .hero {
-    height:
-      calc(56.25vw + 350px);
-  }
-
-
-  .rail {
-    padding:
-      calc(56.25vw + 8px)
-      15px
-      14px;
-  }
-
-
-  .ayurvedaTag {
-    height: 28px;
-
-    min-height: 28px;
-
-    margin-bottom: 7px;
-
-    font-size: 6.7px;
-  }
-
-
-  .kicker {
-    margin-bottom: 8px;
-
-    font-size: 8px;
-  }
-
-
-  .title {
-    font-size: 31px;
-
-    line-height: 0.94;
-
-    margin-bottom: 9px;
-  }
-
-
-  .description {
-    font-size: 10.3px;
-
-    line-height: 1.42;
-
-    margin-bottom: 12px;
-  }
-
-
-  .exploreButton {
-    width: 158px;
-
-    min-width: 158px;
-
-    height: 43px;
-
-    font-size: 10.8px;
-  }
-
-
-  .controls {
-    margin-top: 18px;
-  }
-
-
-  .navBtn {
-    width: 44px;
-    height: 44px;
-  }
-
-}
-
-
-/* =========================================================
-   FOCUS
-========================================================= */
-
-.exploreButton:focus-visible,
-.navBtn:focus-visible,
-.thumbButton:focus-visible {
-
-  outline:
-    2px solid
-    var(--gold);
-
+.hero-btn:focus-visible,
+.hero-dot:focus-visible {
+  outline: 2px solid var(--hero-green-dark);
   outline-offset: 3px;
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
   .hero {
-    --duration: 0s;
+    --hero-fade: 0s;
   }
 
-
-  .content {
-    animation: none !important;
+  .hero-container,
+  .hero-btn,
+  .hero-btn-icon,
+  .hero-dot {
+    transition: none;
   }
-
-
-  .image,
-  .exploreButton,
-  .navBtn {
-    transition: none !important;
-  }
-
 }

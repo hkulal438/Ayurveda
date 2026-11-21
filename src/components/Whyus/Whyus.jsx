@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Whyus.css";
 
 const ayurvedicImages = {
@@ -20,6 +21,24 @@ const ayurvedicImages = {
   bottomCenter:
     "https://images.pexels.com/photos/29387141/pexels-photo-29387141.jpeg",
 };
+
+// image behind the "Begin Your Journey" card
+const images = {
+  cta: "https://images.pexels.com/photos/7615457/pexels-photo-7615457.jpeg",
+};
+
+const principles = [
+  "Respect the tradition",
+  "Understand the science",
+  "Maintain the quality",
+  "Serve with purpose",
+];
+
+const Leaf = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+    <path d="M4 20C4 12 8 6 20 4C18 16 12 20 4 20Z" />
+  </svg>
+);
 
 const Whyus = () => {
   return (
@@ -251,115 +270,85 @@ const Whyus = () => {
 
 
       {/* =====================================================
-          PHILOSOPHY
-      ====================================================== */}
+          2. PHILOSOPHY — statement + moving ribbon
+      ===================================================== */}
+      <div className="whyus-philosophy">
+        <div className="whyus-philosophy-inner">
+          <h2 className="whyus-heading whyus-heading--center" data-aos="fade-up">
+            Ancient Knowledge.
+            <span>Contemporary Responsibility.</span>
+          </h2>
 
-      <div
-        className="whyus-philosophy"
-        data-aos="fade-up"
-      >
+          <p className="whyus-philosophy-text" data-aos="fade-up" data-aos-delay="100">
+            We believe Ayurveda belongs both to its heritage and to the
+            future. Our responsibility is to preserve the wisdom of
+            traditional Ayurveda while continuously improving the way
+            Ayurvedic products are manufactured, tested and presented to the
+            modern world.
+          </p>
 
-        <span
-          className="philosophy-label"
-          data-aos="fade-up"
-        >
-          PHILOSOPHY
-        </span>
-
-        <h2
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          Ancient Knowledge. Contemporary Responsibility.
-        </h2>
-
-        <p
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          We believe Ayurveda belongs both to its heritage and to the
-          future.
-        </p>
-
-        <p
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          Our responsibility is to preserve the wisdom of traditional
-          Ayurveda while continuously improving the way Ayurvedic
-          products are manufactured, tested and presented to the
-          modern world.
-        </p>
-
-        <div
-          className="philosophy-statement"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-
-          <strong>This is our approach to Ayurveda.</strong>
-
-          <div className="philosophy-points">
-            <span>Respect the tradition.</span>
-            <span>Understand the science.</span>
-            <span>Maintain the quality.</span>
-            <span>Serve with purpose.</span>
-          </div>
-
+          <p className="whyus-approach" data-aos="fade-up" data-aos-delay="200">
+            This is our approach to Ayurveda.
+          </p>
         </div>
 
+        {/* scrolling ribbon of the four principles */}
+        <div className="whyus-ribbon" aria-label="Our principles">
+          <div className="whyus-ribbon-track">
+            {[0, 1].map((copy) => (
+              <ul
+                className="whyus-ribbon-list"
+                key={copy}
+                aria-hidden={copy === 1 ? "true" : undefined}
+              >
+                {principles.map((item) => (
+                  <li key={item}>
+                    <Leaf />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
       </div>
-
 
       {/* =====================================================
-          FINAL CTA
-      ====================================================== */}
+          3. CALL TO ACTION — photo card
+      ===================================================== */}
+      <div className="whyus-cta-wrap">
+        <div className="whyus-cta" data-aos="fade-up">
+          <img className="whyus-cta-bg" src={images.cta} alt="" aria-hidden="true" loading="lazy" />
 
-      <div
-        className="whyus-cta"
-        data-aos="fade-up"
-      >
+          <div className="whyus-cta-content">
+            <h2 className="whyus-heading whyus-heading--light">
+              Begin Your Journey
+              <span>With Ayurveda</span>
+            </h2>
 
-        <span
-          className="cta-label"
-          data-aos="fade-up"
-        >
-          BEGIN YOUR JOURNEY
-        </span>
+            <p>
+              Discover the formulations, knowledge and legacy behind Anchan
+              Ayurvedic Industries.
+            </p>
 
-        <h2
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          Begin Your Journey With Ayurveda
-        </h2>
+            <div className="whyus-cta-buttons">
+              <Link to="/products" className="whyus-btn whyus-btn--primary">
+                Explore Products
+                <span className="whyus-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14">
+                    <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor"
+                      strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </Link>
 
-        <p
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Discover the formulations, knowledge and legacy behind
-          Anchan Ayurvedic Industries.
-        </p>
-
-        <div
-          className="cta-buttons"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-
-          <a href="#products" className="cta-primary">
-            Explore Products
-          </a>
-
-          <a href="#contact" className="cta-secondary">
-            Contact Us
-          </a>
-
+              <Link to="/contact" className="whyus-btn whyus-btn--ghost">
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
-
       </div>
-
     </section>
   );
 };
