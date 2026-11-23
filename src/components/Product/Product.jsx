@@ -104,8 +104,8 @@ const productList = [
   },
 ];
 
-// shown A to Z in the list
-const products = [...productList].sort((a, b) => a.name.localeCompare(b.name));
+// shown Z to A in the list
+const products = [...productList].sort((a, b) => b.name.localeCompare(a.name));
 
 // =====================================================
 // PRODUCT URL  (e.g. /products/bananthi-taila)

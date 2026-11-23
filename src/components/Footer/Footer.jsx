@@ -250,25 +250,25 @@ const quickLinks = [
 
 /* =========================================================
    PRODUCTS
-   (same 15 products as the Products section, A to Z)
+   (same 15 products as the Products section, Z to A)
 ========================================================= */
 
 const products = [
-  "Aloe Vera Gel",
-  "Ashtanga Dhoopa",
-  "Balagraha Taila",
-  "Bananthi Taila",
-  "Bhringamalakadi Taila",
-  "Chyavanaprasha Leha",
-  "Gandhaka Malahara",
-  "Kumari Shampoo",
-  "Madhuna",
-  "Madiphala Rasayana",
-  "Manasa",
-  "Nirvedan Oil",
-  "Pusti",
-  "Rumovin Liniment",
   "Shwasari",
+  "Rumovin Liniment",
+  "Pusti",
+  "Nirvedan Oil",
+  "Manasa",
+  "Madiphala Rasayana",
+  "Madhuna",
+  "Kumari Shampoo",
+  "Gandhaka Malahara",
+  "Chyavanaprasha Leha",
+  "Bhringamalakadi Taila",
+  "Bananthi Taila",
+  "Balagraha Taila",
+  "Ashtanga Dhoopa",
+  "Aloe Vera Gel",
 ];
 
 
