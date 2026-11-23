@@ -27,13 +27,13 @@ import Footer from "./components/Footer/Footer";
 // Each navigation item now opens its own page.
 // =========================================================
 
-// Home: Hero + Top products + About + Product range + Gallery
+// Home: Hero + Top products + Product range + About + Gallery
 const HomePage = () => (
   <>
     <Hero />
     <Product />
-    <About />
     <Section />
+    <About />
     <Gallery />
   </>
 );
