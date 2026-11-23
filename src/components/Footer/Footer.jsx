@@ -256,15 +256,15 @@ const quickLinks = [
 const products = [
   "Manasa",
   "Madhuna",
-  "Madhiphala Rasayana",
+  "Madiphala Rasayana",
   "Shwasari",
-  "Nirvedhan Oil",
+  "Nirvedan Oil",
   "Rumovin Liniment",
-  "Chyawanprash",
+  "Chyavanaprasha Leha",
   "Pusti",
   "Bhringamalakadi Taila",
   "Aloe Vera Gel",
-  "Kumari",
+  "Kumari Shampoo",
   "Balagraha Taila",
   "Bananthi Taila",
   "Gandhaka Malahara",
@@ -710,41 +710,6 @@ const Footer = () => {
                   className="contact-link"
                 >
                   +91 94484 45440
-                </a>
-
-              </div>
-
-            </div>
-
-
-            {/* WEBSITE */}
-
-            <div className="footer-contact-item">
-
-              <div className="contact-icon">
-
-                <Icon
-                  name="globe"
-                  size={20}
-                />
-
-              </div>
-
-
-              <div className="contact-content">
-
-                <span className="contact-label">
-                  WEBSITE
-                </span>
-
-
-                <a
-                  href="https://www.anchanayurveda.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-link"
-                >
-                  www.anchanayurveda.com
                 </a>
 
               </div>

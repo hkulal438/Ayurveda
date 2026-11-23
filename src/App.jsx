@@ -15,6 +15,7 @@ import Dranchan from "./components/Dranchan/Dranchan";
 import Legacy from "./components/Legacy/Legacy";
 import Cards from "./components/Cards/cards";
 import Product from "./components/Product/Product";
+import MoreProducts from "./components/MoreProducts/MoreProducts.jsx";
 import Section from "./components/Section/Section";
 import Quality from "./components/Quality/Quality";
 import Gallery from "./components/Gallery/Gallery";
@@ -26,10 +27,11 @@ import Footer from "./components/Footer/Footer";
 // Each navigation item now opens its own page.
 // =========================================================
 
-// Home: Hero + About + Product range + Gallery
+// Home: Hero + Top products + About + Product range + Gallery
 const HomePage = () => (
   <>
     <Hero />
+    <Product />
     <About />
     <Section />
     <Gallery />
@@ -62,6 +64,7 @@ const DrAnchanPage = () => (
 const ProductsPage = () => (
   <Page>
     <Product />
+    <MoreProducts />
   </Page>
 );
 

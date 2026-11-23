@@ -240,16 +240,6 @@ const Contact = () => {
               </li>
             ))}
           </ul>
-
-          <a
-            className="contact-site"
-            href="https://www.anchanayurveda.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="globe" size={18} />
-            www.anchanayurveda.com
-          </a>
         </aside>
       </div>
       {/* =================================================

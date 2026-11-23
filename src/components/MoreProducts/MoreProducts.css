@@ -1,0 +1,186 @@
+/* =========================================================
+   MORE PRODUCTS — tile grid below the top-products showcase
+   Headings: Playfair Display · Content: Lexend Deca
+   All classes start with "mp-".
+========================================================= */
+
+.mp-section {
+  --mp-navy: #1c2340;
+  --mp-text: #4a4a4a;
+  --mp-muted: #7a7a72;
+  --mp-green: #8cc63f;
+  --mp-green-dark: #6fa52a;
+  --mp-forest: #1f3b2c;
+  --mp-cream: #f1eae0;
+  --mp-line: #e8e0d3;
+  --mp-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --mp-sans: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+
+  padding: 90px 32px 110px;
+  background: #faf7f2;
+  font-family: var(--mp-sans);
+  box-sizing: border-box;
+}
+
+.mp-section *,
+.mp-section *::before,
+.mp-section *::after { box-sizing: border-box; }
+
+.mp-container { max-width: 1240px; margin: 0 auto; }
+
+.mp-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
+
+.mp-title {
+  margin: 0;
+  color: var(--mp-navy);
+  font-family: var(--mp-serif);
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.mp-lead {
+  margin: 14px 0 0;
+  color: var(--mp-muted);
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.mp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.mp-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--mp-line);
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mp-card:hover {
+  transform: translateY(-4px);
+  border-color: transparent;
+  box-shadow: 0 20px 40px -26px rgba(31, 59, 44, 0.45);
+}
+
+/* soft studio tile — same look as the online shop */
+.mp-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 4.2;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 42%, #ffffff 0%, #f7f3ec 55%, #efe8dc 100%);
+}
+
+.mp-media::after {
+  content: "";
+  position: absolute;
+  left: 24%;
+  right: 24%;
+  bottom: 8%;
+  height: 5%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(60, 45, 25, 0.24) 0%, rgba(60, 45, 25, 0) 70%);
+}
+
+.mp-media img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 6% 10% 7%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.mp-card:hover .mp-media img { transform: scale(1.05); }
+
+.mp-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 18px 20px;
+}
+
+.mp-type { color: var(--mp-green-dark); font-size: 12.5px; font-weight: 400; }
+
+.mp-name {
+  margin: 4px 0 0;
+  color: var(--mp-navy);
+  font-family: var(--mp-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.mp-text {
+  margin: 8px 0 0;
+  color: var(--mp-text);
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.mp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 14px;
+  color: var(--mp-forest);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.mp-link:hover { color: var(--mp-green-dark); gap: 10px; }
+
+.mp-cta { margin-top: 48px; text-align: center; }
+
+.mp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 54px;
+  padding: 0 12px 0 28px;
+  border-radius: 999px;
+  background: var(--mp-forest);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.mp-btn:hover { background: #2a4d39; transform: translateY(-2px); }
+
+.mp-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--mp-green);
+  color: #ffffff;
+}
+
+@media (max-width: 1100px) {
+  .mp-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .mp-section { padding: 64px 16px 76px; }
+  .mp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .mp-body { padding: 12px 12px 14px; }
+  .mp-name { font-size: 16px; }
+  .mp-text { font-size: 12.5px; }
+  .mp-btn { height: 50px; font-size: 15px; }
+}

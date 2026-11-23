@@ -98,8 +98,56 @@
   object-position: center 8%;
 }
 
+/* Bananthi slide: mother & baby centre-right, bottle at the right edge —
+   anchor to the right so the bottle is never cropped; trim the empty left */
 .hero-slide--bananti .hero-image {
-  object-position: center 10%;
+  /* image has soft headroom above the mother — trim mostly from the bottom */
+  object-position: right 35%;
+}
+
+/* Bananthi headline: small tag + one-line heading in the empty left space */
+.hero .hero-content--bananti {
+  width: min(500px, 38%);
+}
+
+.hero-kicker {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(140, 198, 63, 0.16);
+  color: #4f8a1f;
+  font-family: "Lexend Deca", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.hero .hero-content--bananti .hero-title {
+  font-size: clamp(28px, 2.6vw, 50px);
+}
+
+/* the photo grows with the screen, so anchor this slide's text to the
+   screen's left edge (not the centred column) to keep it clear of the baby */
+@media screen and (min-width: 769px) {
+  .hero .hero-container--bananti {
+    max-width: none;
+    padding-left: 6vw;
+  }
+}
+
+/* text fades up each time a slide with text comes in */
+.hero-content {
+  animation: hero-content-in 0.8s ease both;
+}
+
+@keyframes hero-content-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content { animation: none; }
 }
 
 
@@ -558,5 +606,74 @@
   .hero-btn-icon,
   .hero-dot {
     transition: none;
+  }
+}
+
+
+/* =========================================================
+   BANANTHI SLIDE — keep the headline left of the bottle
+   on small laptops / tablets (desktop-style layout)
+========================================================= */
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+  .hero .hero-content--bananti {
+    width: 35%;
+  }
+}
+
+/* phones: the text sits above the picture, so use the full width */
+@media screen and (max-width: 768px) {
+  .hero .hero-content--bananti {
+    width: 100%;
+  }
+}
+
+/* phones: keep the Bananthi heading on a single line */
+@media screen and (max-width: 768px) {
+  .hero .hero-content--bananti .hero-title {
+    font-size: clamp(22px, 6.3vw, 34px);
+    white-space: nowrap !important;
+  }
+}
+
+
+/* =========================================================
+   CHYAVANAPRASHA SLIDE — same left-side text layout as
+   the Bananthi slide (product and pictures on the right)
+========================================================= */
+
+.hero-slide--chyavanaprasha .hero-image {
+  object-position: right center;
+}
+
+.hero .hero-content--chyavanaprasha {
+  width: min(470px, 36%);
+}
+
+.hero .hero-content--chyavanaprasha .hero-title {
+  font-size: clamp(28px, 2.6vw, 50px);
+}
+
+@media screen and (min-width: 769px) {
+  .hero .hero-container--chyavanaprasha {
+    max-width: none;
+    padding-left: 6vw;
+  }
+}
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+  .hero .hero-content--chyavanaprasha {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero .hero-content--chyavanaprasha {
+    width: 100%;
+  }
+
+  .hero .hero-content--chyavanaprasha .hero-title {
+    font-size: clamp(22px, 6.3vw, 34px);
+    white-space: nowrap !important;
   }
 }

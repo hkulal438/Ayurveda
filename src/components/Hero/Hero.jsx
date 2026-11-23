@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./Hero.css";
 
@@ -8,14 +9,20 @@ import "./Hero.css";
 
 import heroImage from "../../images/hr.jpeg";
 import manasaImage from "../../images/Manasa.png";
-import banantiImage from "../../images/Bananti Taila.png";
+import banantiImage from "../../images/bananthi-mother-baby-2.webp";
+import chyavanaprashaImage from "../../images/hero-chyavanaprasha.webp";
+import shwasariImage from "../../images/hero-shwasari.webp";
 import ayushLogo from "../../images/AYUSH Federation of India - Karnataka Logo.png";
 import gmpLogo from "../../images/gmp.png";
 
 // =========================================================
 // SLIDES
-//   Slide 1 shows the heading, button and logos.
-//   Slides 2 and 3 are image-only.
+//   Slide 1: heading, button and logos.
+//   Slide 2: image only.
+//   Slide 3: Bananthi Taila — mother with baby + headline.
+//   Slide 4: Chyavanaprasha Leha banner + headline on the left.
+//   Slide 5: Shwasari banner (image only —
+//   the product name is part of the picture).
 // =========================================================
 
 const SLIDES = [
@@ -23,19 +30,49 @@ const SLIDES = [
     id: "products",
     src: heroImage,
     alt: "Anchan Ayurvedic product range",
-    withContent: true,
+    content: {
+      title: "Rooted in Tradition, Crafted for Wellbeing",
+      text: "Discover Anchan’s Ayurvedic heritage, where the richness of nature meets the art of traditional wellness.",
+      button: "Learn More",
+      action: "about",
+      logos: true,
+    },
   },
   {
     id: "manasa",
     src: manasaImage,
     alt: "Child holding Manasa Ayurvedic syrup",
-    withContent: false,
+    content: null,
   },
   {
     id: "bananti",
     src: banantiImage,
-    alt: "Expecting mother with Bananthi Taila",
-    withContent: false,
+    alt: "Mother holding her baby with a bottle of Bananthi Taila",
+    content: {
+      kicker: "Post-Delivery Care",
+      title: "Reclaim Your Strength & Glow",
+      text: "With authentic Bananthi Taila — a traditional Anchan massage and bath oil for new mothers that supports postnatal recovery and helps reduce stretch marks.",
+      button: "Explore Bananthi Taila",
+      action: "products",
+    },
+  },
+  {
+    id: "chyavanaprasha",
+    src: chyavanaprashaImage,
+    alt: "Chyavanaprasha Leha jar with amla, herbs and relief from cough",
+    content: {
+      kicker: "Respiratory Care",
+      title: "Breathe Easy, Every Season",
+      text: "Chyavanaprasha Leha — the classical rejuvenator for cough, asthma and bronchitis that also improves appetite, digestion and strength.",
+      button: "Explore Chyavanaprasha",
+      action: "products",
+    },
+  },
+  {
+    id: "shwasari",
+    src: shwasariImage,
+    alt: "Shwasari cough syrup with its box",
+    content: null,
   },
 ];
 
@@ -47,6 +84,10 @@ const SLIDE_DURATION = 8000; // 8 seconds per slide
 
 export default function Hero() {
   const [active, setActive] = useState(0);
+  // keep the last text on screen while an image-only slide is showing,
+  // so it can fade out instead of disappearing
+  const [shownIndex, setShownIndex] = useState(0);
+  const navigate = useNavigate();
 
   // Advance every 8s. Re-runs whenever `active` changes, so a
   // dot click also restarts the full 8-second timer.
@@ -58,14 +99,23 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [active]);
 
-  const handleLearnMore = () => {
+  useEffect(() => {
+    if (SLIDES[active].content) setShownIndex(active);
+  }, [active]);
+
+  const handleAction = (action) => {
+    if (action === "products") {
+      navigate("/products");
+      return;
+    }
     const section = document.getElementById("about-company-section");
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const showContent = SLIDES[active].withContent;
+  const showContent = Boolean(SLIDES[active].content);
+  const content = SLIDES[shownIndex].content;
 
   return (
     <section
@@ -93,25 +143,30 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* ================= CONTENT (slide 1 only) ================= */}
-      <div className="hero-container" aria-hidden={!showContent}>
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Rooted in Tradition, Crafted for Wellbeing
-          </h1>
+      {/* ================= CONTENT (slides with text) ================= */}
+      <div className={`hero-container hero-container--${SLIDES[shownIndex].id}`} aria-hidden={!showContent}>
+        <div
+          key={SLIDES[shownIndex].id}
+          className={`hero-content hero-content--${SLIDES[shownIndex].id}`}
+        >
+          {content.kicker && <p className="hero-kicker">{content.kicker}</p>}
 
-          <p className="hero-description">
-            Discover Anchan’s Ayurvedic heritage, where the richness of nature
-            meets the art of traditional wellness.
-          </p>
+          {/* only the first slide's heading is the page's main heading */}
+          {React.createElement(
+            shownIndex === 0 ? "h1" : "h2",
+            { className: "hero-title" },
+            content.title
+          )}
+
+          <p className="hero-description">{content.text}</p>
 
           <button
             type="button"
             className="hero-btn"
-            onClick={handleLearnMore}
+            onClick={() => handleAction(content.action)}
             tabIndex={showContent ? 0 : -1}
           >
-            Learn More
+            {content.button}
             <span className="hero-btn-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="14" height="14">
                 <path
@@ -127,18 +182,20 @@ export default function Hero() {
           </button>
 
           {/* ================= CERTIFICATION LOGOS ================= */}
-          <div className="hero-logos">
-            <div className="hero-logo-card">
-              <img
-                src={ayushLogo}
-                alt="AYUSH Federation of India – Karnataka"
-              />
-            </div>
+          {content.logos && (
+            <div className="hero-logos">
+              <div className="hero-logo-card">
+                <img
+                  src={ayushLogo}
+                  alt="AYUSH Federation of India – Karnataka"
+                />
+              </div>
 
-            <div className="hero-logo-card">
-              <img src={gmpLogo} alt="GMP Certified" />
+              <div className="hero-logo-card">
+                <img src={gmpLogo} alt="GMP Certified" />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
