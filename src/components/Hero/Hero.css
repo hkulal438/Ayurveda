@@ -677,3 +677,45 @@
     white-space: nowrap !important;
   }
 }
+
+
+/* =========================================================
+   ASHTANGA DHOOPA SLIDE — left-side text, product on the right.
+   The baby's circle sits near the top, so trim from the bottom.
+========================================================= */
+
+.hero-slide--ashtanga .hero-image {
+  object-position: right 10%;
+}
+
+.hero .hero-content--ashtanga {
+  width: min(440px, 33%);
+}
+
+.hero .hero-content--ashtanga .hero-title {
+  font-size: clamp(28px, 2.5vw, 48px);
+}
+
+@media screen and (min-width: 769px) {
+  .hero .hero-container--ashtanga {
+    max-width: none;
+    padding-left: 6vw;
+  }
+}
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+  .hero .hero-content--ashtanga {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero .hero-content--ashtanga {
+    width: 100%;
+  }
+
+  .hero .hero-content--ashtanga .hero-title {
+    font-size: clamp(22px, 6.3vw, 34px);
+    white-space: nowrap !important;
+  }
+}

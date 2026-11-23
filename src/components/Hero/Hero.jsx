@@ -11,7 +11,7 @@ import heroImage from "../../images/hr.jpeg";
 import manasaImage from "../../images/Manasa.png";
 import banantiImage from "../../images/bananthi-mother-baby-2.webp";
 import chyavanaprashaImage from "../../images/hero-chyavanaprasha.webp";
-import shwasariImage from "../../images/hero-shwasari.webp";
+import ashtangaImage from "../../images/hero-ashtanga-dhoopa.webp";
 import ayushLogo from "../../images/AYUSH Federation of India - Karnataka Logo.png";
 import gmpLogo from "../../images/gmp.png";
 
@@ -21,8 +21,7 @@ import gmpLogo from "../../images/gmp.png";
 //   Slide 2: image only.
 //   Slide 3: Bananthi Taila — mother with baby + headline.
 //   Slide 4: Chyavanaprasha Leha banner + headline on the left.
-//   Slide 5: Shwasari banner (image only —
-//   the product name is part of the picture).
+//   Slide 5: Ashtanga Dhoopa banner + headline on the left.
 // =========================================================
 
 const SLIDES = [
@@ -69,10 +68,16 @@ const SLIDES = [
     },
   },
   {
-    id: "shwasari",
-    src: shwasariImage,
-    alt: "Shwasari cough syrup with its box",
-    content: null,
+    id: "ashtanga",
+    src: ashtangaImage,
+    alt: "Ashtanga Dhoopa box with a herbal fumigation pot and a sleeping baby",
+    content: {
+      kicker: "Child Care",
+      title: "Pure Air, Peaceful Sleep",
+      text: "Ashtanga Dhoopa — an antimicrobial herbal fumigation that purifies your child's room and helps keep infections away, naturally.",
+      button: "Explore Ashtanga Dhoopa",
+      action: "products",
+    },
   },
 ];
 
