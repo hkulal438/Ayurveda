@@ -26,7 +26,7 @@ import ashtangaImage from "../../images/astanga doopa.jpg";
 // PRODUCT DATA
 // =====================================================
 
-const products = [
+const productList = [
   {
     name: "Manasa",
     category: "Brain and nerve tonic — helps with sleeplessness, high blood pressure and stress-related conditions, and improves memory.",
@@ -103,6 +103,9 @@ const products = [
     image: ashtangaImage,
   },
 ];
+
+// shown A to Z in the list
+const products = [...productList].sort((a, b) => a.name.localeCompare(b.name));
 
 // =====================================================
 // PRODUCT URL  (e.g. /products/bananthi-taila)
