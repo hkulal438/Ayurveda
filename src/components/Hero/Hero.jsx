@@ -18,7 +18,7 @@ import gmpLogo from "../../images/gmp.png";
 // =========================================================
 // SLIDES
 //   Slide 1: heading, button and logos.
-//   Slide 2: image only.
+//   Slide 2: Manasa — picture on the right, headline on the left.
 //   Slide 3: Bananthi Taila — mother with baby + headline.
 //   Slide 4: Chyavanaprasha Leha banner + headline on the left.
 //   Slide 5: Ashtanga Dhoopa banner + headline on the left.
@@ -40,8 +40,14 @@ const SLIDES = [
   {
     id: "manasa",
     src: manasaImage,
-    alt: "Child holding Manasa Ayurvedic syrup",
-    content: null,
+    alt: "Smiling child holding a bottle of Manasa",
+    content: {
+      kicker: "Brain & Memory Care",
+      title: "Sharper Minds, Brighter Days",
+      text: "Manasa — Anchan's brain and nerve tonic that improves memory and focus, and supports restful sleep and a calm mind.",
+      button: "Explore Manasa",
+      action: "products",
+    },
   },
   {
     id: "bananti",
