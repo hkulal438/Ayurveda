@@ -52,11 +52,10 @@ const Icon = ({
 
     legacy: (
       <>
-        <path d="M12 3v18" />
-        <path d="M7 6c1.7-1.7 4.3-1.7 6 0" />
-        <path d="M11 10c-1.7-1.7-4.3-1.7-6 0" />
-        <path d="M13 14c1.7-1.7 4.3-1.7 6 0" />
-        <path d="M11 18c-1.7-1.7-4.3-1.7-6 0" />
+        {/* heritage building: pediment, pillars, steps */}
+        <path d="M3.5 9 12 3.5 20.5 9Z" />
+        <path d="M6 9v8.5M10 9v8.5M14 9v8.5M18 9v8.5" />
+        <path d="M4.5 17.5h15M3 20.5h18" />
       </>
     ),
 
@@ -418,13 +417,8 @@ const Footer = () => {
 
           <span></span>
 
-          <span className="footer-divider-icon">
-
-            <Icon
-              name="legacy"
-              size={15}
-            />
-
+          <span className="footer-divider-icon" aria-hidden="true">
+            <FooterOrnament />
           </span>
 
           <span></span>
@@ -497,7 +491,7 @@ const Footer = () => {
           <div className="footer-column footer-products">
 
             <h3>
-              OUR PRODUCTS
+              OUR POPULAR PRODUCTS
             </h3>
 
             <div className="footer-title-line"></div>
@@ -756,13 +750,8 @@ const Footer = () => {
 
           <span></span>
 
-          <span className="footer-divider-icon">
-
-            <Icon
-              name="legacy"
-              size={15}
-            />
-
+          <span className="footer-divider-icon" aria-hidden="true">
+            <FooterOrnament />
           </span>
 
           <span></span>
@@ -810,5 +799,21 @@ const Footer = () => {
   );
 };
 
+
+// Small leaf-and-diamond ornament used in the footer dividers
+function FooterOrnament() {
+  return (
+    <svg viewBox="0 0 72 20" width="72" height="20">
+      <circle cx="5" cy="10" r="1.3" className="orn-dot" />
+      <path d="M28 10C24 4.5 16 4.5 12 10C16 15.5 24 15.5 28 10Z" />
+      <path d="M27 10H13" className="orn-rib" />
+      <path d="M36 3.5L42.5 10L36 16.5L29.5 10Z" className="orn-gem" />
+      <circle cx="36" cy="10" r="1.7" className="orn-dot" />
+      <path d="M44 10C48 4.5 56 4.5 60 10C56 15.5 48 15.5 44 10Z" />
+      <path d="M45 10H59" className="orn-rib" />
+      <circle cx="67" cy="10" r="1.3" className="orn-dot" />
+    </svg>
+  );
+}
 
 export default Footer;

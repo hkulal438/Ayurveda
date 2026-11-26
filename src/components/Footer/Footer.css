@@ -343,39 +343,27 @@
 }
 
 
-/* Divider icon */
+/* Divider ornament: leaves around a small diamond */
 
 .footer-divider-icon {
-  width: 28px;
-  height: 28px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   color: #d8efdd;
-
-  background:
-    rgba(255, 255, 255, 0.05);
-
-  border:
-    1px
-    solid
-    rgba(216, 239, 221, 0.30);
-
-  border-radius: 50%;
+  opacity: 0.85;
 }
-
 
 .footer-divider-icon svg {
   display: block;
-
   fill: none;
-
   stroke: currentColor;
+  stroke-width: 1.1;
+  stroke-linejoin: round;
 }
+
+.footer-divider-icon .orn-rib { opacity: 0.55; }
+.footer-divider-icon .orn-gem { fill: rgba(216, 239, 221, 0.14); }
+.footer-divider-icon .orn-dot { fill: currentColor; stroke: none; }
 
 
 /* =========================================================
@@ -1315,9 +1303,9 @@
   }
 
 
-  .footer-divider-icon {
-    width: 26px;
-    height: 26px;
+  .footer-divider-icon svg {
+    width: 60px;
+    height: 17px;
   }
 
 
