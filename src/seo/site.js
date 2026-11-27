@@ -92,6 +92,12 @@ export function businessSchema() {
         "@id": `${SITE_URL}/#business`,
         name: b.name,
         alternateName: b.alternateName,
+        legalName: "Anchan Ayurvedic Industries (Regd)",
+        // the same business's other official pages — helps Google connect them
+        sameAs: [
+          "https://www.indiamart.com/anchan-ayurvedic/",
+          "https://anchan-shop.vercel.app/",
+        ],
         url: `${SITE_URL}/`,
         logo: `${SITE_URL}${b.logo}`,
         image: `${SITE_URL}${b.image}`,
