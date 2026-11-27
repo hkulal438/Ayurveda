@@ -1,0 +1,33 @@
+# Anchan Ayurveda — settings for Hostinger (Apache) hosting
+
+Options -MultiViews
+DirectorySlash Off
+RewriteEngine On
+
+# anchanayurveda.com -> www.anchanayurveda.com (one address for Google)
+RewriteCond %{HTTP_HOST} ^anchanayurveda\.com$ [NC]
+RewriteRule ^ https://www.anchanayurveda.com%{REQUEST_URI} [L,R=301]
+
+# /enquire -> /contact
+RewriteRule ^enquire/?$ /contact [L,R=301]
+
+# /about, /contact … -> their ready-made page (about/index.html …)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+?)/?$ $1/index.html [L]
+
+# anything else that isn't a real file -> the app
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# keep pictures and code cached in browsers (faster repeat visits)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

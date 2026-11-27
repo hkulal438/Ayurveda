@@ -19,6 +19,7 @@ function seoPages() {
 
   return {
     name: 'seo-pages',
+    apply: 'build', // only when building the site, never while previewing
     configResolved(cfg) {
       outDir = path.resolve(cfg.root, cfg.build.outDir)
     },
