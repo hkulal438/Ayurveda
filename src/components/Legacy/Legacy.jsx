@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Legacy.css";
 
-import pandithImage from "../../images/Pandith.png";
-import doctorImage from "../../images/doctor.png";
-import manufacturingImage from "../../images/manufacturing.png";
-import beyondImage from "../../images/beyond.png";
-import traditionImage from "../../images/tradition.png";
+import pandithImage from "../../images/opt/pandith.webp";
+import doctorImage from "../../images/opt/doctor.webp";
+import manufacturingImage from "../../images/opt/manufacturing.webp";
+import beyondImage from "../../images/opt/beyond.webp";
+import traditionImage from "../../images/opt/tradition.webp";
 
 // Small leaf glyph
 const LeafMark = ({ className = "" }) => (

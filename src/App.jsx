@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import "./pages.css";
+import usePageMeta from "./seo/usePageMeta.js";
+import { pageFor } from "./seo/site.js";
 
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
@@ -82,6 +84,7 @@ const ContactPage = () => (
 
 function App() {
   const location = useLocation();
+  usePageMeta(location.pathname);
 
   // =====================================================
   // AOS INITIALIZATION
@@ -114,6 +117,9 @@ function App() {
       <Header />
 
       <main>
+        {/* each page's main heading, for search engines and screen readers */}
+        <h1 className="sr-only">{pageFor(location.pathname).heading}</h1>
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

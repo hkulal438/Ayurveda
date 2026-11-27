@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "aos/dist/aos.css";
 import "./About.css";
 
-import mainImage from "../../images/ayurveda-main.png";
+import mainImage from "../../images/opt/ayurveda-main.webp";
 import herbsImage from "../../images/ayurveda-herbs.png";
 import leavesImage from "../../images/ayurveda-leaves.png";
 import snakeImage from "../../images/ayurveda-snake.png";

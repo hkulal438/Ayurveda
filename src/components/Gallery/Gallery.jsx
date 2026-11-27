@@ -2,15 +2,15 @@ import React, { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import "./Gallery.css";
 
-import image1 from "../../images/1.png";
-import image2 from "../../images/2.png";
-import image3 from "../../images/3.png";
-import image4 from "../../images/4.png";
-import image5 from "../../images/5.png";
-import image6 from "../../images/6.png";
-import image7 from "../../images/7.png";
-import image8 from "../../images/8.png";
-import image9 from "../../images/9.png";
+import image1 from "../../images/opt/1.webp";
+import image2 from "../../images/opt/2.webp";
+import image3 from "../../images/opt/3.webp";
+import image4 from "../../images/opt/4.webp";
+import image5 from "../../images/opt/5.webp";
+import image6 from "../../images/opt/6.webp";
+import image7 from "../../images/opt/7.webp";
+import image8 from "../../images/opt/8.webp";
+import image9 from "../../images/opt/9.webp";
 
 // all photos, in order (used by the full-screen viewer)
 const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9];
@@ -45,7 +45,7 @@ const GalleryRow = ({ items, reverse, onOpen }) => {
                 >
                   <img
                     src={images[imgIndex]}
-                    alt={`Memory ${imgIndex + 1}`}
+                    alt={`Anchan Ayurveda, Padubidri – memory ${imgIndex + 1}`}
                     decoding="async"
                   />
                   <span className="gallery-item-num" aria-hidden="true">

@@ -10,17 +10,17 @@ import manasaImage from "../../images/manasa.jpeg";
 import madhunaImage from "../../images/madina.jpeg";
 import madhiphalaImage from "../../images/madipalla.jpeg";
 import shwasariImage from "../../images/shwasari.jpeg";
-import nirvedhanImage from "../../images/nirvedan.png";
+import nirvedhanImage from "../../images/opt/nirvedan.webp";
 import rumovinImage from "../../images/liniment.jpeg";
 import chyawanprashImage from "../../images/chyavanprash.jpeg";
 import pustiImage from "../../images/pusti.jpeg";
 import bhringamalakadiImage from "../../images/oil.jpeg";
 import aloeVeraGelImage from "../../images/aloe-gel.webp";
 import kumariImage from "../../images/kumari-shampoo.webp";
-import balagrahaImage from "../../images/balagruha.jpg";
-import bananthiImage from "../../images/bananthi.jpg";
-import gandhakaImage from "../../images/Gandhaka.jpg";
-import ashtangaImage from "../../images/astanga doopa.jpg";
+import balagrahaImage from "../../images/opt/balagruha.webp";
+import bananthiImage from "../../images/opt/bananthi.webp";
+import gandhakaImage from "../../images/opt/gandhaka.webp";
+import ashtangaImage from "../../images/opt/astanga-doopa.webp";
 
 // =====================================================
 // PRODUCT DATA

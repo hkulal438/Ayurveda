@@ -1,0 +1,11 @@
+{
+  "name": "Anchan Ayurvedic Industries",
+  "short_name": "Anchan Ayurveda",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1f4d34",
+  "background_color": "#ffffff",
+  "display": "browser"
+}

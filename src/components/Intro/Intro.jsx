@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import "./Intro.css";
-import heroImage from "../../images/Medicinal herbs.png";
+import heroImage from "../../images/opt/medicinal-herbs.webp";
 
 // =========================================================
 // LINEAGE — told as a plant growing: seed → sapling → tree

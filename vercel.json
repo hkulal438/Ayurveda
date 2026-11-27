@@ -1,0 +1,9 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/enquire", "destination": "/contact", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

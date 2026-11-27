@@ -1,11 +1,11 @@
 import React from "react";
 import "./Quality.css";
 
-import Quality1 from "../../images/Quality1.png";
-import Quality2 from "../../images/quality2.png";
-import Quality3 from "../../images/Quality3.png";
+import Quality1 from "../../images/opt/quality1.webp";
+import Quality2 from "../../images/opt/quality2.webp";
+import Quality3 from "../../images/opt/quality3.webp";
 import Quality4 from "../../images/Quality4.png";
-import Quality5 from "../../images/Quality5.png";
+import Quality5 from "../../images/opt/quality5.webp";
 
 // =========================================================
 // THE FOUR TESTING STAGES (raw material → shelf life)

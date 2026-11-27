@@ -8,11 +8,11 @@ import "./Hero.css";
 // =========================================================
 
 import heroImage from "../../images/hr.jpeg";
-import manasaImage from "../../images/Manasa.png";
+import manasaImage from "../../images/opt/manasa.webp";
 import banantiImage from "../../images/bananthi-mother-baby-2.webp";
 import chyavanaprashaImage from "../../images/hero-chyavanaprasha.webp";
 import ashtangaImage from "../../images/hero-ashtanga-dhoopa.webp";
-import ayushLogo from "../../images/AYUSH Federation of India - Karnataka Logo.png";
+import ayushLogo from "../../images/opt/ayush-federation-of-india-karnataka-logo.webp";
 import gmpLogo from "../../images/gmp.png";
 
 // =========================================================
@@ -162,12 +162,8 @@ export default function Hero() {
         >
           {content.kicker && <p className="hero-kicker">{content.kicker}</p>}
 
-          {/* only the first slide's heading is the page's main heading */}
-          {React.createElement(
-            shownIndex === 0 ? "h1" : "h2",
-            { className: "hero-title" },
-            content.title
-          )}
+          {/* the page's main heading (h1) is set in App.jsx */}
+          <h2 className="hero-title">{content.title}</h2>
 
           <p className="hero-description">{content.text}</p>
 

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./Dranchan.css";
 
 import gmp from "../../images/gmp.png";
-import ayush from "../../images/AYUSH Federation of India - Karnataka Logo.png";
-import doc from "../../images/anchan1.png";
+import ayush from "../../images/opt/ayush-federation-of-india-karnataka-logo.webp";
+import doc from "../../images/opt/anchan1.webp";
 
 const Dranchan = () => {
   return (

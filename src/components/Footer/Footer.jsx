@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Footer.css";
 
-import FooterLeaves from "../../images/footer-leaves.png";
+import FooterLeaves from "../../images/opt/footer-leaves.webp";
 
 
 /* =========================================================
