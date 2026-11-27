@@ -771,3 +771,30 @@
     white-space: nowrap !important;
   }
 }
+
+
+/* =========================================================
+   PHONES — the text sits above the picture, so give the whole
+   hero the picture's own background colour (sampled from the top
+   of each image) and fade the picture's top edge into it.
+   Slide 1 already matches (--hero-bg).
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  .hero {
+    transition: background-color var(--hero-fade) ease;
+  }
+
+  .hero--on-manasa        { background-color: #e3d8d3; }
+  .hero--on-bananti       { background-color: #ebd2b7; }
+  .hero--on-chyavanaprasha { background-color: #fdf1e0; }
+  .hero--on-ashtanga      { background-color: #fcecd3; }
+
+  .hero-slide--manasa .hero-image,
+  .hero-slide--bananti .hero-image,
+  .hero-slide--chyavanaprasha .hero-image,
+  .hero-slide--ashtanga .hero-image {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 20%);
+  }
+}

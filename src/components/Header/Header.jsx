@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link as RouterLink, NavLink, useLocation } from "react-router-dom";
 
 import "./Header.css";
+import { SHOP_URL } from "../../config/shop";
 
 import logo from "../../images/Anchan_Ayurvedic_industries_-_Logo-removebg-preview (1).png";
 
@@ -88,26 +89,28 @@ const Header = () => {
               </li>
             ))}
 
-            {/* Mobile-only CTA inside the menu */}
+            {/* Mobile-only shop button inside the menu */}
             <li className="mobile-cta">
-              <RouterLink to="/contact" className="pill-btn" onClick={closeMenu}>
-                Enquire Now
+              <a href={SHOP_URL} className="pill-btn" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
+                Shop Now
                 <ArrowIcon />
-              </RouterLink>
+              </a>
             </li>
           </ul>
         </nav>
 
         {/* ================= HEADER ACTIONS ================= */}
         <div className="header-actions">
-          <RouterLink
-            to="/contact"
+          <a
+            href={SHOP_URL}
             className="pill-btn enquire-btn"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
           >
-            Enquire Now
+            Shop Now
             <ArrowIcon />
-          </RouterLink>
+          </a>
 
           <button
             type="button"

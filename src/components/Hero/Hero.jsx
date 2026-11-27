@@ -130,7 +130,7 @@ export default function Hero() {
 
   return (
     <section
-      className={`hero ${showContent ? "" : "hero--image-only"}`}
+      className={`hero hero--on-${SLIDES[active].id} ${showContent ? "" : "hero--image-only"}`}
       id="hero-section"
       aria-roledescription="carousel"
     >
