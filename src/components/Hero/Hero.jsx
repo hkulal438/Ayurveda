@@ -30,6 +30,7 @@ const SLIDES = [
     src: heroImage,
     alt: "Anchan Ayurvedic product range",
     content: {
+      kicker: "Anchan Ayurveda · Padubidri",
       title: "Rooted in Tradition, Crafted for Wellbeing",
       text: "Discover Anchan’s Ayurvedic heritage, where the richness of nature meets the art of traditional wellness.",
       button: "Learn More",

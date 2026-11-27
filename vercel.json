@@ -1,9 +1,17 @@
 {
+  "buildCommand": "npm run build",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/enquire", "destination": "/contact", "permanent": true }
+    {
+      "source": "/enquire",
+      "destination": "/contact",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
